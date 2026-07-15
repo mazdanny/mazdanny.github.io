@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mazdany - Perangkat Ajar Otomatis</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome untuk Icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #021114 0%, #052920 50%, #010b0d 100%);
+        }
+        .metro-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 16px;
+        }
+        @media (max-width: 640px) {
+            .metro-grid {
+                grid-template-columns: repeat(1, minmax(0, 1fr));
+            }
+        }
+        /* Efek Ubin Windows 10 / Lumia */
+        .metro-tile {
+            background: rgba(4, 38, 31, 0.4);
+            border: 2px solid rgba(20, 184, 166, 0.3);
+            backdrop-filter: blur(8px);
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        .metro-tile::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(34, 211, 238, 0.1), transparent);
+            transform: translateX(-100%);
+            transition: 0.6s;
+        }
+        .metro-tile:hover::before {
+            transform: translateX(100%);
+        }
+        .metro-tile:hover {
+            transform: scale(1.02);
+            border-color: rgba(34, 211, 238, 0.8);
+            box-shadow: 0 0 20px rgba(34, 211, 238, 0.25);
+            background: rgba(4, 48, 40, 0.6);
+        }
+    </style>
+</head>
+<body class="text-gray-200 min-h-screen flex flex-col items-center justify-start p-4 sm:p-8 font-sans">
+
+    <!-- Top Windows-like Logo Element -->
+    <div class="w-full max-w-3xl flex items-center justify-between mb-6 px-2">
+        <div class="flex items-center space-x-2">
+            <div class="grid grid-cols-2 gap-0.5 w-5 h-5 opacity-80">
+                <div class="bg-cyan-400"></div>
+                <div class="bg-cyan-400"></div>
+                <div class="bg-cyan-400"></div>
+                <div class="bg-cyan-400"></div>
+            </div>
+            <span class="text-xs tracking-widest font-bold text-cyan-400">MAZDANY.OS</span>
+        </div>
+        <div class="text-xl font-light text-cyan-400/80 tracking-wider">mazdany</div>
+    </div>
+
+    <!-- Container Utama -->
+    <div class="w-full max-w-3xl rounded-2xl p-6 sm:p-8 relative">
+        
+        <!-- Header / Profil -->
+        <div class="text-center mb-10">
+            <div class="relative w-32 h-32 mx-auto mb-5">
+                <!-- Avatar Kontainer Lingkaran dengan Border Menyala -->
+                <div class="w-full h-full rounded-full border-4 border-cyan-500 overflow-hidden bg-white shadow-[0_0_15px_rgba(34,211,238,0.5)] flex items-center justify-center">
+                    <!-- Silakan ganti src dengan URL foto Anda saat online -->
+                    <img src="MAZDANY LOGO.png" alt="Mazdany Avatar" class="w-full h-full object-cover object-top scale-105">
+                </div>
+            </div>
+            
+            <h1 class="text-3xl sm:text-4xl font-light text-white tracking-wide uppercase">Perangkat Ajar Otomatis</h1>
+            <div class="h-0.5 w-24 bg-cyan-500 mx-auto my-3"></div>
+            <p class="text-emerald-400 text-sm sm:text-base font-normal tracking-wide">Selamat datang di Dunia Digital Artificial Intelligence dari mazdany.</p>
+            <p class="text-gray-400 text-xs mt-1.5 italic tracking-wider">Bekerja Lebih Mudah.</p>
+        </div>
+
+        <!-- Grid Menu ala Windows 10 Tiles -->
+        <div class="metro-grid">
+
+            <!-- 1. GENERATE TP -->
+            <a href="https://gemini.google.com/share/3adf80958496?skid=a4409468-fe1c-4809-87d8-dedb60e43161" target="_blank" class="metro-tile flex items-center p-5 rounded-lg text-left">
+                <div class="w-12 h-12 bg-emerald-950/60 rounded-md flex items-center justify-center mr-4 text-cyan-400 border border-cyan-500/20">
+                    <i class="fa-solid fa-globe text-xl"></i>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-white tracking-wide text-sm sm:text-base">GENERATE TP</h3>
+                    <p class="text-xs text-gray-400 mt-0.5">Google Gemini Share Link</p>
+                </div>
+            </a>
+
+            <!-- 2. GENERATE MODUL -->
+            <a href="https://gemini.google.com/share/3d57b7dca5c4?skid=87997d2c-fe15-46b4-b67f-dee01aafceea" target="_blank" class="metro-tile flex items-center p-5 rounded-lg text-left">
+                <div class="w-12 h-12 bg-emerald-950/60 rounded-md flex items-center justify-center mr-4 text-cyan-400 border border-cyan-500/20">
+                    <i class="fa-solid fa-laptop-code text-xl"></i>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-white tracking-wide text-sm sm:text-base">GENERATE MODUL</h3>
+                    <p class="text-xs text-gray-400 mt-0.5">Google Gemini Share Link</p>
+                </div>
+            </a>
+
+            <!-- 3. PROMPT LKPD -->
+            <a href="https://www.mtamim.com/p/lkprompt.html" target="_blank" class="metro-tile flex items-center p-5 rounded-lg text-left">
+                <div class="w-12 h-12 bg-emerald-950/60 rounded-md flex items-center justify-center mr-4 text-cyan-400 border border-cyan-500/20">
+                    <i class="fa-solid fa-terminal text-xl"></i>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-white tracking-wide text-sm sm:text-base">PROMPT LKPD</h3>
+                    <p class="text-xs text-gray-400 mt-0.5">Kunjungi mtamim.com</p>
+                </div>
+            </a>
+
+            <!-- 4. GENERATOR SOAL ASESMEN -->
+            <a href="https://gemini.google.com/share/46844dbe81ed" target="_blank" class="metro-tile flex items-center p-5 rounded-lg text-left">
+                <div class="w-12 h-12 bg-emerald-950/60 rounded-md flex items-center justify-center mr-4 text-cyan-400 border border-cyan-500/20">
+                    <i class="fa-solid fa-list-check text-xl"></i>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-white tracking-wide text-sm sm:text-base">SOAL ASESMEN</h3>
+                    <p class="text-xs text-gray-400 mt-0.5">Generator Asesmen Otomatis</p>
+                </div>
+            </a>
+
+            <!-- 5. Google App Script Modul Ajar -->
+            <a href="https://drive.google.com/file/d/1TppB6FDd2Hkk0LcB01f2WfuX8XhQDVs3/view" target="_blank" class="metro-tile flex items-center p-5 rounded-lg text-left sm:col-span-2">
+                <div class="w-12 h-12 bg-emerald-950/60 rounded-md flex items-center justify-center mr-4 text-cyan-400 border border-cyan-500/20 flex-shrink-0">
+                    <i class="fa-solid fa-key text-xl"></i>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-white tracking-wide text-sm sm:text-base">GAS Modul Ajar (with API Key)</h3>
+                    <p class="text-xs text-gray-400 mt-0.5">Google App Script File via Google Drive</p>
+                </div>
+            </a>
+
+            <!-- 6. Kumpulan Tugas Tujuan Pembelajaran -->
+            <a href="https://drive.google.com/file/d/1TppB6FDd2Hkk0LcB01f2WfuX8XhQDVs3/view" target="_blank" class="metro-tile flex items-center p-5 rounded-lg text-left">
+                <div class="w-12 h-12 bg-emerald-950/60 rounded-md flex items-center justify-center mr-4 text-cyan-400 border border-cyan-500/20">
+                    <i class="fa-solid fa-file-lines text-xl"></i>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-white tracking-wide text-sm sm:text-base">TUGAS TP</h3>
+                    <p class="text-xs text-gray-400 mt-0.5">Kumpulan Tugas Tujuan Pembelajaran</p>
+                </div>
+            </a>
+
+            <!-- 7. Kumpulan Tugas Modul Ajar -->
+            <a href="https://drive.google.com/drive/folders/1Cp3JLCYm6AmJwh_9-rqInJ3Vwr27ZPv0" target="_blank" class="metro-tile flex items-center p-5 rounded-lg text-left">
+                <div class="w-12 h-12 bg-emerald-950/60 rounded-md flex items-center justify-center mr-4 text-cyan-400 border border-cyan-500/20">
+                    <i class="fa-solid fa-folder text-xl"></i>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-white tracking-wide text-sm sm:text-base">TUGAS MODUL AJAR</h3>
+                    <p class="text-xs text-gray-400 mt-0.5">Folder Kumpulan Tugas Modul</p>
+                </div>
+            </a>
+
+            <!-- 8. Kumpulan Tugas LKPD -->
+            <a href="https://drive.google.com/drive/folders/1E7dNQ727c0vcuZwaZeOn-xYLqGeGnhp7" target="_blank" class="metro-tile flex items-center p-5 rounded-lg text-left sm:col-span-2">
+                <div class="w-12 h-12 bg-emerald-950/60 rounded-md flex items-center justify-center mr-4 text-cyan-400 border border-cyan-500/20 flex-shrink-0">
+                    <i class="fa-solid fa-folder-tree text-xl"></i>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-white tracking-wide text-sm sm:text-base">KUMPULAN TUGAS LKPD</h3>
+                    <p class="text-xs text-gray-400 mt-0.5">Folder Kumpulan Tugas LKPD Lengkap</p>
+                </div>
+            </a>
+
+        </div>
+
+        <!-- Footer -->
+        <div class="mt-12 text-center text-xs text-gray-600 tracking-wider">
+            &copy; 2026 MAZDANY DIGITAL PLATFORM. ALL RIGHTS RESERVED.
+        </div>
+    </div>
+
+</body>
+</html>
