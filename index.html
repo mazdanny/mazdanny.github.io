@@ -75,6 +75,12 @@
             background-color: rgba(20, 184, 166, 0.3);
             color: #ffffff;
         }
+        /* Efek Animasi Kartu Saat Suara Berbunyi */
+        .playing-audio {
+            border-color: #22d3ee !important;
+            box-shadow: 0 0 25px rgba(34, 211, 238, 0.6) !important;
+            background: rgba(13, 148, 136, 0.4) !important;
+        }
     </style>
 </head>
 <body class="text-gray-200 min-h-screen flex flex-col items-center justify-start p-4 sm:p-8 font-sans antialiased">
@@ -873,14 +879,14 @@
             </div>
         </div>
 
-        <!-- B. Kosakata Anggota Badan (Flashcards - Klik Kartu / Gambar Berbunyi Suara Fusha Asli) -->
+        <!-- B. Kosakata Anggota Badan (Flashcards Interaktif & Dual-Engine Audio) -->
         <div class="space-y-4">
             <h3 class="text-xl font-bold text-cyan-300 text-center"><i class="fa-solid fa-volume-high mr-2"></i> Kosakata Anggota Badan (المُفْرَدَاتُ)</h3>
-            <p class="text-xs text-center text-teal-400 font-medium">💡 Klik kartu atau gambar di bawah untuk mendengarkan pengucapan fasih Bahasa Arab Fusha</p>
+            <p class="text-xs text-center text-teal-400 font-medium">💡 Klik kartu atau gambar di bawah untuk mendengarkan pengucapan fasih Bahasa Arab Fusha Asli</p>
             
             <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
                 <!-- 1. Kepala -->
-                <div onclick="playAudio('رَأْسٌ')" class="p-4 bg-teal-950/40 rounded-2xl border border-teal-700/40 text-center space-y-2 hover:border-cyan-400 cursor-pointer transition transform hover:-translate-y-1 shadow-lg">
+                <div onclick="playAudio('رَأْسٌ', this)" class="p-4 bg-teal-950/40 rounded-2xl border border-teal-700/40 text-center space-y-2 hover:border-cyan-400 cursor-pointer transition transform hover:-translate-y-1 shadow-lg">
                     <div class="text-5xl select-none">🗣️</div>
                     <p class="arabic-text text-2xl font-bold text-cyan-100">رَأْسٌ</p>
                     <p class="text-xs text-teal-300 font-bold">ra'sun (ra-sun)</p>
@@ -888,8 +894,8 @@
                     <button class="w-full py-1 bg-teal-800 text-cyan-200 text-[10px] rounded-lg hover:bg-teal-700 pointer-events-none">🔊 Klik Dengarkan</button>
                 </div>
 
-                <!-- 2. Rambut (Ilustrasi Rambut Saja: 🦱) -->
-                <div onclick="playAudio('شَعْرٌ')" class="p-4 bg-teal-950/40 rounded-2xl border border-teal-700/40 text-center space-y-2 hover:border-cyan-400 cursor-pointer transition transform hover:-translate-y-1 shadow-lg">
+                <!-- 2. Rambut (Ilustrasi Rambut Saja) -->
+                <div onclick="playAudio('شَعْرٌ', this)" class="p-4 bg-teal-950/40 rounded-2xl border border-teal-700/40 text-center space-y-2 hover:border-cyan-400 cursor-pointer transition transform hover:-translate-y-1 shadow-lg">
                     <div class="text-5xl select-none">🦱</div>
                     <p class="arabic-text text-2xl font-bold text-cyan-100">شَعْرٌ</p>
                     <p class="text-xs text-teal-300 font-bold">sya'run (sya-run)</p>
@@ -898,7 +904,7 @@
                 </div>
 
                 <!-- 3. Mata -->
-                <div onclick="playAudio('عَيْنٌ')" class="p-4 bg-teal-950/40 rounded-2xl border border-teal-700/40 text-center space-y-2 hover:border-cyan-400 cursor-pointer transition transform hover:-translate-y-1 shadow-lg">
+                <div onclick="playAudio('عَيْنٌ', this)" class="p-4 bg-teal-950/40 rounded-2xl border border-teal-700/40 text-center space-y-2 hover:border-cyan-400 cursor-pointer transition transform hover:-translate-y-1 shadow-lg">
                     <div class="text-5xl select-none">👁️</div>
                     <p class="arabic-text text-2xl font-bold text-cyan-100">عَيْنٌ</p>
                     <p class="text-xs text-teal-300 font-bold">'ainun (a-i-nun)</p>
@@ -907,7 +913,7 @@
                 </div>
 
                 <!-- 4. Hidung -->
-                <div onclick="playAudio('أَنْفٌ')" class="p-4 bg-teal-950/40 rounded-2xl border border-teal-700/40 text-center space-y-2 hover:border-cyan-400 cursor-pointer transition transform hover:-translate-y-1 shadow-lg">
+                <div onclick="playAudio('أَنْفٌ', this)" class="p-4 bg-teal-950/40 rounded-2xl border border-teal-700/40 text-center space-y-2 hover:border-cyan-400 cursor-pointer transition transform hover:-translate-y-1 shadow-lg">
                     <div class="text-5xl select-none">👃</div>
                     <p class="arabic-text text-2xl font-bold text-cyan-100">أَنْفٌ</p>
                     <p class="text-xs text-teal-300 font-bold">'anfun (a-n-fun)</p>
@@ -916,7 +922,7 @@
                 </div>
 
                 <!-- 5. Mulut -->
-                <div onclick="playAudio('فَمٌ')" class="p-4 bg-teal-950/40 rounded-2xl border border-teal-700/40 text-center space-y-2 hover:border-cyan-400 cursor-pointer transition transform hover:-translate-y-1 shadow-lg">
+                <div onclick="playAudio('فَمٌ', this)" class="p-4 bg-teal-950/40 rounded-2xl border border-teal-700/40 text-center space-y-2 hover:border-cyan-400 cursor-pointer transition transform hover:-translate-y-1 shadow-lg">
                     <div class="text-5xl select-none">👄</div>
                     <p class="arabic-text text-2xl font-bold text-cyan-100">فَمٌ</p>
                     <p class="text-xs text-teal-300 font-bold">famun (fa-mun)</p>
@@ -925,7 +931,7 @@
                 </div>
 
                 <!-- 6. Telinga -->
-                <div onclick="playAudio('أُذُنٌ')" class="p-4 bg-teal-950/40 rounded-2xl border border-teal-700/40 text-center space-y-2 hover:border-cyan-400 cursor-pointer transition transform hover:-translate-y-1 shadow-lg">
+                <div onclick="playAudio('أُذُنٌ', this)" class="p-4 bg-teal-950/40 rounded-2xl border border-teal-700/40 text-center space-y-2 hover:border-cyan-400 cursor-pointer transition transform hover:-translate-y-1 shadow-lg">
                     <div class="text-5xl select-none">👂</div>
                     <p class="arabic-text text-2xl font-bold text-cyan-100">أُذُنٌ</p>
                     <p class="text-xs text-teal-300 font-bold">'uzunun (u-zu-nun)</p>
@@ -934,7 +940,7 @@
                 </div>
 
                 <!-- 7. Tangan -->
-                <div onclick="playAudio('يَدٌ')" class="p-4 bg-teal-950/40 rounded-2xl border border-teal-700/40 text-center space-y-2 hover:border-cyan-400 cursor-pointer transition transform hover:-translate-y-1 shadow-lg">
+                <div onclick="playAudio('يَدٌ', this)" class="p-4 bg-teal-950/40 rounded-2xl border border-teal-700/40 text-center space-y-2 hover:border-cyan-400 cursor-pointer transition transform hover:-translate-y-1 shadow-lg">
                     <div class="text-5xl select-none">✋</div>
                     <p class="arabic-text text-2xl font-bold text-cyan-100">يَدٌ</p>
                     <p class="text-xs text-teal-300 font-bold">yadun (ya-dun)</p>
@@ -943,7 +949,7 @@
                 </div>
 
                 <!-- 8. Kaki -->
-                <div onclick="playAudio('رِجْلٌ')" class="p-4 bg-teal-950/40 rounded-2xl border border-teal-700/40 text-center space-y-2 hover:border-cyan-400 cursor-pointer transition transform hover:-translate-y-1 shadow-lg">
+                <div onclick="playAudio('رِجْلٌ', this)" class="p-4 bg-teal-950/40 rounded-2xl border border-teal-700/40 text-center space-y-2 hover:border-cyan-400 cursor-pointer transition transform hover:-translate-y-1 shadow-lg">
                     <div class="text-5xl select-none">🦶</div>
                     <p class="arabic-text text-2xl font-bold text-cyan-100">رِجْلٌ</p>
                     <p class="text-xs text-teal-300 font-bold">rijlun (ri-j-lun)</p>
@@ -1062,7 +1068,7 @@
     </div>
 
 
-    <!-- SCRIPT JAVASCRIPT UTUH -->
+    <!-- SCRIPT JAVASCRIPT UTUH DENGAN FIX AUDIO ARAB DUAL-ENGINE -->
     <script>
         // Switcher Antara 4 Menu Utama
         function switchPortal(portal) {
@@ -1214,30 +1220,57 @@
             resultDiv.scrollIntoView({ behavior: 'smooth' });
         }
 
-        // Voice Synthesizer Bahasa Arab Fusha Asli
-        function playAudio(arabicText) {
+        // SISTEM DUAL-ENGINE SUARA BAHASA ARAB FUSHA
+        // (Menggabungkan Web Speech Synthesis dengan Fallback Google TTS Stream Audio)
+        let currentAudio = null;
+
+        function playAudio(arabicText, element = null) {
+            // Berikan efek visual aktif jika elemen kartu diklik
+            if (element) {
+                document.querySelectorAll('.playing-audio').forEach(e => e.classList.remove('playing-audio'));
+                element.classList.add('playing-audio');
+                setTimeout(() => element.classList.remove('playing-audio'), 1800);
+            }
+
+            // Hentikan audio yang sedang berjalan sebelumnya
+            if (currentAudio) {
+                currentAudio.pause();
+                currentAudio = null;
+            }
             if ('speechSynthesis' in window) {
-                // Hentikan antrean audio sebelumnya
                 window.speechSynthesis.cancel();
+            }
 
-                const utterance = new SpeechSynthesisUtterance(arabicText);
-                utterance.lang = 'ar-SA'; // Bahasa Arab Fusha Standar
-                utterance.rate = 0.85;   // Kecepatan pelafalan yang fasih & jelas untuk siswa SD
-
-                // Cari dan prioritaskan mesin suara Arab Fusha bawaan browser
+            // METODE 1: Coba Web Speech Synthesis Bawaan Browser
+            let playedWithWebSpeech = false;
+            if ('speechSynthesis' in window) {
                 const voices = window.speechSynthesis.getVoices();
                 const arVoice = voices.find(v => v.lang.startsWith('ar') || v.lang === 'ar-SA');
-                if (arVoice) {
-                    utterance.voice = arVoice;
-                }
 
-                window.speechSynthesis.speak(utterance);
-            } else {
-                alert(`Pengucapan: ${arabicText}`);
+                if (arVoice) {
+                    const utterance = new SpeechSynthesisUtterance(arabicText);
+                    utterance.voice = arVoice;
+                    utterance.lang = 'ar-SA';
+                    utterance.rate = 0.85;
+                    window.speechSynthesis.speak(utterance);
+                    playedWithWebSpeech = true;
+                }
+            }
+
+            // METODE 2 (FALLBACK SANGAT HANDAL): Gunakan Google Audio Stream Fusha Native
+            if (!playedWithWebSpeech) {
+                const encodedText = encodeURIComponent(arabicText);
+                const audioUrl = `https://translate.google.com/translate_tts?ie=UTF-8&q=${encodedText}&tl=ar&client=tw-ob`;
+                
+                currentAudio = new Audio(audioUrl);
+                currentAudio.play().catch(e => {
+                    // Jika terhalang autoplay policy, beri sinyal audio sederhana
+                    console.log("Audio play error:", e);
+                });
             }
         }
 
-        // Memastikan daftar voice pada browser terisi saat halaman dimuat
+        // Inisialisasi Suara Browser saat halaman dibuka
         if ('speechSynthesis' in window) {
             window.speechSynthesis.onvoiceschanged = () => {
                 window.speechSynthesis.getVoices();
