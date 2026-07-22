@@ -11,12 +11,13 @@
     <!-- FontAwesome untuk Icon -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
     
     <style>
         body {
             background: linear-gradient(135deg, #021114 0%, #052920 50%, #010b0d 100%);
             font-family: 'Plus Jakarta Sans', sans-serif;
+            scroll-behavior: smooth;
         }
         .arabic-text {
             font-family: 'Amiri', serif;
@@ -77,8 +78,12 @@
         }
         .sub-nav.active {
             border-color: #22d3ee;
-            background-color: rgba(20, 184, 166, 0.2);
+            background-color: rgba(20, 184, 166, 0.25);
             color: #ffffff;
+        }
+        .option-btn:hover {
+            border-color: #22d3ee;
+            background-color: rgba(20, 184, 166, 0.15);
         }
     </style>
 </head>
@@ -129,14 +134,14 @@
         <!-- Grid Menu Tiles -->
         <div class="metro-grid">
 
-            <!-- 1. SHAFWA UNIVERSITY (MENU BARU) -->
+            <!-- 1. SHAFWA UNIVERSITY -->
             <a href="https://drive.google.com/drive/folders/1GXGU4Bn3olulybv2mb2_Q1HcJ9SKPt7Z?usp=drive_link" target="_blank" class="metro-tile flex items-center p-4 rounded-lg text-left sm:col-span-2 border-cyan-400/50 bg-teal-950/60 shadow-[0_0_10px_rgba(34,211,238,0.2)]">
                 <div class="w-10 h-10 bg-cyan-950/80 rounded-md flex items-center justify-center mr-3 text-cyan-300 border border-cyan-400/40 flex-shrink-0">
                     <i class="fa-solid fa-graduation-cap text-lg"></i>
                 </div>
                 <div>
                     <h3 class="font-bold text-cyan-300 tracking-wide text-sm sm:text-base">SHAFWA UNIVERSITY</h3>
-                    <p class="text-[11px] text-gray-300">Folder Kumpulan Materi Drive Milik Mazdani</p>
+                    <p class="text-[11px] text-gray-300">Folder Resmi Drive Shafwa University</p>
                 </div>
             </a>
 
@@ -233,224 +238,154 @@
 
 
     <!-- ================================================================= -->
-    <!-- PORTAL 2: MEDIA PEMBELAJARAN INTERAKTIF KELAS 3 (AL-ISLAM) -->
+    <!-- PORTAL 2: MEDIA PEMBELAJARAN INTERAKTIF KELAS 3 (UPDATED FULL) -->
     <!-- ================================================================= -->
     <div id="portal-siswa" class="w-full max-w-4xl hidden">
         
         <!-- Welcome Banner Kelas -->
-        <section id="welcome" class="text-center mb-8 py-8 px-4 rounded-2xl bg-teal-950/50 border border-teal-500/30 backdrop-blur-md">
-            <span class="text-4xl mb-2 block">🌙</span>
-            <h2 class="text-2xl sm:text-3xl font-bold text-cyan-300 mb-2">Materi Al-Islam: Surat Az-Zalzalah</h2>
-            <p class="text-emerald-300 text-xs sm:text-sm max-w-2xl mx-auto">
-                Assalamu’alaikum, Sholih & Sholihah! Selamat datang di media pembelajaran digital interaktif. Yuk, siapkan hati dan mulai dengan Basmalah!
-            </p>
-            <button onclick="navigateTo('pondasi')" class="mt-5 px-6 py-2.5 bg-teal-600 hover:bg-teal-500 text-white rounded-full font-semibold text-xs tracking-wider transition-all shadow-lg shadow-teal-900/50">
-                Mulai Belajar 🚀
-            </button>
+        <section id="intro" class="mb-8 py-8 px-6 rounded-3xl bg-teal-950/50 border border-teal-500/30 backdrop-blur-md">
+            <div class="flex flex-col md:flex-row items-center gap-6">
+                <div class="flex-1">
+                    <span class="bg-cyan-950 text-cyan-300 text-[10px] font-bold px-3 py-1 rounded-full uppercase mb-3 inline-block border border-cyan-500/30">Bismillah</span>
+                    <h2 class="text-2xl sm:text-3xl font-bold mb-3 text-cyan-300 leading-tight">Mengenal Allah ﷻ Lebih Dekat</h2>
+                    <p class="text-gray-300 text-xs sm:text-sm mb-4 leading-relaxed">Adik-adik, belajar agama itu seperti mencari harta karun paling berharga! Karena dengan belajar agama, kita jadi tahu siapa yang menciptakan kita, memberi kita rezeki, dan tempat kembali kita nanti.</p>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <div class="p-3 bg-teal-900/40 rounded-xl border border-teal-700/30">
+                            <h4 class="font-bold text-cyan-300 text-xs mb-1">Hanya Satu Tuhan</h4>
+                            <p class="text-[11px] text-gray-300 leading-relaxed">Itulah Tauhid. Kita yakin Allah ﷻ satu-satunya yang menciptakan bumi dan yang berhak disembah.</p>
+                        </div>
+                        <div class="p-3 bg-emerald-900/40 rounded-xl border border-emerald-700/30">
+                            <h4 class="font-bold text-emerald-300 text-xs mb-1">Jalan Menuju Surga</h4>
+                            <p class="text-[11px] text-gray-300 leading-relaxed">Nabi Muhammad ﷺ mengajarkan kita agar selalu berada di jalan lurus menuju Surga.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-32 h-32 bg-teal-900/50 rounded-full flex items-center justify-center text-6xl shadow-inner border border-teal-500/20 shrink-0">📖</div>
+            </div>
         </section>
 
         <!-- Sub Navigation Tabs -->
         <nav class="grid grid-cols-2 md:grid-cols-5 gap-2.5 mb-8">
-            <button onclick="navigateTo('pondasi')" class="sub-nav active p-3 rounded-xl border border-teal-800 bg-teal-950/30 text-center transition-all" id="nav-pondasi">
-                <span class="block text-xl mb-1">💡</span>
-                <span class="text-[11px] font-bold uppercase tracking-wider block">Pondasi</span>
+            <button onclick="navigateTo('intro')" class="sub-nav active p-3 rounded-xl border border-teal-800 bg-teal-950/30 text-center transition-all" id="nav-intro">
+                <span class="block text-xl mb-1">🌙</span>
+                <span class="text-[11px] font-bold uppercase tracking-wider block">Gerbang Ilmu</span>
             </button>
-            <button onclick="navigateTo('tauhid')" class="sub-nav p-3 rounded-xl border border-teal-800 bg-teal-950/30 text-center transition-all" id="nav-tauhid">
-                <span class="block text-xl mb-1">☝️</span>
-                <span class="text-[11px] font-bold uppercase tracking-wider block">Tauhid</span>
-            </button>
-            <button onclick="navigateTo('az-zalzalah')" class="sub-nav p-3 rounded-xl border border-teal-800 bg-teal-950/30 text-center transition-all" id="nav-az-zalzalah">
+            <button onclick="navigateTo('surah')" class="sub-nav p-3 rounded-xl border border-teal-800 bg-teal-950/30 text-center transition-all" id="nav-surah">
                 <span class="block text-xl mb-1">📖</span>
-                <span class="text-[11px] font-bold uppercase tracking-wider block">Al-Qur'an</span>
+                <span class="text-[11px] font-bold uppercase tracking-wider block">Tadabbur</span>
             </button>
-            <button onclick="navigateTo('hikmah')" class="sub-nav p-3 rounded-xl border border-teal-800 bg-teal-950/30 text-center transition-all" id="nav-hikmah">
+            <button onclick="navigateTo('kandungan')" class="sub-nav p-3 rounded-xl border border-teal-800 bg-teal-950/30 text-center transition-all" id="nav-kandungan">
+                <span class="block text-xl mb-1">⚖️</span>
+                <span class="text-[11px] font-bold uppercase tracking-wider block">Keadilan</span>
+            </button>
+            <button onclick="navigateTo('penerapan')" class="sub-nav p-3 rounded-xl border border-teal-800 bg-teal-950/30 text-center transition-all" id="nav-penerapan">
                 <span class="block text-xl mb-1">✨</span>
-                <span class="text-[11px] font-bold uppercase tracking-wider block">Pesan</span>
+                <span class="text-[11px] font-bold uppercase tracking-wider block">Amal</span>
             </button>
-            <button onclick="navigateTo('tugas')" class="sub-nav p-3 rounded-xl border border-teal-800 bg-teal-950/30 text-center transition-all" id="nav-tugas">
-                <span class="block text-xl mb-1">📝</span>
-                <span class="text-[11px] font-bold uppercase tracking-wider block">Aktivitas</span>
+            <button onclick="navigateTo('evaluasi')" class="sub-nav p-3 rounded-xl border border-teal-800 bg-teal-950/30 text-center transition-all" id="nav-evaluasi">
+                <span class="block text-xl mb-1">🎯</span>
+                <span class="text-[11px] font-bold uppercase tracking-wider block">Ujian</span>
             </button>
         </nav>
 
         <!-- Content Area -->
         <div id="content-area">
             
-            <!-- Section: Pondasi -->
-            <div id="section-pondasi" class="content-section hidden space-y-6">
-                <div class="bg-teal-950/40 p-6 rounded-2xl border border-teal-800/60 backdrop-blur-md">
-                    <h3 class="text-xl font-bold text-cyan-300 mb-3 flex items-center">
-                        <span class="mr-2">🔎</span> Kenapa Kita Harus Belajar Agama?
-                    </h3>
-                    <p class="text-gray-300 text-xs sm:text-sm mb-6">
-                        Belajar ilmu agama seperti membawa senter di malam gelap agar kita tidak tersesat. Inilah 4 alasan utama mengapa kita semangat belajar agama:
-                    </p>
-                    <div class="chart-container mb-6">
-                        <canvas id="pondasiChart"></canvas>
+            <!-- Section: Surah Tadabbur -->
+            <div id="section-surah" class="content-section hidden space-y-6">
+                <div class="bg-teal-950/40 p-6 rounded-3xl border border-teal-800/60 backdrop-blur-md">
+                    <div class="text-center mb-6">
+                        <h2 class="text-2xl font-bold text-cyan-300">Tadabbur Surah Az-Zalzalah</h2>
+                        <p class="text-xs text-gray-400 mt-1">Surah Madaniyah yang menceritakan tentang peristiwa kiamat yang dahsyat.</p>
                     </div>
-                    <div class="grid md:grid-cols-2 gap-3">
-                        <div class="p-3.5 rounded-xl bg-teal-900/30 border border-teal-700/40">
-                            <span class="font-bold text-cyan-300 text-sm">1. Tahu Benar & Salah</span>
-                            <p class="text-xs text-gray-300 mt-1">Membedakan mana yang disukai Allah dan mana yang harus dijauhi.</p>
-                        </div>
-                        <div class="p-3.5 rounded-xl bg-emerald-900/30 border border-emerald-700/40">
-                            <span class="font-bold text-emerald-300 text-sm">2. Tidak Salah Langkah</span>
-                            <p class="text-xs text-gray-300 mt-1">Agama adalah kompas agar kita selalu berada di jalan yang lurus.</p>
-                        </div>
-                        <div class="p-3.5 rounded-xl bg-cyan-900/30 border border-cyan-700/40">
-                            <span class="font-bold text-cyan-300 text-sm">3. Ibadah yang Benar</span>
-                            <p class="text-xs text-gray-300 mt-1">Belajar tata cara sholat dan wudhu sesuai tuntunan Nabi.</p>
-                        </div>
-                        <div class="p-3.5 rounded-xl bg-teal-900/30 border border-teal-700/40">
-                            <span class="font-bold text-teal-300 text-sm">4. Bekal ke Surga</span>
-                            <p class="text-xs text-gray-300 mt-1">Meraih ridho Allah untuk masuk ke surga-Nya yang indah.</p>
-                        </div>
+
+                    <div id="verse-narrative-container" class="space-y-6">
+                        <!-- Dynamic Verses with Narratives (Injected by JS) -->
                     </div>
                 </div>
             </div>
 
-            <!-- Section: Tauhid -->
-            <div id="section-tauhid" class="content-section hidden space-y-6">
-                <div class="bg-teal-950/40 p-6 rounded-2xl border border-teal-800/60 backdrop-blur-md">
-                    <h3 class="text-xl font-bold text-cyan-300 mb-3 flex items-center">
-                        <span class="mr-2">✊</span> Inti Dakwah Nabi: Mengenal Tauhid
-                    </h3>
-                    <p class="text-gray-300 text-xs sm:text-sm mb-6">
-                        Tauhid artinya mengesakan Allah SWT. Ada tiga bagian penting yang harus kita yakini di dalam hati:
-                    </p>
-                    <div class="grid md:grid-cols-3 gap-4">
-                        <div class="p-5 rounded-xl bg-teal-900/40 border border-teal-500/30 hover:border-cyan-400 transition-all cursor-pointer" onclick="alert('Rububiyah: Keyakinan bahwa hanya Allah Pencipta dan Pengatur segalanya!')">
-                            <div class="text-3xl mb-3">🌍</div>
-                            <h4 class="font-bold text-cyan-300 mb-1.5 text-sm">Tauhid Rububiyah</h4>
-                            <p class="text-xs text-gray-300">Keyakinan bahwa hanya Allah yang menciptakan dan mengatur alam semesta.</p>
-                        </div>
-                        <div class="p-5 rounded-xl bg-teal-900/40 border border-teal-500/30 hover:border-cyan-400 transition-all cursor-pointer" onclick="alert('Uluhiyah: Keyakinan bahwa hanya Allah yang berhak disembah!')">
-                            <div class="text-3xl mb-3">🛐</div>
-                            <h4 class="font-bold text-cyan-300 mb-1.5 text-sm">Tauhid Uluhiyah</h4>
-                            <p class="text-xs text-gray-300">Keyakinan bahwa hanya Allah satu-satunya yang berhak disembah dan diibadahi.</p>
-                        </div>
-                        <div class="p-5 rounded-xl bg-teal-900/40 border border-teal-500/30 hover:border-cyan-400 transition-all cursor-pointer" onclick="alert('Asma\' wa Sifat: Mengagumi Nama dan Sifat Allah yang Sempurna!')">
-                            <div class="text-3xl mb-3">📜</div>
-                            <h4 class="font-bold text-cyan-300 mb-1.5 text-sm">Tauhid Asma' wa Sifat</h4>
-                            <p class="text-xs text-gray-300">Meyakini Nama-nama (Asmaul Husna) dan Sifat Allah yang Maha Sempurna.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Section: Az-Zalzalah -->
-            <div id="section-az-zalzalah" class="content-section hidden space-y-6">
-                <div class="bg-teal-950/40 p-6 rounded-2xl border border-teal-800/60 backdrop-blur-md">
-                    <div class="flex justify-between items-start mb-6">
+            <!-- Section: Kandungan (Justice Chart & Dzarrah) -->
+            <div id="section-kandungan" class="content-section hidden space-y-6">
+                <div class="bg-teal-950/40 p-6 rounded-3xl border border-teal-800/60 backdrop-blur-md">
+                    <div class="grid lg:grid-cols-2 gap-8 items-center">
                         <div>
-                            <h3 class="text-xl font-bold text-cyan-300">Surat Az-Zalzalah</h3>
-                            <p class="text-xs text-gray-400 italic">"Goncangan yang Dahsyat"</p>
-                        </div>
-                        <span class="px-3 py-1 bg-teal-800/60 text-cyan-300 rounded-full text-[10px] font-bold uppercase tracking-wider border border-teal-500/30">Surat ke-99 • 8 Ayat</span>
-                    </div>
-
-                    <div class="space-y-3">
-                        <div class="p-4 bg-teal-900/30 rounded-xl border border-teal-700/30 hover:border-cyan-400 transition-all cursor-pointer" onclick="toggleArtinya(1)">
-                            <div class="flex justify-between items-center mb-2">
-                                <span class="w-7 h-7 flex items-center justify-center bg-teal-600 text-white rounded-full text-xs font-bold">1</span>
-                                <p class="arabic-text text-2xl text-cyan-100 font-bold">إِذَا زُلْزِلَتِ الْأَرْضُ زِلْزَالَهَا</p>
+                            <h3 class="text-xl font-bold text-cyan-300 mb-3">Sekecil Biji Sawi (Dzarrah)</h3>
+                            <p class="text-gray-300 text-xs sm:text-sm mb-4 leading-relaxed">
+                                Ulama menjelaskan bahwa <strong>Dzarrah</strong> adalah benda yang sangat kecil, seperti butiran debu yang terlihat saat ada sinar matahari masuk melalui jendela. Kebaikan sekecil debu itu tetap Allah ﷻ catat dan diberi hadiah pahala!
+                            </p>
+                            <div class="p-4 bg-teal-900/40 rounded-2xl border-l-4 border-cyan-400">
+                                <p class="italic text-xs text-cyan-200">"Anak sholeh yakin bahwa Allah ﷻ Maha Adil. Tidak ada satu pun perbuatan kita yang hilang, semuanya rapi tercatat di buku catatan malaikat."</p>
                             </div>
-                            <p id="arti-1" class="text-xs text-teal-300 hidden italic pt-2 border-t border-teal-800/50">"Apabila bumi digoncangkan dengan goncangan yang dahsyat."</p>
                         </div>
-
-                        <div class="p-4 bg-teal-900/30 rounded-xl border border-teal-700/30 hover:border-cyan-400 transition-all cursor-pointer" onclick="toggleArtinya(2)">
-                            <div class="flex justify-between items-center mb-2">
-                                <span class="w-7 h-7 flex items-center justify-center bg-teal-600 text-white rounded-full text-xs font-bold">2</span>
-                                <p class="arabic-text text-2xl text-cyan-100 font-bold">وَأَخْرَجَتِ الْأَرْضُ أَثْقَالَهَا</p>
+                        <div class="bg-teal-900/30 p-6 rounded-2xl border border-teal-700/40 text-center">
+                            <h4 class="font-bold text-cyan-300 text-sm mb-4">Timbangan Keadilan Allah ﷻ</h4>
+                            <div class="chart-container">
+                                <canvas id="justiceChart"></canvas>
                             </div>
-                            <p id="arti-2" class="text-xs text-teal-300 hidden italic pt-2 border-t border-teal-800/50">"Dan bumi telah mengeluarkan beban-beban berat (yang dikandung)nya."</p>
-                        </div>
-
-                        <div class="p-4 bg-teal-900/30 rounded-xl border border-teal-700/30 hover:border-cyan-400 transition-all cursor-pointer" onclick="toggleArtinya(7)">
-                            <div class="flex justify-between items-center mb-2">
-                                <span class="w-7 h-7 flex items-center justify-center bg-emerald-600 text-white rounded-full text-xs font-bold">7</span>
-                                <p class="arabic-text text-2xl text-cyan-100 font-bold">فَمَن يَعْمَلْ مِثْقَالَ ذَرَّةٍ خَيْرًا يَرَهُ</p>
-                            </div>
-                            <p id="arti-7" class="text-xs text-teal-300 hidden italic pt-2 border-t border-teal-800/50">"Barangsiapa yang mengerjakan kebaikan seberat dzarrah pun, niscaya dia akan melihat (balasan)nya."</p>
-                        </div>
-
-                        <div class="p-4 bg-teal-900/30 rounded-xl border border-teal-700/30 hover:border-cyan-400 transition-all cursor-pointer" onclick="toggleArtinya(8)">
-                            <div class="flex justify-between items-center mb-2">
-                                <span class="w-7 h-7 flex items-center justify-center bg-rose-600 text-white rounded-full text-xs font-bold">8</span>
-                                <p class="arabic-text text-2xl text-cyan-100 font-bold">وَمَن يَعْمَلْ مِثْقَالَ ذَرَّةٍ شَرًّا يَرَهُ</p>
-                            </div>
-                            <p id="arti-8" class="text-xs text-teal-300 hidden italic pt-2 border-t border-teal-800/50">"Dan barangsiapa yang mengerjakan kejahatan sebesar dzarrah pun, niscaya dia akan melihat (balasan)nya pula."</p>
-                        </div>
-                    </div>
-                    <p class="mt-4 text-[11px] text-center text-gray-400 italic">* Klik pada ayat untuk menampilkan artinya</p>
-                </div>
-            </div>
-
-            <!-- Section: Hikmah -->
-            <div id="section-hikmah" class="content-section hidden space-y-6">
-                <div class="bg-teal-950/40 p-6 rounded-2xl border border-teal-800/60 backdrop-blur-md">
-                    <h3 class="text-xl font-bold text-cyan-300 mb-3 flex items-center">
-                        <span class="mr-2">⚖️</span> Pelajaran Penting: Kebaikan Kecil
-                    </h3>
-                    <p class="text-gray-300 text-xs sm:text-sm mb-6">
-                        Allah menghitung setiap amal kita sekecil debu (dzarrah). Perhatikan bagaimana kebaikan kecil bisa menjadi gunung pahala:
-                    </p>
-                    <div class="chart-container mb-6">
-                        <canvas id="hikmahChart"></canvas>
-                    </div>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-                        <div class="p-3 bg-teal-900/30 rounded-xl border-l-4 border-cyan-400">
-                            <h5 class="font-bold text-cyan-300 text-xs">Allah Maha Mengetahui</h5>
-                            <p class="text-[11px] text-gray-300 mt-0.5">Allah tahu apa yang kita lakukan meskipun kita sendirian.</p>
-                        </div>
-                        <div class="p-3 bg-teal-900/30 rounded-xl border-l-4 border-cyan-400">
-                            <h5 class="font-bold text-cyan-300 text-xs">Ikhlas & Jujur</h5>
-                            <p class="text-[11px] text-gray-300 mt-0.5">Berbuat baik karena Allah, bukan karena ingin dipuji orang lain.</p>
-                        </div>
-                        <div class="p-3 bg-teal-900/30 rounded-xl border-l-4 border-cyan-400">
-                            <h5 class="font-bold text-cyan-300 text-xs">Jangan Remehkan Kebaikan</h5>
-                            <p class="text-[11px] text-gray-300 mt-0.5">Senyum, menyingkirkan duri di jalan, menyapa guru — semua dicatat!</p>
-                        </div>
-                        <div class="p-3 bg-teal-900/30 rounded-xl border-l-4 border-cyan-400">
-                            <h5 class="font-bold text-cyan-300 text-xs">Takut Hanya kepada Allah</h5>
-                            <p class="text-[11px] text-gray-300 mt-0.5">Kita tidak perlu takut pada apapun selain murka Allah.</p>
+                            <p class="mt-3 text-[10px] text-gray-400 font-medium uppercase tracking-widest">Visualisasi Berat Amal di Akhirat</p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Section: Tugas -->
-            <div id="section-tugas" class="content-section hidden space-y-6">
-                <div class="bg-teal-950/40 p-6 rounded-2xl border border-teal-800/60 backdrop-blur-md">
-                    <h3 class="text-xl font-bold text-cyan-300 mb-5 flex items-center">
-                        <span class="mr-2">🎯</span> Tugas Seru Minggu Ini
-                    </h3>
-                    <div class="space-y-3">
-                        <div class="flex items-start space-x-3 p-3.5 bg-teal-900/30 rounded-xl border border-teal-700/30">
-                            <input type="checkbox" class="mt-1 w-4 h-4 rounded accent-teal-500">
-                            <div>
-                                <h4 class="font-bold text-cyan-300 text-sm">Menggambar Kreatif</h4>
-                                <p class="text-xs text-gray-300">Gambar perasaan senang saat seseorang menerima catatan amal baiknya.</p>
-                            </div>
+            <!-- Section: Penerapan (Bintang Kebaikan) -->
+            <div id="section-penerapan" class="content-section hidden space-y-6">
+                <div class="bg-teal-950/40 p-6 rounded-3xl border border-teal-800/60 backdrop-blur-md">
+                    <div class="mb-6">
+                        <h2 class="text-2xl font-bold text-cyan-300 mb-1">Jadilah Bintang Kebaikan</h2>
+                        <p class="text-xs text-gray-400">Bumi akan menceritakan semua perbuatan kita kepada Allah ﷻ.</p>
+                    </div>
+                    <div class="grid md:grid-cols-4 gap-3">
+                        <div class="p-4 bg-teal-900/30 rounded-xl border border-teal-700/30">
+                            <span class="text-2xl block mb-2">🏠</span>
+                            <h5 class="font-bold text-cyan-300 text-xs mb-1">Bantu Orang Tua</h5>
+                            <p class="text-[11px] text-gray-300">Mengambilkan minum untuk Ibu dicatat sebagai pahala besar!</p>
                         </div>
-                        <div class="flex items-start space-x-3 p-3.5 bg-teal-900/30 rounded-xl border border-teal-700/30">
-                            <input type="checkbox" class="mt-1 w-4 h-4 rounded accent-teal-500">
-                            <div>
-                                <h4 class="font-bold text-cyan-300 text-sm">3 Amal Baik Kecil</h4>
-                                <p class="text-xs text-gray-300">Tuliskan 3 kebaikan kecil yang kamu lakukan hari ini di buku tulis.</p>
-                            </div>
+                        <div class="p-4 bg-teal-900/30 rounded-xl border border-teal-700/30">
+                            <span class="text-2xl block mb-2">🌱</span>
+                            <h5 class="font-bold text-cyan-300 text-xs mb-1">Sayangi Bumi</h5>
+                            <p class="text-[11px] text-gray-300">Membuang sampah pada tempatnya agar bumi bersaksi baik untukmu.</p>
                         </div>
-                        <div class="flex items-start space-x-3 p-3.5 bg-teal-900/30 rounded-xl border border-teal-700/30">
-                            <input type="checkbox" class="mt-1 w-4 h-4 rounded accent-teal-500">
-                            <div>
-                                <h4 class="font-bold text-cyan-300 text-sm">Setoran Hafalan</h4>
-                                <p class="text-xs text-gray-300">Hafalkan 8 ayat Surat Az-Zalzalah beserta artinya pelan-pelan ya.</p>
-                            </div>
+                        <div class="p-4 bg-teal-900/30 rounded-xl border border-teal-700/30">
+                            <span class="text-2xl block mb-2">🤝</span>
+                            <h5 class="font-bold text-cyan-300 text-xs mb-1">Tersenyum</h5>
+                            <p class="text-[11px] text-gray-300">Senyumanmu pada teman adalah sedekah seberat dzarrah yang mulia.</p>
+                        </div>
+                        <div class="p-4 bg-teal-800/50 rounded-xl border border-cyan-500/40">
+                            <span class="text-2xl block mb-2">✨</span>
+                            <h5 class="font-bold text-cyan-200 text-xs mb-1">Takut Allah ﷻ</h5>
+                            <p class="text-[11px] text-cyan-100">Meskipun sendirian, kita jujur karena Allah ﷻ Maha Melihat.</p>
                         </div>
                     </div>
-                    <div class="mt-6 p-4 bg-teal-800/50 rounded-xl text-center text-white border border-teal-500/30">
-                        <p class="text-sm font-bold">Semangat Terus Belajar Al-Qur'an!</p>
-                        <p class="text-xs opacity-90 mt-0.5">Ingatlah: Allah tidak pernah menyia-nyiakan kebaikanmu.</p>
+                </div>
+            </div>
+
+            <!-- Section: Evaluasi (10 Questions Engine) -->
+            <div id="section-evaluasi" class="content-section hidden space-y-6">
+                <div class="bg-teal-950/50 rounded-3xl overflow-hidden border border-teal-800/60 shadow-xl">
+                    <div class="bg-teal-900/80 p-6 text-white flex justify-between items-center border-b border-teal-700/50">
+                        <div>
+                            <h2 class="text-xl font-bold text-cyan-300">Ujian Anak Sholeh</h2>
+                            <p class="text-xs text-gray-300 mt-0.5">Mari selesaikan 10 soal interaktif ini!</p>
+                        </div>
+                        <div class="bg-cyan-950 px-3 py-1.5 rounded-lg border border-cyan-500/30">
+                            <span id="quiz-progress" class="font-bold text-cyan-400 text-xs">1/10</span>
+                        </div>
+                    </div>
+
+                    <div class="p-6 sm:p-8">
+                        <div id="quiz-box">
+                            <!-- Quiz Content Injected by JS -->
+                        </div>
+                        
+                        <div id="quiz-result" class="hidden text-center py-8">
+                            <div id="result-emoji" class="text-6xl mb-4">🌟</div>
+                            <h3 class="text-2xl font-bold text-cyan-300 mb-2" id="result-title">Hebat Sekali!</h3>
+                            <p id="result-score" class="text-sm text-gray-300 mb-6">Skor kamu: 10/10</p>
+                            <button onclick="resetQuiz()" class="bg-teal-600 hover:bg-teal-500 text-white font-bold px-6 py-2.5 rounded-xl transition text-xs tracking-wider shadow-lg">Coba Lagi</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -486,87 +421,161 @@
             }
         }
 
-        // Logic Pembelajaran Interaktif Siswa
-        const sections = ['welcome', 'pondasi', 'tauhid', 'az-zalzalah', 'hikmah', 'tugas'];
-        const charts = {};
+        // Data Ayat & Narasi Tadabbur
+        const surahContent = [
+            { no: 1, ar: "إِذَا زُلْزِلَتِ الْأَرْضُ زِلْزَالَهَا", id: "Apabila bumi digoncangkan dengan goncangan yang dahsyat,", narasi: "Bayangkan adik-adik, suatu hari nanti bumi yang kita pijak ini akan berguncang sangat kuat atas perintah Allah ﷻ. Bukan sekadar gempa biasa, tapi guncangan yang mengakhiri dunia ini." },
+            { no: 2, ar: "وَأَخْرَجَتِ الْأَرْضُ أَثْقَالَهَا", id: "dan bumi telah mengeluarkan beban-beban berat (yang dikandung)nya,", narasi: "Bumi akan mengeluarkan semua isinya! Orang yang sudah meninggal keluar dari kubur, dan harta karun yang terkubur pun keluar. Tidak ada lagi rahasia di dalam bumi." },
+            { no: 3, ar: "وَقَالَ الْإِنْسَانُ مَا لَهَا", id: "dan manusia bertanya: 'Apa yang terjadi pada bumi ini?'", narasi: "Saat itu, semua orang ketakutan dan bingung. Mereka bertanya-tanya, 'Kenapa bumi berguncang sehebat ini?'. Ini adalah hari di mana setiap orang memikirkan keselamatannya." },
+            { no: 4, ar: "يَوْمَئِذٍ تُحَدِّثُ أَخْبَارَهَا", id: "pada hari itu bumi menceritakan beritanya,", narasi: "Ajaib! Bumi tiba-tiba bisa berbicara menceritakan kepada Allah ﷻ: 'Ya Allah, di atas sini dulu si fulan sholat, di sini dia membantu temannya'. Bumi jadi saksi perbuatan kita." },
+            { no: 5, ar: "بِأَنَّ رَبَّكَ أَوْحَى لَهَا", id: "karena sesungguhnya Tuhanmu telah memerintahkan (yang demikian itu) kepadanya.", narasi: "Bumi bisa bicara karena Allah ﷻ yang memerintahkannya. Allah ﷻ adalah Raja segala raja, semua makhluk tunduk pada-Nya." },
+            { no: 6, ar: "يَوْمَئِذٍ يَصْدُرُ النَّاسُ أَشْتَاتًا لِيُرَوْا أَعْمَالَهُمْ", id: "Pada hari itu manusia keluar dari kuburnya dalam keadaan bermacam-macam, supaya diperlihatkan kepada mereka (balasan) pekerjaan mereka.", narasi: "Orang-orang berkumpul berkelompok sesuai amalannya. Ada yang wajahnya bersinar karena rajin ibadah, ada yang sedih karena banyak dosa. Allah ﷻ akan tunjukkan semua catatan amal kita." },
+            { no: 7, ar: "فَمَنْ يَعْمَلْ مِثْقَالَ ذَرَّةٍ خَيْرًا يَرَهُ", id: "Barangsiapa yang mengerjakan kebaikan seberat dzarrahpun, niscaya dia akan melihat (balasan)nya.", narasi: "Inilah janji Allah ﷻ yang paling indah. Meski kita cuma menyingkirkan duri di jalan atau membantu teman, Allah ﷻ akan tunjukkan pahalanya nanti. Jangan remehkan kebaikan kecil ya!" },
+            { no: 8, ar: "وَمَنْ يَعْمَلْ مِثْقَالَ ذَرَّةٍ شَرًّا يَرَهُ", id: "Dan barangsiapa yang mengerjakan kejahatan seberat dzarrahpun, niscaya dia akan melihat (balasan)nya.", narasi: "Sama halnya dengan nakal sedikit saja, semua akan terlihat. Ini gunanya kita selalu memohon ampun (istighfar) agar catatan nakal kita dihapus oleh Allah ﷻ yang Maha Pengampun." }
+        ];
+
+        // 10 Soal Kuis Interaktif
+        const questions = [
+            { q: "Apa arti dari judul Surah Az-Zalzalah?", a: ["Bintang Gemerlap", "Guncangan Dahsyat", "Matahari Terbit", "Gunung Meletus"], correct: 1 },
+            { q: "Berapa jumlah ayat dalam Surah Az-Zalzalah?", a: ["7 Ayat", "8 Ayat", "9 Ayat", "10 Ayat"], correct: 1 },
+            { q: "Mengapa kita belajar agama sejak kecil?", a: ["Biar pintar matematika", "Supaya kenal Allah ﷻ dan masuk Surga", "Biar bisa main terus", "Hanya karena disuruh Ibu"], correct: 1 },
+            { q: "Apa yang dimaksud dengan Tauhid?", a: ["Yakin Allah ﷻ itu ada dua", "Mengesakan Allah ﷻ dalam ibadah", "Belajar cara menanam pohon", "Menghafal nama-nama buah"], correct: 1 },
+            { q: "Menurut Ayat 4, siapa yang akan menceritakan rahasia manusia nanti?", a: ["Bumi", "Langit", "Matahari", "Bulan"], correct: 0 },
+            { q: "Apa itu 'Dzarrah' menurut penjelasan sederhana para ulama?", a: ["Batu besar", "Butiran debu yang sangat kecil", "Pohon yang rindang", "Emas yang mahal"], correct: 1 },
+            { q: "Apa yang dilakukan bumi pada hari kiamat?", a: ["Diam saja", "Bergetar dan mengeluarkan isinya", "Menjadi warna hijau", "Menghilang"], correct: 1 },
+            { q: "Jika kita menolong teman seberat debu, apakah Allah ﷻ mencatatnya?", a: ["Tidak, karena terlalu kecil", "Ya, Allah ﷻ akan tunjukkan pahalanya", "Mungkin saja", "Malaikat lupa mencatatnya"], correct: 1 },
+            { q: "Setelah bangkit dari kubur, manusia akan melihat apa?", a: ["Melihat taman bermain", "Melihat balasan amalnya", "Melihat TV", "Melihat harta karun"], correct: 1 },
+            { q: "Bagaimana cara agar bumi bersaksi baik untuk kita nanti?", a: ["Selalu berbuat baik di mana pun berada", "Bersembunyi saat nakal", "Tidur terus di rumah", "Hanya sholat di masjid saja"], correct: 0 }
+        ];
+
+        let currentQuestion = 0;
+        let score = 0;
+        let chartInstance = null;
 
         function navigateTo(target) {
-            document.querySelectorAll('.content-section, #welcome').forEach(el => el.classList.add('hidden'));
+            document.querySelectorAll('.content-section, #intro').forEach(el => el.classList.add('hidden'));
             
-            const targetEl = document.getElementById(target === 'welcome' ? 'welcome' : `section-${target}`);
+            const targetEl = document.getElementById(target === 'intro' ? 'intro' : `section-${target}`);
             if (targetEl) targetEl.classList.remove('hidden');
 
             document.querySelectorAll('.sub-nav').forEach(el => el.classList.remove('active'));
             const navEl = document.getElementById(`nav-${target}`);
             if (navEl) navEl.classList.add('active');
 
-            if (target === 'pondasi') initPondasiChart();
-            if (target === 'hikmah') initHikmahChart();
+            if (target === 'surah') renderNarrative();
+            if (target === 'kandungan') renderChart();
+            if (target === 'evaluasi') startQuiz();
         }
 
-        function toggleArtinya(id) {
-            const el = document.getElementById(`arti-${id}`);
-            if (el.classList.contains('hidden')) {
-                el.classList.remove('hidden');
-            } else {
-                el.classList.add('hidden');
-            }
+        function renderNarrative() {
+            const container = document.getElementById('verse-narrative-container');
+            if (container.children.length > 0) return; // Mencegah re-render ulang
+
+            container.innerHTML = surahContent.map(v => `
+                <div class="border-b border-teal-800/40 pb-5 last:border-0">
+                    <div class="flex flex-col md:flex-row gap-4 items-start">
+                        <div class="w-8 h-8 bg-teal-600 text-white rounded-full flex items-center justify-center font-bold text-xs shrink-0">${v.no}</div>
+                        <div class="flex-1 w-full">
+                            <p class="arabic-text text-2xl md:text-3xl text-right mb-2 text-cyan-100 font-bold leading-loose">${v.ar}</p>
+                            <p class="text-xs font-bold text-teal-300 mb-2 italic">"${v.id}"</p>
+                            <div class="p-3 bg-teal-900/30 rounded-xl border-l-2 border-cyan-400">
+                                <p class="text-xs text-gray-300 leading-relaxed">${v.narasi}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
         }
 
-        function initPondasiChart() {
-            if (charts.pondasi) return;
-            const ctx = document.getElementById('pondasiChart').getContext('2d');
-            charts.pondasi = new Chart(ctx, {
+        function renderChart() {
+            if (chartInstance) return;
+            const ctx = document.getElementById('justiceChart').getContext('2d');
+            chartInstance = new Chart(ctx, {
                 type: 'bar',
                 data: {
-                    labels: ['Tahu Benar', 'Jalan Lurus', 'Ibadah Tertib', 'Bekal Surga'],
+                    labels: ['Satu Senyuman', 'Bantu Ibu', 'Nakal Sedikit', 'Berbagi Kue'],
                     datasets: [{
-                        label: 'Pentingnya Belajar Agama',
-                        data: [95, 90, 85, 100],
-                        backgroundColor: ['#22d3ee', '#34d399', '#a78bfa', '#fbbf24'],
-                        borderRadius: 6
+                        label: 'Nilai di Mata Allah ﷻ',
+                        data: [100, 500, -100, 300],
+                        backgroundColor: ['#34d399', '#22d3ee', '#f87171', '#34d399'],
+                        borderRadius: 8,
+                        barThickness: 24
                     }]
                 },
                 options: {
                     responsive: true,
                     maintainAspectRatio: false,
                     plugins: { legend: { display: false } },
-                    scales: { y: { beginAtZero: true, max: 100, display: false } }
+                    scales: {
+                        y: { grid: { display: false }, ticks: { display: false } },
+                        x: { grid: { display: false }, ticks: { font: { size: 10, weight: 'bold' }, color: '#cbd5e1' } }
+                    }
                 }
             });
         }
 
-        function initHikmahChart() {
-            if (charts.hikmah) return;
-            const ctx = document.getElementById('hikmahChart').getContext('2d');
-            charts.hikmah = new Chart(ctx, {
-                type: 'bubble',
-                data: {
-                    datasets: [
-                        { label: 'Senyum', data: [{ x: 10, y: 20, r: 15 }], backgroundColor: '#f87171' },
-                        { label: 'Bantu Ibu', data: [{ x: 30, y: 40, r: 25 }], backgroundColor: '#34d399' },
-                        { label: 'Sholat', data: [{ x: 60, y: 15, r: 35 }], backgroundColor: '#22d3ee' },
-                        { label: 'Doa', data: [{ x: 80, y: 45, r: 20 }], backgroundColor: '#fbbf24' },
-                        { label: 'Kebaikan Kecil', data: [{ x: 45, y: 25, r: 10 }], backgroundColor: '#a78bfa' }
-                    ]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: { position: 'bottom', labels: { boxWidth: 10, font: { size: 10 }, color: '#cbd5e1' } },
-                        tooltip: {
-                            callbacks: {
-                                label: function(context) { return context.dataset.label + ": Pahala Dicatat!"; }
-                            }
-                        }
-                    },
-                    scales: {
-                        x: { display: false, min: 0, max: 100 },
-                        y: { display: false, min: 0, max: 60 }
-                    }
-                }
-            });
+        function startQuiz() {
+            currentQuestion = 0;
+            score = 0;
+            document.getElementById('quiz-box').classList.remove('hidden');
+            document.getElementById('quiz-result').classList.add('hidden');
+            updateQuiz();
+        }
+
+        function updateQuiz() {
+            const q = questions[currentQuestion];
+            document.getElementById('quiz-progress').innerText = `${currentQuestion + 1}/10`;
+            const box = document.getElementById('quiz-box');
+            box.innerHTML = `
+                <div>
+                    <p class="text-sm sm:text-base font-bold mb-6 text-white">${q.q}</p>
+                    <div class="grid gap-3">
+                        ${q.a.map((opt, i) => `
+                            <button onclick="handleAnswer(${i})" class="option-btn p-3.5 text-left border border-teal-700/50 rounded-xl font-medium text-xs text-gray-200 transition flex justify-between items-center group">
+                                <span>${opt}</span>
+                                <span class="opacity-0 group-hover:opacity-100 transition text-cyan-400">👉</span>
+                            </button>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+        }
+
+        function handleAnswer(idx) {
+            if (idx === questions[currentQuestion].correct) score++;
+            
+            if (currentQuestion < questions.length - 1) {
+                currentQuestion++;
+                updateQuiz();
+            } else {
+                showResult();
+            }
+        }
+
+        function showResult() {
+            document.getElementById('quiz-box').classList.add('hidden');
+            const res = document.getElementById('quiz-result');
+            res.classList.remove('hidden');
+            
+            const emoji = document.getElementById('result-emoji');
+            const title = document.getElementById('result-title');
+            
+            if (score === 10) {
+                emoji.innerText = "🏆";
+                title.innerText = "Maa Syaa Allah, Sempurna!";
+            } else if (score >= 7) {
+                emoji.innerText = "🌟";
+                title.innerText = "Bagus Sekali!";
+            } else {
+                emoji.innerText = "💪";
+                title.innerText = "Semangat Belajar Lagi!";
+            }
+            
+            document.getElementById('result-score').innerText = `Skor kamu: ${score} / 10`;
+            document.getElementById('quiz-progress').innerText = "Selesai";
+        }
+
+        function resetQuiz() {
+            startQuiz();
         }
     </script>
 </body>
