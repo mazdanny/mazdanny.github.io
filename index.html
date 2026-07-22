@@ -3,14 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>mazdany - Asisten Perangkat Ajar AI</title>
+    <title>Mazdany Digital Platform</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <!-- FontAwesome untuk Icon -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    
     <style>
         body {
             background: linear-gradient(135deg, #021114 0%, #052920 50%, #010b0d 100%);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        .arabic-text {
+            font-family: 'Amiri', serif;
+            direction: rtl;
         }
         .metro-grid {
             display: grid;
@@ -51,12 +61,31 @@
             box-shadow: 0 0 20px rgba(34, 211, 238, 0.25);
             background: rgba(4, 48, 40, 0.6);
         }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+        }
+        .nav-tab.active {
+            background-color: #0d9488;
+            color: #ffffff;
+            border-color: #22d3ee;
+            box-shadow: 0 0 15px rgba(34, 211, 238, 0.4);
+        }
+        .sub-nav.active {
+            border-color: #22d3ee;
+            background-color: rgba(20, 184, 166, 0.2);
+            color: #ffffff;
+        }
     </style>
 </head>
-<body class="text-gray-200 min-h-screen flex flex-col items-center justify-start p-4 sm:p-8 font-sans">
+<body class="text-gray-200 min-h-screen flex flex-col items-center justify-start p-4 sm:p-8">
 
-    <!-- Top Windows-like Logo Element -->
-    <div class="w-full max-w-3xl flex items-center justify-between mb-6 px-2">
+    <!-- Header Atas OS Bar -->
+    <div class="w-full max-w-4xl flex items-center justify-between mb-6 px-2 border-b border-teal-800/50 pb-3">
         <div class="flex items-center space-x-2">
             <div class="grid grid-cols-2 gap-0.5 w-5 h-5 opacity-80">
                 <div class="bg-cyan-400"></div>
@@ -66,126 +95,460 @@
             </div>
             <span class="text-xs tracking-widest font-bold text-cyan-400">MAZDANY.OS</span>
         </div>
-        <div class="text-xl font-light text-cyan-400/80 tracking-wider">mazdany</div>
+
+        <!-- Tombol Switch Portal Utama -->
+        <div class="flex space-x-2">
+            <button onclick="switchPortal('guru')" id="btn-portal-guru" class="nav-tab active px-3 py-1.5 rounded-lg border border-teal-600 text-xs font-semibold tracking-wider transition-all">
+                <i class="fa-solid fa-chalkboard-user mr-1.5"></i> PERANGKAT GURU
+            </button>
+            <button onclick="switchPortal('siswa')" id="btn-portal-siswa" class="nav-tab px-3 py-1.5 rounded-lg border border-teal-800 text-xs font-semibold tracking-wider text-gray-300 hover:text-white transition-all">
+                <i class="fa-solid fa-book-open-reader mr-1.5"></i> KELAS 3 (AL-ISLAM)
+            </button>
+        </div>
     </div>
 
-    <!-- Container Utama -->
-    <div class="w-full max-w-3xl rounded-2xl p-6 sm:p-8 relative">
+    <!-- ================================================================= -->
+    <!-- PORTAL 1: PERANGKAT AJAR GURU (GAYA LUMIA / METRO TILES) -->
+    <!-- ================================================================= -->
+    <div id="portal-guru" class="w-full max-w-3xl rounded-2xl p-2 sm:p-4">
         
-        <!-- Header / Profil -->
-        <div class="text-center mb-10">
-            <div class="relative w-32 h-32 mx-auto mb-5">
-                <!-- Avatar Kontainer Lingkaran dengan Border Menyala -->
+        <!-- Header / Profil Guru -->
+        <div class="text-center mb-8">
+            <div class="relative w-28 h-28 mx-auto mb-4">
                 <div class="w-full h-full rounded-full border-4 border-cyan-500 overflow-hidden bg-white shadow-[0_0_15px_rgba(34,211,238,0.5)] flex items-center justify-center">
-                    <!-- Silakan ganti src dengan URL foto Anda saat online -->
-                    <img src="MAZDANY LOGO.png" alt="Mazdany Avatar" class="w-full h-full object-cover object-top scale-105">
+                    <img src="MAZDANY LOGO.png" alt="Mazdany Avatar" class="w-full h-full object-cover object-top scale-105" onerror="this.src='https://ui-avatars.com/api/?name=Mazdany&background=0d9488&color=fff'">
                 </div>
             </div>
             
-            <h1 class="text-3xl sm:text-4xl font-light text-white tracking-wide uppercase">Asisten Perangkat Ajar AI</h1>
-            <div class="h-0.5 w-24 bg-cyan-500 mx-auto my-3"></div>
-            <p class="text-emerald-400 text-sm sm:text-base font-normal tracking-wide">Selamat datang di Dunia Digital Artificial Intelligence dari mazdany.</p>
-            <p class="text-gray-400 text-xs mt-1.5 italic tracking-wider">Bekerja Lebih Mudah.</p>
+            <h1 class="text-2xl sm:text-3xl font-light text-white tracking-wide uppercase">Asisten Perangkat Ajar AI</h1>
+            <div class="h-0.5 w-20 bg-cyan-500 mx-auto my-2.5"></div>
+            <p class="text-emerald-400 text-xs sm:text-sm font-normal tracking-wide">Selamat datang di Dunia Digital Artificial Intelligence dari mazdany.</p>
+            <p class="text-gray-400 text-xs mt-1 italic tracking-wider">Bekerja Lebih Mudah.</p>
         </div>
 
-        <!-- Grid Menu ala Windows 10 Tiles -->
+        <!-- Grid Menu Tiles -->
         <div class="metro-grid">
 
-            <!-- 1. GENERATE TP -->
-            <a href="https://gemini.google.com/share/3adf80958496?skid=a4409468-fe1c-4809-87d8-dedb60e43161" target="_blank" class="metro-tile flex items-center p-5 rounded-lg text-left">
-                <div class="w-12 h-12 bg-emerald-950/60 rounded-md flex items-center justify-center mr-4 text-cyan-400 border border-cyan-500/20">
-                    <i class="fa-solid fa-globe text-xl"></i>
+            <a href="https://gemini.google.com/share/3adf80958496?skid=a4409468-fe1c-4809-87d8-dedb60e43161" target="_blank" class="metro-tile flex items-center p-4 rounded-lg text-left">
+                <div class="w-10 h-10 bg-emerald-950/60 rounded-md flex items-center justify-center mr-3 text-cyan-400 border border-cyan-500/20 flex-shrink-0">
+                    <i class="fa-solid fa-globe text-lg"></i>
                 </div>
                 <div>
-                    <h3 class="font-semibold text-white tracking-wide text-sm sm:text-base">GENERATE TP</h3>
-                    <p class="text-xs text-gray-400 mt-0.5">Google Gemini Share Link</p>
+                    <h3 class="font-semibold text-white tracking-wide text-sm">GENERATE TP</h3>
+                    <p class="text-[11px] text-gray-400">Google Gemini Share Link</p>
                 </div>
             </a>
 
-            <!-- 2. GENERATE MODUL -->
-            <a href="https://gemini.google.com/share/3d57b7dca5c4?skid=87997d2c-fe15-46b4-b67f-dee01aafceea" target="_blank" class="metro-tile flex items-center p-5 rounded-lg text-left">
-                <div class="w-12 h-12 bg-emerald-950/60 rounded-md flex items-center justify-center mr-4 text-cyan-400 border border-cyan-500/20">
-                    <i class="fa-solid fa-laptop-code text-xl"></i>
+            <a href="https://gemini.google.com/share/3d57b7dca5c4?skid=87997d2c-fe15-46b4-b67f-dee01aafceea" target="_blank" class="metro-tile flex items-center p-4 rounded-lg text-left">
+                <div class="w-10 h-10 bg-emerald-950/60 rounded-md flex items-center justify-center mr-3 text-cyan-400 border border-cyan-500/20 flex-shrink-0">
+                    <i class="fa-solid fa-laptop-code text-lg"></i>
                 </div>
                 <div>
-                    <h3 class="font-semibold text-white tracking-wide text-sm sm:text-base">GENERATE MODUL</h3>
-                    <p class="text-xs text-gray-400 mt-0.5">Google Gemini Share Link</p>
+                    <h3 class="font-semibold text-white tracking-wide text-sm">GENERATE MODUL</h3>
+                    <p class="text-[11px] text-gray-400">Google Gemini Share Link</p>
                 </div>
             </a>
 
-            <!-- 3. PROMPT LKPD -->
-            <a href="https://www.mtamim.com/p/lkprompt.html" target="_blank" class="metro-tile flex items-center p-5 rounded-lg text-left">
-                <div class="w-12 h-12 bg-emerald-950/60 rounded-md flex items-center justify-center mr-4 text-cyan-400 border border-cyan-500/20">
-                    <i class="fa-solid fa-terminal text-xl"></i>
+            <a href="https://www.mtamim.com/p/lkprompt.html" target="_blank" class="metro-tile flex items-center p-4 rounded-lg text-left">
+                <div class="w-10 h-10 bg-emerald-950/60 rounded-md flex items-center justify-center mr-3 text-cyan-400 border border-cyan-500/20 flex-shrink-0">
+                    <i class="fa-solid fa-terminal text-lg"></i>
                 </div>
                 <div>
-                    <h3 class="font-semibold text-white tracking-wide text-sm sm:text-base">PROMPT LKPD</h3>
-                    <p class="text-xs text-gray-400 mt-0.5">Kunjungi mtamim.com</p>
+                    <h3 class="font-semibold text-white tracking-wide text-sm">PROMPT LKPD</h3>
+                    <p class="text-[11px] text-gray-400">Kunjungi mtamim.com</p>
                 </div>
             </a>
 
-            <!-- 4. GENERATOR SOAL ASESMEN -->
-            <a href="https://gemini.google.com/share/46844dbe81ed" target="_blank" class="metro-tile flex items-center p-5 rounded-lg text-left">
-                <div class="w-12 h-12 bg-emerald-950/60 rounded-md flex items-center justify-center mr-4 text-cyan-400 border border-cyan-500/20">
-                    <i class="fa-solid fa-list-check text-xl"></i>
+            <a href="https://gemini.google.com/share/46844dbe81ed" target="_blank" class="metro-tile flex items-center p-4 rounded-lg text-left">
+                <div class="w-10 h-10 bg-emerald-950/60 rounded-md flex items-center justify-center mr-3 text-cyan-400 border border-cyan-500/20 flex-shrink-0">
+                    <i class="fa-solid fa-list-check text-lg"></i>
                 </div>
                 <div>
-                    <h3 class="font-semibold text-white tracking-wide text-sm sm:text-base">SOAL ASESMEN</h3>
-                    <p class="text-xs text-gray-400 mt-0.5">Generator Asesmen Otomatis</p>
+                    <h3 class="font-semibold text-white tracking-wide text-sm">SOAL ASESMEN</h3>
+                    <p class="text-[11px] text-gray-400">Generator Asesmen Otomatis</p>
                 </div>
             </a>
 
-            <!-- 5. Google App Script Modul Ajar -->
-            <a href="https://drive.google.com/file/d/1TppB6FDd2Hkk0LcB01f2WfuX8XhQDVs3/view" target="_blank" class="metro-tile flex items-center p-5 rounded-lg text-left sm:col-span-2">
-                <div class="w-12 h-12 bg-emerald-950/60 rounded-md flex items-center justify-center mr-4 text-cyan-400 border border-cyan-500/20 flex-shrink-0">
-                    <i class="fa-solid fa-key text-xl"></i>
+            <a href="https://drive.google.com/file/d/1TppB6FDd2Hkk0LcB01f2WfuX8XhQDVs3/view" target="_blank" class="metro-tile flex items-center p-4 rounded-lg text-left sm:col-span-2">
+                <div class="w-10 h-10 bg-emerald-950/60 rounded-md flex items-center justify-center mr-3 text-cyan-400 border border-cyan-500/20 flex-shrink-0">
+                    <i class="fa-solid fa-key text-lg"></i>
                 </div>
                 <div>
-                    <h3 class="font-semibold text-white tracking-wide text-sm sm:text-base">GAS Modul Ajar (with API Key)</h3>
-                    <p class="text-xs text-gray-400 mt-0.5">Google App Script File via Google Drive</p>
+                    <h3 class="font-semibold text-white tracking-wide text-sm">GAS Modul Ajar (with API Key)</h3>
+                    <p class="text-[11px] text-gray-400">Google App Script File via Google Drive</p>
                 </div>
             </a>
 
-            <!-- 6. Kumpulan Tugas Tujuan Pembelajaran -->
-            <a href="https://drive.google.com/file/d/1TppB6FDd2Hkk0LcB01f2WfuX8XhQDVs3/view" target="_blank" class="metro-tile flex items-center p-5 rounded-lg text-left">
-                <div class="w-12 h-12 bg-emerald-950/60 rounded-md flex items-center justify-center mr-4 text-cyan-400 border border-cyan-500/20">
-                    <i class="fa-solid fa-file-lines text-xl"></i>
+            <a href="https://drive.google.com/file/d/1TppB6FDd2Hkk0LcB01f2WfuX8XhQDVs3/view" target="_blank" class="metro-tile flex items-center p-4 rounded-lg text-left">
+                <div class="w-10 h-10 bg-emerald-950/60 rounded-md flex items-center justify-center mr-3 text-cyan-400 border border-cyan-500/20 flex-shrink-0">
+                    <i class="fa-solid fa-file-lines text-lg"></i>
                 </div>
                 <div>
-                    <h3 class="font-semibold text-white tracking-wide text-sm sm:text-base">TUGAS TP</h3>
-                    <p class="text-xs text-gray-400 mt-0.5">Kumpulan Tugas Tujuan Pembelajaran</p>
+                    <h3 class="font-semibold text-white tracking-wide text-sm">TUGAS TP</h3>
+                    <p class="text-[11px] text-gray-400">Kumpulan Tugas Tujuan Pembelajaran</p>
                 </div>
             </a>
 
-            <!-- 7. Kumpulan Tugas Modul Ajar -->
-            <a href="https://drive.google.com/drive/folders/1Cp3JLCYm6AmJwh_9-rqInJ3Vwr27ZPv0" target="_blank" class="metro-tile flex items-center p-5 rounded-lg text-left">
-                <div class="w-12 h-12 bg-emerald-950/60 rounded-md flex items-center justify-center mr-4 text-cyan-400 border border-cyan-500/20">
-                    <i class="fa-solid fa-folder text-xl"></i>
+            <a href="https://drive.google.com/drive/folders/1Cp3JLCYm6AmJwh_9-rqInJ3Vwr27ZPv0" target="_blank" class="metro-tile flex items-center p-4 rounded-lg text-left">
+                <div class="w-10 h-10 bg-emerald-950/60 rounded-md flex items-center justify-center mr-3 text-cyan-400 border border-cyan-500/20 flex-shrink-0">
+                    <i class="fa-solid fa-folder text-lg"></i>
                 </div>
                 <div>
-                    <h3 class="font-semibold text-white tracking-wide text-sm sm:text-base">TUGAS MODUL AJAR</h3>
-                    <p class="text-xs text-gray-400 mt-0.5">Folder Kumpulan Tugas Modul</p>
+                    <h3 class="font-semibold text-white tracking-wide text-sm">TUGAS MODUL AJAR</h3>
+                    <p class="text-[11px] text-gray-400">Folder Kumpulan Tugas Modul</p>
                 </div>
             </a>
 
-            <!-- 8. Kumpulan Tugas LKPD -->
-            <a href="https://drive.google.com/drive/folders/1E7dNQ727c0vcuZwaZeOn-xYLqGeGnhp7" target="_blank" class="metro-tile flex items-center p-5 rounded-lg text-left sm:col-span-2">
-                <div class="w-12 h-12 bg-emerald-950/60 rounded-md flex items-center justify-center mr-4 text-cyan-400 border border-cyan-500/20 flex-shrink-0">
-                    <i class="fa-solid fa-folder-tree text-xl"></i>
+            <a href="https://drive.google.com/drive/folders/1E7dNQ727c0vcuZwaZeOn-xYLqGeGnhp7" target="_blank" class="metro-tile flex items-center p-4 rounded-lg text-left sm:col-span-2">
+                <div class="w-10 h-10 bg-emerald-950/60 rounded-md flex items-center justify-center mr-3 text-cyan-400 border border-cyan-500/20 flex-shrink-0">
+                    <i class="fa-solid fa-folder-tree text-lg"></i>
                 </div>
                 <div>
-                    <h3 class="font-semibold text-white tracking-wide text-sm sm:text-base">KUMPULAN TUGAS LKPD</h3>
-                    <p class="text-xs text-gray-400 mt-0.5">Folder Kumpulan Tugas LKPD Lengkap</p>
+                    <h3 class="font-semibold text-white tracking-wide text-sm">KUMPULAN TUGAS LKPD</h3>
+                    <p class="text-[11px] text-gray-400">Folder Kumpulan Tugas LKPD Lengkap</p>
                 </div>
             </a>
 
-        </div>
-
-        <!-- Footer -->
-        <div class="mt-12 text-center text-xs text-gray-600 tracking-wider">
-            &copy; 2026 MAZDANY DIGITAL PLATFORM. ALL RIGHTS RESERVED.
         </div>
     </div>
 
+
+    <!-- ================================================================= -->
+    <!-- PORTAL 2: MEDIA PEMBELAJARAN INTERAKTIF KELAS 3 (AL-ISLAM) -->
+    <!-- ================================================================= -->
+    <div id="portal-siswa" class="w-full max-w-4xl hidden">
+        
+        <!-- Welcome Banner Kelas -->
+        <section id="welcome" class="text-center mb-8 py-8 px-4 rounded-2xl bg-teal-950/50 border border-teal-500/30 backdrop-blur-md">
+            <span class="text-4xl mb-2 block">🌙</span>
+            <h2 class="text-2xl sm:text-3xl font-bold text-cyan-300 mb-2">Petualangan Al-Islam: Surat Az-Zalzalah</h2>
+            <p class="text-emerald-300 text-xs sm:text-sm max-w-2xl mx-auto">
+                Assalamu’alaikum, Sholih & Sholihah! Selamat datang di media pembelajaran digital interaktif. Yuk, siapkan hati dan mulai dengan Basmalah!
+            </p>
+            <button onclick="navigateTo('pondasi')" class="mt-5 px-6 py-2.5 bg-teal-600 hover:bg-teal-500 text-white rounded-full font-semibold text-xs tracking-wider transition-all shadow-lg shadow-teal-900/50">
+                Mulai Belajar 🚀
+            </button>
+        </section>
+
+        <!-- Sub Navigation Tabs -->
+        <nav class="grid grid-cols-2 md:grid-cols-5 gap-2.5 mb-8">
+            <button onclick="navigateTo('pondasi')" class="sub-nav active p-3 rounded-xl border border-teal-800 bg-teal-950/30 text-center transition-all" id="nav-pondasi">
+                <span class="block text-xl mb-1">💡</span>
+                <span class="text-[11px] font-bold uppercase tracking-wider block">Pondasi</span>
+            </button>
+            <button onclick="navigateTo('tauhid')" class="sub-nav p-3 rounded-xl border border-teal-800 bg-teal-950/30 text-center transition-all" id="nav-tauhid">
+                <span class="block text-xl mb-1">☝️</span>
+                <span class="text-[11px] font-bold uppercase tracking-wider block">Tauhid</span>
+            </button>
+            <button onclick="navigateTo('az-zalzalah')" class="sub-nav p-3 rounded-xl border border-teal-800 bg-teal-950/30 text-center transition-all" id="nav-az-zalzalah">
+                <span class="block text-xl mb-1">📖</span>
+                <span class="text-[11px] font-bold uppercase tracking-wider block">Al-Qur'an</span>
+            </button>
+            <button onclick="navigateTo('hikmah')" class="sub-nav p-3 rounded-xl border border-teal-800 bg-teal-950/30 text-center transition-all" id="nav-hikmah">
+                <span class="block text-xl mb-1">✨</span>
+                <span class="text-[11px] font-bold uppercase tracking-wider block">Pesan</span>
+            </button>
+            <button onclick="navigateTo('tugas')" class="sub-nav p-3 rounded-xl border border-teal-800 bg-teal-950/30 text-center transition-all" id="nav-tugas">
+                <span class="block text-xl mb-1">📝</span>
+                <span class="text-[11px] font-bold uppercase tracking-wider block">Aktivitas</span>
+            </button>
+        </nav>
+
+        <!-- Content Area -->
+        <div id="content-area">
+            
+            <!-- Section: Pondasi -->
+            <div id="section-pondasi" class="content-section hidden space-y-6">
+                <div class="bg-teal-950/40 p-6 rounded-2xl border border-teal-800/60 backdrop-blur-md">
+                    <h3 class="text-xl font-bold text-cyan-300 mb-3 flex items-center">
+                        <span class="mr-2">🔎</span> Kenapa Kita Harus Belajar Agama?
+                    </h3>
+                    <p class="text-gray-300 text-xs sm:text-sm mb-6">
+                        Belajar ilmu agama seperti membawa senter di malam gelap agar kita tidak tersesat. Inilah 4 alasan utama mengapa kita semangat belajar agama:
+                    </p>
+                    <div class="chart-container mb-6">
+                        <canvas id="pondasiChart"></canvas>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-3">
+                        <div class="p-3.5 rounded-xl bg-teal-900/30 border border-teal-700/40">
+                            <span class="font-bold text-cyan-300 text-sm">1. Tahu Benar & Salah</span>
+                            <p class="text-xs text-gray-300 mt-1">Membedakan mana yang disukai Allah dan mana yang harus dijauhi.</p>
+                        </div>
+                        <div class="p-3.5 rounded-xl bg-emerald-900/30 border border-emerald-700/40">
+                            <span class="font-bold text-emerald-300 text-sm">2. Tidak Salah Langkah</span>
+                            <p class="text-xs text-gray-300 mt-1">Agama adalah kompas agar kita selalu berada di jalan yang lurus.</p>
+                        </div>
+                        <div class="p-3.5 rounded-xl bg-cyan-900/30 border border-cyan-700/40">
+                            <span class="font-bold text-cyan-300 text-sm">3. Ibadah yang Benar</span>
+                            <p class="text-xs text-gray-300 mt-1">Belajar tata cara sholat dan wudhu sesuai tuntunan Nabi.</p>
+                        </div>
+                        <div class="p-3.5 rounded-xl bg-teal-900/30 border border-teal-700/40">
+                            <span class="font-bold text-teal-300 text-sm">4. Bekal ke Surga</span>
+                            <p class="text-xs text-gray-300 mt-1">Meraih ridho Allah untuk masuk ke surga-Nya yang indah.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section: Tauhid -->
+            <div id="section-tauhid" class="content-section hidden space-y-6">
+                <div class="bg-teal-950/40 p-6 rounded-2xl border border-teal-800/60 backdrop-blur-md">
+                    <h3 class="text-xl font-bold text-cyan-300 mb-3 flex items-center">
+                        <span class="mr-2">✊</span> Inti Dakwah Nabi: Mengenal Tauhid
+                    </h3>
+                    <p class="text-gray-300 text-xs sm:text-sm mb-6">
+                        Tauhid artinya mengesakan Allah SWT. Ada tiga bagian penting yang harus kita yakini di dalam hati:
+                    </p>
+                    <div class="grid md:grid-cols-3 gap-4">
+                        <div class="p-5 rounded-xl bg-teal-900/40 border border-teal-500/30 hover:border-cyan-400 transition-all cursor-pointer" onclick="alert('Rububiyah: Keyakinan bahwa hanya Allah Pencipta dan Pengatur segalanya!')">
+                            <div class="text-3xl mb-3">🌍</div>
+                            <h4 class="font-bold text-cyan-300 mb-1.5 text-sm">Tauhid Rububiyah</h4>
+                            <p class="text-xs text-gray-300">Keyakinan bahwa hanya Allah yang menciptakan dan mengatur alam semesta.</p>
+                        </div>
+                        <div class="p-5 rounded-xl bg-teal-900/40 border border-teal-500/30 hover:border-cyan-400 transition-all cursor-pointer" onclick="alert('Uluhiyah: Keyakinan bahwa hanya Allah yang berhak disembah!')">
+                            <div class="text-3xl mb-3">🛐</div>
+                            <h4 class="font-bold text-cyan-300 mb-1.5 text-sm">Tauhid Uluhiyah</h4>
+                            <p class="text-xs text-gray-300">Keyakinan bahwa hanya Allah satu-satunya yang berhak disembah dan diibadahi.</p>
+                        </div>
+                        <div class="p-5 rounded-xl bg-teal-900/40 border border-teal-500/30 hover:border-cyan-400 transition-all cursor-pointer" onclick="alert('Asma\' wa Sifat: Mengagumi Nama dan Sifat Allah yang Sempurna!')">
+                            <div class="text-3xl mb-3">📜</div>
+                            <h4 class="font-bold text-cyan-300 mb-1.5 text-sm">Tauhid Asma' wa Sifat</h4>
+                            <p class="text-xs text-gray-300">Meyakini Nama-nama (Asmaul Husna) dan Sifat Allah yang Maha Sempurna.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section: Az-Zalzalah -->
+            <div id="section-az-zalzalah" class="content-section hidden space-y-6">
+                <div class="bg-teal-950/40 p-6 rounded-2xl border border-teal-800/60 backdrop-blur-md">
+                    <div class="flex justify-between items-start mb-6">
+                        <div>
+                            <h3 class="text-xl font-bold text-cyan-300">Surat Az-Zalzalah</h3>
+                            <p class="text-xs text-gray-400 italic">"Goncangan yang Dahsyat"</p>
+                        </div>
+                        <span class="px-3 py-1 bg-teal-800/60 text-cyan-300 rounded-full text-[10px] font-bold uppercase tracking-wider border border-teal-500/30">Surat ke-99 • 8 Ayat</span>
+                    </div>
+
+                    <div class="space-y-3">
+                        <div class="p-4 bg-teal-900/30 rounded-xl border border-teal-700/30 hover:border-cyan-400 transition-all cursor-pointer" onclick="toggleArtinya(1)">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="w-7 h-7 flex items-center justify-center bg-teal-600 text-white rounded-full text-xs font-bold">1</span>
+                                <p class="arabic-text text-2xl text-cyan-100 font-bold">إِذَا زُلْزِلَتِ الْأَرْضُ زِلْزَالَهَا</p>
+                            </div>
+                            <p id="arti-1" class="text-xs text-teal-300 hidden italic pt-2 border-t border-teal-800/50">"Apabila bumi digoncangkan dengan goncangan yang dahsyat."</p>
+                        </div>
+
+                        <div class="p-4 bg-teal-900/30 rounded-xl border border-teal-700/30 hover:border-cyan-400 transition-all cursor-pointer" onclick="toggleArtinya(2)">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="w-7 h-7 flex items-center justify-center bg-teal-600 text-white rounded-full text-xs font-bold">2</span>
+                                <p class="arabic-text text-2xl text-cyan-100 font-bold">وَأَخْرَجَتِ الْأَرْضُ أَثْقَالَهَا</p>
+                            </div>
+                            <p id="arti-2" class="text-xs text-teal-300 hidden italic pt-2 border-t border-teal-800/50">"Dan bumi telah mengeluarkan beban-beban berat (yang dikandung)nya."</p>
+                        </div>
+
+                        <div class="p-4 bg-teal-900/30 rounded-xl border border-teal-700/30 hover:border-cyan-400 transition-all cursor-pointer" onclick="toggleArtinya(7)">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="w-7 h-7 flex items-center justify-center bg-emerald-600 text-white rounded-full text-xs font-bold">7</span>
+                                <p class="arabic-text text-2xl text-cyan-100 font-bold">فَمَن يَعْمَلْ مِثْقَالَ ذَرَّةٍ خَيْرًا يَرَهُ</p>
+                            </div>
+                            <p id="arti-7" class="text-xs text-teal-300 hidden italic pt-2 border-t border-teal-800/50">"Barangsiapa yang mengerjakan kebaikan seberat dzarrah pun, niscaya dia akan melihat (balasan)nya."</p>
+                        </div>
+
+                        <div class="p-4 bg-teal-900/30 rounded-xl border border-teal-700/30 hover:border-cyan-400 transition-all cursor-pointer" onclick="toggleArtinya(8)">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="w-7 h-7 flex items-center justify-center bg-rose-600 text-white rounded-full text-xs font-bold">8</span>
+                                <p class="arabic-text text-2xl text-cyan-100 font-bold">وَمَن يَعْمَلْ مِثْقَالَ ذَرَّةٍ شَرًّا يَرَهُ</p>
+                            </div>
+                            <p id="arti-8" class="text-xs text-teal-300 hidden italic pt-2 border-t border-teal-800/50">"Dan barangsiapa yang mengerjakan kejahatan sebesar dzarrah pun, niscaya dia akan melihat (balasan)nya pula."</p>
+                        </div>
+                    </div>
+                    <p class="mt-4 text-[11px] text-center text-gray-400 italic">* Klik pada ayat untuk menampilkan artinya</p>
+                </div>
+            </div>
+
+            <!-- Section: Hikmah -->
+            <div id="section-hikmah" class="content-section hidden space-y-6">
+                <div class="bg-teal-950/40 p-6 rounded-2xl border border-teal-800/60 backdrop-blur-md">
+                    <h3 class="text-xl font-bold text-cyan-300 mb-3 flex items-center">
+                        <span class="mr-2">⚖️</span> Pelajaran Penting: Kebaikan Kecil
+                    </h3>
+                    <p class="text-gray-300 text-xs sm:text-sm mb-6">
+                        Allah menghitung setiap amal kita sekecil debu (dzarrah). Perhatikan bagaimana kebaikan kecil bisa menjadi gunung pahala:
+                    </p>
+                    <div class="chart-container mb-6">
+                        <canvas id="hikmahChart"></canvas>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                        <div class="p-3 bg-teal-900/30 rounded-xl border-l-4 border-cyan-400">
+                            <h5 class="font-bold text-cyan-300 text-xs">Allah Maha Mengetahui</h5>
+                            <p class="text-[11px] text-gray-300 mt-0.5">Allah tahu apa yang kita lakukan meskipun kita sendirian.</p>
+                        </div>
+                        <div class="p-3 bg-teal-900/30 rounded-xl border-l-4 border-cyan-400">
+                            <h5 class="font-bold text-cyan-300 text-xs">Ikhlas & Jujur</h5>
+                            <p class="text-[11px] text-gray-300 mt-0.5">Berbuat baik karena Allah, bukan karena ingin dipuji orang lain.</p>
+                        </div>
+                        <div class="p-3 bg-teal-900/30 rounded-xl border-l-4 border-cyan-400">
+                            <h5 class="font-bold text-cyan-300 text-xs">Jangan Remehkan Kebaikan</h5>
+                            <p class="text-[11px] text-gray-300 mt-0.5">Senyum, menyingkirkan duri di jalan, menyapa guru — semua dicatat!</p>
+                        </div>
+                        <div class="p-3 bg-teal-900/30 rounded-xl border-l-4 border-cyan-400">
+                            <h5 class="font-bold text-cyan-300 text-xs">Takut Hanya kepada Allah</h5>
+                            <p class="text-[11px] text-gray-300 mt-0.5">Kita tidak perlu takut pada apapun selain murka Allah.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section: Tugas -->
+            <div id="section-tugas" class="content-section hidden space-y-6">
+                <div class="bg-teal-950/40 p-6 rounded-2xl border border-teal-800/60 backdrop-blur-md">
+                    <h3 class="text-xl font-bold text-cyan-300 mb-5 flex items-center">
+                        <span class="mr-2">🎯</span> Tugas Seru Minggu Ini
+                    </h3>
+                    <div class="space-y-3">
+                        <div class="flex items-start space-x-3 p-3.5 bg-teal-900/30 rounded-xl border border-teal-700/30">
+                            <input type="checkbox" class="mt-1 w-4 h-4 rounded accent-teal-500">
+                            <div>
+                                <h4 class="font-bold text-cyan-300 text-sm">Menggambar Kreatif</h4>
+                                <p class="text-xs text-gray-300">Gambar perasaan senang saat seseorang menerima catatan amal baiknya.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3 p-3.5 bg-teal-900/30 rounded-xl border border-teal-700/30">
+                            <input type="checkbox" class="mt-1 w-4 h-4 rounded accent-teal-500">
+                            <div>
+                                <h4 class="font-bold text-cyan-300 text-sm">3 Amal Baik Kecil</h4>
+                                <p class="text-xs text-gray-300">Tuliskan 3 kebaikan kecil yang kamu lakukan hari ini di buku tulis.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3 p-3.5 bg-teal-900/30 rounded-xl border border-teal-700/30">
+                            <input type="checkbox" class="mt-1 w-4 h-4 rounded accent-teal-500">
+                            <div>
+                                <h4 class="font-bold text-cyan-300 text-sm">Setoran Hafalan</h4>
+                                <p class="text-xs text-gray-300">Hafalkan 8 ayat Surat Az-Zalzalah beserta artinya pelan-pelan ya.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-6 p-4 bg-teal-800/50 rounded-xl text-center text-white border border-teal-500/30">
+                        <p class="text-sm font-bold">Semangat Terus Belajar Al-Qur'an!</p>
+                        <p class="text-xs opacity-90 mt-0.5">Ingatlah: Allah tidak pernah menyia-nyiakan kebaikanmu.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Footer Utama -->
+    <div class="mt-12 text-center text-xs text-gray-500 tracking-wider border-t border-teal-900/40 pt-4 w-full max-w-3xl">
+        &copy; 2026 MAZDANY DIGITAL PLATFORM. ALL RIGHTS RESERVED.
+    </div>
+
+    <!-- Script Logic Javascript -->
+    <script>
+        // Switcher Antara Portal Guru dan Portal Siswa
+        function switchPortal(portal) {
+            const btnGuru = document.getElementById('btn-portal-guru');
+            const btnSiswa = document.getElementById('btn-portal-siswa');
+            const portalGuru = document.getElementById('portal-guru');
+            const portalSiswa = document.getElementById('portal-siswa');
+
+            if (portal === 'guru') {
+                btnGuru.classList.add('active');
+                btnSiswa.classList.remove('active');
+                portalGuru.classList.remove('hidden');
+                portalSiswa.classList.add('hidden');
+            } else {
+                btnSiswa.classList.add('active');
+                btnGuru.classList.remove('active');
+                portalSiswa.classList.remove('hidden');
+                portalGuru.classList.add('hidden');
+            }
+        }
+
+        // Logic Pembelajaran Interaktif Siswa
+        const sections = ['welcome', 'pondasi', 'tauhid', 'az-zalzalah', 'hikmah', 'tugas'];
+        const charts = {};
+
+        function navigateTo(target) {
+            document.querySelectorAll('.content-section, #welcome').forEach(el => el.classList.add('hidden'));
+            
+            const targetEl = document.getElementById(target === 'welcome' ? 'welcome' : `section-${target}`);
+            if (targetEl) targetEl.classList.remove('hidden');
+
+            document.querySelectorAll('.sub-nav').forEach(el => el.classList.remove('active'));
+            const navEl = document.getElementById(`nav-${target}`);
+            if (navEl) navEl.classList.add('active');
+
+            if (target === 'pondasi') initPondasiChart();
+            if (target === 'hikmah') initHikmahChart();
+        }
+
+        function toggleArtinya(id) {
+            const el = document.getElementById(`arti-${id}`);
+            if (el.classList.contains('hidden')) {
+                el.classList.remove('hidden');
+            } else {
+                el.classList.add('hidden');
+            }
+        }
+
+        function initPondasiChart() {
+            if (charts.pondasi) return;
+            const ctx = document.getElementById('pondasiChart').getContext('2d');
+            charts.pondasi = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Tahu Benar', 'Jalan Lurus', 'Ibadah Tertib', 'Bekal Surga'],
+                    datasets: [{
+                        label: 'Pentingnya Belajar Agama',
+                        data: [95, 90, 85, 100],
+                        backgroundColor: ['#22d3ee', '#34d399', '#a78bfa', '#fbbf24'],
+                        borderRadius: 6
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: false } },
+                    scales: { y: { beginAtZero: true, max: 100, display: false } }
+                }
+            });
+        }
+
+        function initHikmahChart() {
+            if (charts.hikmah) return;
+            const ctx = document.getElementById('hikmahChart').getContext('2d');
+            charts.hikmah = new Chart(ctx, {
+                type: 'bubble',
+                data: {
+                    datasets: [
+                        { label: 'Senyum', data: [{ x: 10, y: 20, r: 15 }], backgroundColor: '#f87171' },
+                        { label: 'Bantu Ibu', data: [{ x: 30, y: 40, r: 25 }], backgroundColor: '#34d399' },
+                        { label: 'Sholat', data: [{ x: 60, y: 15, r: 35 }], backgroundColor: '#22d3ee' },
+                        { label: 'Doa', data: [{ x: 80, y: 45, r: 20 }], backgroundColor: '#fbbf24' },
+                        { label: 'Kebaikan Kecil', data: [{ x: 45, y: 25, r: 10 }], backgroundColor: '#a78bfa' }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { position: 'bottom', labels: { boxWidth: 10, font: { size: 10 }, color: '#cbd5e1' } },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) { return context.dataset.label + ": Pahala Dicatat!"; }
+                            }
+                        }
+                    },
+                    scales: {
+                        x: { display: false, min: 0, max: 100 },
+                        y: { display: false, min: 0, max: 60 }
+                    }
+                }
+            });
+        }
+    </script>
 </body>
 </html>
