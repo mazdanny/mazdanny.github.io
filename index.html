@@ -873,73 +873,82 @@
             </div>
         </div>
 
-        <!-- B. Kosakata Anggota Badan (Flashcards + Audio Fusha Asli) -->
+        <!-- B. Kosakata Anggota Badan (Flashcards - Klik Kartu / Gambar Berbunyi Suara Fusha Asli) -->
         <div class="space-y-4">
             <h3 class="text-xl font-bold text-cyan-300 text-center"><i class="fa-solid fa-volume-high mr-2"></i> Kosakata Anggota Badan (المُفْرَدَاتُ)</h3>
+            <p class="text-xs text-center text-teal-400 font-medium">💡 Klik kartu atau gambar di bawah untuk mendengarkan pengucapan fasih Bahasa Arab Fusha</p>
+            
             <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
                 <!-- 1. Kepala -->
-                <div class="p-4 bg-teal-950/40 rounded-2xl border border-teal-700/40 text-center space-y-2 hover:border-cyan-400 transition">
-                    <div class="text-4xl">🗣️</div>
+                <div onclick="playAudio('رَأْسٌ')" class="p-4 bg-teal-950/40 rounded-2xl border border-teal-700/40 text-center space-y-2 hover:border-cyan-400 cursor-pointer transition transform hover:-translate-y-1 shadow-lg">
+                    <div class="text-5xl select-none">🗣️</div>
                     <p class="arabic-text text-2xl font-bold text-cyan-100">رَأْسٌ</p>
                     <p class="text-xs text-teal-300 font-bold">ra'sun (ra-sun)</p>
                     <p class="text-xs text-gray-300">Kepala</p>
-                    <button onclick="playAudio('رَأْسٌ')" class="w-full py-1 bg-teal-800 text-cyan-200 text-[10px] rounded-lg hover:bg-teal-700">🔊 Dengarkan Fusha</button>
+                    <button class="w-full py-1 bg-teal-800 text-cyan-200 text-[10px] rounded-lg hover:bg-teal-700 pointer-events-none">🔊 Klik Dengarkan</button>
                 </div>
-                <!-- 2. Rambut -->
-                <div class="p-4 bg-teal-950/40 rounded-2xl border border-teal-700/40 text-center space-y-2 hover:border-cyan-400 transition">
-                    <div class="text-4xl">💇</div>
+
+                <!-- 2. Rambut (Ilustrasi Rambut Saja: 🦱) -->
+                <div onclick="playAudio('شَعْرٌ')" class="p-4 bg-teal-950/40 rounded-2xl border border-teal-700/40 text-center space-y-2 hover:border-cyan-400 cursor-pointer transition transform hover:-translate-y-1 shadow-lg">
+                    <div class="text-5xl select-none">🦱</div>
                     <p class="arabic-text text-2xl font-bold text-cyan-100">شَعْرٌ</p>
                     <p class="text-xs text-teal-300 font-bold">sya'run (sya-run)</p>
                     <p class="text-xs text-gray-300">Rambut</p>
-                    <button onclick="playAudio('شَعْرٌ')" class="w-full py-1 bg-teal-800 text-cyan-200 text-[10px] rounded-lg hover:bg-teal-700">🔊 Dengarkan Fusha</button>
+                    <button class="w-full py-1 bg-teal-800 text-cyan-200 text-[10px] rounded-lg hover:bg-teal-700 pointer-events-none">🔊 Klik Dengarkan</button>
                 </div>
+
                 <!-- 3. Mata -->
-                <div class="p-4 bg-teal-950/40 rounded-2xl border border-teal-700/40 text-center space-y-2 hover:border-cyan-400 transition">
-                    <div class="text-4xl">👁️</div>
+                <div onclick="playAudio('عَيْنٌ')" class="p-4 bg-teal-950/40 rounded-2xl border border-teal-700/40 text-center space-y-2 hover:border-cyan-400 cursor-pointer transition transform hover:-translate-y-1 shadow-lg">
+                    <div class="text-5xl select-none">👁️</div>
                     <p class="arabic-text text-2xl font-bold text-cyan-100">عَيْنٌ</p>
                     <p class="text-xs text-teal-300 font-bold">'ainun (a-i-nun)</p>
                     <p class="text-xs text-gray-300">Mata</p>
-                    <button onclick="playAudio('عَيْنٌ')" class="w-full py-1 bg-teal-800 text-cyan-200 text-[10px] rounded-lg hover:bg-teal-700">🔊 Dengarkan Fusha</button>
+                    <button class="w-full py-1 bg-teal-800 text-cyan-200 text-[10px] rounded-lg hover:bg-teal-700 pointer-events-none">🔊 Klik Dengarkan</button>
                 </div>
+
                 <!-- 4. Hidung -->
-                <div class="p-4 bg-teal-950/40 rounded-2xl border border-teal-700/40 text-center space-y-2 hover:border-cyan-400 transition">
-                    <div class="text-4xl">👃</div>
+                <div onclick="playAudio('أَنْفٌ')" class="p-4 bg-teal-950/40 rounded-2xl border border-teal-700/40 text-center space-y-2 hover:border-cyan-400 cursor-pointer transition transform hover:-translate-y-1 shadow-lg">
+                    <div class="text-5xl select-none">👃</div>
                     <p class="arabic-text text-2xl font-bold text-cyan-100">أَنْفٌ</p>
                     <p class="text-xs text-teal-300 font-bold">'anfun (a-n-fun)</p>
                     <p class="text-xs text-gray-300">Hidung</p>
-                    <button onclick="playAudio('أَنْفٌ')" class="w-full py-1 bg-teal-800 text-cyan-200 text-[10px] rounded-lg hover:bg-teal-700">🔊 Dengarkan Fusha</button>
+                    <button class="w-full py-1 bg-teal-800 text-cyan-200 text-[10px] rounded-lg hover:bg-teal-700 pointer-events-none">🔊 Klik Dengarkan</button>
                 </div>
+
                 <!-- 5. Mulut -->
-                <div class="p-4 bg-teal-950/40 rounded-2xl border border-teal-700/40 text-center space-y-2 hover:border-cyan-400 transition">
-                    <div class="text-4xl">👄</div>
+                <div onclick="playAudio('فَمٌ')" class="p-4 bg-teal-950/40 rounded-2xl border border-teal-700/40 text-center space-y-2 hover:border-cyan-400 cursor-pointer transition transform hover:-translate-y-1 shadow-lg">
+                    <div class="text-5xl select-none">👄</div>
                     <p class="arabic-text text-2xl font-bold text-cyan-100">فَمٌ</p>
                     <p class="text-xs text-teal-300 font-bold">famun (fa-mun)</p>
                     <p class="text-xs text-gray-300">Mulut</p>
-                    <button onclick="playAudio('فَمٌ')" class="w-full py-1 bg-teal-800 text-cyan-200 text-[10px] rounded-lg hover:bg-teal-700">🔊 Dengarkan Fusha</button>
+                    <button class="w-full py-1 bg-teal-800 text-cyan-200 text-[10px] rounded-lg hover:bg-teal-700 pointer-events-none">🔊 Klik Dengarkan</button>
                 </div>
+
                 <!-- 6. Telinga -->
-                <div class="p-4 bg-teal-950/40 rounded-2xl border border-teal-700/40 text-center space-y-2 hover:border-cyan-400 transition">
-                    <div class="text-4xl">👂</div>
+                <div onclick="playAudio('أُذُنٌ')" class="p-4 bg-teal-950/40 rounded-2xl border border-teal-700/40 text-center space-y-2 hover:border-cyan-400 cursor-pointer transition transform hover:-translate-y-1 shadow-lg">
+                    <div class="text-5xl select-none">👂</div>
                     <p class="arabic-text text-2xl font-bold text-cyan-100">أُذُنٌ</p>
                     <p class="text-xs text-teal-300 font-bold">'uzunun (u-zu-nun)</p>
                     <p class="text-xs text-gray-300">Telinga</p>
-                    <button onclick="playAudio('أُذُنٌ')" class="w-full py-1 bg-teal-800 text-cyan-200 text-[10px] rounded-lg hover:bg-teal-700">🔊 Dengarkan Fusha</button>
+                    <button class="w-full py-1 bg-teal-800 text-cyan-200 text-[10px] rounded-lg hover:bg-teal-700 pointer-events-none">🔊 Klik Dengarkan</button>
                 </div>
+
                 <!-- 7. Tangan -->
-                <div class="p-4 bg-teal-950/40 rounded-2xl border border-teal-700/40 text-center space-y-2 hover:border-cyan-400 transition">
-                    <div class="text-4xl">✋</div>
+                <div onclick="playAudio('يَدٌ')" class="p-4 bg-teal-950/40 rounded-2xl border border-teal-700/40 text-center space-y-2 hover:border-cyan-400 cursor-pointer transition transform hover:-translate-y-1 shadow-lg">
+                    <div class="text-5xl select-none">✋</div>
                     <p class="arabic-text text-2xl font-bold text-cyan-100">يَدٌ</p>
                     <p class="text-xs text-teal-300 font-bold">yadun (ya-dun)</p>
                     <p class="text-xs text-gray-300">Tangan</p>
-                    <button onclick="playAudio('يَدٌ')" class="w-full py-1 bg-teal-800 text-cyan-200 text-[10px] rounded-lg hover:bg-teal-700">🔊 Dengarkan Fusha</button>
+                    <button class="w-full py-1 bg-teal-800 text-cyan-200 text-[10px] rounded-lg hover:bg-teal-700 pointer-events-none">🔊 Klik Dengarkan</button>
                 </div>
+
                 <!-- 8. Kaki -->
-                <div class="p-4 bg-teal-950/40 rounded-2xl border border-teal-700/40 text-center space-y-2 hover:border-cyan-400 transition">
-                    <div class="text-4xl">🦶</div>
+                <div onclick="playAudio('رِجْلٌ')" class="p-4 bg-teal-950/40 rounded-2xl border border-teal-700/40 text-center space-y-2 hover:border-cyan-400 cursor-pointer transition transform hover:-translate-y-1 shadow-lg">
+                    <div class="text-5xl select-none">🦶</div>
                     <p class="arabic-text text-2xl font-bold text-cyan-100">رِجْلٌ</p>
                     <p class="text-xs text-teal-300 font-bold">rijlun (ri-j-lun)</p>
                     <p class="text-xs text-gray-300">Kaki</p>
-                    <button onclick="playAudio('رِجْلٌ')" class="w-full py-1 bg-teal-800 text-cyan-200 text-[10px] rounded-lg hover:bg-teal-700">🔊 Dengarkan Fusha</button>
+                    <button class="w-full py-1 bg-teal-800 text-cyan-200 text-[10px] rounded-lg hover:bg-teal-700 pointer-events-none">🔊 Klik Dengarkan</button>
                 </div>
             </div>
         </div>
@@ -1208,16 +1217,16 @@
         // Voice Synthesizer Bahasa Arab Fusha Asli
         function playAudio(arabicText) {
             if ('speechSynthesis' in window) {
-                // Hentikan suara yang sedang berjalan sebelumnya
+                // Hentikan antrean audio sebelumnya
                 window.speechSynthesis.cancel();
 
                 const utterance = new SpeechSynthesisUtterance(arabicText);
-                utterance.lang = 'ar-SA'; // Memaksa bahasa Arab standar (Fusha)
-                utterance.rate = 0.8;    // Tempo agak lambat agar jelas bagi siswa SD
+                utterance.lang = 'ar-SA'; // Bahasa Arab Fusha Standar
+                utterance.rate = 0.85;   // Kecepatan pelafalan yang fasih & jelas untuk siswa SD
 
-                // Cari dan prioritaskan mesin suara khusus Arab Fusha pada sistem browser
+                // Cari dan prioritaskan mesin suara Arab Fusha bawaan browser
                 const voices = window.speechSynthesis.getVoices();
-                const arVoice = voices.find(v => v.lang.startsWith('ar'));
+                const arVoice = voices.find(v => v.lang.startsWith('ar') || v.lang === 'ar-SA');
                 if (arVoice) {
                     utterance.voice = arVoice;
                 }
@@ -1228,7 +1237,7 @@
             }
         }
 
-        // Memastikan daftar voice pada browser siap digunakan
+        // Memastikan daftar voice pada browser terisi saat halaman dimuat
         if ('speechSynthesis' in window) {
             window.speechSynthesis.onvoiceschanged = () => {
                 window.speechSynthesis.getVoices();
