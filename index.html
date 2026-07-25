@@ -116,7 +116,7 @@
             <span class="text-xs tracking-widest font-bold text-cyan-400 group-hover:text-cyan-300">MAZDANY.OS</span>
         </div>
 
-        <!-- Tombol Menu Navbar Sesuai Urutan Baru -->
+        <!-- Tombol Menu Navbar -->
         <div class="flex flex-wrap justify-center gap-1.5 sm:gap-2">
             <button onclick="switchPortal('home')" id="btn-portal-home" class="nav-tab active px-2.5 py-1.5 rounded-lg border border-teal-600 text-[11px] font-semibold tracking-wider transition-all">
                 <i class="fa-solid fa-house mr-1"></i> DASHBOARD
@@ -147,7 +147,6 @@
     <!-- TAMPILAN AWAL: LUMIA METRO DASHBOARD (6 MENU UTAMA) -->
     <!-- ================================================================= -->
     <div id="portal-home" class="w-full max-w-5xl space-y-8 py-4">
-        <!-- Header Avatar Platform -->
         <div class="text-center space-y-3">
             <div class="relative w-24 h-24 mx-auto mb-2">
                 <div class="w-full h-full rounded-full border-4 border-cyan-500 overflow-hidden bg-white shadow-[0_0_20px_rgba(34,211,238,0.5)] flex items-center justify-center">
@@ -159,9 +158,8 @@
             <p class="text-emerald-400 text-xs sm:text-sm font-medium">Pilih salah satu portal di bawah ini untuk mengakses layanan digital lengkap.</p>
         </div>
 
-        <!-- Ubin Windows 10 / Lumia Grid 6 Menu Utama -->
+        <!-- Lumia Grid 6 Menu Utama -->
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 pt-2">
-            <!-- Tile 1: Al-Islam -->
             <div onclick="switchPortal('al-islam')" class="metro-tile p-6 rounded-2xl cursor-pointer flex flex-col justify-between h-48 border-emerald-500/40">
                 <div class="flex items-center justify-between">
                     <span class="w-12 h-12 bg-emerald-950/80 rounded-xl flex items-center justify-center text-emerald-300 text-2xl border border-emerald-500/30">
@@ -175,7 +173,6 @@
                 </div>
             </div>
 
-            <!-- Tile 2: Bahasa Arab -->
             <div onclick="switchPortal('bahasa-arab')" class="metro-tile p-6 rounded-2xl cursor-pointer flex flex-col justify-between h-48 border-teal-500/40">
                 <div class="flex items-center justify-between">
                     <span class="w-12 h-12 bg-teal-950/80 rounded-xl flex items-center justify-center text-teal-300 text-2xl border border-teal-500/30">
@@ -189,21 +186,19 @@
                 </div>
             </div>
 
-            <!-- Tile 3: Masjid Subardi (Menu Baru) -->
             <div onclick="switchPortal('masjid')" class="metro-tile p-6 rounded-2xl cursor-pointer flex flex-col justify-between h-48 border-amber-500/40">
                 <div class="flex items-center justify-between">
                     <span class="w-12 h-12 bg-amber-950/80 rounded-xl flex items-center justify-center text-amber-300 text-2xl border border-amber-500/30">
                         <i class="fa-solid fa-mosque"></i>
                     </span>
-                    <span class="text-[10px] font-bold text-amber-300 bg-amber-950 px-2.5 py-1 rounded-full uppercase border border-amber-500/30">Menu Baru</span>
+                    <span class="text-[10px] font-bold text-amber-300 bg-amber-950 px-2.5 py-1 rounded-full uppercase border border-amber-500/30">Profil Lengkap</span>
                 </div>
                 <div>
                     <h3 class="text-lg font-bold text-white tracking-wide">MASJID SUBARDI AL HUDA</h3>
-                    <p class="text-xs text-gray-300 mt-1">Profil Sejarah, Imam/Muadzin, Pengurus Takmir, Jadwal Shalat & Program.</p>
+                    <p class="text-xs text-gray-300 mt-1">Sejarah, Takmir Lengkap, Imam/Muadzin, Program 3 Pilar & Social Care.</p>
                 </div>
             </div>
 
-            <!-- Tile 4: Shafwa University -->
             <div onclick="switchPortal('shafwa')" class="metro-tile p-6 rounded-2xl cursor-pointer flex flex-col justify-between h-48 border-sky-500/40">
                 <div class="flex items-center justify-between">
                     <span class="w-12 h-12 bg-sky-950/80 rounded-xl flex items-center justify-center text-sky-300 text-2xl border border-sky-500/30">
@@ -217,7 +212,6 @@
                 </div>
             </div>
 
-            <!-- Tile 5: Perangkat AI -->
             <div onclick="switchPortal('guru')" class="metro-tile p-6 rounded-2xl cursor-pointer flex flex-col justify-between h-48 border-cyan-500/40">
                 <div class="flex items-center justify-between">
                     <span class="w-12 h-12 bg-cyan-950/80 rounded-xl flex items-center justify-center text-cyan-300 text-2xl border border-cyan-500/30">
@@ -231,7 +225,6 @@
                 </div>
             </div>
 
-            <!-- Tile 6: Game Edu -->
             <div onclick="switchPortal('game-edu')" class="metro-tile p-6 rounded-2xl cursor-pointer flex flex-col justify-between h-48 border-indigo-500/40">
                 <div class="flex items-center justify-between">
                     <span class="w-12 h-12 bg-indigo-950/80 rounded-xl flex items-center justify-center text-indigo-300 text-2xl border border-indigo-500/30">
@@ -263,15 +256,6 @@
             </div>
         </div>
 
-        <nav class="sticky top-2 z-40 bg-teal-950/90 backdrop-blur-md rounded-2xl p-2 border border-teal-500/30 shadow-lg flex flex-wrap items-center justify-center gap-1 sm:gap-2 text-xs font-bold uppercase tracking-wider text-cyan-300">
-            <a href="#intro" class="sub-nav active px-3 py-2 rounded-xl transition">1. Fondasi Aqidah</a>
-            <a href="#pemantik" class="sub-nav px-3 py-2 rounded-xl transition">2. Pemantik & Surah</a>
-            <a href="#kandungan" class="sub-nav px-3 py-2 rounded-xl transition">3. Tafsir & Mizan</a>
-            <a href="#penerapan" class="sub-nav px-3 py-2 rounded-xl transition">4. Amalan & Tugas</a>
-            <a href="#evaluasi" class="sub-nav px-3 py-2 rounded-xl transition">5. Ujian & Refleksi</a>
-        </nav>
-
-        <!-- BAGIAN 1: FONDASI AQIDAH -->
         <header id="intro" class="space-y-8">
             <div class="bg-teal-950/60 rounded-[2.5rem] p-6 md:p-10 text-white shadow-2xl relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-6 border border-teal-500/30">
                 <div class="space-y-3 max-w-2xl">
@@ -282,7 +266,7 @@
                         Fondasi Aqidah: Mengenal Allah Melalui 3 Pilar Tauhid & Muroqobah
                     </h2>
                     <p class="text-gray-300 text-xs md:text-sm leading-relaxed">
-                        Memahami pentingnya menancapkan akar aqidah yang kuat, mengenal Allah melalui 3 Pilar Tauhid, dan melahirkan sikap Muroqobah (merasa selalu diawasi Allah SWT).
+                        Memahami pentingnya menancapkan akar aqidah yang kuat, mengenal Allah melalui 3 Pilar Tauhid, dan melahirkan sikap Muroqobah.
                     </p>
                 </div>
                 <div class="text-6xl bg-teal-900/40 p-6 rounded-[2rem] border border-teal-500/20 shrink-0 shadow-inner">🌳</div>
@@ -296,69 +280,11 @@
                         <p class="text-xs text-teal-400 font-medium">Mengapa Aqidah Harus Kuat Seperti Akar Pohon?</p>
                     </div>
                 </div>
-
-                <div class="text-xs text-gray-300 leading-relaxed space-y-3">
-                    <p>Anak-anakku sekalian, coba bayangkan sebuah pohon yang sangat besar dan rindang. Pohon itu punya daun yang hijau, buah yang manis, dan dahan yang kokoh.</p>
-                    <div class="p-3 bg-teal-900/40 rounded-xl border border-teal-700/50 text-cyan-200 italic font-semibold">
-                        "Pertanyaannya: Apa yang membuat pohon itu tetap berdiri tegak saat diterpa angin kencang atau hujan deras? Jawabannya adalah Akar yang Kuat di dalam tanah."
-                    </div>
-                    <p>Ibadah kita—seperti shalat, puasa, bersedekah, dan jujur—adalah seperti <strong>buah dan daun</strong> dari pohon tersebut. Sedangkan <strong>Aqidah (Tauhid/Keyakinan kepada Allah) adalah Akarnya</strong>.</p>
-                    <p class="bg-emerald-950/60 p-3 rounded-xl border border-emerald-500/30 text-emerald-300 font-medium">
-                        ✨ Jika akarnya kuat dan menancap dalam, maka ibadah lainnya akan tumbuh dengan indah, kuat, dan tidak mudah goyah. Sebaliknya, jika akarnya lemah, pohon itu akan mudah tumbang walau hanya ditiup angin kecil.
-                    </p>
-                </div>
-            </div>
-
-            <!-- Mengenal Allah Melalui 3 Pilar Tauhid -->
-            <div class="space-y-4">
-                <div class="text-center space-y-1">
-                    <h3 class="text-xl font-bold text-cyan-300">Mengenal Allah Melalui 3 Pilar Tauhid</h3>
-                    <p class="text-xs text-gray-400">Bagaimana cara kita menguatkan akar aqidah tersebut? Kita harus mengenal Allah melalui tiga hal mendasar:</p>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <div class="bg-teal-950/60 p-5 rounded-2xl border border-teal-700/40 space-y-2 hover:border-cyan-400 transition">
-                        <div class="w-10 h-10 bg-cyan-900/60 text-cyan-300 rounded-xl flex items-center justify-center font-bold text-lg mb-2">1</div>
-                        <h4 class="font-bold text-cyan-300 text-sm">Tauhid Rububiyah</h4>
-                        <p class="text-[11px] text-teal-400 font-semibold">Keyakinan akan Keagungan Allah sebagai Pencipta</p>
-                        <p class="text-xs text-gray-300 leading-relaxed">
-                            Kalian harus yakin bahwa Allah-lah yang menciptakan diri kita, langit, bumi, dan seluruh isinya. Allah yang memberi kita napas, makanan, dan kesehatan.
-                        </p>
-                    </div>
-
-                    <div class="bg-teal-950/60 p-5 rounded-2xl border border-teal-700/40 space-y-2 hover:border-cyan-400 transition">
-                        <div class="w-10 h-10 bg-cyan-900/60 text-cyan-300 rounded-xl flex items-center justify-center font-bold text-lg mb-2">2</div>
-                        <h4 class="font-bold text-cyan-300 text-sm">Tauhid Uluhiyah</h4>
-                        <p class="text-[11px] text-teal-400 font-semibold">Mengesakan Allah dalam Ibadah</p>
-                        <p class="text-xs text-gray-300 leading-relaxed">
-                            Karena Allah yang menciptakan dan merawat kita, maka hanya Allah satu-satunya yang berhak disembah semata-mata karena tunduk dan bersyukur.
-                        </p>
-                    </div>
-
-                    <div class="bg-teal-950/60 p-5 rounded-2xl border border-teal-700/40 space-y-2 hover:border-cyan-400 transition">
-                        <div class="w-10 h-10 bg-cyan-900/60 text-cyan-300 rounded-xl flex items-center justify-center font-bold text-lg mb-2">3</div>
-                        <h4 class="font-bold text-cyan-300 text-sm">Tauhid Asma wa Sifat</h4>
-                        <p class="text-[11px] text-teal-400 font-semibold">Mengenal Nama dan Sifat Allah</p>
-                        <p class="text-xs text-gray-300 leading-relaxed">
-                            Allah memiliki nama-nama yang indah (Asmaul Husna). Allah Maha Melihat (<strong>Al-Bashir</strong>), Maha Mendengar (<strong>Al-Sami'</strong>), dan Maha Mengetahui.
-                        </p>
-                    </div>
-                </div>
+                <p class="text-xs text-gray-300 leading-relaxed">
+                    Ibadah kita—seperti shalat, puasa, bersedekah, dan jujur—adalah seperti <strong>buah dan daun</strong>. Sedangkan <strong>Aqidah (Tauhid/Keyakinan kepada Allah) adalah Akarnya</strong>.
+                </p>
             </div>
         </header>
-
-        <!-- SURAH AZ-ZALZALAH & EVALUASI -->
-        <section id="pemantik" class="space-y-6 pt-6 border-t border-teal-900/50">
-            <div class="bg-teal-950/80 rounded-3xl p-6 md:p-8 border border-teal-500/30 space-y-4">
-                <h3 class="text-2xl font-bold text-cyan-300 text-center">Surah Az-Zalzalah (سُورَةُ الزَّلْزَلَةِ)</h3>
-                <p class="arabic-text text-xl font-bold text-cyan-200 text-center">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p>
-                <div class="space-y-3 text-xs">
-                    <p class="text-gray-300">1. إِذَا زُلْزِلَتِ الْأَرْضُ زِلْزَالَهَا - "Apabila bumi digoncangkan dengan goncangan yang dahsyat."</p>
-                    <p class="text-gray-300">2. وَأَخْرَجَتِ الْأَرْضُ أَثْقَالَهَا - "Dan bumi telah mengeluarkan beban-beban berat (yang dikandung)nya."</p>
-                    <p class="text-emerald-300">7. فَمَنْ يَعْمَلْ مِثْقَالَ ذَرَّةٍ خَيْرًا يَرَهُ - "Maka barangsiapa mengerjakan kebaikan seberat dzarrah pun, niscaya dia akan melihat (balasan)nya."</p>
-                </div>
-            </div>
-        </section>
     </div>
 
 
@@ -383,23 +309,13 @@
                     <p class="arabic-text text-2xl font-bold text-cyan-100">عَيْنٌ</p>
                     <p class="text-xs text-teal-300 font-bold">'ainun (Mata)</p>
                 </div>
-                <div onclick="playAudio('yadun.aac', this)" class="p-4 bg-teal-950/40 rounded-2xl border border-teal-700/40 text-center space-y-2 hover:border-cyan-400 cursor-pointer transition shadow-lg">
-                    <div class="text-5xl">✋</div>
-                    <p class="arabic-text text-2xl font-bold text-cyan-100">يَدٌ</p>
-                    <p class="text-xs text-teal-300 font-bold">yadun (Tangan)</p>
-                </div>
-                <div onclick="playAudio('rijlun.aac', this)" class="p-4 bg-teal-950/40 rounded-2xl border border-teal-700/40 text-center space-y-2 hover:border-cyan-400 cursor-pointer transition shadow-lg">
-                    <div class="text-5xl">🦶</div>
-                    <p class="arabic-text text-2xl font-bold text-cyan-100">رِجْلٌ</p>
-                    <p class="text-xs text-teal-300 font-bold">rijlun (Kaki)</p>
-                </div>
             </div>
         </div>
     </div>
 
 
     <!-- ================================================================= -->
-    <!-- MENU 3: MASJID SUBARDI AL HUDA KUWON (MENU BARU LENGKAP) -->
+    <!-- MENU 3: MASJID SUBARDI AL HUDA KUWON (KONTEN SUPER DETAIL & SANGAT PANJANG) -->
     <!-- ================================================================= -->
     <div id="portal-masjid" class="w-full max-w-5xl hidden space-y-8">
         <button onclick="switchPortal('home')" class="text-xs font-bold text-cyan-400 hover:text-cyan-300 flex items-center gap-2 bg-teal-950 px-3 py-1.5 rounded-lg border border-teal-800 w-fit">
@@ -410,89 +326,175 @@
         <div class="bg-teal-950/80 rounded-[2.5rem] p-6 md:p-10 text-white border border-teal-500/30 shadow-2xl relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-6">
             <div class="space-y-3 max-w-2xl">
                 <span class="bg-amber-950 text-amber-300 border border-amber-500/40 text-xs font-bold px-3.5 py-1.5 rounded-full uppercase tracking-wider inline-block">
-                    📍 Tembesi, Ponjong, Gunungkidul, DIY
+                    📍 Tembesi RT/RW 01/10, Ponjong, Gunungkidul, DIY
                 </span>
                 <h2 class="text-2xl md:text-4xl font-extrabold text-cyan-300">MASJID SUBARDI AL-HUDA KUWON</h2>
                 <p class="text-xs sm:text-sm text-gray-300 leading-relaxed">
-                    Pusat Ibadah, Dakwah, Pendidikan, & Pemberdayaan Umat Berkemajuan Berbasis Keputusan Tarjih Muhammadiyah. Luas Tanah Wakaf: 1.342 m² | Luas Bangunan: 471.50 m².
+                    Pusat Ibadah, Dakwah, Pendidikan, & Pemberdayaan Umat Berkemajuan Berpahamkan Muhammadiyah. Luas Tanah Wakaf: 1.342 m² | Luas Bangunan: 471.50 m².
                 </p>
             </div>
-            <div class="w-24 h-24 bg-teal-900/50 rounded-3xl flex items-center justify-center text-amber-400 text-5xl border border-amber-500/30 shrink-0">
+            <div class="w-24 h-24 bg-teal-900/50 rounded-3xl flex items-center justify-center text-amber-400 text-5xl border border-amber-500/30 shrink-0 shadow-inner">
                 🕌
             </div>
         </div>
 
-        <!-- Sub-Navigasi Menu Masjid Subardi -->
-        <div class="bg-teal-950/90 p-2 rounded-2xl border border-teal-500/30 flex flex-wrap justify-center gap-1.5 text-xs font-bold uppercase tracking-wider text-cyan-300">
-            <button onclick="switchMasjidSubTab('profil')" id="btn-m-profil" class="sub-nav active px-3 py-2 rounded-xl transition">1. Profil & Sejarah</button>
-            <button onclick="switchMasjidSubTab('pengurus')" id="btn-m-pengurus" class="sub-nav px-3 py-2 rounded-xl transition">2. Takmir & Pengurus</button>
-            <button onclick="switchMasjidSubTab('imam')" id="btn-m-imam" class="sub-nav px-3 py-2 rounded-xl transition">3. Imam & Muadzin</button>
-            <button onclick="switchMasjidSubTab('jadwal')" id="btn-m-jadwal" class="sub-nav px-3 py-2 rounded-xl transition">4. Jadwal Shalat & Jamaah</button>
-            <button onclick="switchMasjidSubTab('program')" id="btn-m-program" class="sub-nav px-3 py-2 rounded-xl transition">5. Program Unggulan</button>
+        <!-- Sub-Navigasi Menu Utama Masjid -->
+        <div class="bg-teal-950/90 p-2 rounded-2xl border border-teal-500/30 flex flex-wrap justify-center gap-1.5 text-xs font-bold uppercase tracking-wider text-cyan-300 shadow-xl">
+            <button onclick="switchMasjidSubTab('profil')" id="btn-m-profil" class="sub-nav active px-3.5 py-2 rounded-xl transition">1. Profil & Legalitas</button>
+            <button onclick="switchMasjidSubTab('takmir')" id="btn-m-takmir" class="sub-nav px-3.5 py-2 rounded-xl transition">2. Struktur Takmir Lengkap</button>
+            <button onclick="switchMasjidSubTab('personalia')" id="btn-m-personalia" class="sub-nav px-3.5 py-2 rounded-xl transition">3. Imam, Muadzin & Marbot</button>
+            <button onclick="switchMasjidSubTab('pilar')" id="btn-m-pilar" class="sub-nav px-3.5 py-2 rounded-xl transition">4. Program Kerja 3 Pilar</button>
+            <button onclick="switchMasjidSubTab('kemakmuran')" id="btn-m-kemakmuran" class="sub-nav px-3.5 py-2 rounded-xl transition">5. Kemakmuran & Kajian</button>
+            <button onclick="switchMasjidSubTab('sosial')" id="btn-m-sosial" class="sub-nav px-3.5 py-2 rounded-xl transition">6. Sosial, Remaja & Ramah Umat</button>
         </div>
 
-        <!-- SUB-TAB 1: PROFIL & SEJARAH -->
+
+        <!-- SUB-TAB 1: PROFIL & LEGALITAS MASJID -->
         <div id="m-sub-profil" class="space-y-6">
-            <div class="bg-teal-950/60 p-6 rounded-3xl border border-teal-700/40 space-y-4">
-                <h3 class="text-lg font-bold text-cyan-300 flex items-center gap-2">
-                    <i class="fa-solid fa-landmark text-amber-400"></i> Pendahuluan & Status Legalitas Masjid
-                </h3>
-                <p class="text-xs text-gray-300 leading-relaxed">
-                    Masjid Subardi Al-Huda hadir sebagai bagian dari ikhtiar dakwah Islam yang berlandaskan Al-Qur'an dan As-Sunnah sesuai dengan paham agama yang dianut Muhammadiyah di bawah pembinaan PRM Ponjong Timur & PCM Ponjong.
-                </p>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs pt-2">
-                    <div class="p-4 bg-teal-900/40 rounded-2xl border border-teal-700/50 space-y-1">
-                        <span class="text-amber-300 font-bold block">📄 Status Kepemilikan Tanah:</span>
-                        <p class="text-gray-300">Sertifikat Wakaf PP Muhammadiyah No. 00353 (1989) & W:2/01/09/2020. Wakif: Muh. Syahidi & Tumiyati.</p>
-                    </div>
-                    <div class="p-4 bg-teal-900/40 rounded-2xl border border-teal-700/50 space-y-1">
-                        <span class="text-amber-300 font-bold block">🏛️ IMB Tempat Ibadah:</span>
-                        <p class="text-gray-300">Perizinan No: 01/P.IMB.BG/II/2021 diterbitkan Pemkab Gunungkidul tanggal 25 Februari 2021.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- SUB-TAB 2: TAKMIR & PENGURUS -->
-        <div id="m-sub-pengurus" class="hidden space-y-6">
-            <div class="bg-teal-950/60 p-6 rounded-3xl border border-teal-700/40 space-y-4">
-                <div class="border-b border-teal-800/60 pb-3 flex justify-between items-center">
+            <div class="bg-teal-950/60 p-6 md:p-8 rounded-3xl border border-teal-700/40 space-y-6 shadow-xl">
+                <div class="border-b border-teal-800/60 pb-3 flex items-center gap-3">
+                    <span class="text-2xl">📜</span>
                     <div>
-                        <h3 class="text-lg font-bold text-cyan-300">Struktur Pengurus Takmir (2023 - 2025)</h3>
-                        <p class="text-xs text-gray-400">SK PCM Kapanewon Ponjong No. 44/KEP./IV.0/D/2023</p>
+                        <h3 class="text-xl font-bold text-cyan-300">Aspek Manajemen & Status Kepemilikan</h3>
+                        <p class="text-xs text-teal-400">Legalitas resmi Amal Usaha Muhammadiyah (AUM)</p>
                     </div>
-                    <span class="bg-cyan-950 text-cyan-300 border border-cyan-500/30 text-[10px] font-bold px-3 py-1 rounded-full">3 Pilar: Idarah, Imarah, Ri'ayah</span>
                 </div>
 
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+                    <div class="p-4 bg-teal-900/40 rounded-2xl border border-teal-700/50 space-y-2">
+                        <h4 class="font-bold text-amber-300 text-sm">1. Status Kepemilikan & Tanah Wakaf</h4>
+                        <p class="text-gray-300 leading-relaxed">
+                            Beralamat di Tembesi Rt/Rw: 01/10, Ponjong, Ponjong, Gunungkidul, DIY. Status kepemilikan tanah dan bangunan adalah <strong>Wakaf Persyarikatan Muhammadiyah</strong> atas nama Pimpinan Pusat Muhammadiyah.
+                        </p>
+                        <ul class="text-gray-300 space-y-1 list-disc pl-4 pt-1">
+                            <li><strong>Luas Tanah:</strong> 1.342 m²</li>
+                            <li><strong>Luas Bangunan:</strong> 471.50 m²</li>
+                            <li><strong>Sertifikat Wakaf 1:</strong> No. W2/10/9/89 (1 Des 1989), No. Sertifikat 00353, Wakif: Muh. Syahidi.</li>
+                            <li><strong>Sertifikat Wakaf 2:</strong> No. W:2/01/09/2020 (18 Juni 2020), Wakif: Tumiyati.</li>
+                        </ul>
+                    </div>
+
+                    <div class="p-4 bg-teal-900/40 rounded-2xl border border-teal-700/50 space-y-2">
+                        <h4 class="font-bold text-amber-300 text-sm">2. IMB Tempat Ibadah & Pembinaan</h4>
+                        <p class="text-gray-300 leading-relaxed">
+                            Memiliki dokumen perizinan resmi Persetujuan Bangunan Gedung (PBG) No: <strong>01/P.IMB.BG/II/2021</strong> yang diterbitkan oleh Dinas Penanaman Modal dan Pelayanan Terpadu Kabupaten Gunungkidul pada tanggal 25 Februari 2021.
+                        </p>
+                        <p class="text-gray-300 leading-relaxed pt-1">
+                            <strong>Pembinaan Kelembagaan:</strong> Di bawah pembinaan Pimpinan Ranting Muhammadiyah (PRM) Ponjong Timur dan Pimpinan Cabang Muhammadiyah (PCM) Ponjong.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="p-4 bg-cyan-950/80 rounded-2xl border border-cyan-500/40 text-xs text-gray-300 space-y-2">
+                    <h4 class="font-bold text-cyan-300">Integrasi Keuangan Lazismu & Administrasi Terdokumentasi</h4>
+                    <p class="leading-relaxed">
+                        Pengelolaan dana zakat, infak, dan sedekah terintegrasi dengan <strong>Lazismu</strong> untuk transparansi penuh. Administrasi masjid dikelola tertib meliputi: Buku Tamu, Buku Inventaris, Buku Kas Masjid, Arsip Surat Masuk/Keluar, Notulen Rapat, Data Jamaah, & Peta Wilayah.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- SUB-TAB 2: STRUKTUR TAKMIR LENGKAP (PERIODE 2023 - 2025) -->
+        <div id="m-sub-takmir" class="hidden space-y-6">
+            <div class="bg-teal-950/60 p-6 md:p-8 rounded-3xl border border-teal-700/40 space-y-6 shadow-xl">
+                <div class="border-b border-teal-800/60 pb-3 flex justify-between items-center flex-wrap gap-2">
+                    <div>
+                        <h3 class="text-xl font-bold text-cyan-300">Susunan Pengurus Takmir Masjid Subardi Al-Huda</h3>
+                        <p class="text-xs text-gray-400">Ditetapkan berdasarkan SK PCM Ponjong No. 44/KEP./IV.0/D/2023 (Masa Bakti 2023-2025)</p>
+                    </div>
+                    <span class="bg-cyan-950 text-cyan-300 border border-cyan-500/30 text-xs font-bold px-3 py-1 rounded-full">Kepengurusan Resmi</span>
+                </div>
+
+                <!-- BPH / Pimpinan Harian -->
                 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 text-xs">
-                    <div class="p-3 bg-teal-900/40 rounded-xl border border-teal-700/40 space-y-1">
-                        <span class="text-amber-300 font-bold block">👤 Pembina:</span>
-                        <p class="text-gray-300">Kasinong, Gadimin, Umarosidi, Sularto</p>
+                    <div class="p-4 bg-amber-950/40 rounded-2xl border border-amber-500/40 space-y-1">
+                        <span class="text-amber-300 font-bold block text-sm">👑 PEMBINA</span>
+                        <p class="text-gray-200">• Kasinong<br>• Gadimin<br>• Umarosidi<br>• Sularto</p>
                     </div>
-                    <div class="p-3 bg-teal-900/40 rounded-xl border border-teal-700/40 space-y-1">
-                        <span class="text-amber-300 font-bold block">👑 Ketua:</span>
-                        <p class="text-gray-300">Ketua I: Faizuz Sa’bani<br>Ketua II: Romdloni</p>
+
+                    <div class="p-4 bg-teal-900/50 rounded-2xl border border-teal-600/50 space-y-1">
+                        <span class="text-cyan-300 font-bold block text-sm">🏛️ KETUA</span>
+                        <p class="text-gray-200"><strong>Ketua I:</strong> Faizuz Sa’bani<br><strong>Ketua II:</strong> Romdloni</p>
                     </div>
-                    <div class="p-3 bg-teal-900/40 rounded-xl border border-teal-700/40 space-y-1">
-                        <span class="text-amber-300 font-bold block">📝 Sekretaris:</span>
-                        <p class="text-gray-300">Sekretaris I: Romadhani Apriyanto<br>Sekretaris II: Arif Hanafi</p>
+
+                    <div class="p-4 bg-teal-900/50 rounded-2xl border border-teal-600/50 space-y-1">
+                        <span class="text-cyan-300 font-bold block text-sm">📝 SEKRETARIS</span>
+                        <p class="text-gray-200"><strong>Sekretaris I:</strong> Romadhani Apriyanto<br><strong>Sekretaris II:</strong> Arif Hanafi</p>
                     </div>
-                    <div class="p-3 bg-teal-900/40 rounded-xl border border-teal-700/40 space-y-1">
-                        <span class="text-amber-300 font-bold block">💰 Bendahara:</span>
-                        <p class="text-gray-300">Bendahara I: Suripto<br>Bendahara II: Suparmi</p>
+
+                    <div class="p-4 bg-teal-900/50 rounded-2xl border border-teal-600/50 space-y-1">
+                        <span class="text-cyan-300 font-bold block text-sm">💰 BENDAHARA</span>
+                        <p class="text-gray-200"><strong>Bendahara I:</strong> Suripto<br><strong>Bendahara II:</strong> Suparmi</p>
+                    </div>
+                </div>
+
+                <!-- Bagian-Bagian Khusus -->
+                <h4 class="text-sm font-bold text-cyan-300 pt-2 border-t border-teal-800/60">Seksi / Bagian-Bagian Kerja Takmir:</h4>
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 text-xs">
+                    <div class="p-3 bg-teal-900/30 rounded-xl border border-teal-800/60">
+                        <span class="text-teal-300 font-bold block">📖 Bagian Pendidikan:</span>
+                        <p class="text-gray-300">Sandi, Surani, Fitri Setyaningsih, Titin Nur Hidayati</p>
+                    </div>
+                    <div class="p-3 bg-teal-900/30 rounded-xl border border-teal-800/60">
+                        <span class="text-teal-300 font-bold block">🕌 Bagian Peribadatan:</span>
+                        <p class="text-gray-300">Masruri Abdullah, Mashudi, Ngatirah, Sulastri</p>
+                    </div>
+                    <div class="p-3 bg-teal-900/30 rounded-xl border border-teal-800/60">
+                        <span class="text-teal-300 font-bold block">🧕 Bagian Keputrian:</span>
+                        <p class="text-gray-300">Istikhanah, Darul Muhlishoh, Suparti, Saniyem</p>
+                    </div>
+                    <div class="p-3 bg-teal-900/30 rounded-xl border border-teal-800/60">
+                        <span class="text-teal-300 font-bold block">⚽ Pemuda & Remaja Masjid:</span>
+                        <p class="text-gray-300">Dian Adi Saputra, Faisal Nur Rohmad, Zahra Fauziah, Hanif Ma’rifatullah</p>
+                    </div>
+                    <div class="p-3 bg-teal-900/30 rounded-xl border border-teal-800/60">
+                        <span class="text-teal-300 font-bold block">🛠️ Fisik & Sarpras:</span>
+                        <p class="text-gray-300">Lilik Safari, Budiman Setya Nugraha, Wakinan, Urhadi Muntaha</p>
+                    </div>
+                    <div class="p-3 bg-teal-900/30 rounded-xl border border-teal-800/60">
+                        <span class="text-teal-300 font-bold block">📡 Penyiaran & Publikasi:</span>
+                        <p class="text-gray-300">Ganef Dwi Yudono, M. Dewa Anugerah, Bagus Sayekti, Sigit Cahyo Nugroho</p>
+                    </div>
+                    <div class="p-3 bg-teal-900/30 rounded-xl border border-teal-800/60">
+                        <span class="text-teal-300 font-bold block">🪦 Makam & Rukti Jenazah:</span>
+                        <p class="text-gray-300">Bilal Fajari, Giyatno, Paijo, Suparno</p>
+                    </div>
+                    <div class="p-3 bg-teal-900/30 rounded-xl border border-teal-800/60">
+                        <span class="text-teal-300 font-bold block">👵 Bagian Lansia:</span>
+                        <p class="text-gray-300">Zakaria Kurniawan, Tupiyati, Umi Habibah, Wartini</p>
+                    </div>
+                    <div class="p-3 bg-teal-900/30 rounded-xl border border-teal-800/60">
+                        <span class="text-teal-300 font-bold block">🏥 Bagian Kesehatan:</span>
+                        <p class="text-gray-300">Hari Adi Saptana, Ari Hasanah, Dwi Nunung Wijayanti, Bayu Krisna Wibawa</p>
+                    </div>
+                    <div class="p-3 bg-teal-900/30 rounded-xl border border-teal-800/60">
+                        <span class="text-teal-300 font-bold block">🏪 Usaha Kemakmuran (BUKM):</span>
+                        <p class="text-gray-300">Anang Sutrisno, Wanuria, Ahmad Sunardi, Wardi</p>
+                    </div>
+                    <div class="p-3 bg-teal-900/30 rounded-xl border border-teal-800/60">
+                        <span class="text-teal-300 font-bold block">🧹 Kebersihan & Keindahan:</span>
+                        <p class="text-gray-300">Istikomah, Suyanto, Suwarni, Badroni, Dede Nirwan</p>
+                    </div>
+                    <div class="p-3 bg-teal-900/30 rounded-xl border border-teal-800/60">
+                        <span class="text-teal-300 font-bold block">🛡️ Bagian Keamanan:</span>
+                        <p class="text-gray-300">Totok Sujarwanto, Sugiyarto, Dwi Winarno, Widodo</p>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- SUB-TAB 3: IMAM & MUADZIN -->
-        <div id="m-sub-imam" class="hidden space-y-6">
+
+        <!-- SUB-TAB 3: PERSONALIA (IMAM, MUADZIN & MARBOT) -->
+        <div id="m-sub-personalia" class="hidden space-y-6">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
-                <div class="bg-teal-950/60 p-5 rounded-2xl border border-teal-700/40 space-y-2">
-                    <div class="text-2xl text-cyan-300"><i class="fa-solid fa-user-tie"></i></div>
+                <div class="bg-teal-950/60 p-5 rounded-2xl border border-teal-700/40 space-y-3 shadow-lg">
+                    <div class="w-10 h-10 bg-cyan-900/60 text-cyan-300 rounded-xl flex items-center justify-center text-xl font-bold">👳‍♂️</div>
                     <h4 class="font-bold text-cyan-300 text-sm">Imam Tetap Masjid</h4>
-                    <ul class="text-gray-300 space-y-1 list-disc pl-4">
+                    <p class="text-gray-300 leading-relaxed">
+                        Memimpin salat berjamaah serta memberikan keteladanan ibadah harian jamaah:
+                    </p>
+                    <ul class="text-gray-200 space-y-1 list-disc pl-4 font-semibold">
                         <li>Ust. Bilal Jora Maulana</li>
                         <li>Romadhani Apriyanto</li>
                         <li>Faizuz Sa’bani</li>
@@ -500,10 +502,13 @@
                     </ul>
                 </div>
 
-                <div class="bg-teal-950/60 p-5 rounded-2xl border border-teal-700/40 space-y-2">
-                    <div class="text-2xl text-amber-300"><i class="fa-solid fa-bullhorn"></i></div>
-                    <h4 class="font-bold text-cyan-300 text-sm">Daftar Muadzin</h4>
-                    <ul class="text-gray-300 space-y-1 list-disc pl-4">
+                <div class="bg-teal-950/60 p-5 rounded-2xl border border-teal-700/40 space-y-3 shadow-lg">
+                    <div class="w-10 h-10 bg-amber-900/60 text-amber-300 rounded-xl flex items-center justify-center text-xl font-bold">📢</div>
+                    <h4 class="font-bold text-cyan-300 text-sm">Daftar Muadzin Tetap</h4>
+                    <p class="text-gray-300 leading-relaxed">
+                        Mengumandangkan azan dan iqamah tepat waktu secara bergiliran:
+                    </p>
+                    <ul class="text-gray-200 space-y-1 list-disc pl-4 font-semibold">
                         <li>Mashudi</li>
                         <li>Sugiyatno</li>
                         <li>Alfan</li>
@@ -511,61 +516,190 @@
                     </ul>
                 </div>
 
-                <div class="bg-teal-950/60 p-5 rounded-2xl border border-teal-700/40 space-y-2">
-                    <div class="text-2xl text-emerald-300"><i class="fa-solid fa-broom"></i></div>
-                    <h4 class="font-bold text-cyan-300 text-sm">Marbot Masjid</h4>
-                    <p class="text-gray-300 font-medium">Sugiyatno</p>
-                    <p class="text-[11px] text-gray-400">Bertanggung jawab atas kebersihan, keamanan, dan pemeliharaan sarana ibadah.</p>
+                <div class="bg-teal-950/60 p-5 rounded-2xl border border-teal-700/40 space-y-3 shadow-lg">
+                    <div class="w-10 h-10 bg-emerald-900/60 text-emerald-300 rounded-xl flex items-center justify-center text-xl font-bold">🧹</div>
+                    <h4 class="font-bold text-cyan-300 text-sm">Marbot Tetap Masjid</h4>
+                    <p class="text-gray-300 leading-relaxed">
+                        Penanggung jawab kebersihan, pemeliharaan sarana, dan kesiapan masjid:
+                    </p>
+                    <p class="text-emerald-300 font-extrabold text-sm">Sugiyatno</p>
+                    <p class="text-[11px] text-gray-400">Diangkat berdasarkan SK Takmir Masjid Subardi Al-Huda Kuwon.</p>
                 </div>
             </div>
         </div>
 
-        <!-- SUB-TAB 4: JADWAL SHALAT & JAMAAH -->
-        <div id="m-sub-jadwal" class="hidden space-y-6">
-            <div class="bg-teal-950/60 p-6 rounded-3xl border border-teal-700/40 space-y-4">
-                <h3 class="text-lg font-bold text-cyan-300 text-center">Rata-Rata Makmur Jamaah Shalat Wajib</h3>
-                <div class="grid grid-cols-2 sm:grid-cols-5 gap-3 text-center">
-                    <div class="p-3 bg-teal-900/40 rounded-xl border border-cyan-500/30">
-                        <span class="text-xs text-gray-400 block">SUBUH</span>
-                        <span class="text-lg font-bold text-cyan-300">168 Orang</span>
+
+        <!-- SUB-TAB 4: PROGRAM KERJA 3 PILAR (IDARAH, IMARAH, RI'AYAH) -->
+        <div id="m-sub-pilar" class="hidden space-y-6">
+            <div class="bg-teal-950/60 p-6 md:p-8 rounded-3xl border border-teal-700/40 space-y-6 shadow-xl">
+                <div class="border-b border-teal-800/60 pb-3">
+                    <h3 class="text-xl font-bold text-cyan-300">Pengelolaan Program Berbasis 3 Pilar Kemasjidan</h3>
+                    <p class="text-xs text-gray-400">Idarah (Manajemen), Imarah (Peribadatan), dan Ri'ayah (Pemeliharaan Fisik)</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+                    <div class="p-5 bg-teal-900/40 rounded-2xl border border-teal-700/50 space-y-2">
+                        <h4 class="font-bold text-cyan-300 text-sm flex items-center gap-2"><span>🏛️</span> 1. Bidang Idarah</h4>
+                        <p class="text-teal-300 font-semibold text-[11px]">Manajemen & Administrasi</p>
+                        <ul class="text-gray-300 space-y-1.5 list-disc pl-4">
+                            <li><strong>Penyusunan SOP:</strong> Pelayanan jamaah, inventaris, dan keuangan.</li>
+                            <li><strong>Transparansi Keuangan:</strong> Laporan mingguan dipublikasikan sebelum Khutbah Jumat.</li>
+                            <li><strong>Digitalisasi:</strong> Aplikasi Jamasda, media sosial, dan penayangan No. Rekening saat live streaming.</li>
+                        </ul>
                     </div>
-                    <div class="p-3 bg-teal-900/40 rounded-xl border border-cyan-500/30">
-                        <span class="text-xs text-gray-400 block">ZUHUR</span>
-                        <span class="text-lg font-bold text-cyan-300">80 Orang</span>
+
+                    <div class="p-5 bg-teal-900/40 rounded-2xl border border-teal-700/50 space-y-2">
+                        <h4 class="font-bold text-cyan-300 text-sm flex items-center gap-2"><span>📖</span> 2. Bidang Imarah</h4>
+                        <p class="text-teal-300 font-semibold text-[11px]">Peribadatan & Pembinaan</p>
+                        <ul class="text-gray-300 space-y-1.5 list-disc pl-4">
+                            <li><strong>Pemurnian Aqidah:</strong> Gerakan Tarjih & Tajdid membersihkan dari TBC (Tahayul, Bid'ah, Churafat).</li>
+                            <li><strong>Perkaderan:</strong> Baitul Arqam, Darul Arqam, dan pengajian angkatan muda (Pemuda Muhammadiyah, NA, IPM).</li>
+                            <li><strong>Bimbingan Ibadah:</strong> Kajian tafsir, hadis, dan Kultum Ba'da Subuh.</li>
+                        </ul>
                     </div>
-                    <div class="p-3 bg-teal-900/40 rounded-xl border border-cyan-500/30">
-                        <span class="text-xs text-gray-400 block">ASAR</span>
-                        <span class="text-lg font-bold text-cyan-300">80 Orang</span>
-                    </div>
-                    <div class="p-3 bg-teal-900/40 rounded-xl border border-cyan-500/30">
-                        <span class="text-xs text-gray-400 block">MAGRIB</span>
-                        <span class="text-lg font-bold text-cyan-300">170 Orang</span>
-                    </div>
-                    <div class="p-3 bg-teal-900/40 rounded-xl border border-cyan-500/30 col-span-2 sm:col-span-1">
-                        <span class="text-xs text-gray-400 block">ISYA</span>
-                        <span class="text-lg font-bold text-cyan-300">125 Orang</span>
+
+                    <div class="p-5 bg-teal-900/40 rounded-2xl border border-teal-700/50 space-y-2">
+                        <h4 class="font-bold text-cyan-300 text-sm flex items-center gap-2"><span>🌿</span> 3. Bidang Ri'ayah</h4>
+                        <p class="text-teal-300 font-semibold text-[11px]">Pemeliharaan Fisik & Lingkungan</p>
+                        <ul class="text-gray-300 space-y-1.5 list-disc pl-4">
+                            <li><strong>Pemeliharaan Berkala:</strong> Pembersihan karpet rutin, pengecatan, & tangga khusus pembersih kaca.</li>
+                            <li><strong>Keamanan & CCTV:</strong> Pengadaan CCTV di setiap sudut ruangan & jalan akses masjid.</li>
+                            <li><strong>Ramah Difabel & Lansia:</strong> Akses jalur kursi roda, handrail, 2 unit kursi roda, & 6 kursi salat.</li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- SUB-TAB 5: PROGRAM UNGGULAN -->
-        <div id="m-sub-program" class="hidden space-y-6">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
-                <div class="p-4 bg-teal-950/60 rounded-2xl border border-teal-700/40 space-y-2">
-                    <span class="text-xl">📚</span>
-                    <h4 class="font-bold text-cyan-300">Kajian & Dakwah Digital</h4>
-                    <p class="text-gray-300">Pengajian Ahad Pagi (300 jamaah), Pengajian Kasepuhan, Majelis Tadarus, TV Jamasda, & WA Group.</p>
+
+        <!-- SUB-TAB 5: KEMAKMURAN JAMAAH & KAJIAN RUTIN -->
+        <div id="m-sub-kemakmuran" class="hidden space-y-6">
+            <div class="bg-teal-950/60 p-6 md:p-8 rounded-3xl border border-teal-700/40 space-y-6 shadow-xl">
+                <div class="border-b border-teal-800/60 pb-3 flex justify-between items-center flex-wrap gap-2">
+                    <div>
+                        <h3 class="text-xl font-bold text-cyan-300">Kemakmuran Jamaah & Majelis Kajian Islam</h3>
+                        <p class="text-xs text-gray-400">Data rata-rata kehadiran jamaah & jadwal kajian keislaman</p>
+                    </div>
+                    <span class="bg-emerald-950 text-emerald-300 border border-emerald-500/40 text-xs font-bold px-3 py-1 rounded-full">Amaliah Tarjih</span>
                 </div>
-                <div class="p-4 bg-teal-950/60 rounded-2xl border border-teal-700/40 space-y-2">
-                    <span class="text-xl">🌱</span>
-                    <h4 class="font-bold text-cyan-300">Pemberdayaan Ekonomi & Qurban</h4>
-                    <p class="text-gray-300">Budi daya alpukat (140 peserta), Bibit Pertanian, & Program Gadhuh Qurban (Pemberdayaan peternak).</p>
+
+                <!-- Tabel Makmur Jamaah -->
+                <div class="grid grid-cols-2 sm:grid-cols-5 gap-3 text-center text-xs">
+                    <div class="p-3 bg-teal-900/50 rounded-2xl border border-cyan-500/30">
+                        <span class="text-gray-400 font-bold block">SUBUH</span>
+                        <span class="text-xl font-bold text-cyan-300">168</span> <span class="text-[10px] text-teal-300">orang</span>
+                    </div>
+                    <div class="p-3 bg-teal-900/50 rounded-2xl border border-cyan-500/30">
+                        <span class="text-gray-400 font-bold block">ZUHUR</span>
+                        <span class="text-xl font-bold text-cyan-300">80</span> <span class="text-[10px] text-teal-300">orang</span>
+                    </div>
+                    <div class="p-3 bg-teal-900/50 rounded-2xl border border-cyan-500/30">
+                        <span class="text-gray-400 font-bold block">ASAR</span>
+                        <span class="text-xl font-bold text-cyan-300">80</span> <span class="text-[10px] text-teal-300">orang</span>
+                    </div>
+                    <div class="p-3 bg-teal-900/50 rounded-2xl border border-cyan-500/30">
+                        <span class="text-gray-400 font-bold block">MAGRIB</span>
+                        <span class="text-xl font-bold text-cyan-300">170</span> <span class="text-[10px] text-teal-300">orang</span>
+                    </div>
+                    <div class="p-3 bg-teal-900/50 rounded-2xl border border-cyan-500/30 col-span-2 sm:col-span-1">
+                        <span class="text-gray-400 font-bold block">ISYA</span>
+                        <span class="text-xl font-bold text-cyan-300">125</span> <span class="text-[10px] text-teal-300">orang</span>
+                    </div>
                 </div>
-                <div class="p-4 bg-teal-950/60 rounded-2xl border border-teal-700/40 space-y-2">
-                    <span class="text-xl">🤝</span>
-                    <h4 class="font-bold text-cyan-300">Sosial & Layanan Inklusif</h4>
-                    <p class="text-gray-300">Panti Asuhan Rumah Sejahtera, Tim Rukti Jenazah, Periksa Kesehatan Gratis, & Ramah Difabel/Lansia.</p>
+
+                <!-- Majelis Kajian -->
+                <h4 class="text-sm font-bold text-cyan-300 pt-2 border-t border-teal-800/60">Program Kajian Rutin Jamaah:</h4>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+                    <div class="p-4 bg-teal-900/30 rounded-2xl border border-teal-700/40 space-y-1.5">
+                        <h5 class="font-bold text-amber-300">a. Pengajian Ahad Pagi (PAP)</h5>
+                        <p class="text-gray-300"><strong>Waktu:</strong> 05.30 - 06.30 WIB | <strong>Peserta:</strong> ~300 Orang</p>
+                        <p class="text-gray-400">Materi meliputi Aqidah, Akhlak, Muamalah, & Keluarga Sakinah (Tim Pelaksana: Masruri).</p>
+                    </div>
+
+                    <div class="p-4 bg-teal-900/30 rounded-2xl border border-teal-700/40 space-y-1.5">
+                        <h5 class="font-bold text-amber-300">b. Pengajian Kasepuhan & Majelis Tadarus</h5>
+                        <p class="text-gray-300"><strong>Waktu:</strong> Ahad, Selasa, & Kamis | <strong>Peserta:</strong> ~125 Orang</p>
+                        <p class="text-gray-400">Metode Talaqi Al-Qur'an & Bimbingan Ibadah Lansia (Pelaksana: Masruri, Awan, Faizuz, Istikhanah).</p>
+                    </div>
+
+                    <div class="p-4 bg-teal-900/30 rounded-2xl border border-teal-700/40 space-y-1.5">
+                        <h5 class="font-bold text-amber-300">c. Gerakan Shalat Syuruq</h5>
+                        <p class="text-gray-300"><strong>Waktu:</strong> Bakda Subuh Setiap Hari | <strong>Peserta:</strong> ~30 Orang</p>
+                        <p class="text-gray-400">Pembiasaan zikir, tadarus, kajian singkat, & pelaksanaanshalat Syuruq berjamaah.</p>
+                    </div>
+
+                    <div class="p-4 bg-teal-900/30 rounded-2xl border border-teal-700/40 space-y-1.5">
+                        <h5 class="font-bold text-amber-300">d. Kajian Tematik Kitab</h5>
+                        <p class="text-gray-300"><strong>Waktu:</strong> Bakda Subuh | <strong>Peserta:</strong> ~150 Orang</p>
+                        <p class="text-gray-400">Pembahasan kitab Bulughul Maram & Riyadush Shalihin (Pelaksana: Masruri, Faizuz, Awan).</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- SUB-TAB 6: SOSIAL, PEMBERDAYAAN REMAJA & MASYARAKAT -->
+        <div id="m-sub-sosial" class="hidden space-y-6">
+            <div class="bg-teal-950/60 p-6 md:p-8 rounded-3xl border border-teal-700/40 space-y-6 shadow-xl">
+                <div class="border-b border-teal-800/60 pb-3">
+                    <h3 class="text-xl font-bold text-cyan-300">Pemberdayaan Remaja, Ekonomi & Pelayanan Sosial</h3>
+                    <p class="text-xs text-gray-400">Implementasi dakwah nyata rahmatan lil 'alamin bagi masyarakat</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+                    <!-- Remaja Masjid -->
+                    <div class="p-4 bg-teal-900/40 rounded-2xl border border-teal-700/50 space-y-2">
+                        <h4 class="font-bold text-amber-300 text-sm">👦 Pemberdayaan Remaja (ARIA)</h4>
+                        <ul class="text-gray-300 space-y-1 list-disc pl-4">
+                            <li><strong>Tahsin Night:</strong> Setiap Sabtu malam Ahad (30 peserta).</li>
+                            <li><strong>Qur'an Hifz Program:</strong> Target min 2 Juz (Penanggung jawab: Romadhani A.).</li>
+                            <li><strong>Youth Red Cross:</strong> P3K, Donor Darah berkala, & Cek Kesehatan Gratis.</li>
+                            <li><strong>Ramadhan Youth Festival:</strong> Pesantren Ramadan & Clean Mosque Movement.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Ekonomi & Qurban -->
+                    <div class="p-4 bg-teal-900/40 rounded-2xl border border-teal-700/50 space-y-2">
+                        <h4 class="font-bold text-amber-300 text-sm">🌾 Pemberdayaan Ekonomi & Qurban</h4>
+                        <ul class="text-gray-300 space-y-1 list-disc pl-4">
+                            <li><strong>Budi Daya Alpukat:</strong> Pelatihan bersama Agus Hariyadi (140 peserta).</li>
+                            <li><strong>Pemberian Bibit:</strong> Bibit sengon, alpukat, & rumput bagi 60 petani.</li>
+                            <li><strong>Gadhuh Qurban:</strong> Penggemukan kambing sistem bagi hasil kemitraan warga.</li>
+                            <li><strong>Air Isi Ulang BUKM:</strong> Penyediaan air minum sehat untuk kas masjid.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Panti & Layanan Sosial -->
+                    <div class="p-4 bg-teal-900/40 rounded-2xl border border-teal-700/50 space-y-2">
+                        <h4 class="font-bold text-amber-300 text-sm">🏠 Panti Asuhan & Service Sosial</h4>
+                        <ul class="text-gray-300 space-y-1 list-disc pl-4">
+                            <li><strong>Panti Asuhan Rumah Sejahtera:</strong> Pembinaan 31 anak yatim/dhuafa (10 Putra, 21 Putri).</li>
+                            <li><strong>Layanan Rukti Jenazah:</strong> Tim 30 petugas lengkap hingga pemakaman Khusnul Khotimah.</li>
+                            <li><strong>Senior Care & Lansia:</strong> Senam, penyuluhan kesehatan, & PMT lansia.</li>
+                            <li><strong>Periksa Kesehatan:</strong> Kerjasama bulanan dengan Klinik PKU Muhammadiyah Ponjong.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Daftar 12 Masjid Binaan -->
+                <div class="p-5 bg-teal-900/30 rounded-2xl border border-teal-700/40 space-y-3 text-xs">
+                    <h4 class="font-bold text-cyan-300 text-sm flex items-center gap-2">
+                        <span>🤝</span> Program 12 Masjid / Musala Binaan Corps Dakwah Al-Huda (CDMA)
+                    </h4>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 text-[11px] text-gray-300">
+                        <div class="p-2 bg-teal-950/60 rounded-lg">1. Nurul Huda (Tembesi)</div>
+                        <div class="p-2 bg-teal-950/60 rounded-lg">2. Al-Hidayah (Duren)</div>
+                        <div class="p-2 bg-teal-950/60 rounded-lg">3. Darul Falah (Serut)</div>
+                        <div class="p-2 bg-teal-950/60 rounded-lg">4. Muttaqin (Jaten)</div>
+                        <div class="p-2 bg-teal-950/60 rounded-lg">5. Al-Arif (Gebang)</div>
+                        <div class="p-2 bg-teal-950/60 rounded-lg">6. Al-Amin (Sumber Lor)</div>
+                        <div class="p-2 bg-teal-950/60 rounded-lg">7. Al-Ula (Sumber Kidul)</div>
+                        <div class="p-2 bg-teal-950/60 rounded-lg">8. Al-Firdaus (Bedoyo)</div>
+                        <div class="p-2 bg-teal-950/60 rounded-lg">9. Nur Awal (Bolodukuh)</div>
+                        <div class="p-2 bg-teal-950/60 rounded-lg">10. Baiturrahim (Padangan)</div>
+                        <div class="p-2 bg-teal-950/60 rounded-lg">11. Umar ibn Khatab (Munggur)</div>
+                        <div class="p-2 bg-teal-950/60 rounded-lg">12. Al-Hujjah (Karangijo)</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -629,26 +763,6 @@
                     <p class="text-[11px] text-gray-400">Google Gemini Share Link</p>
                 </div>
             </a>
-
-            <a href="https://www.mtamim.com/p/lkprompt.html" target="_blank" class="metro-tile flex items-center p-4 rounded-xl text-left">
-                <div class="w-10 h-10 bg-emerald-950/60 rounded-md flex items-center justify-center mr-3 text-cyan-400 border border-cyan-500/20 flex-shrink-0">
-                    <i class="fa-solid fa-terminal text-lg"></i>
-                </div>
-                <div>
-                    <h3 class="font-semibold text-white tracking-wide text-sm">PROMPT LKPD</h3>
-                    <p class="text-[11px] text-gray-400">Kunjungi mtamim.com</p>
-                </div>
-            </a>
-
-            <a href="https://gemini.google.com/share/46844dbe81ed" target="_blank" class="metro-tile flex items-center p-4 rounded-xl text-left">
-                <div class="w-10 h-10 bg-emerald-950/60 rounded-md flex items-center justify-center mr-3 text-cyan-400 border border-cyan-500/20 flex-shrink-0">
-                    <i class="fa-solid fa-list-check text-lg"></i>
-                </div>
-                <div>
-                    <h3 class="font-semibold text-white tracking-wide text-sm">SOAL ASESMEN</h3>
-                    <p class="text-[11px] text-gray-400">Generator Asesmen Otomatis</p>
-                </div>
-            </a>
         </div>
     </div>
 
@@ -661,23 +775,9 @@
             <i class="fa-solid fa-arrow-left"></i> Kembali ke Dashboard Lumia
         </button>
 
-        <div class="bg-teal-950/90 p-3 rounded-2xl border border-teal-500/30 flex flex-wrap justify-center gap-2 shadow-xl">
-            <button onclick="switchGameSubTab('materi')" id="btn-sub-materi" class="game-sub-tab active px-3.5 py-2 rounded-xl text-xs font-bold transition-all border border-teal-700">
-                <i class="fa-solid fa-book-open mr-1.5"></i> 1. TEORI & KONSEP
-            </button>
-            <button onclick="switchGameSubTab('komponen')" id="btn-sub-komponen" class="game-sub-tab px-3.5 py-2 rounded-xl text-xs font-bold transition-all border border-teal-700 text-gray-300 hover:text-white">
-                <i class="fa-solid fa-microchip mr-1.5"></i> 2. ANATOMI KOMPONEN
-            </button>
-            <button onclick="switchGameSubTab('scratch')" id="btn-sub-scratch" class="game-sub-tab px-3.5 py-2 rounded-xl text-xs font-bold transition-all border border-teal-700 text-gray-300 hover:text-white">
-                <i class="fa-solid fa-code mr-1.5"></i> 3. CODING KIDS (SCRATCH)
-            </button>
-        </div>
-
-        <div id="game-sub-materi" class="space-y-6">
-            <div class="bg-teal-950/60 rounded-[2.5rem] p-6 border border-teal-500/30 text-center space-y-3">
-                <h3 class="text-xl font-bold text-cyan-300">Pengenalan Sistem Komputer & Game Interactive</h3>
-                <p class="text-xs text-gray-300">Pelajari cara kerja komputer dan rakit komponen hardware milikmu sendiri!</p>
-            </div>
+        <div class="bg-teal-950/60 rounded-[2.5rem] p-6 border border-teal-500/30 text-center space-y-3">
+            <h3 class="text-xl font-bold text-cyan-300">Pengenalan Sistem Komputer & Game Interactive</h3>
+            <p class="text-xs text-gray-300">Pelajari cara kerja komputer dan rakit komponen hardware milikmu sendiri!</p>
         </div>
     </div>
 
@@ -708,9 +808,9 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // Switcher Sub-Tab Masjid Subardi
+        // Switcher Sub-Tab Masjid Subardi (6 Sub-Menu Lengkap)
         function switchMasjidSubTab(subTab) {
-            const subTabs = ['profil', 'pengurus', 'imam', 'jadwal', 'program'];
+            const subTabs = ['profil', 'takmir', 'personalia', 'pilar', 'kemakmuran', 'sosial'];
             subTabs.forEach(s => {
                 const subEl = document.getElementById(`m-sub-${s}`);
                 const btnEl = document.getElementById(`btn-m-${s}`);
@@ -720,22 +820,6 @@
 
             const activeSub = document.getElementById(`m-sub-${subTab}`);
             const activeBtn = document.getElementById(`btn-m-${subTab}`);
-            if (activeSub) activeSub.classList.remove('hidden');
-            if (activeBtn) activeBtn.classList.add('active');
-        }
-
-        // Switcher Sub-Tab Game Edu
-        function switchGameSubTab(subTab) {
-            const subTabs = ['materi', 'komponen', 'scratch'];
-            subTabs.forEach(s => {
-                const subEl = document.getElementById(`game-sub-${s}`);
-                const btnEl = document.getElementById(`btn-sub-${s}`);
-                if (subEl) subEl.classList.add('hidden');
-                if (btnEl) btnEl.classList.remove('active');
-            });
-
-            const activeSub = document.getElementById(`game-sub-${subTab}`);
-            const activeBtn = document.getElementById(`btn-sub-${subTab}`);
             if (activeSub) activeSub.classList.remove('hidden');
             if (activeBtn) activeBtn.classList.add('active');
         }
