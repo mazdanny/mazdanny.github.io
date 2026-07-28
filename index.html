@@ -668,7 +668,7 @@
 
 
     <!-- ================================================================= -->
-    <!-- MENU 3: DAFTAR NILAI (EMBEDDED SPREADSHEET + PASSWORD EDIT) -->
+    <!-- MENU 3: DAFTAR NILAI (PUBLIC LOCK VIEW WITH YOUTUBE & EDIT MODE) -->
     <!-- ================================================================= -->
     <div id="portal-nilai" class="w-full max-w-5xl hidden space-y-6">
         <div class="flex flex-col sm:flex-row items-center justify-between gap-3 bg-teal-950/80 p-4 rounded-2xl border border-teal-500/30 shadow-lg">
@@ -677,48 +677,69 @@
             </button>
 
             <!-- Indikator Status Akses -->
-            <div id="nilaiModeBadge" class="text-xs font-semibold px-3 py-1 rounded-full bg-emerald-950 text-emerald-300 border border-emerald-500/40">
-                <i class="fa-solid fa-eye mr-1"></i> Mode Publik (Hanya Melihat)
+            <div id="nilaiModeBadge" class="text-xs font-semibold px-3 py-1 rounded-full bg-amber-950 text-amber-300 border border-amber-500/40">
+                <i class="fa-solid fa-lock mr-1"></i> Mode Akses Terkunci (Khusus Guru)
             </div>
 
             <!-- Tombol Akses Edit Guru -->
-            <button id="btnToggleEdit" onclick="requestGuruEditAccess()" class="text-xs font-bold px-3 py-1.5 rounded-lg bg-amber-600 hover:bg-amber-500 text-black transition shadow-md flex items-center gap-1.5">
-                <i class="fa-solid fa-lock mr-1"></i> Akses Mode Edit (Khusus Guru)
+            <button id="btnToggleEdit" onclick="requestGuruEditAccess()" class="text-xs font-bold px-3.5 py-2 rounded-xl bg-amber-500 hover:bg-amber-400 text-black transition shadow-lg flex items-center gap-1.5 transform hover:scale-105">
+                <i class="fa-solid fa-key mr-1"></i> Masukkan Password Guru
             </button>
         </div>
 
-        <!-- Sub-Navigasi Pemilihan Mata Pelajaran -->
-        <div class="bg-teal-950/90 p-2 rounded-2xl border border-teal-500/30 flex flex-wrap justify-center gap-2 text-xs font-bold uppercase tracking-wider text-cyan-300 shadow-xl">
-            <button onclick="switchNilaiSub('al-islam')" id="btn-nilai-al-islam" class="sub-nav active px-5 py-2.5 rounded-xl transition flex items-center gap-2">
-                <i class="fa-solid fa-kaaba"></i> 1. Nilai Al-Islam
-            </button>
-            <button onclick="switchNilaiSub('bahasa-arab')" id="btn-nilai-bahasa-arab" class="sub-nav px-5 py-2.5 rounded-xl transition flex items-center gap-2">
-                <i class="fa-solid fa-language"></i> 2. Nilai Bahasa Arab
-            </button>
-        </div>
-
-        <!-- Container Frame Spreadsheet Al-Islam -->
-        <div id="nilai-sub-al-islam" class="bg-teal-950/60 p-2 rounded-3xl border border-teal-500/30 shadow-2xl">
-            <div class="mb-2 px-3 py-1 flex items-center justify-between text-xs text-gray-400 border-b border-teal-800/50 pb-2">
-                <span><i class="fa-solid fa-table mr-1 text-cyan-400"></i> Spreadsheet Nilai Al-Islam</span>
-                <span class="text-[10px] text-teal-400">Data Terintegrasi Google Sheets</span>
+        <!-- CONTAINER 1: TAMPILAN TERKUNCI / PUBLIK (DENGAN VIDEO YOUTUBE) -->
+        <div id="nilai-public-container" class="bg-teal-950/60 p-6 sm:p-8 rounded-3xl border border-teal-500/30 shadow-2xl space-y-6 text-center">
+            <div class="max-w-2xl mx-auto space-y-3">
+                <div class="w-16 h-16 bg-amber-950/80 rounded-2xl flex items-center justify-center text-amber-400 text-3xl mx-auto border border-amber-500/40 shadow-inner">
+                    🔒
+                </div>
+                <h2 class="text-xl sm:text-2xl font-bold text-cyan-300">Portal Rekapitulasi Nilai Siswa</h2>
+                <p class="text-xs sm:text-sm text-gray-300 leading-relaxed">
+                    Halaman ini berisi data rekapitulasi nilai Al-Islam & Bahasa Arab yang dilindungi. Untuk melakukan penginputan dan pengubahan nilai, silakan klik tombol <strong>"Masukkan Password Guru"</strong> di atas.
+                </p>
             </div>
-            <!-- Frame Publik (Default HTML View / Read Only) -->
-            <iframe id="iframe-al-islam-public" class="w-full h-[600px] rounded-2xl border-0" src="https://docs.google.com/spreadsheets/d/1_tFrdz-QUB9kthNYOa9bh9sQJES5M-MQ/pubhtml?widget=true&amp;headers=false"></iframe>
-            <!-- Frame Live Edit Guru (Hidden Default) -->
-            <iframe id="iframe-al-islam-edit" class="w-full h-[600px] rounded-2xl border-0 hidden" src="https://docs.google.com/spreadsheets/d/1_tFrdz-QUB9kthNYOa9bh9sQJES5M-MQ/edit?usp=sharing"></iframe>
+
+            <!-- Frame Embed Video YouTube -->
+            <div class="w-full max-w-3xl mx-auto overflow-hidden rounded-2xl border-2 border-teal-500/40 shadow-2xl aspect-video bg-black">
+                <iframe class="w-full h-full" src="https://www.youtube.com/embed/WFTkFwG2wpI" title="Video Edukasi Mazdany" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+
+            <div class="pt-2">
+                <button onclick="requestGuruEditAccess()" class="px-6 py-2.5 bg-cyan-600 hover:bg-cyan-500 text-black font-extrabold text-xs rounded-xl shadow-lg transition">
+                    🔑 Klik Di Sini Untuk Buka Spreadsheet Nilai
+                </button>
+            </div>
         </div>
 
-        <!-- Container Frame Spreadsheet Bahasa Arab -->
-        <div id="nilai-sub-bahasa-arab" class="bg-teal-950/60 p-2 rounded-3xl border border-teal-500/30 shadow-2xl hidden">
-            <div class="mb-2 px-3 py-1 flex items-center justify-between text-xs text-gray-400 border-b border-teal-800/50 pb-2">
-                <span><i class="fa-solid fa-table mr-1 text-cyan-400"></i> Spreadsheet Nilai Bahasa Arab</span>
-                <span class="text-[10px] text-teal-400">Data Terintegrasi Google Sheets</span>
+        <!-- CONTAINER 2: TAMPILAN SPREADSHEET EDIT (TERBUKA HANYA SETELAH PASSWORD "12345") -->
+        <div id="nilai-edit-container" class="space-y-4 hidden">
+            <!-- Sub-Navigasi Pemilihan Mata Pelajaran -->
+            <div class="bg-teal-950/90 p-2 rounded-2xl border border-teal-500/30 flex flex-wrap justify-center gap-2 text-xs font-bold uppercase tracking-wider text-cyan-300 shadow-xl">
+                <button onclick="switchNilaiSub('al-islam')" id="btn-nilai-al-islam" class="sub-nav active px-5 py-2.5 rounded-xl transition flex items-center gap-2">
+                    <i class="fa-solid fa-kaaba"></i> 1. Nilai Al-Islam
+                </button>
+                <button onclick="switchNilaiSub('bahasa-arab')" id="btn-nilai-bahasa-arab" class="sub-nav px-5 py-2.5 rounded-xl transition flex items-center gap-2">
+                    <i class="fa-solid fa-language"></i> 2. Nilai Bahasa Arab
+                </button>
             </div>
-            <!-- Frame Publik (Default HTML View / Read Only) -->
-            <iframe id="iframe-bahasa-arab-public" class="w-full h-[600px] rounded-2xl border-0" src="https://docs.google.com/spreadsheets/d/1QMl5TiXZlZAvpUHGf5d_tuzpZBV9ypub/pubhtml?widget=true&amp;headers=false"></iframe>
-            <!-- Frame Live Edit Guru (Hidden Default) -->
-            <iframe id="iframe-bahasa-arab-edit" class="w-full h-[600px] rounded-2xl border-0 hidden" src="https://docs.google.com/spreadsheets/d/1QMl5TiXZlZAvpUHGf5d_tuzpZBV9ypub/edit?usp=sharing"></iframe>
+
+            <!-- Frame Spreadsheet Al-Islam -->
+            <div id="nilai-sub-al-islam" class="bg-teal-950/60 p-2 rounded-3xl border border-teal-500/30 shadow-2xl">
+                <div class="mb-2 px-3 py-1 flex items-center justify-between text-xs text-gray-400 border-b border-teal-800/50 pb-2">
+                    <span><i class="fa-solid fa-table mr-1 text-cyan-400"></i> Spreadsheet Interactive: Nilai Al-Islam</span>
+                    <span class="text-[10px] text-emerald-400 font-bold">● Status Edit Aktif</span>
+                </div>
+                <iframe class="w-full h-[600px] rounded-2xl border-0" src="https://docs.google.com/spreadsheets/d/1_tFrdz-QUB9kthNYOa9bh9sQJES5M-MQ/edit?rm=minimal"></iframe>
+            </div>
+
+            <!-- Frame Spreadsheet Bahasa Arab -->
+            <div id="nilai-sub-bahasa-arab" class="bg-teal-950/60 p-2 rounded-3xl border border-teal-500/30 shadow-2xl hidden">
+                <div class="mb-2 px-3 py-1 flex items-center justify-between text-xs text-gray-400 border-b border-teal-800/50 pb-2">
+                    <span><i class="fa-solid fa-table mr-1 text-cyan-400"></i> Spreadsheet Interactive: Nilai Bahasa Arab</span>
+                    <span class="text-[10px] text-emerald-400 font-bold">● Status Edit Aktif</span>
+                </div>
+                <iframe class="w-full h-[600px] rounded-2xl border-0" src="https://docs.google.com/spreadsheets/d/1_tFrdz-QUB9kthNYOa9bh9sQJES5M-MQ/edit?rm=minimal"></iframe>
+            </div>
         </div>
     </div>
 
@@ -1218,17 +1239,14 @@
         let isGuruEditMode = false;
         function requestGuruEditAccess() {
             if (!isGuruEditMode) {
-                const pwd = prompt("Masukkan Password Guru untuk Mengakses Mode Edit:");
+                const pwd = prompt("Masukkan Password Guru untuk Mengakses Spreadsheet Nilai:");
                 if (pwd === "12345") {
                     isGuruEditMode = true;
-                    alert("Akses Edit Berhasil Diberikan! Anda sekarang dapat mengedit daftar nilai secara langsung.");
+                    alert("Akses Guru Berhasil Diberikan! Spreadsheet Nilai sekarang terbuka untuk diedit.");
                     
-                    // Tampilkan frame edit, sembunyikan frame publik
-                    document.getElementById('iframe-al-islam-public').classList.add('hidden');
-                    document.getElementById('iframe-al-islam-edit').classList.remove('hidden');
-                    
-                    document.getElementById('iframe-bahasa-arab-public').classList.add('hidden');
-                    document.getElementById('iframe-bahasa-arab-edit').classList.remove('hidden');
+                    // Sembunyikan container publik/video, tampilkan container spreadsheet edit
+                    document.getElementById('nilai-public-container').classList.add('hidden');
+                    document.getElementById('nilai-edit-container').classList.remove('hidden');
 
                     // Update UI Badge & Button
                     const badge = document.getElementById('nilaiModeBadge');
@@ -1237,27 +1255,24 @@
 
                     const btn = document.getElementById('btnToggleEdit');
                     btn.className = "text-xs font-bold px-3 py-1.5 rounded-lg bg-rose-700 hover:bg-rose-600 text-white transition shadow-md flex items-center gap-1.5";
-                    btn.innerHTML = '<i class="fa-solid fa-lock-open mr-1"></i> Kunci Mode Edit';
+                    btn.innerHTML = '<i class="fa-solid fa-lock-open mr-1"></i> Kunci Portal Nilai';
                 } else if (pwd !== null) {
-                    alert("Password salah! Akses edit ditolak.");
+                    alert("Password salah! Akses ditolak.");
                 }
             } else {
                 // Kunci kembali ke mode publik
                 isGuruEditMode = false;
                 
-                document.getElementById('iframe-al-islam-public').classList.remove('hidden');
-                document.getElementById('iframe-al-islam-edit').classList.add('hidden');
-                
-                document.getElementById('iframe-bahasa-arab-public').classList.remove('hidden');
-                document.getElementById('iframe-bahasa-arab-edit').classList.add('hidden');
+                document.getElementById('nilai-public-container').classList.remove('hidden');
+                document.getElementById('nilai-edit-container').classList.add('hidden');
 
                 const badge = document.getElementById('nilaiModeBadge');
-                badge.className = "text-xs font-semibold px-3 py-1 rounded-full bg-emerald-950 text-emerald-300 border border-emerald-500/40";
-                badge.innerHTML = '<i class="fa-solid fa-eye mr-1"></i> Mode Publik (Hanya Melihat)';
+                badge.className = "text-xs font-semibold px-3 py-1 rounded-full bg-amber-950 text-amber-300 border border-amber-500/40";
+                badge.innerHTML = '<i class="fa-solid fa-lock mr-1"></i> Mode Akses Terkunci (Khusus Guru)';
 
                 const btn = document.getElementById('btnToggleEdit');
-                btn.className = "text-xs font-bold px-3 py-1.5 rounded-lg bg-amber-600 hover:bg-amber-500 text-black transition shadow-md flex items-center gap-1.5";
-                btn.innerHTML = '<i class="fa-solid fa-lock mr-1"></i> Akses Mode Edit (Khusus Guru)';
+                btn.className = "text-xs font-bold px-3.5 py-2 rounded-xl bg-amber-500 hover:bg-amber-400 text-black transition shadow-lg flex items-center gap-1.5 transform hover:scale-105";
+                btn.innerHTML = '<i class="fa-solid fa-key mr-1"></i> Masukkan Password Guru';
             }
         }
 
