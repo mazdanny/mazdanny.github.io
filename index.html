@@ -67,6 +67,7 @@
         .drop-slot.correct { border-color: #34d399 !important; background-color: rgba(52, 211, 153, 0.2) !important; }
         .drop-slot.wrong { border-color: #f87171 !important; background-color: rgba(248, 113, 113, 0.2) !important; }
         .game-sub-tab.active { background-color: #0284c7; color: white; border-color: #38bdf8; box-shadow: 0 0 12px rgba(56, 189, 248, 0.4); }
+        .ibadah-sub-tab.active { background-color: #0d9488; color: white; border-color: #22d3ee; box-shadow: 0 0 12px rgba(34, 211, 238, 0.4); }
     </style>
 </head>
 <body class="text-gray-200 min-h-screen flex flex-col items-center justify-start p-4 sm:p-8 font-sans antialiased">
@@ -87,29 +88,32 @@
                 <i class="fa-solid fa-house mr-1"></i> DASHBOARD
             </button>
             <button onclick="switchPortal('al-islam')" id="btn-portal-al-islam" class="nav-tab px-2.5 py-1.5 rounded-lg border border-teal-800 text-[11px] font-semibold tracking-wider text-gray-300 hover:text-white transition-all">
-                <i class="fa-solid fa-kaaba mr-1"></i> 1. MATERI AL-ISLAM
+                <i class="fa-solid fa-kaaba mr-1"></i> 1. AL-ISLAM
             </button>
             <button onclick="switchPortal('bahasa-arab')" id="btn-portal-bahasa-arab" class="nav-tab px-2.5 py-1.5 rounded-lg border border-teal-800 text-[11px] font-semibold tracking-wider text-gray-300 hover:text-white transition-all">
                 <i class="fa-solid fa-language mr-1"></i> 2. BAHASA ARAB
             </button>
+            <button onclick="switchPortal('ibadah-praktis')" id="btn-portal-ibadah-praktis" class="nav-tab px-2.5 py-1.5 rounded-lg border border-teal-800 text-[11px] font-semibold tracking-wider text-gray-300 hover:text-white transition-all">
+                <i class="fa-solid fa-person-praying mr-1"></i> 3. IBADAH PRAKTIS
+            </button>
             <button onclick="switchPortal('nilai')" id="btn-portal-nilai" class="nav-tab px-2.5 py-1.5 rounded-lg border border-teal-800 text-[11px] font-semibold tracking-wider text-gray-300 hover:text-white transition-all">
-                <i class="fa-solid fa-clipboard-list mr-1"></i> 3. DAFTAR NILAI
+                <i class="fa-solid fa-clipboard-list mr-1"></i> 4. DAFTAR NILAI
             </button>
             <button onclick="switchPortal('shafwa')" id="btn-portal-shafwa" class="nav-tab px-2.5 py-1.5 rounded-lg border border-teal-800 text-[11px] font-semibold tracking-wider text-gray-300 hover:text-white transition-all">
-                <i class="fa-solid fa-graduation-cap mr-1"></i> 4. SHAFWA UNIV
+                <i class="fa-solid fa-graduation-cap mr-1"></i> 5. SHAFWA UNIV
             </button>
             <button onclick="switchPortal('guru')" id="btn-portal-guru" class="nav-tab px-2.5 py-1.5 rounded-lg border border-teal-800 text-[11px] font-semibold tracking-wider text-gray-300 hover:text-white transition-all">
-                <i class="fa-solid fa-robot mr-1"></i> 5. PERANGKAT AI
+                <i class="fa-solid fa-robot mr-1"></i> 6. PERANGKAT AI
             </button>
             <button onclick="switchPortal('game-edu')" id="btn-portal-game-edu" class="nav-tab px-2.5 py-1.5 rounded-lg border border-teal-800 text-[11px] font-semibold tracking-wider text-gray-300 hover:text-white transition-all">
-                <i class="fa-solid fa-gamepad mr-1"></i> 6. GAME EDU
+                <i class="fa-solid fa-gamepad mr-1"></i> 7. GAME EDU
             </button>
         </div>
     </div>
 
 
     <!-- ================================================================= -->
-    <!-- DASHBOARD UTAMA: LUMIA METRO UI (6 PORTAL TILES) -->
+    <!-- DASHBOARD UTAMA: LUMIA METRO UI (7 PORTAL TILES) -->
     <!-- ================================================================= -->
     <div id="portal-home" class="w-full max-w-5xl space-y-8 py-4">
         <div class="text-center space-y-3">
@@ -152,13 +156,27 @@
                 </div>
             </div>
 
-            <!-- Tile 3: DAFTAR NILAI -->
+            <!-- Tile 3: PANDUAN IBADAH PRAKTIS (BARU) -->
+            <div onclick="switchPortal('ibadah-praktis')" class="metro-tile p-6 rounded-2xl cursor-pointer flex flex-col justify-between h-48 border-cyan-500/40">
+                <div class="flex items-center justify-between">
+                    <span class="w-12 h-12 bg-cyan-950/80 rounded-xl flex items-center justify-center text-cyan-300 text-2xl border border-cyan-500/30">
+                        <i class="fa-solid fa-person-praying"></i>
+                    </span>
+                    <span class="text-[10px] font-bold text-cyan-300 bg-cyan-950 px-2.5 py-1 rounded-full uppercase border border-cyan-500/30">Menu 3</span>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold text-white tracking-wide">PANDUAN IBADAH PRAKTIS</h3>
+                    <p class="text-xs text-gray-300 mt-1">Video Tutorial Praktis Wudhu, Bacaan Shalat, dan Panduan Ibadah Harian.</p>
+                </div>
+            </div>
+
+            <!-- Tile 4: DAFTAR NILAI -->
             <div onclick="switchPortal('nilai')" class="metro-tile p-6 rounded-2xl cursor-pointer flex flex-col justify-between h-48 border-amber-500/40">
                 <div class="flex items-center justify-between">
                     <span class="w-12 h-12 bg-amber-950/80 rounded-xl flex items-center justify-center text-amber-300 text-2xl border border-amber-500/30">
                         <i class="fa-solid fa-clipboard-list"></i>
                     </span>
-                    <span class="text-[10px] font-bold text-amber-300 bg-amber-950 px-2.5 py-1 rounded-full uppercase border border-amber-500/30">Menu 3</span>
+                    <span class="text-[10px] font-bold text-amber-300 bg-amber-950 px-2.5 py-1 rounded-full uppercase border border-amber-500/30">Menu 4</span>
                 </div>
                 <div>
                     <h3 class="text-lg font-bold text-white tracking-wide">DAFTAR NILAI SISWA</h3>
@@ -166,13 +184,13 @@
                 </div>
             </div>
 
-            <!-- Tile 4 -->
+            <!-- Tile 5 -->
             <div onclick="switchPortal('shafwa')" class="metro-tile p-6 rounded-2xl cursor-pointer flex flex-col justify-between h-48 border-sky-500/40">
                 <div class="flex items-center justify-between">
                     <span class="w-12 h-12 bg-sky-950/80 rounded-xl flex items-center justify-center text-sky-300 text-2xl border border-sky-500/30">
                         <i class="fa-solid fa-graduation-cap"></i>
                     </span>
-                    <span class="text-[10px] font-bold text-sky-300 bg-sky-950 px-2.5 py-1 rounded-full uppercase border border-sky-500/30">Menu 4</span>
+                    <span class="text-[10px] font-bold text-sky-300 bg-sky-950 px-2.5 py-1 rounded-full uppercase border border-sky-500/30">Menu 5</span>
                 </div>
                 <div>
                     <h3 class="text-lg font-bold text-white tracking-wide">SHAFWA UNIVERSITY</h3>
@@ -180,13 +198,13 @@
                 </div>
             </div>
 
-            <!-- Tile 5 -->
-            <div onclick="switchPortal('guru')" class="metro-tile p-6 rounded-2xl cursor-pointer flex flex-col justify-between h-48 border-cyan-500/40">
+            <!-- Tile 6 -->
+            <div onclick="switchPortal('guru')" class="metro-tile p-6 rounded-2xl cursor-pointer flex flex-col justify-between h-48 border-emerald-500/40">
                 <div class="flex items-center justify-between">
-                    <span class="w-12 h-12 bg-cyan-950/80 rounded-xl flex items-center justify-center text-cyan-300 text-2xl border border-cyan-500/30">
+                    <span class="w-12 h-12 bg-emerald-950/80 rounded-xl flex items-center justify-center text-emerald-300 text-2xl border border-emerald-500/30">
                         <i class="fa-solid fa-robot"></i>
                     </span>
-                    <span class="text-[10px] font-bold text-cyan-400 bg-cyan-950 px-2.5 py-1 rounded-full uppercase border border-cyan-500/30">Menu 5</span>
+                    <span class="text-[10px] font-bold text-emerald-400 bg-emerald-950 px-2.5 py-1 rounded-full uppercase border border-emerald-500/30">Menu 6</span>
                 </div>
                 <div>
                     <h3 class="text-lg font-bold text-white tracking-wide">PERANGKAT AI (GURU)</h3>
@@ -194,13 +212,13 @@
                 </div>
             </div>
 
-            <!-- Tile 6 -->
-            <div onclick="switchPortal('game-edu')" class="metro-tile p-6 rounded-2xl cursor-pointer flex flex-col justify-between h-48 border-indigo-500/40">
+            <!-- Tile 7 -->
+            <div onclick="switchPortal('game-edu')" class="metro-tile p-6 rounded-2xl cursor-pointer flex flex-col justify-between h-48 border-indigo-500/40 sm:col-span-2 lg:col-span-1">
                 <div class="flex items-center justify-between">
                     <span class="w-12 h-12 bg-indigo-950/80 rounded-xl flex items-center justify-center text-indigo-300 text-2xl border border-indigo-500/30">
                         <i class="fa-solid fa-gamepad"></i>
                     </span>
-                    <span class="text-[10px] font-bold text-indigo-300 bg-indigo-950 px-2.5 py-1 rounded-full uppercase border border-indigo-500/30">Menu 6</span>
+                    <span class="text-[10px] font-bold text-indigo-300 bg-indigo-950 px-2.5 py-1 rounded-full uppercase border border-indigo-500/30">Menu 7</span>
                 </div>
                 <div>
                     <h3 class="text-lg font-bold text-white tracking-wide">GAME EDUCATION</h3>
@@ -771,7 +789,67 @@
 
 
     <!-- ================================================================= -->
-    <!-- MENU 3: DAFTAR NILAI (PUBLIC LOCK VIEW WITH YOUTUBE & EDIT MODE) -->
+    <!-- MENU 3: PANDUAN IBADAH PRAKTIS (MENU BARU DENGAN VIDEO MP4) -->
+    <!-- ================================================================= -->
+    <div id="portal-ibadah-praktis" class="w-full max-w-5xl hidden space-y-6">
+        <button onclick="switchPortal('home')" class="text-xs font-bold text-cyan-400 hover:text-cyan-300 flex items-center gap-2 bg-teal-950 px-3 py-1.5 rounded-lg border border-teal-800 w-fit">
+            <i class="fa-solid fa-arrow-left"></i> Kembali ke Dashboard
+        </button>
+
+        <!-- Navigation Sub Menu Ibadah -->
+        <div class="bg-teal-950/90 p-3 rounded-2xl border border-teal-500/30 flex flex-wrap justify-center gap-2 shadow-xl">
+            <button onclick="switchIbadahSub('bacaan-shalat')" id="btn-ibadah-bacaan-shalat" class="ibadah-sub-tab active px-4 py-2 rounded-xl text-xs font-bold transition-all border border-teal-700">
+                <i class="fa-solid fa-person-praying mr-1.5"></i> 1. BACAAN SHALAT
+            </button>
+            <button onclick="switchIbadahSub('wudhu')" id="btn-ibadah-wudhu" class="ibadah-sub-tab px-4 py-2 rounded-xl text-xs font-bold transition-all border border-teal-700 text-gray-300 hover:text-white">
+                <i class="fa-solid fa-hands-bubbles mr-1.5"></i> 2. WUDHU
+            </button>
+        </div>
+
+        <!-- SUB-TAB 1: BACAAN SHALAT (VIDEO MP4) -->
+        <div id="ibadah-sub-bacaan-shalat" class="space-y-6">
+            <div class="bg-teal-950/60 p-6 sm:p-8 rounded-3xl border border-teal-500/30 shadow-2xl space-y-6 text-center">
+                <div class="max-w-2xl mx-auto space-y-2">
+                    <span class="bg-cyan-950 text-cyan-300 border border-cyan-500/30 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider inline-block">
+                        Media Pembelajaran Visual
+                    </span>
+                    <h2 class="text-2xl font-bold text-cyan-300">Video Panduan Bacaan Shalat Lengkap</h2>
+                    <p class="text-xs text-gray-300 leading-relaxed">
+                        Simak video panduan bacaan dan gerakan shalat praktis di bawah ini. Pastikan Anda telah mengunggah file <code class="bg-teal-900 px-1.5 py-0.5 rounded text-cyan-200">BACAAN-SHALAT.mp4</code> ke dalam folder utama GitHub Anda.
+                    </p>
+                </div>
+
+                <!-- Frame Video HTML5 MP4 GitHub Local Path -->
+                <div class="w-full max-w-3xl mx-auto overflow-hidden rounded-2xl border-2 border-teal-500/40 shadow-2xl aspect-video bg-black flex items-center justify-center">
+                    <video class="w-full h-full object-contain" controls preload="metadata" poster="MAZDANY-LOGO.png">
+                        <source src="BACAAN-SHALAT.mp4" type="video/mp4">
+                        Browser Anda tidak mendukung pemutaran video tag HTML5.
+                    </video>
+                </div>
+
+                <p class="text-[11px] text-teal-400 italic">
+                    💡 Putar video di atas untuk memfasilitasi hafalan dan peragaan shalat secara mandiri.
+                </p>
+            </div>
+        </div>
+
+        <!-- SUB-TAB 2: WUDHU (PROSES PENGEMBANGAN) -->
+        <div id="ibadah-sub-wudhu" class="hidden space-y-6">
+            <div class="bg-teal-950/60 p-8 rounded-3xl border border-teal-500/30 text-center space-y-4 shadow-2xl">
+                <div class="w-16 h-16 bg-teal-900/80 rounded-2xl flex items-center justify-center text-cyan-300 text-3xl mx-auto border border-teal-500/30">
+                    💧
+                </div>
+                <h3 class="text-xl font-bold text-cyan-300">Panduan Praktis Wudhu</h3>
+                <p class="text-xs text-gray-300 max-w-md mx-auto">
+                    Materi dan video tutorial wudhu praktis sedang disiapkan dan akan segera diunggah pada update berikutnya.
+                </p>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ================================================================= -->
+    <!-- MENU 4: DAFTAR NILAI (PUBLIC LOCK VIEW WITH YOUTUBE & EDIT MODE) -->
     <!-- ================================================================= -->
     <div id="portal-nilai" class="w-full max-w-5xl hidden space-y-6">
         <div class="flex flex-col sm:flex-row items-center justify-between gap-3 bg-teal-950/80 p-4 rounded-2xl border border-teal-500/30 shadow-lg">
@@ -848,7 +926,7 @@
 
 
     <!-- ================================================================= -->
-    <!-- MENU 4: SHAFWA UNIVERSITY -->
+    <!-- MENU 5: SHAFWA UNIVERSITY -->
     <!-- ================================================================= -->
     <div id="portal-shafwa" class="w-full max-w-4xl hidden space-y-6">
         <button onclick="switchPortal('home')" class="text-xs font-bold text-cyan-400 hover:text-cyan-300 flex items-center gap-2 bg-teal-950 px-3 py-1.5 rounded-lg border border-teal-800 w-fit">
@@ -871,7 +949,7 @@
 
 
     <!-- ================================================================= -->
-    <!-- MENU 5: PERANGKAT AI (GURU) -->
+    <!-- MENU 6: PERANGKAT AI (GURU) -->
     <!-- ================================================================= -->
     <div id="portal-guru" class="w-full max-w-3xl hidden space-y-6">
         <button onclick="switchPortal('home')" class="text-xs font-bold text-cyan-400 hover:text-cyan-300 flex items-center gap-2 bg-teal-950 px-3 py-1.5 rounded-lg border border-teal-800 w-fit">
@@ -974,7 +1052,7 @@
 
 
     <!-- ================================================================= -->
-    <!-- MENU 6: GAME EDUCATION (4 SUB-TAB INTERAKTIF LENGKAP) -->
+    <!-- MENU 7: GAME EDUCATION (4 SUB-TAB INTERAKTIF LENGKAP) -->
     <!-- ================================================================= -->
     <div id="portal-game-edu" class="w-full max-w-5xl hidden space-y-6">
         <button onclick="switchPortal('home')" class="text-xs font-bold text-cyan-400 hover:text-cyan-300 flex items-center gap-2 bg-teal-950 px-3 py-1.5 rounded-lg border border-teal-800 w-fit">
@@ -1302,7 +1380,7 @@
     <script>
         // Switcher Menu Utama / Portal
         function switchPortal(portal) {
-            const portals = ['home', 'al-islam', 'bahasa-arab', 'nilai', 'shafwa', 'guru', 'game-edu'];
+            const portals = ['home', 'al-islam', 'bahasa-arab', 'ibadah-praktis', 'nilai', 'shafwa', 'guru', 'game-edu'];
             portals.forEach(p => {
                 const portalEl = document.getElementById(`portal-${p}`);
                 const btnEl = document.getElementById(`btn-portal-${p}`);
@@ -1320,6 +1398,22 @@
             }
 
             window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Switcher Sub-Tab Panduan Ibadah Praktis (Baru)
+        function switchIbadahSub(subTab) {
+            const subTabs = ['bacaan-shalat', 'wudhu'];
+            subTabs.forEach(s => {
+                const subEl = document.getElementById(`ibadah-sub-${s}`);
+                const btnEl = document.getElementById(`btn-ibadah-${s}`);
+                if (subEl) subEl.classList.add('hidden');
+                if (btnEl) btnEl.classList.remove('active');
+            });
+
+            const activeSub = document.getElementById(`ibadah-sub-${subTab}`);
+            const activeBtn = document.getElementById(`btn-ibadah-${subTab}`);
+            if (activeSub) activeSub.classList.remove('hidden');
+            if (activeBtn) activeBtn.classList.add('active');
         }
 
         // Switcher Sub-Tab Daftar Nilai (Al-Islam & Bahasa Arab)
