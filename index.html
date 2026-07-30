@@ -798,15 +798,16 @@
 
         <!-- Navigation Sub Menu Ibadah -->
         <div class="bg-teal-950/90 p-3 rounded-2xl border border-teal-500/30 flex flex-wrap justify-center gap-2 shadow-xl">
+             <button onclick="switchIbadahSub('wudhu')" id="btn-ibadah-wudhu" class="ibadah-sub-tab px-4 py-2 rounded-xl text-xs font-bold transition-all border border-teal-700 text-gray-300 hover:text-white">
+                <i class="fa-solid fa-hands-bubbles mr-1.5"></i> 1. WUDHU
+            </button>
             <button onclick="switchIbadahSub('bacaan-shalat')" id="btn-ibadah-bacaan-shalat" class="ibadah-sub-tab active px-4 py-2 rounded-xl text-xs font-bold transition-all border border-teal-700">
-                <i class="fa-solid fa-person-praying mr-1.5"></i> 1. BACAAN SHALAT
+                <i class="fa-solid fa-person-praying mr-1.5"></i> 2. BACAAN SHALAT
             </button>
-            <button onclick="switchIbadahSub('wudhu')" id="btn-ibadah-wudhu" class="ibadah-sub-tab px-4 py-2 rounded-xl text-xs font-bold transition-all border border-teal-700 text-gray-300 hover:text-white">
-                <i class="fa-solid fa-hands-bubbles mr-1.5"></i> 2. WUDHU
-            </button>
+           
         </div>
 
-        <!-- SUB-TAB 1: BACAAN SHALAT (VIDEO MP4) -->
+        <!-- SUB-TAB 2: BACAAN SHALAT (VIDEO MP4) -->
         <div id="ibadah-sub-bacaan-shalat" class="space-y-6">
             <div class="bg-teal-950/60 p-6 sm:p-8 rounded-3xl border border-teal-500/30 shadow-2xl space-y-6 text-center">
                 <div class="max-w-2xl mx-auto space-y-2">
