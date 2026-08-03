@@ -146,7 +146,7 @@
                 </div>
                 <div>
                     <h3 class="text-lg font-bold text-white tracking-wide">MATERI AL-ISLAM KELAS 3</h3>
-                    <p class="text-xs text-gray-300 mt-1">Fondasi Aqidah, 3 Pilar Tauhid, Muroqobah, Surah Az-Zalzalah & LKPD 3 JPL.</p>
+                    <p class="text-xs text-gray-300 mt-1">BAB 1: Az-Zalzalah & Tauhid | BAB 2: Asmaul Husna & Akhlak Termulia.</p>
                 </div>
             </div>
 
@@ -244,447 +244,681 @@
         </button>
 
         <div class="bg-teal-950/80 p-4 rounded-2xl border border-teal-500/30">
-            <h3 class="text-xs font-bold text-cyan-300 uppercase tracking-wider mb-2"><i class="fa-solid fa-book-bookmark mr-1"></i> Daftar BAB Al-Islam Kelas 3</h3>
+            <h3 class="text-xs font-bold text-cyan-300 uppercase tracking-wider mb-2"><i class="fa-solid fa-book-bookmark mr-1"></i> Pilih BAB Al-Islam Kelas 3</h3>
             <div class="flex flex-wrap gap-2">
-                <button class="px-3 py-1.5 bg-teal-600 text-white rounded-lg text-xs font-bold shadow-md">BAB 1: Az-Zalzalah & Fondasi Aqidah</button>
-                <button class="px-3 py-1.5 bg-teal-900/50 text-gray-400 rounded-lg text-xs border border-teal-800 cursor-not-allowed">BAB 2 (Akan Datang)</button>
+                <button id="btn-al-bab1" onclick="switchAlIslamBab('bab1')" class="px-4 py-2 bg-teal-600 text-white rounded-xl text-xs font-bold shadow-md transition border border-teal-400">
+                    BAB 1: Az-Zalzalah & Fondasi Aqidah
+                </button>
+                <button id="btn-al-bab2" onclick="switchAlIslamBab('bab2')" class="px-4 py-2 bg-teal-950/80 text-gray-300 hover:text-white rounded-xl text-xs font-bold border border-teal-700 transition">
+                    BAB 2: Asmaul Husna & Akhlak Mulia
+                </button>
             </div>
         </div>
 
-        <nav class="sticky top-2 z-40 bg-teal-950/90 backdrop-blur-md rounded-2xl p-2 border border-teal-500/30 shadow-lg flex flex-wrap items-center justify-center gap-1 sm:gap-2 text-xs font-bold uppercase tracking-wider text-cyan-300">
-            <a href="#intro" class="sub-nav active px-3 py-2 rounded-xl transition">1. Fondasi Aqidah</a>
-            <a href="#pemantik" class="sub-nav px-3 py-2 rounded-xl transition">2. Pemantik & Surah</a>
-            <a href="#kandungan" class="sub-nav px-3 py-2 rounded-xl transition">3. Tafsir & Mizan</a>
-            <a href="#penerapan" class="sub-nav px-3 py-2 rounded-xl transition">4. Amalan & Tugas</a>
-            <a href="#evaluasi" class="sub-nav px-3 py-2 rounded-xl transition">5. Ujian & Refleksi</a>
-            <a href="#lkpd-3jpl" class="sub-nav px-3 py-2 rounded-xl transition text-amber-300 border border-amber-500/40 bg-amber-950/40">6. LKPD Interaktif (3 JPL)</a>
-        </nav>
+        <!-- ==================== BAB 1 AL-ISLAM ==================== -->
+        <div id="al-islam-bab1" class="space-y-8">
+            <nav class="sticky top-2 z-40 bg-teal-950/90 backdrop-blur-md rounded-2xl p-2 border border-teal-500/30 shadow-lg flex flex-wrap items-center justify-center gap-1 sm:gap-2 text-xs font-bold uppercase tracking-wider text-cyan-300">
+                <a href="#intro" class="sub-nav active px-3 py-2 rounded-xl transition">1. Fondasi Aqidah</a>
+                <a href="#pemantik" class="sub-nav px-3 py-2 rounded-xl transition">2. Pemantik & Surah</a>
+                <a href="#kandungan" class="sub-nav px-3 py-2 rounded-xl transition">3. Tafsir & Mizan</a>
+                <a href="#penerapan" class="sub-nav px-3 py-2 rounded-xl transition">4. Amalan & Tugas</a>
+                <a href="#evaluasi" class="sub-nav px-3 py-2 rounded-xl transition">5. Ujian & Refleksi</a>
+                <a href="#lkpd-3jpl" class="sub-nav px-3 py-2 rounded-xl transition text-amber-300 border border-amber-500/40 bg-amber-950/40">6. LKPD Interaktif (3 JPL)</a>
+            </nav>
 
-        <header id="intro" class="space-y-8">
-            <div class="bg-teal-950/60 rounded-[2.5rem] p-6 md:p-10 text-white shadow-2xl relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-6 border border-teal-500/30">
-                <div class="space-y-3 max-w-2xl">
-                    <span class="bg-cyan-950 text-cyan-300 border border-cyan-500/30 text-xs font-bold px-3.5 py-1.5 rounded-full uppercase tracking-widest inline-block">
-                        BAB 1 • Sub-Menu Fondasi Aqidah
-                    </span>
-                    <h2 class="text-2xl md:text-4xl font-extrabold leading-tight text-cyan-300">
-                        Fondasi Aqidah: Mengenal Allah Melalui 3 Pilar Tauhid & Muroqobah
-                    </h2>
-                    <p class="text-gray-300 text-xs md:text-sm leading-relaxed">
-                        Memahami pentingnya menancapkan akar aqidah yang kuat, mengenal Allah melalui 3 Pilar Tauhid, dan melahirkan sikap Muroqobah (merasa selalu diawasi Allah ﷻ).
-                    </p>
-                </div>
-                <div class="text-6xl bg-teal-900/40 p-6 rounded-[2rem] border border-teal-500/20 shrink-0 shadow-inner">🌳</div>
-            </div>
-
-            <div class="bg-teal-950/60 rounded-3xl p-6 md:p-8 border border-teal-500/30 space-y-4 shadow-xl">
-                <div class="flex items-center gap-3 border-b border-teal-800/60 pb-3">
-                    <span class="text-3xl">🌱</span>
-                    <div>
-                        <h3 class="text-lg font-bold text-cyan-300">Analogi Sederhana untuk Anak-Anakku</h3>
-                        <p class="text-xs text-teal-400 font-medium">Mengapa Aqidah Harus Kuat Seperti Akar Pohon?</p>
-                    </div>
-                </div>
-
-                <div class="text-xs text-gray-300 leading-relaxed space-y-3">
-                    <p>Anak-anakku sekalian, coba bayangkan sebuah pohon yang sangat besar dan rindang. Pohon itu punya daun yang hijau, buah yang manis, dan dahan yang kokoh.</p>
-                    <div class="p-3 bg-teal-900/40 rounded-xl border border-teal-700/50 text-cyan-200 italic font-semibold">
-                        "Pertanyaannya: Apa yang membuat pohon itu tetap berdiri tegak saat diterpa angin kencang atau hujan deras? Jawabannya adalah Akar yang Kuat di dalam tanah."
-                    </div>
-                    <p>Ibadah kita—seperti shalat, puasa, bersedekah, dan jujur—adalah seperti <strong>buah dan daun</strong> dari pohon tersebut. Sedangkan <strong>Aqidah (Tauhid/Keyakinan kepada Allah) adalah Akarnya</strong>.</p>
-                    <p class="bg-emerald-950/60 p-3 rounded-xl border border-emerald-500/30 text-emerald-300 font-medium">
-                        ✨ Jika akarnya kuat dan menancap dalam, maka ibadah lainnya akan tumbuh dengan indah, kuat, dan tidak mudah goyah. Sebaliknya, jika akarnya lemah, pohon itu akan mudah tumbang walau hanya ditiup angin kecil.
-                    </p>
-                </div>
-            </div>
-
-            <div class="space-y-4 pb-24">
-                <div class="text-center space-y-1">
-                    <h3 class="text-xl font-bold text-cyan-300">Mengenal Allah Melalui 3 Pilar Tauhid</h3>
-                    <p class="text-xs text-gray-400">Bagaimana cara kita menguatkan akar aqidah tersebut? Kita harus mengenal Allah melalui tiga hal mendasar:</p>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <div class="bg-teal-950/60 p-5 rounded-2xl border border-teal-700/40 space-y-2 hover:border-cyan-400 transition">
-                        <div class="w-10 h-10 bg-cyan-900/60 text-cyan-300 rounded-xl flex items-center justify-center font-bold text-lg mb-2">1</div>
-                        <h4 class="font-bold text-cyan-300 text-sm">Tauhid Rububiyah</h4>
-                        <p class="text-[11px] text-teal-400 font-semibold">Keyakinan akan Keagungan Allah sebagai Pencipta</p>
-                        <p class="text-xs text-gray-300 leading-relaxed">
-                            Kalian harus yakin bahwa Allah-lah yang menciptakan diri kita, langit, bumi, dan seluruh isinya. Allah yang memberi kita napas, makanan, dan kesehatan. Tidak ada satu pun benda di dunia ini yang ada tanpa ciptaan Allah.
-                        </p>
-                    </div>
-
-                    <div class="bg-teal-950/60 p-5 rounded-2xl border border-teal-700/40 space-y-2 hover:border-cyan-400 transition">
-                        <div class="w-10 h-10 bg-cyan-900/60 text-cyan-300 rounded-xl flex items-center justify-center font-bold text-lg mb-2">2</div>
-                        <h4 class="font-bold text-cyan-300 text-sm">Tauhid Uluhiyah</h4>
-                        <p class="text-[11px] text-teal-400 font-semibold">Mengesakan Allah dalam Ibadah</p>
-                        <p class="text-xs text-gray-300 leading-relaxed">
-                            Karena Allah yang menciptakan dan merawat kita, maka hanya Allah satu-satunya yang berhak disembah. Kita shalat bukan karena takut dimarahi guru, melainkan semata-mata tunduk dan bersyukur kepada Allah.
-                        </p>
-                    </div>
-
-                    <div class="bg-teal-950/60 p-5 rounded-2xl border border-teal-700/40 space-y-2 hover:border-cyan-400 transition">
-                        <div class="w-10 h-10 bg-cyan-900/60 text-cyan-300 rounded-xl flex items-center justify-center font-bold text-lg mb-2">3</div>
-                        <h4 class="font-bold text-cyan-300 text-sm">Tauhid Asma wa Sifat</h4>
-                        <p class="text-[11px] text-teal-400 font-semibold">Mengenal Nama dan Sifat Allah</p>
-                        <p class="text-xs text-gray-300 leading-relaxed">
-                            Allah memiliki nama-nama yang indah (Asmaul Husna). Allah Maha Melihat (<strong>Al-Bashir</strong>), Allah Maha Mendengar (<strong>Al-Sami'</strong>), dan Allah Maha Mengetahui (<strong>Al-'Alim</strong>).
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="bg-teal-950/80 rounded-3xl p-6 md:p-8 border border-teal-500/30 space-y-5 shadow-2xl">
-                <div class="border-b border-teal-800/60 pb-3">
-                    <span class="bg-amber-950 text-amber-300 border border-amber-500/40 text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider inline-block mb-2">
-                        Puncak Kekuatan Aqidah
-                    </span>
-                    <h3 class="text-xl font-bold text-cyan-300">Buah Aqidah: Sikap Muroqobah (Merasa Selalu Diawasi Allah)</h3>
-                    <p class="text-xs text-gray-300 mt-1 leading-relaxed">
-                        Jamaah dan anak-anakku yang berbahagia, jika ketiga pilar Tauhid ini sudah tertanam di hati, maka akan lahir satu sikap yang sangat indah, yaitu <strong>Muroqobah</strong>—perasaan sadar bahwa Allah senantiasa melihat dan mengawasi kita di mana pun kita berada.
-                    </p>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
-                    <div class="p-4 bg-teal-900/30 rounded-2xl border border-teal-700/40 space-y-2">
-                        <span class="text-2xl">📝</span>
-                        <h4 class="font-bold text-cyan-300 text-xs">Di Kelas Saat Ujian</h4>
-                        <p class="text-[11px] text-gray-300 leading-relaxed">Meskipun guru sedang tidak melihat, murid yang punya Muroqobah tidak akan mencontek karena tahu <strong>Al-Bashir</strong> memperhatikannya.</p>
-                    </div>
-                    <div class="p-4 bg-teal-900/30 rounded-2xl border border-teal-700/40 space-y-2">
-                        <span class="text-2xl">📱</span>
-                        <h4 class="font-bold text-cyan-300 text-xs">Saat Sendirian Memegang HP</h4>
-                        <p class="text-[11px] text-gray-300 leading-relaxed">Ia tidak akan membuka hal-hal yang dilarang, karena ia sadar Allah tahu apa yang ada di dalam hatinya.</p>
-                    </div>
-                    <div class="p-4 bg-teal-900/30 rounded-2xl border border-teal-700/40 space-y-2">
-                        <span class="text-2xl">🤝</span>
-                        <h4 class="font-bold text-cyan-300 text-xs">Saat Berinteraksi dengan Teman</h4>
-                        <p class="text-[11px] text-gray-300 leading-relaxed">Ia tidak akan membuli atau menyakiti, karena tahu setiap ucapannya didengar oleh Allah (<strong>Al-Sami'</strong>).</p>
-                    </div>
-                </div>
-            </div>
-        </header>
-
-        <section id="pemantik" class="space-y-6 pt-6 border-t border-teal-900/50">
-            <div class="bg-teal-950/60 rounded-3xl p-6 border border-teal-500/30 space-y-4">
-                <span class="bg-teal-900 text-teal-300 text-[10px] font-bold px-3 py-1 rounded-full uppercase">Pertanyaan Pemantik</span>
-                <h3 class="text-xl font-bold text-cyan-300">Pernahkah Kamu Merasakan Goncangan Gempa?</h3>
-                <p class="text-xs text-gray-300 leading-relaxed">
-                    Bumi yang kita pijak terasa sangat kokoh, namun saat gempa terjadi, segalanya bergoyang dahsyat. Bayangkan jika seluruh bumi digoncangkan hingga mengeluarkan semua isinya! Itulah gambaran dahsyatnya Hari Kiamat dalam Surah Az-Zalzalah.
-                </p>
-            </div>
-
-            <div class="bg-teal-950/80 rounded-3xl p-6 md:p-8 border border-teal-500/30 space-y-6">
-                <div class="text-center space-y-2">
-                    <h3 class="text-2xl font-bold text-cyan-300">Surah Az-Zalzalah (سُورَةُ الزَّلْزَلَةِ)</h3>
-                    <p class="text-xs text-gray-400">8 Ayat • Surah Madaniyyah / Makkiyyah • Goncangan Yang Dahsyat</p>
-                    <p class="arabic-text text-xl font-bold text-cyan-200 mt-2">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p>
-                </div>
-
-                <div class="space-y-4 text-sm">
-                    <div class="p-4 bg-teal-900/30 rounded-2xl border border-teal-800/60 space-y-2">
-                        <div class="flex justify-between items-center">
-                            <span class="w-7 h-7 bg-teal-800 text-cyan-300 rounded-full flex items-center justify-center font-bold text-xs">1</span>
-                            <p class="arabic-text text-2xl font-bold text-cyan-100">إِذَا زُلْزِلَتِ الْأَرْضُ زِلْزَالَهَا</p>
-                        </div>
-                        <p class="text-xs text-teal-300 font-semibold">Iżā zulzilatil-arḍu zilzālahā</p>
-                        <p class="text-xs text-gray-300">"Apabila bumi digoncangkan dengan goncangan yang dahsyat."</p>
-                    </div>
-
-                    <div class="p-4 bg-teal-900/30 rounded-2xl border border-teal-800/60 space-y-2">
-                        <div class="flex justify-between items-center">
-                            <span class="w-7 h-7 bg-teal-800 text-cyan-300 rounded-full flex items-center justify-center font-bold text-xs">2</span>
-                            <p class="arabic-text text-2xl font-bold text-cyan-100">وَأَخْرَجَتِ الْأَرْضُ أَثْقَالَهَا</p>
-                        </div>
-                        <p class="text-xs text-teal-300 font-semibold">Wa akhrajatil-arḍu aṡqālahā</p>
-                        <p class="text-xs text-gray-300">"Dan bumi telah mengeluarkan beban-beban berat (yang dikandung)nya."</p>
-                    </div>
-
-                    <div class="p-4 bg-teal-900/30 rounded-2xl border border-teal-800/60 space-y-2">
-                        <div class="flex justify-between items-center">
-                            <span class="w-7 h-7 bg-teal-800 text-cyan-300 rounded-full flex items-center justify-center font-bold text-xs">3</span>
-                            <p class="arabic-text text-2xl font-bold text-cyan-100">وَقَالَ الْإِنْسَانُ مَا لَهَا</p>
-                        </div>
-                        <p class="text-xs text-teal-300 font-semibold">Wa qālal-insānu mā lahā</p>
-                        <p class="text-xs text-gray-300">"Dan manusia bertanya: 'Mengapa bumi (jadi begini)?'"</p>
-                    </div>
-
-                    <div class="p-4 bg-teal-900/30 rounded-2xl border border-teal-800/60 space-y-2">
-                        <div class="flex justify-between items-center">
-                            <span class="w-7 h-7 bg-teal-800 text-cyan-300 rounded-full flex items-center justify-center font-bold text-xs">4</span>
-                            <p class="arabic-text text-2xl font-bold text-cyan-100">يَوْمَئِذٍ تُحَدِّثُ أَخْبَارَهَا</p>
-                        </div>
-                        <p class="text-xs text-teal-300 font-semibold">Yauma'iżin tuḥaddiṡu akhbārahā</p>
-                        <p class="text-xs text-gray-300">"Pada hari itu bumi menyampaikan beritanya."</p>
-                    </div>
-
-                    <div class="p-4 bg-teal-900/30 rounded-2xl border border-teal-800/60 space-y-2">
-                        <div class="flex justify-between items-center">
-                            <span class="w-7 h-7 bg-teal-800 text-cyan-300 rounded-full flex items-center justify-center font-bold text-xs">5</span>
-                            <p class="arabic-text text-2xl font-bold text-cyan-100">بِأَنَّ رَبَّكَ أَوْحَىٰ لَهَا</p>
-                        </div>
-                        <p class="text-xs text-teal-300 font-semibold">Bi'anna rabbaka auḥā lahā</p>
-                        <p class="text-xs text-gray-300">"Karena sesungguhnya Tuhanmu telah memerintahkan (yang demikian itu) kepadanya."</p>
-                    </div>
-
-                    <div class="p-4 bg-teal-900/30 rounded-2xl border border-teal-800/60 space-y-2">
-                        <div class="flex justify-between items-center">
-                            <span class="w-7 h-7 bg-teal-800 text-cyan-300 rounded-full flex items-center justify-center font-bold text-xs">6</span>
-                            <p class="arabic-text text-2xl font-bold text-cyan-100">يَوْمَئِذٍ يَصْدُرُ النَّاسُ أَشْتَاتًا لِيُرَوْا أَعْمَالَهُمْ</p>
-                        </div>
-                        <p class="text-xs text-teal-300 font-semibold">Yauma'iżiy yaṣdurun-nāsu ashtātal liyurau a'mālahum</p>
-                        <p class="text-xs text-gray-300">"Pada hari itu manusia keluar dari kuburnya dalam keadaan berkelompok-kelompok, untuk diperlihatkan kepada mereka (balasan) pekerjaan mereka."</p>
-                    </div>
-
-                    <div class="p-4 bg-teal-900/30 rounded-2xl border border-teal-800/60 space-y-2 border-emerald-500/50">
-                        <div class="flex justify-between items-center">
-                            <span class="w-7 h-7 bg-emerald-800 text-emerald-200 rounded-full flex items-center justify-center font-bold text-xs">7</span>
-                            <p class="arabic-text text-2xl font-bold text-emerald-200">فَمَنْ يَعْمَلْ مِثْقَالَ ذَرَّةٍ خَيْرًا يَرَهُ</p>
-                        </div>
-                        <p class="text-xs text-emerald-300 font-semibold">Fa mai ya'mal miṡqāla żarratin khairay yarah</p>
-                        <p class="text-xs text-gray-300">"Maka barangsiapa mengerjakan kebaikan seberat dzarrah pun, niscaya dia akan melihat (balasan)nya."</p>
-                    </div>
-
-                    <div class="p-4 bg-teal-900/30 rounded-2xl border border-teal-800/60 space-y-2 border-rose-500/50">
-                        <div class="flex justify-between items-center">
-                            <span class="w-7 h-7 bg-rose-900 text-rose-200 rounded-full flex items-center justify-center font-bold text-xs">8</span>
-                            <p class="arabic-text text-2xl font-bold text-rose-200">وَمَنْ يَعْمَلْ مِثْقَالَ ذَرَّةٍ شَرًّا يَرَهُ</p>
-                        </div>
-                        <p class="text-xs text-rose-300 font-semibold">Wa mai ya'mal miṡqāla żarratin sharray yarah</p>
-                        <p class="text-xs text-gray-300">"Dan barangsiapa mengerjakan kejahatan seberat dzarrah pun, niscaya dia akan melihat (balasan)nya pula."</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="kandungan" class="space-y-6 pt-6 border-t border-teal-900/50">
-            <div class="bg-teal-950/60 rounded-3xl p-6 border border-teal-500/30 space-y-4">
-                <h3 class="text-xl font-bold text-cyan-300 flex items-center gap-2">
-                    <span>⚖️</span> Kandungan & Makna Dzarrah
-                </h3>
-                <p class="text-xs text-gray-300 leading-relaxed">
-                    Kata <strong>Dzarrah (ذَرَّةٍ)</strong> menggambarkan bagian terkecil di alam semesta (seperti biji sawi atau atom). Allah ﷻ Maha Adil: sekecil apa pun amalan baik maupun keburukan semuanya akan ditimbang di Timbangan Amal (Mizan).
-                </p>
-            </div>
-        </section>
-
-        <section id="penerapan" class="space-y-6 pt-6 border-t border-teal-900/50">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="bg-teal-950/60 rounded-3xl p-6 border border-teal-500/30 space-y-3">
-                    <h3 class="text-lg font-bold text-cyan-300">🌱 Amalan Kebaikan Harian (Dzarrah Khair)</h3>
-                    <ul class="text-xs text-gray-300 space-y-1.5 list-disc pl-4">
-                        <li>Mengucapkan salam dan tersenyum ramah.</li>
-                        <li>Membantu orang tua membersihkan meja makan.</li>
-                        <li>Menyisihkan uang saku untuk infak shadaqah.</li>
-                    </ul>
-                </div>
-                <div class="bg-teal-950/60 rounded-3xl p-6 border border-teal-500/30 space-y-3">
-                    <h3 class="text-lg font-bold text-rose-300">🛑 Menjauhi Kejahatan (Dzarrah Syarr)</h3>
-                    <ul class="text-xs text-gray-300 space-y-1.5 list-disc pl-4">
-                        <li>Menjauhi sifat mengejek teman.</li>
-                        <li>Tidak mengambil barang milik orang lain tanpa izin.</li>
-                        <li>Menjauhi perilaku membuang sampah sembarangan.</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <section id="evaluasi" class="space-y-6 pt-6 border-t border-teal-900/50">
-            <div class="bg-teal-950/60 rounded-3xl p-6 md:p-8 border border-teal-500/30 space-y-6 shadow-2xl">
-                <div class="flex flex-col md:flex-row items-center justify-between gap-4 border-b border-teal-800/60 pb-4">
-                    <div>
-                        <span class="bg-cyan-950 text-cyan-300 border border-cyan-500/30 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider inline-block mb-2">
-                            📝 Evaluasi Bab 1 Al-Islam
+            <header id="intro" class="space-y-8">
+                <div class="bg-teal-950/60 rounded-[2.5rem] p-6 md:p-10 text-white shadow-2xl relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-6 border border-teal-500/30">
+                    <div class="space-y-3 max-w-2xl">
+                        <span class="bg-cyan-950 text-cyan-300 border border-cyan-500/30 text-xs font-bold px-3.5 py-1.5 rounded-full uppercase tracking-widest inline-block">
+                            BAB 1 • Sub-Menu Fondasi Aqidah
                         </span>
-                        <h3 class="text-2xl font-bold text-cyan-300">Latihan Soal & Kuis Interaktif</h3>
-                        <p class="text-xs text-gray-300">Uji pemahamanmu tentang Surah Az-Zalzalah & Tauhid!</p>
+                        <h2 class="text-2xl md:text-4xl font-extrabold leading-tight text-cyan-300">
+                            Fondasi Aqidah: Mengenal Allah Melalui 3 Pilar Tauhid & Muroqobah
+                        </h2>
+                        <p class="text-gray-300 text-xs md:text-sm leading-relaxed">
+                            Memahami pentingnya menancapkan akar aqidah yang kuat, mengenal Allah melalui 3 Pilar Tauhid, dan melahirkan sikap Muroqobah (merasa selalu diawasi Allah ﷻ).
+                        </p>
                     </div>
-                    <div class="bg-teal-900/80 px-4 py-2 rounded-2xl border border-cyan-400 text-cyan-300 font-bold text-sm">
-                        Kuis Al-Islam Kelas 3
-                    </div>
+                    <div class="text-6xl bg-teal-900/40 p-6 rounded-[2rem] border border-teal-500/20 shrink-0 shadow-inner">🌳</div>
                 </div>
 
-                <form id="alIslamQuizForm" class="space-y-5 text-xs">
-                    <div class="p-4 bg-teal-900/30 rounded-2xl border border-teal-700/40 space-y-2">
-                        <p class="font-bold text-cyan-300">1. Surah Az-Zalzalah menceritakan peristiwa dahsyat tentang...</p>
-                        <div class="space-y-1 text-gray-300">
-                            <label class="block cursor-pointer"><input type="radio" name="ais1" value="A"> A. Terbitnya matahari dari timur</label>
-                            <label class="block cursor-pointer"><input type="radio" name="ais1" value="B"> B. Goncangan dahsyat bumi pada Hari Kiamat</label>
-                            <label class="block cursor-pointer"><input type="radio" name="ais1" value="C"> C. Peristiwa Isra Mi'raj Rasulullah ﷺ</label>
-                        </div>
-                    </div>
-
-                    <div class="p-4 bg-teal-900/30 rounded-2xl border border-teal-700/40 space-y-2">
-                        <p class="font-bold text-cyan-300">2. Arti dari kata "Dzarrah" (ذَرَّةٍ) dalam Surah Az-Zalzalah adalah...</p>
-                        <div class="space-y-1 text-gray-300">
-                            <label class="block cursor-pointer"><input type="radio" name="ais2" value="A"> A. Bagian terkecil / seberat atom</label>
-                            <label class="block cursor-pointer"><input type="radio" name="ais2" value="B"> B. Gunung yang sangat besar</label>
-                            <label class="block cursor-pointer"><input type="radio" name="ais2" value="C"> C. Lautan yang meluap</label>
-                        </div>
-                    </div>
-
-                    <div class="p-4 bg-teal-900/30 rounded-2xl border border-teal-700/40 space-y-2">
-                        <p class="font-bold text-cyan-300">3. Meyakini Allah ﷻ sebagai satu-satunya Pencipta dan Pengatur alam semesta termasuk Tauhid...</p>
-                        <div class="space-y-1 text-gray-300">
-                            <label class="block cursor-pointer"><input type="radio" name="ais3" value="A"> A. Uluhiyah</label>
-                            <label class="block cursor-pointer"><input type="radio" name="ais3" value="B"> B. Rububiyah</label>
-                            <label class="block cursor-pointer"><input type="radio" name="ais3" value="C"> C. Asma' wa Sifat</label>
-                        </div>
-                    </div>
-
-                    <div class="p-4 bg-teal-900/30 rounded-2xl border border-teal-700/40 space-y-2">
-                        <p class="font-bold text-cyan-300">4. Perasaan sadar bahwa Allah senantiasa melihat dan mengawasi kita di mana pun berada disebut...</p>
-                        <div class="space-y-1 text-gray-300">
-                            <label class="block cursor-pointer"><input type="radio" name="ais4" value="A"> A. Sikap Muroqobah</label>
-                            <label class="block cursor-pointer"><input type="radio" name="ais4" value="B"> B. Sikap Takabur</label>
-                            <label class="block cursor-pointer"><input type="radio" name="ais4" value="C"> C. Sikap Pesimis</label>
-                        </div>
-                    </div>
-
-                    <div class="p-4 bg-teal-900/30 rounded-2xl border border-teal-700/40 space-y-2">
-                        <p class="font-bold text-cyan-300">5. Hukum menuntut ilmu agama bagi setiap muslim laki-laki dan perempuan adalah...</p>
-                        <div class="space-y-1 text-gray-300">
-                            <label class="block cursor-pointer"><input type="radio" name="ais5" value="A"> A. Wajib (Fardhu)</label>
-                            <label class="block cursor-pointer"><input type="radio" name="ais5" value="B"> B. Haram</label>
-                            <label class="block cursor-pointer"><input type="radio" name="ais5" value="C"> C. Makruh</label>
-                        </div>
-                    </div>
-
-                    <button type="button" onclick="submitAlIslamQuiz()" class="w-full py-3 bg-cyan-600 hover:bg-cyan-500 text-black font-bold rounded-xl transition shadow-lg text-sm">
-                        Periksa Jawaban Kuis Al-Islam ✍️
-                    </button>
-                </form>
-
-                <div id="alIslamResult" class="hidden p-4 bg-teal-900/90 rounded-2xl border border-cyan-400 text-center font-bold text-cyan-300 text-sm"></div>
-            </div>
-        </section>
-
-        <section id="lkpd-3jpl" class="space-y-6 pt-6 border-t border-teal-900/50 text-gray-800">
-            <div class="bg-amber-50 rounded-[2.5rem] p-4 sm:p-8 border-2 border-amber-400 shadow-2xl space-y-6">
-                <div class="bg-gradient-to-r from-amber-900 via-amber-800 to-amber-950 rounded-[2rem] p-6 text-white shadow-xl border border-amber-700/50">
-                    <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+                <div class="bg-teal-950/60 rounded-3xl p-6 md:p-8 border border-teal-500/30 space-y-4 shadow-xl">
+                    <div class="flex items-center gap-3 border-b border-teal-800/60 pb-3">
+                        <span class="text-3xl">🌱</span>
                         <div>
-                            <span class="bg-amber-500/30 text-amber-200 border border-amber-400/30 text-[11px] font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-2 inline-block">
-                                Panduan Pembelajaran Mandiri / Dampingan
-                            </span>
-                            <h2 class="text-2xl md:text-3xl font-black text-amber-100 leading-tight">LKPD Interaktif Surah Az-Zalzalah (3 JPL = 105 Menit)</h2>
-                            <p class="mt-1 text-amber-200/80 text-xs md:text-sm">Ikuti 6 aktivitas penugasan di bawah ini secara tertib!</p>
-                        </div>
-                        <div class="shrink-0 bg-white/10 backdrop-blur-md px-5 py-3 rounded-2xl border border-white/20 text-center">
-                            <span class="block text-xs text-amber-200 font-medium">Total Waktu</span>
-                            <span class="text-3xl font-black text-amber-300">105m</span>
+                            <h3 class="text-lg font-bold text-cyan-300">Analogi Sederhana untuk Anak-Anakku</h3>
+                            <p class="text-xs text-teal-400 font-medium">Mengapa Aqidah Harus Kuat Seperti Akar Pohon?</p>
                         </div>
                     </div>
 
-                    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2 mt-6 pt-6 border-t border-amber-700/60 text-center text-xs">
-                        <div class="bg-white/10 p-2 rounded-xl"><span class="text-[10px] font-bold bg-amber-500 text-amber-950 px-1 py-0.5 rounded block mb-1">00-15m</span>1. Pemantik</div>
-                        <div class="bg-white/10 p-2 rounded-xl"><span class="text-[10px] font-bold bg-amber-500 text-amber-950 px-1 py-0.5 rounded block mb-1">15-30m</span>2. Tulis & Kosakata</div>
-                        <div class="bg-white/10 p-2 rounded-xl"><span class="text-[10px] font-bold bg-amber-500 text-amber-950 px-1 py-0.5 rounded block mb-1">30-45m</span>3. Susun Ayat</div>
-                        <div class="bg-white/10 p-2 rounded-xl"><span class="text-[10px] font-bold bg-amber-500 text-amber-950 px-1 py-0.5 rounded block mb-1">45-65m</span>4. Detektif Amal</div>
-                        <div class="bg-white/10 p-2 rounded-xl"><span class="text-[10px] font-bold bg-amber-500 text-amber-950 px-1 py-0.5 rounded block mb-1">65-80m</span>5. Cari Kata</div>
-                        <div class="bg-white/10 p-2 rounded-xl"><span class="text-[10px] font-bold bg-amber-500 text-amber-950 px-1 py-0.5 rounded block mb-1">80-105m</span>6. Kuis & Refleksi</div>
+                    <div class="text-xs text-gray-300 leading-relaxed space-y-3">
+                        <p>Anak-anakku sekalian, coba bayangkan sebuah pohon yang sangat besar dan rindang. Pohon itu punya daun yang hijau, buah yang manis, dan dahan yang kokoh.</p>
+                        <div class="p-3 bg-teal-900/40 rounded-xl border border-teal-700/50 text-cyan-200 italic font-semibold">
+                            "Pertanyaannya: Apa yang membuat pohon itu tetap berdiri tegak saat diterpa angin kencang atau hujan deras? Jawabannya adalah Akar yang Kuat di dalam tanah."
+                        </div>
+                        <p>Ibadah kita—seperti shalat, puasa, bersedekah, dan jujur—adalah seperti <strong>buah dan daun</strong> dari pohon tersebut. Sedangkan <strong>Aqidah (Tauhid/Keyakinan kepada Allah) adalah Akarnya</strong>.</p>
+                        <p class="bg-emerald-950/60 p-3 rounded-xl border border-emerald-500/30 text-emerald-300 font-medium">
+                            ✨ Jika akarnya kuat dan menancap dalam, maka ibadah lainnya akan tumbuh dengan indah, kuat, dan tidak mudah goyah. Sebaliknya, jika akarnya lemah, pohon itu akan mudah tumbang walau hanya ditiup angin kecil.
+                        </p>
                     </div>
                 </div>
 
-                <div class="bg-white rounded-[2rem] p-6 shadow-sm border border-amber-200 space-y-4">
-                    <div class="flex items-center justify-between border-b border-amber-100 pb-3">
-                        <div>
-                            <span class="bg-amber-100 text-amber-900 text-[10px] font-bold px-2.5 py-0.5 rounded-full uppercase">Game Menjodohkan</span>
-                            <h3 class="text-base font-bold text-amber-950 mt-0.5">🔗 Jodohkan Kosakata Arab dengan Artinya!</h3>
-                        </div>
-                        <button type="button" onclick="checkVocabMatch()" class="bg-amber-600 hover:bg-amber-700 text-white text-xs font-bold px-4 py-2 rounded-xl transition shadow">Periksa Jawaban</button>
-                    </div>
-                    <div class="grid grid-cols-1 md:grid-cols-5 gap-3" id="vocab-matching-container"></div>
-                    <div id="vocab-feedback" class="hidden text-xs font-bold text-center p-2 rounded-xl"></div>
-                </div>
-
-                <div class="bg-white rounded-[2rem] p-6 shadow-sm border border-amber-200 space-y-4">
-                    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 border-b border-amber-100 pb-3">
-                        <div>
-                            <span class="bg-amber-600 text-white text-[10px] font-bold px-2.5 py-0.5 rounded-full uppercase">Tugas 2</span>
-                            <h2 class="text-lg font-extrabold text-amber-950 mt-0.5">🧩 Puzzle Susun Urutan Ayat Surah Az-Zalzalah</h2>
-                        </div>
-                        <button type="button" onclick="resetAyatPuzzle()" class="bg-stone-200 hover:bg-stone-300 text-stone-800 text-xs font-bold px-3 py-1.5 rounded-xl">🔄 Acak Ulang</button>
-                    </div>
-
-                    <div class="p-4 bg-amber-50 rounded-2xl border border-amber-300 min-h-[90px] space-y-2">
-                        <span class="text-[10px] font-bold text-amber-800 uppercase block">Urutan Pilihanmu:</span>
-                        <div id="puzzle-selected-list" class="space-y-2"><p class="text-xs text-gray-400 italic">Belum ada ayat yang dipilih. Klik pilihan ayat di bawah ini!</p></div>
-                    </div>
-
-                    <div class="space-y-2">
-                        <span class="text-[10px] font-bold text-gray-500 uppercase block">Pilihan Ayat:</span>
-                        <div id="puzzle-choices-container" class="grid grid-cols-1 gap-2"></div>
-                    </div>
-
-                    <div class="flex justify-between items-center pt-2">
-                        <button type="button" onclick="checkAyatPuzzle()" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs px-5 py-2.5 rounded-xl shadow">✅ Cek Kebenaran Urutan</button>
-                        <div id="puzzle-feedback" class="text-xs font-extrabold"></div>
-                    </div>
-                </div>
-
-                <div class="bg-white rounded-[2rem] p-6 shadow-sm border border-amber-200 space-y-4">
-                    <div class="border-b border-amber-100 pb-3">
-                        <span class="bg-amber-100 text-amber-900 text-[10px] font-bold px-2.5 py-0.5 rounded-full uppercase">Tugas 3</span>
-                        <h2 class="text-lg font-extrabold text-amber-950 mt-0.5">🔍 Detektif Kebaikan: Penerapan Surah Az-Zalzalah</h2>
-                    </div>
-
-                    <div class="space-y-4 pb-24">
-                        <div class="p-4 bg-amber-50/70 rounded-2xl border border-amber-200 space-y-2">
-                            <h3 class="font-bold text-amber-900 text-xs">📌 Kasus 1: Paku di Jalanan Sekolah</h3>
-                            <p class="text-xs text-gray-700">Budi mengambil paku tajam di jalanan sekolah dan membuangnya ke tempat sampah agar tidak melukai orang.</p>
-                            <label class="block text-[11px] font-bold text-amber-950">Apakah tindakan Budi bernilai pahala menurut Ayat 7? Jelaskan!</label>
-                            <textarea id="case1-ans" rows="2" placeholder="Tuliskan alasanmu..." class="w-full p-2.5 rounded-xl border border-amber-300 text-xs focus:ring-2 focus:ring-amber-500"></textarea>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-white rounded-[2rem] p-6 shadow-sm border border-amber-200 space-y-4">
-                    <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-2 border-b border-amber-100 pb-3">
-                        <div>
-                            <span class="bg-amber-100 text-amber-900 text-[10px] font-bold px-2.5 py-0.5 rounded-full uppercase">Tugas 4</span>
-                            <h2 class="text-lg font-extrabold text-amber-950 mt-0.5">🎮 Teka-Teki Cari Kata Ajaib (8 Kata Target)</h2>
-                        </div>
-                        <div class="text-xs font-bold text-amber-900 bg-amber-100 px-3 py-1.5 rounded-xl border border-amber-300">Ditemukan: <span id="found-count" class="text-amber-700 font-extrabold">0</span> / 8 Kata</div>
-                    </div>
-
-                    <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-start">
-                        <div class="md:col-span-4 space-y-1.5 text-xs">
-                            <span class="text-[10px] font-bold uppercase text-gray-500 block mb-1">Target Kata:</span>
-                            <div id="word-GONCANGAN" class="p-2 bg-amber-50 rounded-xl border border-amber-200 font-bold text-amber-900 flex justify-between"><span>1. GONCANGAN</span><span class="status-icon">⏳</span></div>
-                            <div id="word-AMAL" class="p-2 bg-amber-50 rounded-xl border border-amber-200 font-bold text-amber-900 flex justify-between"><span>2. AMAL</span><span class="status-icon">⏳</span></div>
-                            <div id="word-KIAMAT" class="p-2 bg-amber-50 rounded-xl border border-amber-200 font-bold text-amber-900 flex justify-between"><span>3. KIAMAT</span><span class="status-icon">⏳</span></div>
-                            <div id="word-BUMI" class="p-2 bg-amber-50 rounded-xl border border-amber-200 font-bold text-amber-900 flex justify-between"><span>4. BUMI</span><span class="status-icon">⏳</span></div>
-                            <div id="word-DZARRAH" class="p-2 bg-amber-50 rounded-xl border border-amber-200 font-bold text-amber-900 flex justify-between"><span>5. DZARRAH</span><span class="status-icon">⏳</span></div>
-                            <div id="word-TAUHID" class="p-2 bg-amber-50 rounded-xl border border-amber-200 font-bold text-amber-900 flex justify-between"><span>6. TAUHID</span><span class="status-icon">⏳</span></div>
-                            <div id="word-ADIL" class="p-2 bg-amber-50 rounded-xl border border-amber-200 font-bold text-amber-900 flex justify-between"><span>7. ADIL</span><span class="status-icon">⏳</span></div>
-                            <div id="word-SURGA" class="p-2 bg-amber-50 rounded-xl border border-amber-200 font-bold text-amber-900 flex justify-between"><span>8. SURGA</span><span class="status-icon">⏳</span></div>
-                        </div>
-
-                        <div class="md:col-span-8 bg-amber-950 p-4 rounded-2xl shadow-inner text-white">
-                            <div id="grid-container" class="grid grid-cols-8 gap-1.5 text-center font-black text-xs sm:text-sm"></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-white rounded-[2rem] p-6 shadow-sm border border-amber-200 space-y-6">
+                <div class="space-y-4">
                     <div class="text-center space-y-1">
-                        <span class="bg-amber-600 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase">Tugas 5</span>
-                        <h2 class="text-xl font-black text-amber-950">✍️ Kuis Evaluasi LKPD 10 Soal</h2>
+                        <h3 class="text-xl font-bold text-cyan-300">Mengenal Allah Melalui 3 Pilar Tauhid</h3>
+                        <p class="text-xs text-gray-400">Bagaimana cara kita menguatkan akar aqidah tersebut? Kita harus mengenal Allah melalui tiga hal mendasar:</p>
                     </div>
 
-                    <form id="quiz-form-lkpd" onsubmit="event.preventDefault(); submitQuizLKPD();" class="space-y-6">
-                        <div id="quiz-questions-lkpd-container" class="space-y-4"></div>
-
-                        <div class="pt-4 border-t border-amber-100 flex flex-col md:flex-row items-center justify-between gap-4">
-                            <button type="submit" class="w-full md:w-auto bg-amber-600 hover:bg-amber-700 text-white font-extrabold px-8 py-3.5 rounded-2xl shadow-lg transition text-xs uppercase">
-                                🚀 Kumpul & Periksa Nilai Kuis LKPD
-                            </button>
-                            <div id="quiz-result-lkpd" class="hidden font-black text-lg text-amber-950"></div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div class="bg-teal-950/60 p-5 rounded-2xl border border-teal-700/40 space-y-2 hover:border-cyan-400 transition">
+                            <div class="w-10 h-10 bg-cyan-900/60 text-cyan-300 rounded-xl flex items-center justify-center font-bold text-lg mb-2">1</div>
+                            <h4 class="font-bold text-cyan-300 text-sm">Tauhid Rububiyah</h4>
+                            <p class="text-[11px] text-teal-400 font-semibold">Keyakinan akan Keagungan Allah sebagai Pencipta</p>
+                            <p class="text-xs text-gray-300 leading-relaxed">
+                                Kalian harus yakin bahwa Allah-lah yang menciptakan diri kita, langit, bumi, dan seluruh isinya. Allah yang memberi kita napas, makanan, dan kesehatan.
+                            </p>
                         </div>
-                    </form>
+
+                        <div class="bg-teal-950/60 p-5 rounded-2xl border border-teal-700/40 space-y-2 hover:border-cyan-400 transition">
+                            <div class="w-10 h-10 bg-cyan-900/60 text-cyan-300 rounded-xl flex items-center justify-center font-bold text-lg mb-2">2</div>
+                            <h4 class="font-bold text-cyan-300 text-sm">Tauhid Uluhiyah</h4>
+                            <p class="text-[11px] text-teal-400 font-semibold">Mengesakan Allah dalam Ibadah</p>
+                            <p class="text-xs text-gray-300 leading-relaxed">
+                                Karena Allah yang menciptakan dan merawat kita, maka hanya Allah satu-satunya yang berhak disembah. Kita shalat bukan karena takut dimarahi guru, melainkan semata-mata tunduk kepada Allah.
+                            </p>
+                        </div>
+
+                        <div class="bg-teal-950/60 p-5 rounded-2xl border border-teal-700/40 space-y-2 hover:border-cyan-400 transition">
+                            <div class="w-10 h-10 bg-cyan-900/60 text-cyan-300 rounded-xl flex items-center justify-center font-bold text-lg mb-2">3</div>
+                            <h4 class="font-bold text-cyan-300 text-sm">Tauhid Asma wa Sifat</h4>
+                            <p class="text-[11px] text-teal-400 font-semibold">Mengenal Nama dan Sifat Allah</p>
+                            <p class="text-xs text-gray-300 leading-relaxed">
+                                Allah memiliki nama-nama yang indah (Asmaul Husna). Allah Maha Melihat (<strong>Al-Bashir</strong>), Allah Maha Mendengar (<strong>Al-Sami'</strong>), dan Allah Maha Mengetahui (<strong>Al-'Alim</strong>).
+                            </p>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </section>
+
+                <div class="bg-teal-950/80 rounded-3xl p-6 md:p-8 border border-teal-500/30 space-y-5 shadow-2xl">
+                    <div class="border-b border-teal-800/60 pb-3">
+                        <span class="bg-amber-950 text-amber-300 border border-amber-500/40 text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider inline-block mb-2">
+                            Puncak Kekuatan Aqidah
+                        </span>
+                        <h3 class="text-xl font-bold text-cyan-300">Buah Aqidah: Sikap Muroqobah (Merasa Selalu Diawasi Allah)</h3>
+                        <p class="text-xs text-gray-300 mt-1 leading-relaxed">
+                            Jika ketiga pilar Tauhid ini sudah tertanam di hati, maka akan lahir sikap <strong>Muroqobah</strong>—perasaan sadar bahwa Allah senantiasa melihat dan mengawasi kita.
+                        </p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                        <div class="p-4 bg-teal-900/30 rounded-2xl border border-teal-700/40 space-y-2">
+                            <span class="text-2xl">📝</span>
+                            <h4 class="font-bold text-cyan-300 text-xs">Di Kelas Saat Ujian</h4>
+                            <p class="text-[11px] text-gray-300 leading-relaxed">Meskipun guru sedang tidak melihat, murid tidak akan mencontek karena tahu <strong>Al-Bashir</strong> memperhatikannya.</p>
+                        </div>
+                        <div class="p-4 bg-teal-900/30 rounded-2xl border border-teal-700/40 space-y-2">
+                            <span class="text-2xl">📱</span>
+                            <h4 class="font-bold text-cyan-300 text-xs">Saat Sendirian Memegang HP</h4>
+                            <p class="text-[11px] text-gray-300 leading-relaxed">Ia tidak akan membuka hal-hal yang dilarang, karena sadar Allah tahu apa yang ada di dalam hatinya.</p>
+                        </div>
+                        <div class="p-4 bg-teal-900/30 rounded-2xl border border-teal-700/40 space-y-2">
+                            <span class="text-2xl">🤝</span>
+                            <h4 class="font-bold text-cyan-300 text-xs">Saat Berinteraksi dengan Teman</h4>
+                            <p class="text-[11px] text-gray-300 leading-relaxed">Ia tidak akan membuli, karena tahu setiap ucapannya didengar oleh Allah (<strong>Al-Sami'</strong>).</p>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <section id="pemantik" class="space-y-6 pt-6 border-t border-teal-900/50">
+                <div class="bg-teal-950/60 rounded-3xl p-6 border border-teal-500/30 space-y-4">
+                    <span class="bg-teal-900 text-teal-300 text-[10px] font-bold px-3 py-1 rounded-full uppercase">Pertanyaan Pemantik</span>
+                    <h3 class="text-xl font-bold text-cyan-300">Pernahkah Kamu Merasakan Goncangan Gempa?</h3>
+                    <p class="text-xs text-gray-300 leading-relaxed">
+                        Bumi yang kita pijak terasa sangat kokoh, namun saat gempa terjadi, segalanya bergoyang dahsyat. Bayangkan jika seluruh bumi digoncangkan hingga mengeluarkan semua isinya! Itulah gambaran dahsyatnya Hari Kiamat dalam Surah Az-Zalzalah.
+                    </p>
+                </div>
+
+                <div class="bg-teal-950/80 rounded-3xl p-6 md:p-8 border border-teal-500/30 space-y-6">
+                    <div class="text-center space-y-2">
+                        <h3 class="text-2xl font-bold text-cyan-300">Surah Az-Zalzalah (سُورَةُ الزَّلْزَلَةِ)</h3>
+                        <p class="text-xs text-gray-400">8 Ayat • Surah Madaniyyah / Makkiyyah • Goncangan Yang Dahsyat</p>
+                        <p class="arabic-text text-xl font-bold text-cyan-200 mt-2">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p>
+                    </div>
+
+                    <div class="space-y-4 text-sm">
+                        <div class="p-4 bg-teal-900/30 rounded-2xl border border-teal-800/60 space-y-2">
+                            <div class="flex justify-between items-center">
+                                <span class="w-7 h-7 bg-teal-800 text-cyan-300 rounded-full flex items-center justify-center font-bold text-xs">1</span>
+                                <p class="arabic-text text-2xl font-bold text-cyan-100">إِذَا زُلْزِلَتِ الْأَرْضُ زِلْزَالَهَا</p>
+                            </div>
+                            <p class="text-xs text-teal-300 font-semibold">Iżā zulzilatil-arḍu zilzālahā</p>
+                            <p class="text-xs text-gray-300">"Apabila bumi digoncangkan dengan goncangan yang dahsyat."</p>
+                        </div>
+
+                        <div class="p-4 bg-teal-900/30 rounded-2xl border border-teal-800/60 space-y-2">
+                            <div class="flex justify-between items-center">
+                                <span class="w-7 h-7 bg-teal-800 text-cyan-300 rounded-full flex items-center justify-center font-bold text-xs">2</span>
+                                <p class="arabic-text text-2xl font-bold text-cyan-100">وَأَخْرَجَتِ الْأَرْضُ أَثْقَالَهَا</p>
+                            </div>
+                            <p class="text-xs text-teal-300 font-semibold">Wa akhrajatil-arḍu aṡqālahā</p>
+                            <p class="text-xs text-gray-300">"Dan bumi telah mengeluarkan beban-beban berat (yang dikandung)nya."</p>
+                        </div>
+
+                        <div class="p-4 bg-teal-900/30 rounded-2xl border border-teal-800/60 space-y-2">
+                            <div class="flex justify-between items-center">
+                                <span class="w-7 h-7 bg-teal-800 text-cyan-300 rounded-full flex items-center justify-center font-bold text-xs">3</span>
+                                <p class="arabic-text text-2xl font-bold text-cyan-100">وَقَالَ الْإِنْسَانُ مَا لَهَا</p>
+                            </div>
+                            <p class="text-xs text-teal-300 font-semibold">Wa qālal-insānu mā lahā</p>
+                            <p class="text-xs text-gray-300">"Dan manusia bertanya: 'Mengapa bumi (jadi begini)?'"</p>
+                        </div>
+
+                        <div class="p-4 bg-teal-900/30 rounded-2xl border border-teal-800/60 space-y-2">
+                            <div class="flex justify-between items-center">
+                                <span class="w-7 h-7 bg-teal-800 text-cyan-300 rounded-full flex items-center justify-center font-bold text-xs">4</span>
+                                <p class="arabic-text text-2xl font-bold text-cyan-100">يَوْمَئِذٍ تُحَدِّثُ أَخْبَارَهَا</p>
+                            </div>
+                            <p class="text-xs text-teal-300 font-semibold">Yauma'iżin tuḥaddiṡu akhbārahā</p>
+                            <p class="text-xs text-gray-300">"Pada hari itu bumi menyampaikan beritanya."</p>
+                        </div>
+
+                        <div class="p-4 bg-teal-900/30 rounded-2xl border border-teal-800/60 space-y-2">
+                            <div class="flex justify-between items-center">
+                                <span class="w-7 h-7 bg-teal-800 text-cyan-300 rounded-full flex items-center justify-center font-bold text-xs">5</span>
+                                <p class="arabic-text text-2xl font-bold text-cyan-100">بِأَنَّ رَبَّكَ أَوْحَىٰ لَهَا</p>
+                            </div>
+                            <p class="text-xs text-teal-300 font-semibold">Bi'anna rabbaka auḥā lahā</p>
+                            <p class="text-xs text-gray-300">"Karena sesungguhnya Tuhanmu telah memerintahkan (yang demikian itu) kepadanya."</p>
+                        </div>
+
+                        <div class="p-4 bg-teal-900/30 rounded-2xl border border-teal-800/60 space-y-2">
+                            <div class="flex justify-between items-center">
+                                <span class="w-7 h-7 bg-teal-800 text-cyan-300 rounded-full flex items-center justify-center font-bold text-xs">6</span>
+                                <p class="arabic-text text-2xl font-bold text-cyan-100">يَوْمَئِذٍ يَصْدُرُ النَّاسُ أَشْتَاتًا لِيُرَوْا أَعْمَالَهُمْ</p>
+                            </div>
+                            <p class="text-xs text-teal-300 font-semibold">Yauma'iżiy yaṣdurun-nāsu ashtātal liyurau a'mālahum</p>
+                            <p class="text-xs text-gray-300">"Pada hari itu manusia keluar dari kuburnya dalam keadaan berkelompok-kelompok, untuk diperlihatkan kepada mereka (balasan) pekerjaan mereka."</p>
+                        </div>
+
+                        <div class="p-4 bg-teal-900/30 rounded-2xl border border-teal-800/60 space-y-2 border-emerald-500/50">
+                            <div class="flex justify-between items-center">
+                                <span class="w-7 h-7 bg-emerald-800 text-emerald-200 rounded-full flex items-center justify-center font-bold text-xs">7</span>
+                                <p class="arabic-text text-2xl font-bold text-emerald-200">فَمَنْ يَعْمَلْ مِثْقَالَ ذَرَّةٍ خَيْرًا يَرَهُ</p>
+                            </div>
+                            <p class="text-xs text-emerald-300 font-semibold">Fa mai ya'mal miṡqāla żarratin khairay yarah</p>
+                            <p class="text-xs text-gray-300">"Maka barangsiapa mengerjakan kebaikan seberat dzarrah pun, niscaya dia akan melihat (balasan)nya."</p>
+                        </div>
+
+                        <div class="p-4 bg-teal-900/30 rounded-2xl border border-teal-800/60 space-y-2 border-rose-500/50">
+                            <div class="flex justify-between items-center">
+                                <span class="w-7 h-7 bg-rose-900 text-rose-200 rounded-full flex items-center justify-center font-bold text-xs">8</span>
+                                <p class="arabic-text text-2xl font-bold text-rose-200">وَمَنْ يَعْمَلْ مِثْقَالَ ذَرَّةٍ شَرًّا يَرَهُ</p>
+                            </div>
+                            <p class="text-xs text-rose-300 font-semibold">Wa mai ya'mal miṡqāla żarratin sharray yarah</p>
+                            <p class="text-xs text-gray-300">"Dan barangsiapa mengerjakan kejahatan seberat dzarrah pun, niscaya dia akan melihat (balasan)nya pula."</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="kandungan" class="space-y-6 pt-6 border-t border-teal-900/50">
+                <div class="bg-teal-950/60 rounded-3xl p-6 border border-teal-500/30 space-y-4">
+                    <h3 class="text-xl font-bold text-cyan-300 flex items-center gap-2">
+                        <span>⚖️</span> Kandungan & Makna Dzarrah
+                    </h3>
+                    <p class="text-xs text-gray-300 leading-relaxed">
+                        Kata <strong>Dzarrah (ذَرَّةٍ)</strong> menggambarkan bagian terkecil di alam semesta (seperti biji sawi atau atom). Allah ﷻ Maha Adil: sekecil apa pun amalan baik maupun keburukan semuanya akan ditimbang di Timbangan Amal (Mizan).
+                    </p>
+                </div>
+            </section>
+
+            <section id="penerapan" class="space-y-6 pt-6 border-t border-teal-900/50">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-teal-950/60 rounded-3xl p-6 border border-teal-500/30 space-y-3">
+                        <h3 class="text-lg font-bold text-cyan-300">🌱 Amalan Kebaikan Harian (Dzarrah Khair)</h3>
+                        <ul class="text-xs text-gray-300 space-y-1.5 list-disc pl-4">
+                            <li>Mengucapkan salam dan tersenyum ramah.</li>
+                            <li>Membantu orang tua membersihkan meja makan.</li>
+                            <li>Menyisihkan uang saku untuk infak shadaqah.</li>
+                        </ul>
+                    </div>
+                    <div class="bg-teal-950/60 rounded-3xl p-6 border border-teal-500/30 space-y-3">
+                        <h3 class="text-lg font-bold text-rose-300">🛑 Menjauhi Kejahatan (Dzarrah Syarr)</h3>
+                        <ul class="text-xs text-gray-300 space-y-1.5 list-disc pl-4">
+                            <li>Menjauhi sifat mengejek teman.</li>
+                            <li>Tidak mengambil barang milik orang lain tanpa izin.</li>
+                            <li>Menjauhi perilaku membuang sampah sembarangan.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section id="evaluasi" class="space-y-6 pt-6 border-t border-teal-900/50">
+                <div class="bg-teal-950/60 rounded-3xl p-6 md:p-8 border border-teal-500/30 space-y-6 shadow-2xl">
+                    <div class="flex flex-col md:flex-row items-center justify-between gap-4 border-b border-teal-800/60 pb-4">
+                        <div>
+                            <span class="bg-cyan-950 text-cyan-300 border border-cyan-500/30 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider inline-block mb-2">
+                                📝 Evaluasi Bab 1 Al-Islam
+                            </span>
+                            <h3 class="text-2xl font-bold text-cyan-300">Latihan Soal & Kuis Interaktif</h3>
+                            <p class="text-xs text-gray-300">Uji pemahamanmu tentang Surah Az-Zalzalah & Tauhid!</p>
+                        </div>
+                        <div class="bg-teal-900/80 px-4 py-2 rounded-2xl border border-cyan-400 text-cyan-300 font-bold text-sm">
+                            Kuis Al-Islam Kelas 3
+                        </div>
+                    </div>
+
+                    <form id="alIslamQuizForm" class="space-y-5 text-xs">
+                        <div class="p-4 bg-teal-900/30 rounded-2xl border border-teal-700/40 space-y-2">
+                            <p class="font-bold text-cyan-300">1. Surah Az-Zalzalah menceritakan peristiwa dahsyat tentang...</p>
+                            <div class="space-y-1 text-gray-300">
+                                <label class="block cursor-pointer"><input type="radio" name="ais1" value="A"> A. Terbitnya matahari dari timur</label>
+                                <label class="block cursor-pointer"><input type="radio" name="ais1" value="B"> B. Goncangan dahsyat bumi pada Hari Kiamat</label>
+                                <label class="block cursor-pointer"><input type="radio" name="ais1" value="C"> C. Peristiwa Isra Mi'raj Rasulullah ﷺ</label>
+                            </div>
+                        </div>
+
+                        <div class="p-4 bg-teal-900/30 rounded-2xl border border-teal-700/40 space-y-2">
+                            <p class="font-bold text-cyan-300">2. Arti dari kata "Dzarrah" (ذَرَّةٍ) dalam Surah Az-Zalzalah adalah...</p>
+                            <div class="space-y-1 text-gray-300">
+                                <label class="block cursor-pointer"><input type="radio" name="ais2" value="A"> A. Bagian terkecil / seberat atom</label>
+                                <label class="block cursor-pointer"><input type="radio" name="ais2" value="B"> B. Gunung yang sangat besar</label>
+                                <label class="block cursor-pointer"><input type="radio" name="ais2" value="C"> C. Lautan yang meluap</label>
+                            </div>
+                        </div>
+
+                        <div class="p-4 bg-teal-900/30 rounded-2xl border border-teal-700/40 space-y-2">
+                            <p class="font-bold text-cyan-300">3. Meyakini Allah ﷻ sebagai satu-satunya Pencipta dan Pengatur alam semesta termasuk Tauhid...</p>
+                            <div class="space-y-1 text-gray-300">
+                                <label class="block cursor-pointer"><input type="radio" name="ais3" value="A"> A. Uluhiyah</label>
+                                <label class="block cursor-pointer"><input type="radio" name="ais3" value="B"> B. Rububiyah</label>
+                                <label class="block cursor-pointer"><input type="radio" name="ais3" value="C"> C. Asma' wa Sifat</label>
+                            </div>
+                        </div>
+
+                        <div class="p-4 bg-teal-900/30 rounded-2xl border border-teal-700/40 space-y-2">
+                            <p class="font-bold text-cyan-300">4. Perasaan sadar bahwa Allah senantiasa melihat dan mengawasi kita di mana pun berada disebut...</p>
+                            <div class="space-y-1 text-gray-300">
+                                <label class="block cursor-pointer"><input type="radio" name="ais4" value="A"> A. Sikap Muroqobah</label>
+                                <label class="block cursor-pointer"><input type="radio" name="ais4" value="B"> B. Sikap Takabur</label>
+                                <label class="block cursor-pointer"><input type="radio" name="ais4" value="C"> C. Sikap Pesimis</label>
+                            </div>
+                        </div>
+
+                        <div class="p-4 bg-teal-900/30 rounded-2xl border border-teal-700/40 space-y-2">
+                            <p class="font-bold text-cyan-300">5. Hukum menuntut ilmu agama bagi setiap muslim laki-laki dan perempuan adalah...</p>
+                            <div class="space-y-1 text-gray-300">
+                                <label class="block cursor-pointer"><input type="radio" name="ais5" value="A"> A. Wajib (Fardhu)</label>
+                                <label class="block cursor-pointer"><input type="radio" name="ais5" value="B"> B. Haram</label>
+                                <label class="block cursor-pointer"><input type="radio" name="ais5" value="C"> C. Makruh</label>
+                            </div>
+                        </div>
+
+                        <button type="button" onclick="submitAlIslamQuiz()" class="w-full py-3 bg-cyan-600 hover:bg-cyan-500 text-black font-bold rounded-xl transition shadow-lg text-sm">
+                            Periksa Jawaban Kuis Al-Islam ✍️
+                        </button>
+                    </form>
+
+                    <div id="alIslamResult" class="hidden p-4 bg-teal-900/90 rounded-2xl border border-cyan-400 text-center font-bold text-cyan-300 text-sm"></div>
+                </div>
+            </section>
+
+            <section id="lkpd-3jpl" class="space-y-6 pt-6 border-t border-teal-900/50 text-gray-800">
+                <div class="bg-amber-50 rounded-[2.5rem] p-4 sm:p-8 border-2 border-amber-400 shadow-2xl space-y-6">
+                    <div class="bg-gradient-to-r from-amber-900 via-amber-800 to-amber-950 rounded-[2rem] p-6 text-white shadow-xl border border-amber-700/50">
+                        <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+                            <div>
+                                <span class="bg-amber-500/30 text-amber-200 border border-amber-400/30 text-[11px] font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-2 inline-block">
+                                    Panduan Pembelajaran Mandiri / Dampingan
+                                </span>
+                                <h2 class="text-2xl md:text-3xl font-black text-amber-100 leading-tight">LKPD Interaktif Surah Az-Zalzalah (3 JPL = 105 Menit)</h2>
+                                <p class="mt-1 text-amber-200/80 text-xs md:text-sm">Ikuti 6 aktivitas penugasan di bawah ini secara tertib!</p>
+                            </div>
+                            <div class="shrink-0 bg-white/10 backdrop-blur-md px-5 py-3 rounded-2xl border border-white/20 text-center">
+                                <span class="block text-xs text-amber-200 font-medium">Total Waktu</span>
+                                <span class="text-3xl font-black text-amber-300">105m</span>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2 mt-6 pt-6 border-t border-amber-700/60 text-center text-xs">
+                            <div class="bg-white/10 p-2 rounded-xl"><span class="text-[10px] font-bold bg-amber-500 text-amber-950 px-1 py-0.5 rounded block mb-1">00-15m</span>1. Pemantik</div>
+                            <div class="bg-white/10 p-2 rounded-xl"><span class="text-[10px] font-bold bg-amber-500 text-amber-950 px-1 py-0.5 rounded block mb-1">15-30m</span>2. Tulis & Kosakata</div>
+                            <div class="bg-white/10 p-2 rounded-xl"><span class="text-[10px] font-bold bg-amber-500 text-amber-950 px-1 py-0.5 rounded block mb-1">30-45m</span>3. Susun Ayat</div>
+                            <div class="bg-white/10 p-2 rounded-xl"><span class="text-[10px] font-bold bg-amber-500 text-amber-950 px-1 py-0.5 rounded block mb-1">45-65m</span>4. Detektif Amal</div>
+                            <div class="bg-white/10 p-2 rounded-xl"><span class="text-[10px] font-bold bg-amber-500 text-amber-950 px-1 py-0.5 rounded block mb-1">65-80m</span>5. Cari Kata</div>
+                            <div class="bg-white/10 p-2 rounded-xl"><span class="text-[10px] font-bold bg-amber-500 text-amber-950 px-1 py-0.5 rounded block mb-1">80-105m</span>6. Kuis & Refleksi</div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-[2rem] p-6 shadow-sm border border-amber-200 space-y-4">
+                        <div class="flex items-center justify-between border-b border-amber-100 pb-3">
+                            <div>
+                                <span class="bg-amber-100 text-amber-900 text-[10px] font-bold px-2.5 py-0.5 rounded-full uppercase">Game Menjodohkan</span>
+                                <h3 class="text-base font-bold text-amber-950 mt-0.5">🔗 Jodohkan Kosakata Arab dengan Artinya!</h3>
+                            </div>
+                            <button type="button" onclick="checkVocabMatch()" class="bg-amber-600 hover:bg-amber-700 text-white text-xs font-bold px-4 py-2 rounded-xl transition shadow">Periksa Jawaban</button>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-5 gap-3" id="vocab-matching-container"></div>
+                        <div id="vocab-feedback" class="hidden text-xs font-bold text-center p-2 rounded-xl"></div>
+                    </div>
+
+                    <div class="bg-white rounded-[2rem] p-6 shadow-sm border border-amber-200 space-y-4">
+                        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 border-b border-amber-100 pb-3">
+                            <div>
+                                <span class="bg-amber-600 text-white text-[10px] font-bold px-2.5 py-0.5 rounded-full uppercase">Tugas 2</span>
+                                <h2 class="text-lg font-extrabold text-amber-950 mt-0.5">🧩 Puzzle Susun Urutan Ayat Surah Az-Zalzalah</h2>
+                            </div>
+                            <button type="button" onclick="resetAyatPuzzle()" class="bg-stone-200 hover:bg-stone-300 text-stone-800 text-xs font-bold px-3 py-1.5 rounded-xl">🔄 Acak Ulang</button>
+                        </div>
+
+                        <div class="p-4 bg-amber-50 rounded-2xl border border-amber-300 min-h-[90px] space-y-2">
+                            <span class="text-[10px] font-bold text-amber-800 uppercase block">Urutan Pilihanmu:</span>
+                            <div id="puzzle-selected-list" class="space-y-2"><p class="text-xs text-gray-400 italic">Belum ada ayat yang dipilih. Klik pilihan ayat di bawah ini!</p></div>
+                        </div>
+
+                        <div class="space-y-2">
+                            <span class="text-[10px] font-bold text-gray-500 uppercase block">Pilihan Ayat:</span>
+                            <div id="puzzle-choices-container" class="grid grid-cols-1 gap-2"></div>
+                        </div>
+
+                        <div class="flex justify-between items-center pt-2">
+                            <button type="button" onclick="checkAyatPuzzle()" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs px-5 py-2.5 rounded-xl shadow">✅ Cek Kebenaran Urutan</button>
+                            <div id="puzzle-feedback" class="text-xs font-extrabold"></div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-[2rem] p-6 shadow-sm border border-amber-200 space-y-4">
+                        <div class="border-b border-amber-100 pb-3">
+                            <span class="bg-amber-100 text-amber-900 text-[10px] font-bold px-2.5 py-0.5 rounded-full uppercase">Tugas 3</span>
+                            <h2 class="text-lg font-extrabold text-amber-950 mt-0.5">🔍 Detektif Kebaikan: Penerapan Surah Az-Zalzalah</h2>
+                        </div>
+
+                        <div class="space-y-4">
+                            <div class="p-4 bg-amber-50/70 rounded-2xl border border-amber-200 space-y-2">
+                                <h3 class="font-bold text-amber-900 text-xs">📌 Kasus 1: Paku di Jalanan Sekolah</h3>
+                                <p class="text-xs text-gray-700">Budi mengambil paku tajam di jalanan sekolah dan membuangnya ke tempat sampah agar tidak melukai orang.</p>
+                                <label class="block text-[11px] font-bold text-amber-950">Apakah tindakan Budi bernilai pahala menurut Ayat 7? Jelaskan!</label>
+                                <textarea id="case1-ans" rows="2" placeholder="Tuliskan alasanmu..." class="w-full p-2.5 rounded-xl border border-amber-300 text-xs focus:ring-2 focus:ring-amber-500"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-[2rem] p-6 shadow-sm border border-amber-200 space-y-4">
+                        <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-2 border-b border-amber-100 pb-3">
+                            <div>
+                                <span class="bg-amber-100 text-amber-900 text-[10px] font-bold px-2.5 py-0.5 rounded-full uppercase">Tugas 4</span>
+                                <h2 class="text-lg font-extrabold text-amber-950 mt-0.5">🎮 Teka-Teki Cari Kata Ajaib (8 Kata Target)</h2>
+                            </div>
+                            <div class="text-xs font-bold text-amber-900 bg-amber-100 px-3 py-1.5 rounded-xl border border-amber-300">Ditemukan: <span id="found-count" class="text-amber-700 font-extrabold">0</span> / 8 Kata</div>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-start">
+                            <div class="md:col-span-4 space-y-1.5 text-xs">
+                                <span class="text-[10px] font-bold uppercase text-gray-500 block mb-1">Target Kata:</span>
+                                <div id="word-GONCANGAN" class="p-2 bg-amber-50 rounded-xl border border-amber-200 font-bold text-amber-900 flex justify-between"><span>1. GONCANGAN</span><span class="status-icon">⏳</span></div>
+                                <div id="word-AMAL" class="p-2 bg-amber-50 rounded-xl border border-amber-200 font-bold text-amber-900 flex justify-between"><span>2. AMAL</span><span class="status-icon">⏳</span></div>
+                                <div id="word-KIAMAT" class="p-2 bg-amber-50 rounded-xl border border-amber-200 font-bold text-amber-900 flex justify-between"><span>3. KIAMAT</span><span class="status-icon">⏳</span></div>
+                                <div id="word-BUMI" class="p-2 bg-amber-50 rounded-xl border border-amber-200 font-bold text-amber-900 flex justify-between"><span>4. BUMI</span><span class="status-icon">⏳</span></div>
+                                <div id="word-DZARRAH" class="p-2 bg-amber-50 rounded-xl border border-amber-200 font-bold text-amber-900 flex justify-between"><span>5. DZARRAH</span><span class="status-icon">⏳</span></div>
+                                <div id="word-TAUHID" class="p-2 bg-amber-50 rounded-xl border border-amber-200 font-bold text-amber-900 flex justify-between"><span>6. TAUHID</span><span class="status-icon">⏳</span></div>
+                                <div id="word-ADIL" class="p-2 bg-amber-50 rounded-xl border border-amber-200 font-bold text-amber-900 flex justify-between"><span>7. ADIL</span><span class="status-icon">⏳</span></div>
+                                <div id="word-SURGA" class="p-2 bg-amber-50 rounded-xl border border-amber-200 font-bold text-amber-900 flex justify-between"><span>8. SURGA</span><span class="status-icon">⏳</span></div>
+                            </div>
+
+                            <div class="md:col-span-8 bg-amber-950 p-4 rounded-2xl shadow-inner text-white">
+                                <div id="grid-container" class="grid grid-cols-8 gap-1.5 text-center font-black text-xs sm:text-sm"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-[2rem] p-6 shadow-sm border border-amber-200 space-y-6">
+                        <div class="text-center space-y-1">
+                            <span class="bg-amber-600 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase">Tugas 5</span>
+                            <h2 class="text-xl font-black text-amber-950">✍️ Kuis Evaluasi LKPD 10 Soal</h2>
+                        </div>
+
+                        <form id="quiz-form-lkpd" onsubmit="event.preventDefault(); submitQuizLKPD();" class="space-y-6">
+                            <div id="quiz-questions-lkpd-container" class="space-y-4"></div>
+
+                            <div class="pt-4 border-t border-amber-100 flex flex-col md:flex-row items-center justify-between gap-4">
+                                <button type="submit" class="w-full md:w-auto bg-amber-600 hover:bg-amber-700 text-white font-extrabold px-8 py-3.5 rounded-2xl shadow-lg transition text-xs uppercase">
+                                    🚀 Kumpul & Periksa Nilai Kuis LKPD
+                                </button>
+                                <div id="quiz-result-lkpd" class="hidden font-black text-lg text-amber-950"></div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- ==================== BAB 2 AL-ISLAM ==================== -->
+        <div id="al-islam-bab2" class="hidden space-y-8">
+            <nav class="sticky top-2 z-40 bg-teal-950/90 backdrop-blur-md rounded-2xl p-2 border border-teal-500/30 shadow-lg flex flex-wrap items-center justify-center gap-1 sm:gap-2 text-xs font-bold uppercase tracking-wider text-cyan-300">
+                <a href="#bab2-intro" class="sub-nav active px-3 py-2 rounded-xl transition">1. Pengenalan Bab 2</a>
+                <a href="#bab2-asmaul" class="sub-nav px-3 py-2 rounded-xl transition">2. Asmaul Husna</a>
+                <a href="#bab2-akhlak" class="sub-nav px-3 py-2 rounded-xl transition">3. Sifat & Akhlak Mulia</a>
+                <a href="#bab2-evaluasi" class="sub-nav px-3 py-2 rounded-xl transition">4. Kuis Bab 2</a>
+                <a href="#lkpd-bab2" class="sub-nav px-3 py-2 rounded-xl transition text-amber-300 border border-amber-500/40 bg-amber-950/40">5. LKPD Interaktif BAB 2</a>
+            </nav>
+
+            <header id="bab2-intro" class="space-y-6">
+                <div class="bg-gradient-to-r from-teal-950 via-emerald-950 to-teal-900 rounded-[2.5rem] p-6 md:p-10 text-white shadow-2xl relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-6 border border-emerald-500/40">
+                    <div class="space-y-3 max-w-2xl">
+                        <span class="bg-emerald-900 text-emerald-300 border border-emerald-500/30 text-xs font-bold px-3.5 py-1.5 rounded-full uppercase tracking-widest inline-block">
+                            BAB 2 • Mengenal Allah & Akhlak Terpuji
+                        </span>
+                        <h2 class="text-2xl md:text-4xl font-extrabold leading-tight text-emerald-300">
+                            Mengenal Allah Lewat Asmaul Husna & Meneladani Sifat Mulia
+                        </h2>
+                        <p class="text-gray-300 text-xs md:text-sm leading-relaxed">
+                            Mempelajari keagungan Allah melalui Asmaul Husna (Al-Malik, Al-Khabir, Ar-Razzak) serta membentuk karakter anak shalih yang mandiri, disiplin, dan bertanggung jawab.
+                        </p>
+                    </div>
+                    <div class="text-6xl bg-emerald-900/40 p-6 rounded-[2rem] border border-emerald-500/20 shrink-0 shadow-inner">✨</div>
+                </div>
+            </header>
+
+            <section id="bab2-asmaul" class="space-y-6 pt-4">
+                <div class="text-center space-y-1">
+                    <h3 class="text-xl font-bold text-cyan-300">Mengenal 3 Nama Indah Allah (Asmaul Husna)</h3>
+                    <p class="text-xs text-gray-400">Pahami arti dan penerapannya dalam kehidupan sehari-hari anak shalih:</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+                    <div class="bg-teal-950/60 p-6 rounded-2xl border border-teal-700/40 space-y-3 hover:border-cyan-400 transition shadow-lg">
+                        <div class="w-12 h-12 bg-cyan-900/60 text-cyan-300 rounded-2xl flex items-center justify-center font-bold text-2xl">👑</div>
+                        <h4 class="font-bold text-cyan-300 text-base">Al-Malik (الْمَلِكُ)</h4>
+                        <p class="text-[11px] text-teal-400 font-semibold">Maha Merajai / Maha Penguasa</p>
+                        <p class="text-xs text-gray-300 leading-relaxed">
+                            Allah adalah Raja dari segala raja di alam semesta. Allah yang mengatur tata surya, siang dan malam, serta kehidupan seluruh makhluk.
+                        </p>
+                        <div class="p-2.5 bg-teal-900/40 rounded-xl text-[11px] text-cyan-200 border border-teal-700/40">
+                            <strong>Penerapan:</strong> Menjadi pemimpin yang amanah, hemat, dan tidak sombong atas barang yang dimiliki.
+                        </div>
+                    </div>
+
+                    <div class="bg-teal-950/60 p-6 rounded-2xl border border-teal-700/40 space-y-3 hover:border-cyan-400 transition shadow-lg">
+                        <div class="w-12 h-12 bg-cyan-900/60 text-cyan-300 rounded-2xl flex items-center justify-center font-bold text-2xl">🔍</div>
+                        <h4 class="font-bold text-cyan-300 text-base">Al-Khabir (الْخَبِيرُ)</h4>
+                        <p class="text-[11px] text-teal-400 font-semibold">Maha Teliti / Maha Mengetahui Rahasia</p>
+                        <p class="text-xs text-gray-300 leading-relaxed">
+                            Allah mengetahui perkara yang paling tersembunyi hingga ke dalam hati manusia. Tidak ada rahasia yang terlewat dari pengetahuan Allah.
+                        </p>
+                        <div class="p-2.5 bg-teal-900/40 rounded-xl text-[11px] text-cyan-200 border border-teal-700/40">
+                            <strong>Penerapan:</strong> Teliti saat belajar/mengerjakan soal, jujur meskipun tidak ada yang mengawasi.
+                        </div>
+                    </div>
+
+                    <div class="bg-teal-950/60 p-6 rounded-2xl border border-teal-700/40 space-y-3 hover:border-cyan-400 transition shadow-lg">
+                        <div class="w-12 h-12 bg-cyan-900/60 text-cyan-300 rounded-2xl flex items-center justify-center font-bold text-2xl">🌿</div>
+                        <h4 class="font-bold text-cyan-300 text-base">Ar-Razzaq (الرَّزَّاقُ)</h4>
+                        <p class="text-[11px] text-teal-400 font-semibold">Maha Pemberi Rezeki</p>
+                        <p class="text-xs text-gray-300 leading-relaxed">
+                            Allah menjamin rezeki bagi seluruh makhluk di bumi, dari manusia hingga semut kecil di dalam batu. Rezeki bisa berupa kesehatan dan ilmu.
+                        </p>
+                        <div class="p-2.5 bg-teal-900/40 rounded-xl text-[11px] text-cyan-200 border border-teal-700/40">
+                            <strong>Penerapan:</strong> Suka berbagi Makanan/infak, bersyukur atas nikmat kesehatan dan keluarga.
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="bab2-akhlak" class="space-y-6 pt-6 border-t border-teal-900/50">
+                <div class="bg-teal-950/80 rounded-3xl p-6 md:p-8 border border-teal-500/30 space-y-5 shadow-2xl">
+                    <div class="border-b border-teal-800/60 pb-3">
+                        <span class="bg-emerald-950 text-emerald-300 border border-emerald-500/40 text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider inline-block mb-2">
+                            Pembentukan Karakter Shalih
+                        </span>
+                        <h3 class="text-xl font-bold text-emerald-300">Meneladani Sifat Terpuji dalam Kehidupan Harian</h3>
+                        <p class="text-xs text-gray-300 mt-1 leading-relaxed">
+                            Sebagai wujud rasa syukur kepada Allah ﷻ, murid SD Al Mujahidin harus membiasakan sifat-sifat utama berikut:
+                        </p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div class="p-4 bg-teal-900/30 rounded-2xl border border-teal-700/40 space-y-2">
+                            <span class="text-2xl">🎒</span>
+                            <h4 class="font-bold text-cyan-300 text-xs">Mandiri (Tidak Manja)</h4>
+                            <p class="text-[11px] text-gray-300 leading-relaxed">Menyiapkan buku pelajaran sendiri, merapikan tempat tidur, dan memakai seragam tanpa menyusahkan orang tua.</p>
+                        </div>
+                        <div class="p-4 bg-teal-900/30 rounded-2xl border border-teal-700/40 space-y-2">
+                            <span class="text-2xl">⏰</span>
+                            <h4 class="font-bold text-cyan-300 text-xs">Disiplin Waktu</h4>
+                            <p class="text-[11px] text-gray-300 leading-relaxed">Datang ke sekolah tepat waktu, shalat tepat pada waktunya, dan belajar secara teratur setiap hari.</p>
+                        </div>
+                        <div class="p-4 bg-teal-900/30 rounded-2xl border border-teal-700/40 space-y-2">
+                            <span class="text-2xl">🌱</span>
+                            <h4 class="font-bold text-cyan-300 text-xs">Suka Gemar Berinfak</h4>
+                            <p class="text-[11px] text-gray-300 leading-relaxed">Menyisihkan sebagian uang saku harian untuk dimasukkan ke kotak infak Jumat di sekolah.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="bab2-evaluasi" class="space-y-6 pt-6 border-t border-teal-900/50">
+                <div class="bg-teal-950/60 rounded-3xl p-6 md:p-8 border border-teal-500/30 space-y-6 shadow-2xl">
+                    <div class="flex flex-col md:flex-row items-center justify-between gap-4 border-b border-teal-800/60 pb-4">
+                        <div>
+                            <span class="bg-emerald-950 text-emerald-300 border border-emerald-500/30 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider inline-block mb-2">
+                                📝 Evaluasi Bab 2 Al-Islam
+                            </span>
+                            <h3 class="text-2xl font-bold text-emerald-300">Latihan Soal Asmaul Husna & Akhlak</h3>
+                            <p class="text-xs text-gray-300">Uji pemahamanmu tentang Al-Malik, Al-Khabir, Ar-Razzaq & Akhlak Terpuji!</p>
+                        </div>
+                        <div class="bg-teal-900/80 px-4 py-2 rounded-2xl border border-emerald-400 text-emerald-300 font-bold text-sm">
+                            Kuis BAB 2
+                        </div>
+                    </div>
+
+                    <form id="alIslamQuizFormBab2" class="space-y-5 text-xs">
+                        <div class="p-4 bg-teal-900/30 rounded-2xl border border-teal-700/40 space-y-2">
+                            <p class="font-bold text-emerald-300">1. Asmaul Husna "Al-Malik" artinya adalah Allah Maha...</p>
+                            <div class="space-y-1 text-gray-300">
+                                <label class="block cursor-pointer"><input type="radio" name="ais2_1" value="A"> A. Merajai / Menguasai</label>
+                                <label class="block cursor-pointer"><input type="radio" name="ais2_1" value="B"> B. Mendengar</label>
+                                <label class="block cursor-pointer"><input type="radio" name="ais2_1" value="C"> C. Pengampun</label>
+                            </div>
+                        </div>
+
+                        <div class="p-4 bg-teal-900/30 rounded-2xl border border-teal-700/40 space-y-2">
+                            <p class="font-bold text-emerald-300">2. Mengerjakan tugas sekolah dengan teliti tanpa terburu-buru merupakan bentuk meneladani Asmaul Husna...</p>
+                            <div class="space-y-1 text-gray-300">
+                                <label class="block cursor-pointer"><input type="radio" name="ais2_2" value="A"> A. Ar-Razzaq</label>
+                                <label class="block cursor-pointer"><input type="radio" name="ais2_2" value="B"> B. Al-Khabir</label>
+                                <label class="block cursor-pointer"><input type="radio" name="ais2_2" value="C"> C. Al-Malik</label>
+                            </div>
+                        </div>
+
+                        <div class="p-4 bg-teal-900/30 rounded-2xl border border-teal-700/40 space-y-2">
+                            <p class="font-bold text-emerald-300">3. Contoh sikap mandiri anak shalih di rumah adalah...</p>
+                            <div class="space-y-1 text-gray-300">
+                                <label class="block cursor-pointer"><input type="radio" name="ais2_3" value="A"> A. Meminta orang tua menyiapkan jadwal pelajaran</label>
+                                <label class="block cursor-pointer"><input type="radio" name="ais2_3" value="B"> B. Merapikan tempat tidur dan perlengkapan sekolah sendiri</label>
+                                <label class="block cursor-pointer"><input type="radio" name="ais2_3" value="C"> C. Menunggu disuapi saat makan</label>
+                            </div>
+                        </div>
+
+                        <button type="button" onclick="submitAlIslamQuizBab2()" class="w-full py-3 bg-emerald-600 hover:bg-emerald-500 text-black font-bold rounded-xl transition shadow-lg text-sm">
+                            Periksa Jawaban Kuis Bab 2 ✍️
+                        </button>
+                    </form>
+
+                    <div id="alIslamResultBab2" class="hidden p-4 bg-teal-900/90 rounded-2xl border border-emerald-400 text-center font-bold text-emerald-300 text-sm"></div>
+                </div>
+            </section>
+
+            <!-- LKPD INTERAKTIF BAB 2 (3 JPL) -->
+            <section id="lkpd-bab2" class="space-y-6 pt-6 border-t border-teal-900/50 text-gray-800">
+                <div class="bg-amber-50 rounded-[2.5rem] p-4 sm:p-8 border-2 border-amber-400 shadow-2xl space-y-6">
+                    <div class="bg-gradient-to-r from-emerald-950 via-teal-900 to-emerald-900 rounded-[2rem] p-6 text-white shadow-xl border border-emerald-700/50">
+                        <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+                            <div>
+                                <span class="bg-emerald-500/30 text-emerald-200 border border-emerald-400/30 text-[11px] font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-2 inline-block">
+                                    Lembar Kerja Peserta Didik (LKPD Interaktif)
+                                </span>
+                                <h2 class="text-2xl md:text-3xl font-black text-amber-100 leading-tight">LKPD BAB 2: Asmaul Husna & Meneladani Akhlak Mulia (3 JPL)</h2>
+                                <p class="mt-1 text-emerald-200/80 text-xs md:text-sm">Selesaikan seluruh aktivitas mandiri berikut!</p>
+                            </div>
+                            <div class="shrink-0 bg-white/10 backdrop-blur-md px-5 py-3 rounded-2xl border border-white/20 text-center">
+                                <span class="block text-xs text-amber-200 font-medium">Total Waktu</span>
+                                <span class="text-3xl font-black text-amber-300">105m</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Task 1: Menjodohkan Asmaul Husna -->
+                    <div class="bg-white rounded-[2rem] p-6 shadow-sm border border-amber-200 space-y-4">
+                        <div class="flex items-center justify-between border-b border-amber-100 pb-3">
+                            <div>
+                                <span class="bg-emerald-100 text-emerald-900 text-[10px] font-bold px-2.5 py-0.5 rounded-full uppercase">Tugas 1: Jodohkan Asmaul Husna</span>
+                                <h3 class="text-base font-bold text-amber-950 mt-0.5">🔗 Pasangkan Asmaul Husna dengan Arti Yang Tepat!</h3>
+                            </div>
+                            <button type="button" onclick="checkVocabMatchBab2()" class="bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold px-4 py-2 rounded-xl transition shadow">Periksa Jawaban</button>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4" id="vocab-matching-bab2-container"></div>
+                        <div id="vocab-feedback-bab2" class="hidden text-xs font-bold text-center p-2 rounded-xl"></div>
+                    </div>
+
+                    <!-- Task 2: Analisis Kasus Akhlak -->
+                    <div class="bg-white rounded-[2rem] p-6 shadow-sm border border-amber-200 space-y-4">
+                        <div class="border-b border-amber-100 pb-3">
+                            <span class="bg-amber-100 text-amber-900 text-[10px] font-bold px-2.5 py-0.5 rounded-full uppercase">Tugas 2: Studi Kasus Akhlak Mulia</span>
+                            <h2 class="text-lg font-extrabold text-amber-950 mt-0.5">🔍 Detektif Akhlak: Sifat Mandiri & Teliti</h2>
+                        </div>
+
+                        <div class="space-y-4">
+                            <div class="p-4 bg-amber-50/70 rounded-2xl border border-amber-200 space-y-2">
+                                <h3 class="font-bold text-amber-900 text-xs">📌 Kasus 1: Menyiapkan Tas Sekolah</h3>
+                                <p class="text-xs text-gray-700">Ahmad selalu menyiapkan jadwal buku sekolahnya sendiri setiap malam tanpa disuruh ibunya.</p>
+                                <label class="block text-[11px] font-bold text-amber-950">Sifat terpuji apakah yang ditunjukkan Ahmad? Jelaskan manfaatnya!</label>
+                                <textarea id="caseBab2_1-ans" rows="2" placeholder="Tuliskan jawabanmu di sini..." class="w-full p-2.5 rounded-xl border border-amber-300 text-xs focus:ring-2 focus:ring-amber-500"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Task 3: Kuis Evaluasi LKPD Bab 2 -->
+                    <div class="bg-white rounded-[2rem] p-6 shadow-sm border border-amber-200 space-y-6">
+                        <div class="text-center space-y-1">
+                            <span class="bg-emerald-600 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase">Tugas 3</span>
+                            <h2 class="text-xl font-black text-amber-950">✍️ Kuis Evaluasi LKPD BAB 2 (5 Soal)</h2>
+                        </div>
+
+                        <form id="quiz-form-lkpd-bab2" onsubmit="event.preventDefault(); submitQuizLKPD2();" class="space-y-6">
+                            <div id="quiz-questions-lkpd-bab2-container" class="space-y-4"></div>
+
+                            <div class="pt-4 border-t border-amber-100 flex flex-col md:flex-row items-center justify-between gap-4">
+                                <button type="submit" class="w-full md:w-auto bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold px-8 py-3.5 rounded-2xl shadow-lg transition text-xs uppercase">
+                                    🚀 Kumpul & Periksa Nilai LKPD Bab 2
+                                </button>
+                                <div id="quiz-result-lkpd-bab2" class="hidden font-black text-lg text-amber-950"></div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </div>
     </div>
 
 
@@ -1039,7 +1273,6 @@
             </button><button onclick="switchGameSubTab('scratch')" id="btn-sub-scratch" class="game-sub-tab px-3.5 py-2 rounded-xl text-xs font-bold transition-all border border-teal-700 text-gray-300 hover:text-white">
                 <i class="fa-solid fa-code mr-1.5"></i> 5. CODING KIDS (SCRATCH)
             </button>
-            
         </div>
 
         <!-- SUB-TAB 1: TEORI -->
@@ -1351,7 +1584,6 @@
                 </div>
 
                 <div class="flex items-center space-x-4">
-                    <!-- Level Selector -->
                     <div class="bg-emerald-900/80 rounded-xl px-3 py-1.5 flex items-center space-x-2 border border-emerald-600">
                         <span class="text-xs text-emerald-200 font-bold hidden sm:inline">Modul:</span>
                         <select id="levelSelect" onchange="loadLevel(this.value)" class="bg-emerald-950 text-white text-xs font-bold rounded-lg px-2 py-1 outline-none border border-emerald-500 cursor-pointer">
@@ -1362,7 +1594,6 @@
                         </select>
                     </div>
 
-                    <!-- Bintang / Skor -->
                     <div class="bg-amber-400 text-amber-950 font-extrabold px-3 py-1.5 rounded-xl flex items-center space-x-1 shadow">
                         <i class="fa-solid fa-star text-amber-100 text-lg"></i>
                         <span id="starDisplay" class="text-lg">0</span>
@@ -1372,10 +1603,8 @@
 
             <!-- Main Container Game MujahiBot -->
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
-
-                <!-- Panel Kiri: Kanvas Grid Misi & Instruksi -->
+                <!-- Panel Kiri -->
                 <section class="lg:col-span-6 flex flex-col gap-4">
-                    <!-- Box Briefing Misi -->
                     <div class="bg-slate-900/90 text-white p-4 rounded-2xl border-2 border-emerald-500/40 shadow-sm flex items-start space-x-3">
                         <div class="text-3xl text-emerald-400 mt-1">
                             <i class="fa-solid fa-graduation-cap"></i>
@@ -1386,13 +1615,9 @@
                         </div>
                     </div>
 
-                    <!-- Papan Grid Game -->
                     <div class="bg-slate-900 p-4 rounded-3xl border-4 border-emerald-500/50 shadow-lg flex flex-col items-center justify-center relative">
-                        <div id="gridBoard" class="grid gap-1.5 bg-emerald-950/80 p-3 rounded-2xl border-2 border-emerald-600/50 relative overflow-hidden" style="width: 100%; max-width: 420px;">
-                            <!-- Grid cells & items generated dynamically by JavaScript -->
-                        </div>
+                        <div id="gridBoard" class="grid gap-1.5 bg-emerald-950/80 p-3 rounded-2xl border-2 border-emerald-600/50 relative overflow-hidden" style="width: 100%; max-width: 420px;"></div>
 
-                        <!-- Floating Feedback Alert -->
                         <div id="gameAlert" class="hidden absolute inset-0 bg-slate-950/80 backdrop-blur-sm rounded-2xl flex flex-col justify-center items-center p-6 text-center text-white z-20">
                             <div id="alertIcon" class="text-5xl mb-2 text-yellow-400">
                                 <i class="fa-solid fa-trophy"></i>
@@ -1411,10 +1636,8 @@
                     </div>
                 </section>
 
-                <!-- Panel Kanan: Blok Perintah & Area Kerja (Workspace) -->
+                <!-- Panel Kanan -->
                 <section class="lg:col-span-6 flex flex-col gap-4">
-
-                    <!-- Toolset Blok Kode -->
                     <div class="bg-slate-900/90 p-4 rounded-2xl border-2 border-slate-700/60 shadow-sm">
                         <h3 class="font-heading-bot text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">
                             <i class="fa-solid fa-cubes mr-1 text-emerald-400"></i> Blok Perintah (Klik untuk Tambah)
@@ -1453,7 +1676,6 @@
                         </div>
                     </div>
 
-                    <!-- Program Sequence Workspace -->
                     <div class="bg-slate-900/90 p-4 rounded-2xl border-2 border-slate-700/60 shadow-sm flex-1 flex flex-col justify-between min-h-[260px]">
                         <div>
                             <div class="flex justify-between items-center mb-3">
@@ -1465,7 +1687,6 @@
                                 </button>
                             </div>
 
-                            <!-- List Program yang disusun -->
                             <div id="workspace" class="bg-slate-950/80 rounded-xl p-3 border-2 border-dashed border-slate-700 min-h-[160px] max-h-[220px] overflow-y-auto flex flex-col gap-2">
                                 <div id="emptyTip" class="text-center text-slate-500 text-xs my-auto py-6">
                                     Belum ada perintah.<br>Klik tombol di atas untuk menyusun logika MujahiBot!
@@ -1473,7 +1694,6 @@
                             </div>
                         </div>
 
-                        <!-- Tombol Kontrol Eksekusi -->
                         <div class="flex gap-3 mt-4">
                             <button id="btnRun" onclick="runProgram()" class="flex-1 bg-emerald-600 hover:bg-emerald-500 text-white py-3 rounded-2xl font-heading-bot font-bold text-base shadow-lg border-b-4 border-emerald-800 flex justify-center items-center space-x-2 transition">
                                 <i class="fa-solid fa-play"></i>
@@ -1485,9 +1705,7 @@
                             </button>
                         </div>
                     </div>
-
                 </section>
-
             </div>
         </div>
     </div>
@@ -1499,7 +1717,7 @@
     </div>
 
 
-    <!-- SCRIPT JAVASCRIPT FIXED -->
+    <!-- SCRIPT JAVASCRIPT FIXED & EXTENDED -->
     <script>
         // Switcher Menu Utama / Portal
         function switchPortal(portal) {
@@ -1518,11 +1736,30 @@
 
             if (portal === 'game-edu') {
                 initGameDragDrop9();
-                // Memastikan MujahiBot terinisialisasi begitu masuk menu game edu
                 loadLevel(0);
             }
 
             window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Switcher Bab Al-Islam
+        function switchAlIslamBab(bab) {
+            const bab1 = document.getElementById('al-islam-bab1');
+            const bab2 = document.getElementById('al-islam-bab2');
+            const btn1 = document.getElementById('btn-al-bab1');
+            const btn2 = document.getElementById('btn-al-bab2');
+
+            if (bab === 'bab1') {
+                bab1.classList.remove('hidden');
+                bab2.classList.add('hidden');
+                btn1.className = "px-4 py-2 bg-teal-600 text-white rounded-xl text-xs font-bold shadow-md transition border border-teal-400";
+                btn2.className = "px-4 py-2 bg-teal-950/80 text-gray-300 hover:text-white rounded-xl text-xs font-bold border border-teal-700 transition";
+            } else {
+                bab1.classList.add('hidden');
+                bab2.classList.remove('hidden');
+                btn1.className = "px-4 py-2 bg-teal-950/80 text-gray-300 hover:text-white rounded-xl text-xs font-bold border border-teal-700 transition";
+                btn2.className = "px-4 py-2 bg-emerald-600 text-white rounded-xl text-xs font-bold shadow-md transition border border-emerald-400";
+            }
         }
 
         // Switcher Sub-Tab Panduan Ibadah Praktis
@@ -1557,7 +1794,7 @@
             if (activeBtn) activeBtn.classList.add('active');
         }
 
-        // Verifikasi Password & Toggle Akses Mode Edit Guru
+        // Mode Edit Guru
         let isGuruEditMode = false;
         function requestGuruEditAccess() {
             if (!isGuruEditMode) {
@@ -1581,7 +1818,6 @@
                 }
             } else {
                 isGuruEditMode = false;
-                
                 document.getElementById('nilai-public-container').classList.remove('hidden');
                 document.getElementById('nilai-edit-container').classList.add('hidden');
 
@@ -1635,7 +1871,7 @@
             currentAudio.play().catch(error => console.log("Audio play failed:", error));
         }
 
-        // Kuis Interaktif Al-Islam Bab 1
+        // Kuis Al-Islam Bab 1 & Bab 2
         function submitAlIslamQuiz() {
             let score = 0;
             const form = document.getElementById('alIslamQuizForm');
@@ -1650,7 +1886,112 @@
             res.innerHTML = `Nilai Kuis Kamu: <span class="text-xl text-cyan-200">${score} / 100</span>! <br> ${score >= 80 ? '🎉 Masy\'Allah Luar Biasa! Pemahaman Al-Islam kamu sangat mantap!' : '💪 Tetap semangat, pelajari kembali materi di atas ya!'}`;
         }
 
-        // LKPD INTERAKTIF 3 JPL
+        function submitAlIslamQuizBab2() {
+            let score = 0;
+            const form = document.getElementById('alIslamQuizFormBab2');
+            if (form.elements['ais2_1'].value === 'A') score += 35;
+            if (form.elements['ais2_2'].value === 'B') score += 35;
+            if (form.elements['ais2_3'].value === 'B') score += 30;
+
+            const res = document.getElementById('alIslamResultBab2');
+            res.classList.remove('hidden');
+            res.innerHTML = `Nilai Kuis Bab 2: <span class="text-xl text-emerald-200">${score} / 100</span>! <br> ${score >= 70 ? '🎉 Alhamdulillah! Kamu telah memahami Asmaul Husna & Akhlak Mulia!' : '💪 Yuk pelajari lagi materi Bab 2 di atas!'}`;
+        }
+
+        // Logika LKPD BAB 2 - Menjodohkan Asmaul Husna
+        const vocabBab2Data = [
+            { id: 1, arab: "الْمَلِكُ", target: "Maha Merajai / Menguasai" },
+            { id: 2, arab: "الْخَبِيرُ", target: "Maha Teliti & Mengetahui" },
+            { id: 3, arab: "الرَّزَّاقُ", target: "Maha Pemberi Rezeki" }
+        ];
+
+        function renderVocabMatchBab2() {
+            const container = document.getElementById('vocab-matching-bab2-container');
+            if (!container) return;
+            container.innerHTML = '';
+            const meanings = ["Maha Teliti & Mengetahui", "Maha Pemberi Rezeki", "Maha Merajai / Menguasai"];
+
+            vocabBab2Data.forEach((item, idx) => {
+                const box = document.createElement('div');
+                box.className = 'p-3 bg-amber-50 rounded-2xl border border-amber-200 text-center space-y-2';
+                let selectOptions = `<option value="">-- Pilih Arti --</option>`;
+                meanings.forEach(m => { selectOptions += `<option value="${m}">${m}</option>`; });
+                box.innerHTML = `
+                    <span class="arabic-text text-2xl font-bold text-amber-950 block">${item.arab}</span>
+                    <select id="vocab2-sel-${idx}" class="w-full p-2 text-xs rounded-xl border border-amber-300 font-semibold text-gray-800">
+                        ${selectOptions}
+                    </select>
+                `;
+                container.appendChild(box);
+            });
+        }
+
+        function checkVocabMatchBab2() {
+            let correct = 0;
+            vocabBab2Data.forEach((item, idx) => {
+                const sel = document.getElementById(`vocab2-sel-${idx}`).value;
+                if (sel === item.target) correct++;
+            });
+            const feedback = document.getElementById('vocab-feedback-bab2');
+            feedback.classList.remove('hidden');
+            if (correct === vocabBab2Data.length) {
+                feedback.className = "text-xs font-bold text-center p-2 rounded-xl bg-emerald-100 text-emerald-900 border border-emerald-300";
+                feedback.innerHTML = "🎉 Masy'Allah! Seluruh pasangan Asmaul Husna Bab 2 BENAR!";
+            } else {
+                feedback.className = "text-xs font-bold text-center p-2 rounded-xl bg-amber-100 text-amber-900 border border-amber-300";
+                feedback.innerHTML = `👍 Kamu berhasil menjawab ${correct} dari ${vocabBab2Data.length} Asmaul Husna. Coba lagi!`;
+            }
+        }
+
+        const quizQuestionsLKPD2 = [
+            { q: "1. Asmaul Husna Al-Khabir mengajarkan kita untuk bersikap .... dalam belajar.", options: ["Terburu-buru", "Teliti & Cermat", "Abaikan rincian", "Acuh tak acuh"], answer: 1 },
+            { q: "2. Allah Ar-Razzaq memberikan rezeki kepada manusia berupa ....", options: ["Uang saja", "Kesehatan & Ilmu", "Mainan mahal", "Kejahatan"], answer: 1 },
+            { q: "3. Contoh anak shalih yang mandiri di sekolah adalah ....", options: ["Meminta piket digantikan teman", "Merapikan alat tulis sendiri", "Tergantung pada guru", "Meninggalkan tas sembarangan"], answer: 1 },
+            { q: "4. Al-Malik mengingatkan kita bahwa pemegang kekuasaan tertinggi di alam semesta adalah ....", options: ["Raja bumi", "Presiden", "Allah ﷻ", "Manusia"], answer: 2 },
+            { q: "5. Kebiasaan berinfak di hari Jumat melatih kita memiliki sifat ....", options: ["Sombong", "Dermawan & Peduli", "Kikir", "Boros"], answer: 1 }
+        ];
+
+        function loadQuizLKPD2() {
+            const container = document.getElementById('quiz-questions-lkpd-bab2-container');
+            if (!container) return;
+            container.innerHTML = '';
+            quizQuestionsLKPD2.forEach((qData, idx) => {
+                const qDiv = document.createElement('div');
+                qDiv.className = 'p-4 bg-amber-50/60 rounded-2xl border border-amber-200/70 space-y-2';
+                let optionsHTML = '';
+                qData.options.forEach((opt, optIdx) => {
+                    optionsHTML += `
+                        <label class="flex items-center gap-2.5 p-2 bg-white rounded-xl border border-amber-200 cursor-pointer hover:bg-amber-100/50">
+                            <input type="radio" name="lkpd2q${idx}" value="${optIdx}" class="text-emerald-600">
+                            <span class="text-xs font-semibold text-gray-800">${opt}</span>
+                        </label>
+                    `;
+                });
+                qDiv.innerHTML = `<h3 class="font-bold text-amber-950 text-xs sm:text-sm">${qData.q}</h3><div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-2">${optionsHTML}</div>`;
+                container.appendChild(qDiv);
+            });
+        }
+
+        function submitQuizLKPD2() {
+            let score = 0;
+            quizQuestionsLKPD2.forEach((qData, idx) => {
+                const selected = document.querySelector(`input[name="lkpd2q${idx}"]:checked`);
+                if (selected && parseInt(selected.value) === qData.answer) score += 20;
+            });
+            let predikat = score >= 80 ? "Mahir 🏆" : (score >= 60 ? "Cakap ⭐" : "Berkembang");
+            const resultDiv = document.getElementById('quiz-result-lkpd-bab2');
+            resultDiv.classList.remove('hidden');
+            resultDiv.innerHTML = `
+                <div class="p-4 bg-emerald-500 text-amber-950 rounded-2xl shadow-md text-center">
+                    <span class="block text-xs font-extrabold uppercase">Nilai LKPD Bab 2</span>
+                    <span class="text-3xl font-black">${score} / 100</span>
+                    <span class="block text-xs font-bold mt-1 bg-amber-950 text-amber-300 px-3 py-0.5 rounded-full inline-block">Predikat: ${predikat}</span>
+                </div>
+            `;
+            resultDiv.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // LKPD BAB 1 Setup
         const vocabData = [
             { id: 1, arab: "زُلْزِلَتِ", target: "Digoncangkan" },
             { id: 2, arab: "الْأَرْضُ", target: "Bumi" },
@@ -1941,9 +2282,7 @@
             res.textContent = `Skor Detektif Kamu: ${score} / 100! ${score >= 70 ? 'Luar biasa, analisis kamu sangat tajam!' : 'Ulangi membaca menu Anatomi Komponen lagi ya!'}`;
         }
 
-        // =================================================================
-        // LOGIKA ENGINE GAME MUJAHEEBOT CODING QUEST (REVISED & FIXED)
-        // =================================================================
+        // ENGINE GAME MUJAHEEBOT
         const LEVELS = [
             {
                 title: "Modul 1: Langkah Pertama di Sekolah",
@@ -2018,7 +2357,6 @@
         let programSequence = [];
         let isExecuting = false;
         let totalStars = 0;
-
         let audioCtx = null;
 
         function playSound(type) {
@@ -2391,14 +2729,18 @@
             return new Promise(resolve => setTimeout(resolve, ms));
         }
 
-        // Window onload listener untuk menginisialisasi semua komponen saat halaman dimuat
+        // Window onload listener
         window.addEventListener('DOMContentLoaded', function() {
             renderVocabMatch();
             renderAyatPuzzle();
             renderWordGrid();
             loadQuizLKPD();
+
+            // Init BAB 2 LKPD
+            renderVocabMatchBab2();
+            loadQuizLKPD2();
             
-            // Otomatis siapkan level 0 MujahiBot
+            // Inisialisasi MujahiBot
             loadLevel(0);
         });
     </script>
