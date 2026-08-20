@@ -1,424 +1,329 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portal Pembelajaran & Perangkat Guru</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <style>
-        :root {
-            --bg-dark: #061913;
-            --card-bg: #0b2b22;
-            --card-border: #144d3d;
-            --accent-green: #10b981;
-            --text-light: #ecfdf5;
-            --text-muted: #9ca3af;
-            --gold: #f59e0b;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MAZDANY.OS - Portal Education & Islamic Center</title>
+  <style>
+    /* Global Styles */
+    :root {
+      --bg-dark: #1e1e2d;
+      --card-bg: #2b2b40;
+      --text-main: #ffffff;
+      --text-muted: #a2a3b7;
+      --accent-blue: #00d2ff;
+      --accent-green: #00e676;
+      --accent-purple: #7000ff;
+      --accent-orange: #ff9100;
+      --accent-red: #ff3d00;
+      --accent-yellow: #ffd600;
+      --accent-teal: #00bfa5;
+    }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+    body { background-color: var(--bg-dark); color: var(--text-main); min-height: 100vh; padding: 20px; }
 
-        body {
-            background-color: var(--bg-dark);
-            color: var(--text-light);
-            padding: 20px;
-            display: flex;
-            justify-content: center;
-        }
+    /* Header */
+    header { display: flex; align-items: center; justify-content: space-between; padding-bottom: 20px; border-bottom: 1px solid #3d3d5c; margin-bottom: 20px; }
+    .brand { display: flex; align-items: center; gap: 15px; }
+    .avatar { width: 50px; height: 50px; border-radius: 50%; background: linear-gradient(45deg, var(--accent-blue), var(--accent-purple)); display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.2rem; }
+    .brand-text h1 { font-size: 1.5rem; letter-spacing: 1px; }
+    .brand-text p { font-size: 0.85rem; color: var(--text-muted); }
 
-        .container {
-            max-width: 1200px;
-            width: 100%;
-        }
+    /* Nav UI / Lumia Metro Grid */
+    .metro-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; margin-bottom: 25px; }
+    .tile { background-color: var(--card-bg); border-radius: 12px; padding: 20px; cursor: pointer; transition: all 0.2s ease; border: 2px solid transparent; display: flex; flex-direction: column; justify-content: space-between; height: 120px; }
+    .tile:hover { transform: translateY(-4px); }
+    .tile.active { border-color: #fff; box-shadow: 0 0 15px rgba(255, 255, 255, 0.2); }
+    .tile-title { font-size: 1.1rem; font-weight: bold; }
+    .tile-subtitle { font-size: 0.8rem; color: var(--text-muted); }
+    
+    /* Tile Color Themes */
+    .tile-1 { background: linear-gradient(135deg, #1e3c72, #2a5298); }
+    .tile-2 { background: linear-gradient(135deg, #11998e, #38ef7d); }
+    .tile-3 { background: linear-gradient(135deg, #8e2de2, #4a00e0); }
+    .tile-4 { background: linear-gradient(135deg, #f857a6, #ff5858); }
+    .tile-5 { background: linear-gradient(135deg, #ff9966, #ff5e62); }
+    .tile-6 { background: linear-gradient(135deg, #00c6ff, #0072ff); }
+    .tile-7 { background: linear-gradient(135deg, #f7971e, #ffd200); }
+    .tile-8 { background: linear-gradient(135deg, #00b09b, #96c93d); }
+    .tile-9 { background: linear-gradient(135deg, #eaafc8, #654ea3); }
 
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
-        }
+    /* Main Container Views */
+    .view-content { display: none; background: var(--card-bg); padding: 25px; border-radius: 12px; }
+    .view-content.active { display: block; }
 
-        .card {
-            background-color: var(--card-bg);
-            border: 1px solid var(--card-border);
-            border-radius: 16px;
-            padding: 24px;
-            position: relative;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
+    /* Flashcard Style (Bahasa Jawa / Arab) */
+    .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 15px; }
+    .item-card { background: #1e1e2d; border-radius: 8px; padding: 15px; border-left: 4px solid var(--accent-blue); }
+    .item-card h4 { font-size: 1.2rem; color: var(--accent-green); margin-bottom: 5px; }
+    .item-card p { font-size: 0.9rem; color: var(--text-muted); }
 
-        .card:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent-green);
-            box-shadow: 0 10px 20px rgba(16, 185, 129, 0.15);
-        }
+    /* Interactive Quiz / Practice Section */
+    .quiz-box { background: #1e1e2d; padding: 20px; border-radius: 8px; margin-top: 20px; }
+    .btn { background: var(--accent-blue); color: #fff; border: none; padding: 10px 18px; border-radius: 6px; cursor: pointer; font-weight: bold; margin-top: 10px; }
+    .btn:hover { opacity: 0.9; }
 
-        .card-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+    /* Game / Grid Coding Placeholder */
+    .coding-grid { display: grid; grid-template-columns: repeat(5, 50px); gap: 5px; margin-top: 15px; }
+    .cell { width: 50px; height: 50px; background: #1e1e2d; border: 1px solid #3d3d5c; display: flex; align-items: center; justify-content: center; font-weight: bold; }
+    .cell.bot { background: var(--accent-orange); }
 
-        .icon-box {
-            width: 48px;
-            height: 48px;
-            background: rgba(16, 185, 129, 0.1);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--accent-green);
-            font-size: 20px;
-        }
-
-        .badge {
-            background-color: #0f372d;
-            color: var(--accent-green);
-            font-size: 11px;
-            font-weight: 700;
-            padding: 4px 10px;
-            border-radius: 20px;
-            letter-spacing: 0.5px;
-        }
-
-        .card-title {
-            font-size: 18px;
-            font-weight: 700;
-            color: #ffffff;
-            letter-spacing: 0.5px;
-        }
-
-        .card-desc {
-            font-size: 13px;
-            color: #a3b8b0;
-            line-height: 1.5;
-        }
-
-        /* Modal / Pop-up Styles */
-        .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            display: none;
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-            padding: 20px;
-        }
-
-        .modal-content {
-            background: var(--card-bg);
-            border: 1px solid var(--accent-green);
-            border-radius: 16px;
-            width: 100%;
-            max-width: 600px;
-            max-height: 80vh;
-            overflow-y: auto;
-            padding: 24px;
-            position: relative;
-            box-shadow: 0 20px 30px rgba(0,0,0,0.5);
-        }
-
-        .close-btn {
-            position: absolute;
-            top: 16px;
-            right: 16px;
-            background: none;
-            border: none;
-            color: var(--text-muted);
-            font-size: 20px;
-            cursor: pointer;
-        }
-
-        .close-btn:hover {
-            color: #fff;
-        }
-
-        .modal-body {
-            margin-top: 16px;
-            line-height: 1.6;
-            font-size: 14px;
-        }
-
-        .modal-body h4 {
-            color: var(--accent-green);
-            margin: 12px 0 6px 0;
-        }
-
-        .modal-body ul {
-            margin-left: 20px;
-            margin-bottom: 12px;
-        }
-
-        .btn-action {
-            display: inline-block;
-            margin-top: 15px;
-            padding: 10px 18px;
-            background-color: var(--accent-green);
-            color: #000;
-            font-weight: bold;
-            text-decoration: none;
-            border-radius: 8px;
-            transition: 0.2s;
-        }
-
-        .btn-action:hover {
-            background-color: #34d399;
-        }
-    </style>
+    /* Form & Input */
+    input, select { width: 100%; padding: 10px; margin-top: 5px; margin-bottom: 15px; background: #1e1e2d; border: 1px solid #3d3d5c; color: #fff; border-radius: 6px; }
+  </style>
 </head>
 <body>
 
-<div class="container">
-    <div class="grid">
-        
-        <!-- MENU 1 -->
-        <div class="card" onclick="openModal('m1')">
-            <div class="card-header">
-                <div class="icon-box"><i class="fa-solid fa-kaaba"></i></div>
-                <span class="badge">MENU 1</span>
-            </div>
-            <div class="card-title">MATERI AL-ISLAM</div>
-            <div class="card-desc">BAB 1: Az-Zalzalah & Tauhid | BAB 2: Asmaul Husna (Al-Khaliq, Al-Baari', Al-Mushawwir).</div>
-        </div>
-
-        <!-- MENU 2 -->
-        <div class="card" onclick="openModal('m2')">
-            <div class="card-header">
-                <div class="icon-box"><i class="fa-solid fa-language"></i></div>
-                <span class="badge">MENU 2</span>
-            </div>
-            <div class="card-title">MATERI BAHASA ARAB</div>
-            <div class="card-desc">Kosakata Anggota Badan (أَعْضَاءُ الْجِسْمِ) + Terjemah Basa Jawa + Audio AAC + LKPD Interaktif 2 JPL.</div>
-        </div>
-
-        <!-- MENU 3 -->
-        <div class="card" onclick="openModal('m3')">
-            <div class="card-header">
-                <div class="icon-box"><i class="fa-solid fa-calculator"></i></div>
-                <span class="badge">MENU 3</span>
-            </div>
-            <div class="card-title">MATERI MATEMATIKA</div>
-            <div class="card-desc">Bilangan Cacah sampai 10.000, Operasi Hitung, Pecahan, & Kuis Interaktif.</div>
-        </div>
-
-        <!-- MENU 4 -->
-        <div class="card" onclick="openModal('m4')">
-            <div class="card-header">
-                <div class="icon-box"><i class="fa-solid fa-book-open"></i></div>
-                <span class="badge" style="color: var(--gold); background: rgba(245, 158, 11, 0.1);">MENU 4</span>
-            </div>
-            <div class="card-title">MATERI BAHASA JAWA</div>
-            <div class="card-desc">Unggah-Ungguh Basa, Geguritan, Aksara Jawa, & Glagaten LKPD Interaktif.</div>
-        </div>
-
-        <!-- MENU 5 -->
-        <div class="card" onclick="openModal('m5')">
-            <div class="card-header">
-                <div class="icon-box"><i class="fa-solid fa-person-praying"></i></div>
-                <span class="badge">MENU 5</span>
-            </div>
-            <div class="card-title">PANDUAN IBADAH PRAKTIS</div>
-            <div class="card-desc">Video Tutorial Praktis Wudhu, Bacaan Shalat, dan Panduan Ibadah Harian.</div>
-        </div>
-
-        <!-- MENU 6 -->
-        <div class="card" onclick="openModal('m6')">
-            <div class="card-header">
-                <div class="icon-box"><i class="fa-solid fa-clipboard-list"></i></div>
-                <span class="badge" style="color: var(--gold); background: rgba(245, 158, 11, 0.1);">MENU 6</span>
-            </div>
-            <div class="card-title">DAFTAR NILAI SISWA</div>
-            <div class="card-desc">Rekapitulasi Nilai Al-Islam & Bahasa Arab (Proteksi Akses Edit Guru).</div>
-        </div>
-
-        <!-- MENU 7 -->
-        <div class="card" onclick="openModal('m7')">
-            <div class="card-header">
-                <div class="icon-box"><i class="fa-solid fa-graduation-cap"></i></div>
-                <span class="badge">MENU 7</span>
-            </div>
-            <div class="card-title">SHAFWA UNIVERSITY</div>
-            <div class="card-desc">Folder Kumpulan Berkas Materi Kuliah Shafwa University Mesir.</div>
-        </div>
-
-        <!-- MENU 8 -->
-        <div class="card" onclick="openModal('m8')">
-            <div class="card-header">
-                <div class="icon-box"><i class="fa-solid fa-robot"></i></div>
-                <span class="badge">MENU 8</span>
-            </div>
-            <div class="card-title">PERANGKAT AI (GURU)</div>
-            <div class="card-desc">Generator TP, Modul Ajar, Prompt LKPD, & Asesmen Otomatis AI.</div>
-        </div>
-
-        <!-- MENU 9 -->
-        <div class="card" onclick="openModal('m9')">
-            <div class="card-header">
-                <div class="icon-box"><i class="fa-solid fa-gamepad"></i></div>
-                <span class="badge">MENU 9</span>
-            </div>
-            <div class="card-title">GAME EDUCATION</div>
-            <div class="card-desc">Teori Komputer, Drag&Drop 9 PC, MujahiBot Quest & Scratch Coding.</div>
-        </div>
-
+  <!-- HEADER -->
+  <header>
+    <div class="brand">
+      <div class="avatar">M</div>
+      <div class="brand-text">
+        <h1>MAZDANY.OS</h1>
+        <p>Portal Interactive Learning & Edu-Tech Platform</p>
+      </div>
     </div>
-</div>
+  </header>
 
-<!-- Modal Pop-Up Container -->
-<div class="modal-overlay" id="modalOverlay">
-    <div class="modal-content">
-        <button class="close-btn" onclick="closeModal()"><i class="fa-solid fa-xmark"></i></button>
-        <h2 id="modalTitle" style="color: #fff;">Judul Materi</h2>
-        <div class="modal-body" id="modalBody">
-            <!-- Konten Dinamis Muncul Di Sini -->
-        </div>
+  <!-- METRO TILE NAVIGATION (9 MENU UTAMA) -->
+  <div class="metro-grid">
+    <div class="tile tile-1 active" onclick="switchView('v1', this)">
+      <div class="tile-title">1. Al-Islam</div>
+      <div class="tile-subtitle">Az-Zalzalah, Tauhid, Asmaul Husna</div>
     </div>
-</div>
+    <div class="tile tile-2" onclick="switchView('v2', this)">
+      <div class="tile-title">2. Bahasa Arab</div>
+      <div class="tile-subtitle">Kosakata Anggota Badan & Audio</div>
+    </div>
+    <div class="tile tile-3" onclick="switchView('v3', this)">
+      <div class="tile-title">3. Ibadah Praktis</div>
+      <div class="tile-subtitle">Video Shalat & Wudhu</div>
+    </div>
+    <div class="tile tile-4" onclick="switchView('v4', this)">
+      <div class="tile-title">4. Daftar Nilai</div>
+      <div class="tile-subtitle">Rekapitulasi (Mode Guru & Publik)</div>
+    </div>
+    <div class="tile tile-5" onclick="switchView('v5', this)">
+      <div class="tile-title">5. Shafwa Univ.</div>
+      <div class="tile-subtitle">Berkas Perkuliahan Mesir</div>
+    </div>
+    <div class="tile tile-6" onclick="switchView('v6', this)">
+      <div class="tile-title">6. Perangkat AI</div>
+      <div class="tile-subtitle">Generator TP, Modul & Prompts</div>
+    </div>
+    <div class="tile tile-7" onclick="switchView('v7', this)">
+      <div class="tile-title">7. Game Education</div>
+      <div class="tile-subtitle">Hardware, Scratch & MujaheeBot</div>
+    </div>
+    <div class="tile tile-8" onclick="switchView('v8', this)">
+      <div class="tile-title">8. Bahasa Jawa</div>
+      <div class="tile-subtitle">Piranti Jawa & Unggah-Ungguh</div>
+    </div>
+    <div class="tile tile-9" onclick="switchView('v9', this)">
+      <div class="tile-title">9. Matematika</div>
+      <div class="tile-subtitle">Kalkulator Bangun Datar & Kuis</div>
+    </div>
+  </div>
 
-<script>
-    const dataContent = {
-        m1: {
-            title: "Materi Al-Islam",
-            html: `
-                <h4>BAB 1: Surah Az-Zalzalah & Tauhid</h4>
-                <p>Membahas kandungan Surah Az-Zalzalah tentang hari kiamat serta penanaman Aqidah Tauhid sejak dini.</p>
-                <h4>BAB 2: Mengenal Asmaul Husna</h4>
-                <ul>
-                    <li><b>Al-Khaliq:</b> Allah Maha Pencipta</li>
-                    <li><b>Al-Baari':</b> Allah Maha Membuat/Mengadakan</li>
-                    <li><b>Al-Mushawwir:</b> Allah Maha Membentuk Rupa</li>
-                </ul>
-                <a href="#" class="btn-action"><i class="fa-solid fa-download"></i> Unduh Modul Ajar PDF</a>
-            `
-        },
-        m2: {
-            title: "Materi Bahasa Arab",
-            html: `
-                <h4>Pembelajaran Anggota Badan (أَعْضَاءُ الْجِسْمِ)</h4>
-                <p>Dilengkapi terjemah Basa Jawa (Krama) serta audio pelafalan format AAC standar.</p>
-                <ul>
-                    <li>Rأسٌ (Raksun) = Sirah / Kepala</li>
-                    <li>Ainun (عَيْنٌ) = Mripat / Mata</li>
-                    <li>Anfun (أَنْفٌ) = Irung / Hidung</li>
-                </ul>
-                <a href="#" class="btn-action"><i class="fa-solid fa-play"></i> Buka LKPD Interaktif (2 JPL)</a>
-            `
-        },
-        m3: {
-            title: "Materi Matematika",
-            html: `
-                <h4>Unit Pembelajaran:</h4>
-                <ul>
-                    <li>Membaca dan Menulis Bilangan Cacah s.d. 10.000</li>
-                    <li>Operasi Penjumlahan & Pengurangan Ribuan</li>
-                    <li>Pengenalan Pecahan Sederhana (1/2, 1/4, 3/4)</li>
-                </ul>
-                <a href="#" class="btn-action"><i class="fa-solid fa-gamepad"></i> Mulai Kuis Interaktif</a>
-            `
-        },
-        m4: {
-            title: "Materi Bahasa Jawa",
-            html: `
-                <h4>Rangkuman Piwulang:</h4>
-                <p>1. <b>Unggah-Ungguh Basa:</b> Pambeda Ngoko Lugu lan Krama Alus.</p>
-                <p>2. <b>Geguritan:</b> Macing lan Membaca Indah Geguritan Tema Lingkungan.</p>
-                <p>3. <b>Aksara Jawa:</b> Pengenalan 20 Aksara Nglegena.</p>
-                <a href="#" class="btn-action"><i class="fa-solid fa-file-pen"></i> Kerjakan Glagaten LKPD</a>
-            `
-        },
-        m5: {
-            title: "Panduan Ibadah Praktis",
-            html: `
-                <h4>Fasilitas Pembelajaran:</h4>
-                <ul>
-                    <li>Video Praktik Tata Cara Wudhu Sesuai Sunnah</li>
-                    <li>Panduan Bacaan Shalat Fardhu (Audio + Teks)</li>
-                    <li>Tabel Dzikir & Doa Harian Pembiasaan Siswa</li>
-                </ul>
-                <a href="#" class="btn-action"><i class="fa-solid fa-circle-play"></i> Putar Video Tutorial</a>
-            `
-        },
-        m6: {
-            title: "Daftar Nilai Siswa",
-            html: `
-                <h4>Rekapitulasi Nilai Akademik:</h4>
-                <p>Akses khusus Guru untuk menginput dan mengunduh rekap nilai Al-Islam & Bahasa Arab.</p>
-                <p><i>*Memerlukan kata sandi otentikasi guru.</i></p>
-                <a href="#" class="btn-action"><i class="fa-solid fa-lock"></i> Buka Lembar Nilai (Excel/Sheets)</a>
-            `
-        },
-        m7: {
-            title: "Shafwa University Portal",
-            html: `
-                <h4>Berkas Kuliah & Referensi:</h4>
-                <ul>
-                    <li>Diktat Kuliah Syariah & Dirasat Islamiyah</li>
-                    <li>Kumpulan PDF Kitab Gundul / Turats</li>
-                    <li>Arsip Rekaman Kuliah Shafwa University Mesir</li>
-                </ul>
-                <a href="#" class="btn-action"><i class="fa-solid fa-folder-open"></i> Buka Google Drive Materi</a>
-            `
-        },
-        m8: {
-            title: "Perangkat AI (Khusus Guru)",
-            html: `
-                <h4>Fitur Generator Otomatis:</h4>
-                <ul>
-                    <li>Generator Tujuan Pembelajaran (TP) & ATP</li>
-                    <li>Penyusun Modul Ajar Kurikulum Merdeka</li>
-                    <li>Prompt Engineer untuk LKPD Interaktif & Soal Asesmen</li>
-                </ul>
-                <a href="#" class="btn-action"><i class="fa-solid fa-wand-magic-sparkles"></i> Gunakan Alat AI</a>
-            `
-        },
-        m9: {
-            title: "Game Education & Coding",
-            html: `
-                <h4>Media Pembelajaran Berbasis Game:</h4>
-                <ul>
-                    <li><b>Teori Komputer:</b> Pengenalan Hardware & Software</li>
-                    <li><b>Drag & Drop 9 PC:</b> Simulasi Merakit Komputer</li>
-                    <li><b>MujahiBot Quest:</b> Petualangan Logika Coding & Scratch</li>
-                </ul>
-                <a href="#" class="btn-action"><i class="fa-solid fa-desktop"></i> Mainkan Game Pembelajaran</a>
-            `
-        }
-    };
+  <!-- VIEW 1: AL-ISLAM -->
+  <div id="v1" class="view-content active">
+    <h2>Materi Pendidikan Agama Islam & Kemuhammadiyahan</h2>
+    <hr style="border-color:#3d3d5c; margin:15px 0;">
+    <h3>BAB 1: Surah Az-Zalzalah & 3 Pilar Tauhid</h3>
+    <p style="margin-top:10px; color: var(--text-muted);">LKPD 3 JPL (105 Menit) - Memahami Tanda-Tanda Hari Kiamat dan Menguatkan Akidah.</p>
+    <div class="quiz-box">
+      <h4>Refleksi Tauhid:</h4>
+      <p>Sebutkan 3 Pilar Tauhid dalam kehidupan sehari-hari!</p>
+      <input type="text" placeholder="Ketik jawaban di sini...">
+      <button class="btn">Simpan Jawaban</button>
+    </div>
+  </div>
 
-    function openModal(menuId) {
-        const item = dataContent[menuId];
-        if(item) {
-            document.getElementById('modalTitle').innerText = item.title;
-            document.getElementById('modalBody').innerHTML = item.html;
-            document.getElementById('modalOverlay').style.display = 'flex';
-        }
+  <!-- VIEW 2: BAHASA ARAB -->
+  <div id="v2" class="view-content">
+    <h2>Materi Bahasa Arab (أَعْضَاءُ الْجِسْمِ - Anggota Badan)</h2>
+    <hr style="border-color:#3d3d5c; margin:15px 0;">
+    <div class="card-grid">
+      <div class="item-card">
+        <h4>رَأْسٌ (Ra'sun)</h4>
+        <p><strong>Indonesia:</strong> Kepala</p>
+        <p><strong>Jawa:</strong> Sirah / Mustaka</p>
+      </div>
+      <div class="item-card">
+        <h4>عَيْنٌ ('Aynun)</h4>
+        <p><strong>Indonesia:</strong> Mata</p>
+        <p><strong>Jawa:</strong> Mripat / Soco</p>
+      </div>
+      <div class="item-card">
+        <h4>yَdٌ (Yadun)</h4>
+        <p><strong>Indonesia:</strong> Tangan</p>
+        <p><strong>Jawa:</strong> Tangan / Asta</p>
+      </div>
+      <div class="item-card">
+        <h4>رِجْلٌ (Rijlun)</h4>
+        <p><strong>Indonesia:</strong> Kaki</p>
+        <p><strong>Jawa:</strong> Suku / Sampeyan</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- VIEW 3: IBADAH PRAKTIS -->
+  <div id="v3" class="view-content">
+    <h2>Panduan Ibadah Praktis</h2>
+    <hr style="border-color:#3d3d5c; margin:15px 0;">
+    <h3>Video Tutorial Shalat & Wudhu Sesuai HPT Muhammadiyah</h3>
+    <div style="background:#1e1e2d; height:200px; display:flex; align-items:center; justify-content:center; margin-top:15px; border-radius:8px;">
+      <p style="color:var(--text-muted);">[ Video Player: BACAAN-SHALAT.mp4 ]</p>
+    </div>
+  </div>
+
+  <!-- VIEW 4: DAFTAR NILAI -->
+  <div id="v4" class="view-content">
+    <h2>Daftar Nilai Siswa</h2>
+    <hr style="border-color:#3d3d5c; margin:15px 0;">
+    <p>Akses Terkunci. Masukkan PIN Guru untuk mengubah Rekapitulasi Nilai:</p>
+    <input type="password" id="pinInput" placeholder="Masukkan PIN Guru (default: 12345)">
+    <button class="btn" onclick="checkPin()">Buka Rekapitulasi</button>
+    <div id="nilaiArea" style="display:none; margin-top:20px;">
+      <p style="color:var(--accent-green);">Mode Edit Guru Aktif! Terhubung dengan Google Sheets.</p>
+    </div>
+  </div>
+
+  <!-- VIEW 5: SHAFWA UNIVERSITY -->
+  <div id="v5" class="view-content">
+    <h2>Shafwa University - Portal Drive Berkas</h2>
+    <hr style="border-color:#3d3d5c; margin:15px 0;">
+    <p>Akses arsip materi dan dokumen perkuliahan Mesir secara terintegrasi:</p>
+    <a href="#" class="btn" style="display:inline-block; text-decoration:none; margin-top:15px;">Buka Google Drive Shafwa</a>
+  </div>
+
+  <!-- VIEW 6: PERANGKAT AI GURU -->
+  <div id="v6" class="view-content">
+    <h2>Perangkat AI Pembelajaran (Khusus Guru)</h2>
+    <hr style="border-color:#3d3d5c; margin:15px 0;">
+    <ul style="margin-left:20px; line-height:1.8;">
+      <li>Generator Tujuan Pembelajaran (TP) & ATP</li>
+      <li>Penyusun Modul Ajar Kurikulum Merdeka</li>
+      <li>Prompt Master Generator LKPD Interaktif</li>
+      <li>Asesmen & Rubrik Penilaian Otomatis</li>
+    </ul>
+  </div>
+
+  <!-- VIEW 7: GAME EDUCATION -->
+  <div id="v7" class="view-content">
+    <h2>Game Education & Coding Quest</h2>
+    <hr style="border-color:#3d3d5c; margin:15px 0;">
+    <h3>MujaheeBot Coding Quest</h3>
+    <p style="font-size:0.9rem; color:var(--text-muted);">Gunakan logika arah untuk menggerakkan bot ke target!</p>
+    <div class="coding-grid">
+      <div class="cell bot">🤖</div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell"></div>
+      <div class="cell">🏁</div>
+    </div>
+    <div style="margin-top:10px;">
+      <button class="btn">Maju ➡</button>
+      <button class="btn">Putar 🔄</button>
+    </div>
+  </div>
+
+  <!-- VIEW 8: BAHASA JAWA (TAMBAHAN) -->
+  <div id="v8" class="view-content">
+    <h2>Materi Basa Jawa: Piranti Jawa & Basa Krama</h2>
+    <hr style="border-color:#3d3d5c; margin:15px 0;">
+    <h3>1. Arane Piranti Jawa</h3>
+    <div class="card-grid">
+      <div class="item-card">
+        <h4>Lesung</h4>
+        <p>Piranti kanggo nutu pari utawa gabah supaya dadi beras.</p>
+      </div>
+      <div class="item-card">
+        <h4>Pacul</h4>
+        <p>Piranti kanggo nggarap lemah ing sawah utawa kebon.</p>
+      </div>
+      <div class="item-card">
+        <h4>Luku & Garu</h4>
+        <p>Piranti kanggo mbalik lan ngratake lemah sawah (dibantu sapi/kebo).</p>
+      </div>
+      <div class="item-card">
+        <h4>Kenthongan</h4>
+        <p>Piranti kanggo tandha siskamling utawa ngabari warga yen ana bebaya.</p>
+      </div>
+    </div>
+
+    <div class="quiz-box">
+      <h4>2. Kuis Gladhen Basa Krama:</h4>
+      <p>Ukara ing ngisor iki owahana dadi Basa Krama Alus!</p>
+      <p><em>"Bapak mangan sega goreng ing pawon."</em></p>
+      <input type="text" placeholder="Wangsulan Basa Krama...">
+      <button class="btn">Cek Wangsulan</button>
+    </div>
+  </div>
+
+  <!-- VIEW 9: MATEMATIKA (TAMBAHAN) -->
+  <div id="v9" class="view-content">
+    <h2>Materi Matematika: Bangun Datar Interaktif</h2>
+    <hr style="border-color:#3d3d5c; margin:15px 0;">
+    
+    <h3>Kalkulator Luas & Keliling Persegi Panjang</h3>
+    <div style="max-width:300px; margin-top:15px;">
+      <label>Panjang (p):</label>
+      <input type="number" id="panjang" placeholder="Masukkan panjang">
+      
+      <label>Lebar (l):</label>
+      <input type="number" id="lebar" placeholder="Masukkan lebar">
+      
+      <button class="btn" onclick="hitungMatematika()">Hitung Luas & Keliling</button>
+    </div>
+
+    <div id="hasilMath" class="quiz-box" style="display:none; margin-top:15px;">
+      <h4>Hasil Perhitungan:</h4>
+      <p id="txtLuas">Luas = -</p>
+      <p id="txtKeliling">Keliling = -</p>
+    </div>
+  </div>
+
+  <!-- JAVASCRIPT LOGIC -->
+  <script>
+    // Tab Switching Function
+    function switchView(viewId, element) {
+      document.querySelectorAll('.view-content').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.tile').forEach(el => el.classList.remove('active'));
+      
+      document.getElementById(viewId).classList.add('active');
+      element.classList.add('active');
     }
 
-    function closeModal() {
-        document.getElementById('modalOverlay').style.display = 'none';
+    // Passcode Checking for Grades
+    function checkPin() {
+      const pin = document.getElementById('pinInput').value;
+      if(pin === '12345') {
+        document.getElementById('nilaiArea').style.display = 'block';
+        alert('PIN Benar! Akses rekapitulasi dibuka.');
+      } else {
+        alert('PIN Salah! Masukkan PIN yang benar.');
+      }
     }
 
-    // Tutup modal jika klik di luar box modal
-    window.onclick = function(event) {
-        const overlay = document.getElementById('modalOverlay');
-        if (event.target == overlay) {
-            closeModal();
-        }
+    // Math Calculator Logic
+    function hitungMatematika() {
+      const p = parseFloat(document.getElementById('panjang').value);
+      const l = parseFloat(document.getElementById('lebar').value);
+      
+      if(!p || !l) {
+        alert('Mohon masukkan panjang dan lebar dengan benar!');
+        return;
+      }
+      
+      const luas = p * l;
+      const keliling = 2 * (p + l);
+      
+      document.getElementById('txtLuas').innerText = 'Luas (p × l) = ' + luas + ' unit²';
+      document.getElementById('txtKeliling').innerText = 'Keliling (2 × (p + l)) = ' + keliling + ' unit';
+      document.getElementById('hasilMath').style.display = 'block';
     }
-</script>
-
+  </script>
 </body>
 </html>
