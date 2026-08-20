@@ -3,74 +3,76 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MAZDANY.OS - Portal Education & Islamic Center</title>
+  <title>MAZDANY.OS - Portal Learning & Edu-Tech Platform</title>
   <style>
-    /* Global Styles */
     :root {
-      --bg-dark: #1e1e2d;
-      --card-bg: #2b2b40;
+      --bg-dark: #12131e;
+      --card-bg: #1c1d2d;
       --text-main: #ffffff;
       --text-muted: #a2a3b7;
-      --accent-blue: #00d2ff;
-      --accent-green: #00e676;
-      --accent-purple: #7000ff;
-      --accent-orange: #ff9100;
-      --accent-red: #ff3d00;
-      --accent-yellow: #ffd600;
-      --accent-teal: #00bfa5;
+      --accent-blue: #2563eb;
+      --accent-green: #10b981;
+      --accent-purple: #8b5cf6;
+      --accent-orange: #f59e0b;
+      --accent-red: #ef4444;
+      --accent-cyan: #06b6d4;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-    body { background-color: var(--bg-dark); color: var(--text-main); min-height: 100vh; padding: 20px; }
+    body { background-color: var(--bg-dark); color: var(--text-main); padding: 20px; }
 
-    /* Header */
-    header { display: flex; align-items: center; justify-content: space-between; padding-bottom: 20px; border-bottom: 1px solid #3d3d5c; margin-bottom: 20px; }
+    /* Header UI */
+    header { display: flex; align-items: center; justify-content: space-between; padding-bottom: 20px; border-bottom: 1px solid #2d2f45; margin-bottom: 25px; }
     .brand { display: flex; align-items: center; gap: 15px; }
-    .avatar { width: 50px; height: 50px; border-radius: 50%; background: linear-gradient(45deg, var(--accent-blue), var(--accent-purple)); display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.2rem; }
-    .brand-text h1 { font-size: 1.5rem; letter-spacing: 1px; }
+    .avatar { width: 55px; height: 55px; border-radius: 50%; background: linear-gradient(135deg, #6366f1, #a855f7); display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.4rem; box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4); }
+    .brand-text h1 { font-size: 1.6rem; letter-spacing: 1px; font-weight: 700; }
     .brand-text p { font-size: 0.85rem; color: var(--text-muted); }
 
-    /* Nav UI / Lumia Metro Grid */
-    .metro-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; margin-bottom: 25px; }
-    .tile { background-color: var(--card-bg); border-radius: 12px; padding: 20px; cursor: pointer; transition: all 0.2s ease; border: 2px solid transparent; display: flex; flex-direction: column; justify-content: space-between; height: 120px; }
-    .tile:hover { transform: translateY(-4px); }
-    .tile.active { border-color: #fff; box-shadow: 0 0 15px rgba(255, 255, 255, 0.2); }
-    .tile-title { font-size: 1.1rem; font-weight: bold; }
-    .tile-subtitle { font-size: 0.8rem; color: var(--text-muted); }
+    /* Metro Grid Dashboard UI */
+    .metro-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 15px; margin-bottom: 30px; }
+    .tile { background: var(--card-bg); border-radius: 14px; padding: 20px; cursor: pointer; transition: all 0.25s ease; border: 2px solid transparent; display: flex; flex-direction: column; justify-content: space-between; height: 130px; position: relative; overflow: hidden; }
+    .tile:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4); }
+    .tile.active { border-color: #ffffff; box-shadow: 0 0 20px rgba(255, 255, 255, 0.25); }
+    .tile-title { font-size: 1.15rem; font-weight: 700; color: #fff; z-index: 2; }
+    .tile-subtitle { font-size: 0.8rem; color: rgba(255,255,255,0.8); z-index: 2; line-height: 1.3; }
     
-    /* Tile Color Themes */
-    .tile-1 { background: linear-gradient(135deg, #1e3c72, #2a5298); }
-    .tile-2 { background: linear-gradient(135deg, #11998e, #38ef7d); }
-    .tile-3 { background: linear-gradient(135deg, #8e2de2, #4a00e0); }
-    .tile-4 { background: linear-gradient(135deg, #f857a6, #ff5858); }
-    .tile-5 { background: linear-gradient(135deg, #ff9966, #ff5e62); }
-    .tile-6 { background: linear-gradient(135deg, #00c6ff, #0072ff); }
-    .tile-7 { background: linear-gradient(135deg, #f7971e, #ffd200); }
-    .tile-8 { background: linear-gradient(135deg, #00b09b, #96c93d); }
-    .tile-9 { background: linear-gradient(135deg, #eaafc8, #654ea3); }
+    /* Metro Tile Colors Gradient */
+    .tile-1 { background: linear-gradient(135deg, #1e40af, #3b82f6); }
+    .tile-2 { background: linear-gradient(135deg, #059669, #10b981); }
+    .tile-3 { background: linear-gradient(135deg, #6d28d9, #8b5cf6); }
+    .tile-4 { background: linear-gradient(135deg, #e11d48, #f43f5e); }
+    .tile-5 { background: linear-gradient(135deg, #ea580c, #f97316); }
+    .tile-6 { background: linear-gradient(135deg, #0284c7, #38bdf8); }
+    .tile-7 { background: linear-gradient(135deg, #d97706, #fbbf24); }
+    .tile-8 { background: linear-gradient(135deg, #16a34a, #4ade80); }
+    .tile-9 { background: linear-gradient(135deg, #7c3aed, #c084fc); }
 
-    /* Main Container Views */
-    .view-content { display: none; background: var(--card-bg); padding: 25px; border-radius: 12px; }
-    .view-content.active { display: block; }
+    /* Content Views */
+    .view-content { display: none; background: var(--card-bg); padding: 30px; border-radius: 16px; border: 1px solid #2d2f45; }
+    .view-content.active { display: block; animation: fadeIn 0.3s ease; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-    /* Flashcard Style (Bahasa Jawa / Arab) */
-    .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 15px; }
-    .item-card { background: #1e1e2d; border-radius: 8px; padding: 15px; border-left: 4px solid var(--accent-blue); }
-    .item-card h4 { font-size: 1.2rem; color: var(--accent-green); margin-bottom: 5px; }
-    .item-card p { font-size: 0.9rem; color: var(--text-muted); }
+    /* Sub Tabs Control */
+    .sub-tabs { display: flex; gap: 10px; margin-bottom: 20px; border-bottom: 1px solid #2d2f45; padding-bottom: 10px; flex-wrap: wrap; }
+    .sub-btn { background: #27293d; color: var(--text-muted); border: none; padding: 8px 16px; border-radius: 8px; cursor: pointer; font-weight: 600; font-size: 0.9rem; transition: 0.2s; }
+    .sub-btn.active, .sub-btn:hover { background: var(--accent-blue); color: #fff; }
 
-    /* Interactive Quiz / Practice Section */
-    .quiz-box { background: #1e1e2d; padding: 20px; border-radius: 8px; margin-top: 20px; }
-    .btn { background: var(--accent-blue); color: #fff; border: none; padding: 10px 18px; border-radius: 6px; cursor: pointer; font-weight: bold; margin-top: 10px; }
+    /* Cards & UI Elements */
+    .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; margin-top: 15px; }
+    .item-card { background: #12131e; border-radius: 10px; padding: 18px; border-left: 4px solid var(--accent-green); }
+    .item-card h4 { font-size: 1.1rem; color: #fff; margin-bottom: 8px; }
+    .item-card p { font-size: 0.88rem; color: var(--text-muted); margin-bottom: 4px; }
+
+    .quiz-box { background: #12131e; padding: 20px; border-radius: 10px; margin-top: 20px; border: 1px solid #2d2f45; }
+    .btn { background: var(--accent-blue); color: #fff; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer; font-weight: bold; margin-top: 10px; transition: 0.2s; }
     .btn:hover { opacity: 0.9; }
 
-    /* Game / Grid Coding Placeholder */
-    .coding-grid { display: grid; grid-template-columns: repeat(5, 50px); gap: 5px; margin-top: 15px; }
-    .cell { width: 50px; height: 50px; background: #1e1e2d; border: 1px solid #3d3d5c; display: flex; align-items: center; justify-content: center; font-weight: bold; }
-    .cell.bot { background: var(--accent-orange); }
+    input, select { width: 100%; padding: 11px; margin-top: 8px; margin-bottom: 15px; background: #12131e; border: 1px solid #2d2f45; color: #fff; border-radius: 8px; font-size: 0.95rem; }
 
-    /* Form & Input */
-    input, select { width: 100%; padding: 10px; margin-top: 5px; margin-bottom: 15px; background: #1e1e2d; border: 1px solid #3d3d5c; color: #fff; border-radius: 6px; }
+    /* Coding Grid Simulation */
+    .coding-grid { display: grid; grid-template-columns: repeat(5, 55px); gap: 6px; margin-top: 15px; }
+    .cell { width: 55px; height: 55px; background: #12131e; border: 1px solid #2d2f45; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.2rem; }
+    .cell.bot { background: var(--accent-orange); }
   </style>
 </head>
 <body>
@@ -86,7 +88,7 @@
     </div>
   </header>
 
-  <!-- METRO TILE NAVIGATION (9 MENU UTAMA) -->
+  <!-- DASHBOARD METRO TILES (9 MENU) -->
   <div class="metro-grid">
     <div class="tile tile-1 active" onclick="switchView('v1', this)">
       <div class="tile-title">1. Al-Islam</div>
@@ -126,24 +128,32 @@
     </div>
   </div>
 
-  <!-- VIEW 1: AL-ISLAM -->
+  <!-- MENU 1: AL-ISLAM -->
   <div id="v1" class="view-content active">
     <h2>Materi Pendidikan Agama Islam & Kemuhammadiyahan</h2>
-    <hr style="border-color:#3d3d5c; margin:15px 0;">
+    <div class="sub-tabs">
+      <button class="sub-btn active">BAB 1: Az-Zalzalah & 3 Pilar Tauhid</button>
+      <button class="sub-btn">BAB 2: Asmaul Husna</button>
+      <button class="sub-btn">LKPD (3 JPL 105m)</button>
+    </div>
     <h3>BAB 1: Surah Az-Zalzalah & 3 Pilar Tauhid</h3>
-    <p style="margin-top:10px; color: var(--text-muted);">LKPD 3 JPL (105 Menit) - Memahami Tanda-Tanda Hari Kiamat dan Menguatkan Akidah.</p>
+    <p style="margin-top:10px; color: var(--text-muted);">Memahami Tanda-Tanda Hari Kiamat, Keagungan Allah, serta Menguatkan Akidah dalam Kehidupan Sehari-hari.</p>
     <div class="quiz-box">
-      <h4>Refleksi Tauhid:</h4>
-      <p>Sebutkan 3 Pilar Tauhid dalam kehidupan sehari-hari!</p>
-      <input type="text" placeholder="Ketik jawaban di sini...">
-      <button class="btn">Simpan Jawaban</button>
+      <h4>Refleksi Akidah:</h4>
+      <p>Sebutkan 3 Pilar Utama Tauhid yang kamu pelajari!</p>
+      <input type="text" placeholder="Tuliskan jawabanmu di sini...">
+      <button class="btn">Kirim Jawaban</button>
     </div>
   </div>
 
-  <!-- VIEW 2: BAHASA ARAB -->
+  <!-- MENU 2: BAHASA ARAB -->
   <div id="v2" class="view-content">
     <h2>Materi Bahasa Arab (أَعْضَاءُ الْجِسْمِ - Anggota Badan)</h2>
-    <hr style="border-color:#3d3d5c; margin:15px 0;">
+    <div class="sub-tabs">
+      <button class="sub-btn active">Kartu Mufrodat</button>
+      <button class="sub-btn">Audio & Pronunciation</button>
+      <button class="sub-btn">LKPD Bahasa Arab (2 JPL)</button>
+    </div>
     <div class="card-grid">
       <div class="item-card">
         <h4>رَأْسٌ (Ra'sun)</h4>
@@ -168,54 +178,62 @@
     </div>
   </div>
 
-  <!-- VIEW 3: IBADAH PRAKTIS -->
+  <!-- MENU 3: IBADAH PRAKTIS -->
   <div id="v3" class="view-content">
     <h2>Panduan Ibadah Praktis</h2>
-    <hr style="border-color:#3d3d5c; margin:15px 0;">
-    <h3>Video Tutorial Shalat & Wudhu Sesuai HPT Muhammadiyah</h3>
-    <div style="background:#1e1e2d; height:200px; display:flex; align-items:center; justify-content:center; margin-top:15px; border-radius:8px;">
-      <p style="color:var(--text-muted);">[ Video Player: BACAAN-SHALAT.mp4 ]</p>
+    <div class="sub-tabs">
+      <button class="sub-btn active">Tata Cara Shalat</button>
+      <button class="sub-btn">Panduan Wudhu</button>
+    </div>
+    <h3>Video Tutorial Shalat Sesuai HPT Muhammadiyah</h3>
+    <div style="background:#12131e; height:240px; border-radius:12px; display:flex; align-items:center; justify-content:center; margin-top:15px; border:1px solid #2d2f45;">
+      <p style="color:var(--text-muted);">[ Media Player: BACAAN-SHALAT.mp4 ]</p>
     </div>
   </div>
 
-  <!-- VIEW 4: DAFTAR NILAI -->
+  <!-- MENU 4: DAFTAR NILAI -->
   <div id="v4" class="view-content">
     <h2>Daftar Nilai Siswa</h2>
-    <hr style="border-color:#3d3d5c; margin:15px 0;">
-    <p>Akses Terkunci. Masukkan PIN Guru untuk mengubah Rekapitulasi Nilai:</p>
-    <input type="password" id="pinInput" placeholder="Masukkan PIN Guru (default: 12345)">
-    <button class="btn" onclick="checkPin()">Buka Rekapitulasi</button>
-    <div id="nilaiArea" style="display:none; margin-top:20px;">
-      <p style="color:var(--accent-green);">Mode Edit Guru Aktif! Terhubung dengan Google Sheets.</p>
+    <p style="margin-bottom:15px; color:var(--text-muted);">Mode Publik hanya untuk melihat. Masukkan PIN Guru untuk mode edit.</p>
+    <input type="password" id="pinInput" placeholder="Masukkan PIN Guru (Default: 12345)" style="max-width:300px;">
+    <br>
+    <button class="btn" onclick="checkPin()">Akses Mode Guru</button>
+    <div id="nilaiArea" style="display:none; margin-top:20px;" class="quiz-box">
+      <p style="color:var(--accent-green); font-weight:bold;"> Mode Guru Aktif!</p>
+      <p>Data terintegrasi secara otomatis dengan Google Sheets Rekapitulasi Nilai.</p>
     </div>
   </div>
 
-  <!-- VIEW 5: SHAFWA UNIVERSITY -->
+  <!-- MENU 5: SHAFWA UNIV -->
   <div id="v5" class="view-content">
     <h2>Shafwa University - Portal Drive Berkas</h2>
-    <hr style="border-color:#3d3d5c; margin:15px 0;">
-    <p>Akses arsip materi dan dokumen perkuliahan Mesir secara terintegrasi:</p>
-    <a href="#" class="btn" style="display:inline-block; text-decoration:none; margin-top:15px;">Buka Google Drive Shafwa</a>
+    <p style="color:var(--text-muted); margin-bottom:20px;">Akses seluruh dokumen, buku panduan, dan arsip perkuliahan Mesir.</p>
+    <a href="#" class="btn" style="display:inline-block; text-decoration:none;">Buka Google Drive Shafwa</a>
   </div>
 
-  <!-- VIEW 6: PERANGKAT AI GURU -->
+  <!-- MENU 6: PERANGKAT AI -->
   <div id="v6" class="view-content">
     <h2>Perangkat AI Pembelajaran (Khusus Guru)</h2>
-    <hr style="border-color:#3d3d5c; margin:15px 0;">
-    <ul style="margin-left:20px; line-height:1.8;">
-      <li>Generator Tujuan Pembelajaran (TP) & ATP</li>
-      <li>Penyusun Modul Ajar Kurikulum Merdeka</li>
-      <li>Prompt Master Generator LKPD Interaktif</li>
-      <li>Asesmen & Rubrik Penilaian Otomatis</li>
+    <hr style="border-color:#2d2f45; margin:15px 0;">
+    <ul style="margin-left:20px; line-height:2; color:var(--text-muted);">
+      <li><strong style="color:#fff;">Generator TP & ATP:</strong> Menyusun Alur Tujuan Pembelajaran secara cepat.</li>
+      <li><strong style="color:#fff;">Modul Ajar Builder:</strong> Pembuat Modul Ajar Kurikulum Merdeka otomatis.</li>
+      <li><strong style="color:#fff;">Prompt Generator LKPD:</strong> Menghasilkan lembar kerja siswa interaktif.</li>
+      <li><strong style="color:#fff;">Asesmen Otomatis:</strong> Membuat kuis dan rubrik penilaian otomatis.</li>
     </ul>
   </div>
 
-  <!-- VIEW 7: GAME EDUCATION -->
+  <!-- MENU 7: GAME EDUCATION -->
   <div id="v7" class="view-content">
     <h2>Game Education & Coding Quest</h2>
-    <hr style="border-color:#3d3d5c; margin:15px 0;">
+    <div class="sub-tabs">
+      <button class="sub-btn active">MujaheeBot Quest</button>
+      <button class="sub-btn">Drag & Drop Rakit PC</button>
+      <button class="sub-btn">Scratch Kids</button>
+      <button class="sub-btn">Kuis Troubleshooting</button>
+    </div>
     <h3>MujaheeBot Coding Quest</h3>
-    <p style="font-size:0.9rem; color:var(--text-muted);">Gunakan logika arah untuk menggerakkan bot ke target!</p>
+    <p style="font-size:0.9rem; color:var(--text-muted); margin-top:5px;">Gunakan logika langkah untuk mengantarkan bot ke garis Finish (🏁)!</p>
     <div class="coding-grid">
       <div class="cell bot">🤖</div>
       <div class="cell"></div>
@@ -223,71 +241,72 @@
       <div class="cell"></div>
       <div class="cell">🏁</div>
     </div>
-    <div style="margin-top:10px;">
+    <div style="margin-top:15px;">
       <button class="btn">Maju ➡</button>
-      <button class="btn">Putar 🔄</button>
+      <button class="btn" style="background:var(--accent-purple);">Putar 🔄</button>
     </div>
   </div>
 
-  <!-- VIEW 8: BAHASA JAWA (TAMBAHAN) -->
+  <!-- MENU 8: BAHASA JAWA (LENGKAP) -->
   <div id="v8" class="view-content">
-    <h2>Materi Basa Jawa: Piranti Jawa & Basa Krama</h2>
-    <hr style="border-color:#3d3d5c; margin:15px 0;">
+    <h2>Materi Basa Jawa: Piranti Jawa & Unggah-Ungguh</h2>
+    <hr style="border-color:#2d2f45; margin:15px 0;">
     <h3>1. Arane Piranti Jawa</h3>
     <div class="card-grid">
       <div class="item-card">
-        <h4>Lesung</h4>
-        <p>Piranti kanggo nutu pari utawa gabah supaya dadi beras.</p>
+        <h4 style="color:var(--accent-green);">Lesung</h4>
+        <p><strong>Fungsi:</strong> Piranti kanggo nutu pari utawa gabah supaya dadi beras.</p>
       </div>
       <div class="item-card">
-        <h4>Pacul</h4>
-        <p>Piranti kanggo nggarap lemah ing sawah utawa kebon.</p>
+        <h4 style="color:var(--accent-green);">Pacul</h4>
+        <p><strong>Fungsi:</strong> Piranti kanggo nggarap lemah ing sawah utawa kebon.</p>
       </div>
       <div class="item-card">
-        <h4>Luku & Garu</h4>
-        <p>Piranti kanggo mbalik lan ngratake lemah sawah (dibantu sapi/kebo).</p>
+        <h4 style="color:var(--accent-green);">Luku & Garu</h4>
+        <p><strong>Fungsi:</strong> Piranti kanggo mbalik lan ngratake lemah sawah sawise diluku (dibantu sapi/kebo).</p>
       </div>
       <div class="item-card">
-        <h4>Kenthongan</h4>
-        <p>Piranti kanggo tandha siskamling utawa ngabari warga yen ana bebaya.</p>
+        <h4 style="color:var(--accent-green);">Kenthongan</h4>
+        <p><strong>Fungsi:</strong> Piranti kanggo tandha reresik (siskamling) utawa ngabari warga yen ana bebaya.</p>
       </div>
     </div>
 
     <div class="quiz-box">
       <h4>2. Kuis Gladhen Basa Krama:</h4>
-      <p>Ukara ing ngisor iki owahana dadi Basa Krama Alus!</p>
-      <p><em>"Bapak mangan sega goreng ing pawon."</em></p>
-      <input type="text" placeholder="Wangsulan Basa Krama...">
+      <p style="margin-top:5px;">Ukara ing ngisor iki owahana dadi Basa Krama Alus sing bener!</p>
+      <p style="margin-top:10px; font-weight:bold; color:var(--accent-orange);">"Bapak mangan sega goreng ing pawon."</p>
+      <input type="text" placeholder="Tulisake wangsulan Basa Krama ing kene...">
       <button class="btn">Cek Wangsulan</button>
     </div>
   </div>
 
-  <!-- VIEW 9: MATEMATIKA (TAMBAHAN) -->
+  <!-- MENU 9: MATEMATIKA (LENGKAP) -->
   <div id="v9" class="view-content">
     <h2>Materi Matematika: Bangun Datar Interaktif</h2>
-    <hr style="border-color:#3d3d5c; margin:15px 0;">
+    <hr style="border-color:#2d2f45; margin:15px 0;">
     
     <h3>Kalkulator Luas & Keliling Persegi Panjang</h3>
-    <div style="max-width:300px; margin-top:15px;">
-      <label>Panjang (p):</label>
+    <p style="color:var(--text-muted); font-size:0.9rem; margin-top:5px;">Masukkan nilai panjang dan lebar untuk menghitung secara otomatis:</p>
+    
+    <div style="max-width:320px; margin-top:15px;">
+      <label style="font-size:0.9rem;">Panjang (p):</label>
       <input type="number" id="panjang" placeholder="Masukkan panjang">
       
-      <label>Lebar (l):</label>
+      <label style="font-size:0.9rem;">Lebar (l):</label>
       <input type="number" id="lebar" placeholder="Masukkan lebar">
       
-      <button class="btn" onclick="hitungMatematika()">Hitung Luas & Keliling</button>
+      <button class="btn" onclick="hitungMatematika()">Hitung Sekarang</button>
     </div>
 
-    <div id="hasilMath" class="quiz-box" style="display:none; margin-top:15px;">
-      <h4>Hasil Perhitungan:</h4>
-      <p id="txtLuas">Luas = -</p>
-      <p id="txtKeliling">Keliling = -</p>
+    <div id="hasilMath" class="quiz-box" style="display:none;">
+      <h4 style="color:var(--accent-green);">Hasil Perhitungan:</h4>
+      <p id="txtLuas" style="margin-top:8px; font-size:1rem;">Luas (p × l) = -</p>
+      <p id="txtKeliling" style="margin-top:5px; font-size:1rem;">Keliling 2 × (p + l) = -</p>
     </div>
   </div>
 
   <!-- JAVASCRIPT LOGIC -->
   <script>
-    // Tab Switching Function
     function switchView(viewId, element) {
       document.querySelectorAll('.view-content').forEach(el => el.classList.remove('active'));
       document.querySelectorAll('.tile').forEach(el => el.classList.remove('active'));
@@ -296,34 +315,31 @@
       element.classList.add('active');
     }
 
-    // Passcode Checking for Grades
     function checkPin() {
       const pin = document.getElementById('pinInput').value;
       if(pin === '12345') {
         document.getElementById('nilaiArea').style.display = 'block';
-        alert('PIN Benar! Akses rekapitulasi dibuka.');
+        alert('PIN Benar! Mode Edit Guru dibuka.');
       } else {
-        alert('PIN Salah! Masukkan PIN yang benar.');
+        alert('PIN Salah! Masukkan PIN yang tepat.');
       }
     }
 
-    // Math Calculator Logic
     function hitungMatematika() {
       const p = parseFloat(document.getElementById('panjang').value);
       const l = parseFloat(document.getElementById('lebar').value);
       
       if(!p || !l) {
-        alert('Mohon masukkan panjang dan lebar dengan benar!');
+        alert('Mohon isi panjang dan lebar terlebih dahulu!');
         return;
       }
       
       const luas = p * l;
       const keliling = 2 * (p + l);
       
-      document.getElementById('txtLuas').innerText = 'Luas (p × l) = ' + luas + ' unit²';
-      document.getElementById('txtKeliling').innerText = 'Keliling (2 × (p + l)) = ' + keliling + ' unit';
+      document.getElementById('txtLuas').innerText = 'Luas (p × l) = ' + luas + ' cm²';
+      document.getElementById('txtKeliling').innerText = 'Keliling 2 × (p + l) = ' + keliling + ' cm';
       document.getElementById('hasilMath').style.display = 'block';
     }
   </script>
 </body>
-</html>
