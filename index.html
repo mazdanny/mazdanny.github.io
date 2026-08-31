@@ -160,7 +160,7 @@
                 </div>
                 <div>
                     <h3 class="text-lg font-bold text-white tracking-wide">MATERI BAHASA ARAB</h3>
-                    <p class="text-xs text-gray-300 mt-1">Kosakata Anggota Badan (أَعْضَاءُ الْجِسْمِ) + Terjemah Basa Jawa + Audio AAC + LKPD Interaktif 2 JPL.</p>
+                    <p class="text-xs text-gray-300 mt-1">BAB 1: Anggota Badan (أَعْضَاءُ الْجِسْمِ) | BAB 2: Peralatan Rumah (أَدَوَاتُ الْبَيْتِ) + Terjemah Basa Jawa + Audio + LKPD.</p>
                 </div>
             </div>
 
@@ -1049,266 +1049,482 @@
             <i class="fa-solid fa-arrow-left"></i> Kembali ke Dashboard
         </button>
 
+        <!-- Pilihan BAB Bahasa Arab (Daftar BAB Diperbarui Lengkap dengan BAB 2) -->
         <div class="bg-teal-950/80 p-4 rounded-2xl border border-teal-500/30">
             <h3 class="text-xs font-bold text-cyan-300 uppercase tracking-wider mb-2"><i class="fa-solid fa-list-ol mr-1"></i> Daftar BAB Bahasa Arab</h3>
             <div class="flex flex-wrap gap-2">
-                <button class="px-3 py-1.5 bg-teal-600 text-white rounded-lg text-xs font-bold shadow-md">BAB 1: أَعْضَاءُ الْجِسْمِ (Anggota Badan)</button>
+                <button id="btn-ba-bab1" onclick="switchBahasaArabBab('bab1')" class="px-4 py-2 bg-teal-600 text-white rounded-xl text-xs font-bold shadow-md transition border border-teal-400">
+                    BAB 1: أَعْضَاءُ الْجِسْمِ (Anggota Badan)
+                </button>
+                <button id="btn-ba-bab2" onclick="switchBahasaArabBab('bab2')" class="px-4 py-2 bg-teal-950/80 text-gray-300 hover:text-white rounded-xl text-xs font-bold border border-teal-700 transition">
+                    BAB 2: أَدَوَاتُ الْبَيْتِ (Peralatan Rumah)
+                </button>
             </div>
         </div>
 
-        <!-- Bagian Kosakata Utama & Pemutar Suara (Diperbarui Tambahan Basa Jawa) -->
-        <div class="space-y-4">
-            <h3 class="text-xl font-bold text-cyan-300 text-center"><i class="fa-solid fa-volume-high mr-2"></i> Kosakata Anggota Badan (المُفْرَدَاتُ)</h3>
-            <p class="text-xs text-center text-teal-400 font-medium">💡 Klik kartu di bawah untuk mendengarkan rekaman audio Bahasa Arab</p>
+        <!-- ==================== BAB 1 BAHASA ARAB ==================== -->
+        <div id="ba-bab1" class="space-y-8">
+            <!-- Bagian Kosakata Utama & Pemutar Suara -->
+            <div class="space-y-4">
+                <h3 class="text-xl font-bold text-cyan-300 text-center"><i class="fa-solid fa-volume-high mr-2"></i> Kosakata Anggota Badan (المُفْرَدَاتُ)</h3>
+                <p class="text-xs text-center text-teal-400 font-medium">💡 Klik kartu di bawah untuk mendengarkan rekaman audio Bahasa Arab</p>
 
-            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
-                <div onclick="playAudio('rasun.aac', this)" class="p-4 bg-teal-950/40 rounded-2xl border border-teal-700/40 text-center space-y-2 hover:border-cyan-400 cursor-pointer transition transform hover:-translate-y-1 shadow-lg">
-                    <div class="text-5xl select-none">🗣️</div>
-                    <p class="arabic-text text-2xl font-bold text-cyan-100">رَأْسٌ</p>
-                    <p class="text-xs text-teal-300 font-bold">ra'sun (ra-sun)</p>
-                    <p class="text-xs text-gray-300">Kepala <span class="text-emerald-400 font-semibold block text-[11px]">(Jawa: Sirah / Sirah)</span></p>
-                    <button class="w-full py-1 bg-teal-800 text-cyan-200 text-[10px] rounded-lg hover:bg-teal-700 pointer-events-none">🔊 Klik Dengarkan</button>
-                </div>
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                    <div onclick="playAudio('rasun.aac', this)" class="p-4 bg-teal-950/40 rounded-2xl border border-teal-700/40 text-center space-y-2 hover:border-cyan-400 cursor-pointer transition transform hover:-translate-y-1 shadow-lg">
+                        <div class="text-5xl select-none">🗣️</div>
+                        <p class="arabic-text text-2xl font-bold text-cyan-100">رَأْسٌ</p>
+                        <p class="text-xs text-teal-300 font-bold">ra'sun (ra-sun)</p>
+                        <p class="text-xs text-gray-300">Kepala <span class="text-emerald-400 font-semibold block text-[11px]">(Jawa: Sirah / Sirah)</span></p>
+                        <button class="w-full py-1 bg-teal-800 text-cyan-200 text-[10px] rounded-lg hover:bg-teal-700 pointer-events-none">🔊 Klik Dengarkan</button>
+                    </div>
 
-                <div onclick="playAudio('syarun.aac', this)" class="p-4 bg-teal-950/40 rounded-2xl border border-teal-700/40 text-center space-y-2 hover:border-cyan-400 cursor-pointer transition transform hover:-translate-y-1 shadow-lg">
-                    <div class="text-5xl select-none">🦱</div>
-                    <p class="arabic-text text-2xl font-bold text-cyan-100">شَعْرٌ</p>
-                    <p class="text-xs text-teal-300 font-bold">sya'run (sya-run)</p>
-                    <p class="text-xs text-gray-300">Rambut <span class="text-emerald-400 font-semibold block text-[11px]">(Jawa: Rambut / Rikma)</span></p>
-                    <button class="w-full py-1 bg-teal-800 text-cyan-200 text-[10px] rounded-lg hover:bg-teal-700 pointer-events-none">🔊 Klik Dengarkan</button>
-                </div>
+                    <div onclick="playAudio('syarun.aac', this)" class="p-4 bg-teal-950/40 rounded-2xl border border-teal-700/40 text-center space-y-2 hover:border-cyan-400 cursor-pointer transition transform hover:-translate-y-1 shadow-lg">
+                        <div class="text-5xl select-none">🦱</div>
+                        <p class="arabic-text text-2xl font-bold text-cyan-100">شَعْرٌ</p>
+                        <p class="text-xs text-teal-300 font-bold">sya'run (sya-run)</p>
+                        <p class="text-xs text-gray-300">Rambut <span class="text-emerald-400 font-semibold block text-[11px]">(Jawa: Rambut / Rikma)</span></p>
+                        <button class="w-full py-1 bg-teal-800 text-cyan-200 text-[10px] rounded-lg hover:bg-teal-700 pointer-events-none">🔊 Klik Dengarkan</button>
+                    </div>
 
-                <div onclick="playAudio('ainun.aac', this)" class="p-4 bg-teal-950/40 rounded-2xl border border-teal-700/40 text-center space-y-2 hover:border-cyan-400 cursor-pointer transition transform hover:-translate-y-1 shadow-lg">
-                    <div class="text-5xl select-none">👁️</div>
-                    <p class="arabic-text text-2xl font-bold text-cyan-100">عَيْنٌ</p>
-                    <p class="text-xs text-teal-300 font-bold">'ainun (a-i-nun)</p>
-                    <p class="text-xs text-gray-300">Mata <span class="text-emerald-400 font-semibold block text-[11px]">(Jawa: Mripat / Soca)</span></p>
-                    <button class="w-full py-1 bg-teal-800 text-cyan-200 text-[10px] rounded-lg hover:bg-teal-700 pointer-events-none">🔊 Klik Dengarkan</button>
-                </div>
+                    <div onclick="playAudio('ainun.aac', this)" class="p-4 bg-teal-950/40 rounded-2xl border border-teal-700/40 text-center space-y-2 hover:border-cyan-400 cursor-pointer transition transform hover:-translate-y-1 shadow-lg">
+                        <div class="text-5xl select-none">👁️</div>
+                        <p class="arabic-text text-2xl font-bold text-cyan-100">عَيْنٌ</p>
+                        <p class="text-xs text-teal-300 font-bold">'ainun (a-i-nun)</p>
+                        <p class="text-xs text-gray-300">Mata <span class="text-emerald-400 font-semibold block text-[11px]">(Jawa: Mripat / Soca)</span></p>
+                        <button class="w-full py-1 bg-teal-800 text-cyan-200 text-[10px] rounded-lg hover:bg-teal-700 pointer-events-none">🔊 Klik Dengarkan</button>
+                    </div>
 
-                <div onclick="playAudio('anfun.aac', this)" class="p-4 bg-teal-950/40 rounded-2xl border border-teal-700/40 text-center space-y-2 hover:border-cyan-400 cursor-pointer transition transform hover:-translate-y-1 shadow-lg">
-                    <div class="text-5xl select-none">👃</div>
-                    <p class="arabic-text text-2xl font-bold text-cyan-100">أَنْفٌ</p>
-                    <p class="text-xs text-teal-300 font-bold">'anfun (a-n-fun)</p>
-                    <p class="text-xs text-gray-300">Hidung <span class="text-emerald-400 font-semibold block text-[11px]">(Jawa: Irung / Grana)</span></p>
-                    <button class="w-full py-1 bg-teal-800 text-cyan-200 text-[10px] rounded-lg hover:bg-teal-700 pointer-events-none">🔊 Klik Dengarkan</button>
-                </div>
+                    <div onclick="playAudio('anfun.aac', this)" class="p-4 bg-teal-950/40 rounded-2xl border border-teal-700/40 text-center space-y-2 hover:border-cyan-400 cursor-pointer transition transform hover:-translate-y-1 shadow-lg">
+                        <div class="text-5xl select-none">👃</div>
+                        <p class="arabic-text text-2xl font-bold text-cyan-100">أَنْفٌ</p>
+                        <p class="text-xs text-teal-300 font-bold">'anfun (a-n-fun)</p>
+                        <p class="text-xs text-gray-300">Hidung <span class="text-emerald-400 font-semibold block text-[11px]">(Jawa: Irung / Grana)</span></p>
+                        <button class="w-full py-1 bg-teal-800 text-cyan-200 text-[10px] rounded-lg hover:bg-teal-700 pointer-events-none">🔊 Klik Dengarkan</button>
+                    </div>
 
-                <div onclick="playAudio('famun.aac', this)" class="p-4 bg-teal-950/40 rounded-2xl border border-teal-700/40 text-center space-y-2 hover:border-cyan-400 cursor-pointer transition transform hover:-translate-y-1 shadow-lg">
-                    <div class="text-5xl select-none">👄</div>
-                    <p class="arabic-text text-2xl font-bold text-cyan-100">فَمٌ</p>
-                    <p class="text-xs text-teal-300 font-bold">famun (fa-mun)</p>
-                    <p class="text-xs text-gray-300">Mulut <span class="text-emerald-400 font-semibold block text-[11px]">(Jawa: Cangkem / Tutuk)</span></p>
-                    <button class="w-full py-1 bg-teal-800 text-cyan-200 text-[10px] rounded-lg hover:bg-teal-700 pointer-events-none">🔊 Klik Dengarkan</button>
-                </div>
+                    <div onclick="playAudio('famun.aac', this)" class="p-4 bg-teal-950/40 rounded-2xl border border-teal-700/40 text-center space-y-2 hover:border-cyan-400 cursor-pointer transition transform hover:-translate-y-1 shadow-lg">
+                        <div class="text-5xl select-none">👄</div>
+                        <p class="arabic-text text-2xl font-bold text-cyan-100">فَمٌ</p>
+                        <p class="text-xs text-teal-300 font-bold">famun (fa-mun)</p>
+                        <p class="text-xs text-gray-300">Mulut <span class="text-emerald-400 font-semibold block text-[11px]">(Jawa: Cangkem / Tutuk)</span></p>
+                        <button class="w-full py-1 bg-teal-800 text-cyan-200 text-[10px] rounded-lg hover:bg-teal-700 pointer-events-none">🔊 Klik Dengarkan</button>
+                    </div>
 
-                <div onclick="playAudio('uzunun.aac', this)" class="p-4 bg-teal-950/40 rounded-2xl border border-teal-700/40 text-center space-y-2 hover:border-cyan-400 cursor-pointer transition transform hover:-translate-y-1 shadow-lg">
-                    <div class="text-5xl select-none">👂</div>
-                    <p class="arabic-text text-2xl font-bold text-cyan-100">أُذُنٌ</p>
-                    <p class="text-xs text-teal-300 font-bold">'uzunun (u-zu-nun)</p>
-                    <p class="text-xs text-gray-300">Telinga <span class="text-emerald-400 font-semibold block text-[11px]">(Jawa: Kuping / Talingan)</span></p>
-                    <button class="w-full py-1 bg-teal-800 text-cyan-200 text-[10px] rounded-lg hover:bg-teal-700 pointer-events-none">🔊 Klik Dengarkan</button>
-                </div>
+                    <div onclick="playAudio('uzunun.aac', this)" class="p-4 bg-teal-950/40 rounded-2xl border border-teal-700/40 text-center space-y-2 hover:border-cyan-400 cursor-pointer transition transform hover:-translate-y-1 shadow-lg">
+                        <div class="text-5xl select-none">👂</div>
+                        <p class="arabic-text text-2xl font-bold text-cyan-100">أُذُنٌ</p>
+                        <p class="text-xs text-teal-300 font-bold">'uzunun (u-zu-nun)</p>
+                        <p class="text-xs text-gray-300">Telinga <span class="text-emerald-400 font-semibold block text-[11px]">(Jawa: Kuping / Talingan)</span></p>
+                        <button class="w-full py-1 bg-teal-800 text-cyan-200 text-[10px] rounded-lg hover:bg-teal-700 pointer-events-none">🔊 Klik Dengarkan</button>
+                    </div>
 
-                <div onclick="playAudio('yadun.aac', this)" class="p-4 bg-teal-950/40 rounded-2xl border border-teal-700/40 text-center space-y-2 hover:border-cyan-400 cursor-pointer transition transform hover:-translate-y-1 shadow-lg">
-                    <div class="text-5xl select-none">✋</div>
-                    <p class="arabic-text text-2xl font-bold text-cyan-100">يَدٌ</p>
-                    <p class="text-xs text-teal-300 font-bold">yadun (ya-dun)</p>
-                    <p class="text-xs text-gray-300">Tangan <span class="text-emerald-400 font-semibold block text-[11px]">(Jawa: Tangan / Asta)</span></p>
-                    <button class="w-full py-1 bg-teal-800 text-cyan-200 text-[10px] rounded-lg hover:bg-teal-700 pointer-events-none">🔊 Klik Dengarkan</button>
-                </div>
+                    <div onclick="playAudio('yadun.aac', this)" class="p-4 bg-teal-950/40 rounded-2xl border border-teal-700/40 text-center space-y-2 hover:border-cyan-400 cursor-pointer transition transform hover:-translate-y-1 shadow-lg">
+                        <div class="text-5xl select-none">✋</div>
+                        <p class="arabic-text text-2xl font-bold text-cyan-100">يَدٌ</p>
+                        <p class="text-xs text-teal-300 font-bold">yadun (ya-dun)</p>
+                        <p class="text-xs text-gray-300">Tangan <span class="text-emerald-400 font-semibold block text-[11px]">(Jawa: Tangan / Asta)</span></p>
+                        <button class="w-full py-1 bg-teal-800 text-cyan-200 text-[10px] rounded-lg hover:bg-teal-700 pointer-events-none">🔊 Klik Dengarkan</button>
+                    </div>
 
-                <div onclick="playAudio('rijlun.aac', this)" class="p-4 bg-teal-950/40 rounded-2xl border border-teal-700/40 text-center space-y-2 hover:border-cyan-400 cursor-pointer transition transform hover:-translate-y-1 shadow-lg">
-                    <div class="text-5xl select-none">🦶</div>
-                    <p class="arabic-text text-2xl font-bold text-cyan-100">رِجْلٌ</p>
-                    <p class="text-xs text-teal-300 font-bold">rijlun (ri-j-lun)</p>
-                    <p class="text-xs text-gray-300">Kaki <span class="text-emerald-400 font-semibold block text-[11px]">(Jawa: Sikil / Suku)</span></p>
-                    <button class="w-full py-1 bg-teal-800 text-cyan-200 text-[10px] rounded-lg hover:bg-teal-700 pointer-events-none">🔊 Klik Dengarkan</button>
+                    <div onclick="playAudio('rijlun.aac', this)" class="p-4 bg-teal-950/40 rounded-2xl border border-teal-700/40 text-center space-y-2 hover:border-cyan-400 cursor-pointer transition transform hover:-translate-y-1 shadow-lg">
+                        <div class="text-5xl select-none">🦶</div>
+                        <p class="arabic-text text-2xl font-bold text-cyan-100">رِجْلٌ</p>
+                        <p class="text-xs text-teal-300 font-bold">rijlun (ri-j-lun)</p>
+                        <p class="text-xs text-gray-300">Kaki <span class="text-emerald-400 font-semibold block text-[11px]">(Jawa: Sikil / Suku)</span></p>
+                        <button class="w-full py-1 bg-teal-800 text-cyan-200 text-[10px] rounded-lg hover:bg-teal-700 pointer-events-none">🔊 Klik Dengarkan</button>
+                    </div>
                 </div>
             </div>
+
+            <!-- ==================== LKPD INTERAKTIF BAHASA ARAB 2 JPL (70 MENIT) ==================== -->
+            <section id="lkpd-ba-2jpl" class="space-y-6 pt-6 border-t border-teal-900/50 text-gray-800">
+                <div class="bg-cyan-50 rounded-[2.5rem] p-4 sm:p-8 border-2 border-cyan-400 shadow-2xl space-y-6">
+                    <!-- Header Banner LKPD -->
+                    <div class="bg-gradient-to-r from-teal-950 via-cyan-900 to-teal-900 rounded-[2rem] p-6 text-white shadow-xl border border-cyan-600/50">
+                        <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+                            <div>
+                                <span class="bg-cyan-500/30 text-cyan-200 border border-cyan-400/30 text-[11px] font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-2 inline-block">
+                                    Modul Praktis Pembelajaran Bahasa Arab
+                                </span>
+                                <h2 class="text-2xl md:text-3xl font-black text-cyan-100 leading-tight">LKPD Interaktif Bahasa Arab BAB 1 (2 JPL = 70 Menit)</h2>
+                                <p class="mt-1 text-cyan-200/80 text-xs md:text-sm">Materi: أَعْضَاءُ الْجِسْمِ (Anggota Badan) - Kelas IV SD/MI</p>
+                            </div>
+                            <div class="shrink-0 bg-white/10 backdrop-blur-md px-5 py-3 rounded-2xl border border-white/20 text-center">
+                                <span class="block text-xs text-cyan-200 font-medium">Total Waktu</span>
+                                <span class="text-3xl font-black text-cyan-300">70m</span>
+                            </div>
+                        </div>
+
+                        <!-- Alokasi Waktu Skenario Pembelajaran -->
+                        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2 mt-6 pt-6 border-t border-cyan-700/60 text-center text-xs">
+                            <div class="bg-white/10 p-2 rounded-xl"><span class="text-[10px] font-bold bg-cyan-400 text-cyan-950 px-1 py-0.5 rounded block mb-1">00-10m</span>1. Istima' & Audio</div>
+                            <div class="bg-white/10 p-2 rounded-xl"><span class="text-[10px] font-bold bg-cyan-400 text-cyan-950 px-1 py-0.5 rounded block mb-1">10-25m</span>2. Jodoh Kata</div>
+                            <div class="bg-white/10 p-2 rounded-xl"><span class="text-[10px] font-bold bg-cyan-400 text-cyan-950 px-1 py-0.5 rounded block mb-1">25-40m</span>3. Susun Kalimat</div>
+                            <div class="bg-white/10 p-2 rounded-xl"><span class="text-[10px] font-bold bg-cyan-400 text-cyan-950 px-1 py-0.5 rounded block mb-1">40-50m</span>4. Detektif Anggota</div>
+                            <div class="bg-white/10 p-2 rounded-xl"><span class="text-[10px] font-bold bg-cyan-400 text-cyan-950 px-1 py-0.5 rounded block mb-1">50-60m</span>5. Cari Kata Arab</div>
+                            <div class="bg-white/10 p-2 rounded-xl"><span class="text-[10px] font-bold bg-cyan-400 text-cyan-950 px-1 py-0.5 rounded block mb-1">60-70m</span>6. Kuis & Refleksi</div>
+                        </div>
+                    </div>
+
+                    <!-- Tugas 1: Game Menjodohkan Kosakata -->
+                    <div class="bg-white rounded-[2rem] p-6 shadow-sm border border-cyan-200 space-y-4">
+                        <div class="flex items-center justify-between border-b border-cyan-100 pb-3">
+                            <div>
+                                <span class="bg-cyan-100 text-cyan-900 text-[10px] font-bold px-2.5 py-0.5 rounded-full uppercase">Tugas 1</span>
+                                <h3 class="text-base font-bold text-cyan-950 mt-0.5">🔗 Jodohkan Kosakata Anggota Badan dengan Artinya!</h3>
+                            </div>
+                            <button type="button" onclick="checkVocabMatchBA()" class="bg-cyan-600 hover:bg-cyan-700 text-white text-xs font-bold px-4 py-2 rounded-xl transition shadow">Periksa Jawaban</button>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-4 gap-3" id="vocab-matching-ba-container"></div>
+                        <div id="vocab-feedback-ba" class="hidden text-xs font-bold text-center p-2 rounded-xl"></div>
+                    </div>
+
+                    <!-- Tugas 2: Puzzle Susun Kalimat Bahasa Arab -->
+                    <div class="bg-white rounded-[2rem] p-6 shadow-sm border border-cyan-200 space-y-4">
+                        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 border-b border-cyan-100 pb-3">
+                            <div>
+                                <span class="bg-cyan-600 text-white text-[10px] font-bold px-2.5 py-0.5 rounded-full uppercase">Tugas 2</span>
+                                <h2 class="text-lg font-extrabold text-cyan-950 mt-0.5">🧩 Puzzle Susun Kalimat Isarah Dasar (هٰذَا / هٰذِهِ)</h2>
+                            </div>
+                            <button type="button" onclick="resetSentencePuzzleBA()" class="bg-stone-200 hover:bg-stone-300 text-stone-800 text-xs font-bold px-3 py-1.5 rounded-xl">🔄 Acak Ulang</button>
+                        </div>
+
+                        <div class="p-4 bg-cyan-50 rounded-2xl border border-cyan-300 min-h-[90px] space-y-2">
+                            <span class="text-[10px] font-bold text-cyan-800 uppercase block">Kalimat Pilihanmu (Bahasaku):</span>
+                            <div id="sentence-selected-list-ba" class="space-y-2"><p class="text-xs text-gray-400 italic">Klik potongan kata Arab di bawah ini untuk menyusun kalimat: "Ini kepalaku dan ini mataku"</p></div>
+                        </div>
+
+                        <div class="space-y-2">
+                            <span class="text-[10px] font-bold text-gray-500 uppercase block">Pilihan Potongan Kata:</span>
+                            <div id="sentence-choices-ba-container" class="grid grid-cols-2 sm:grid-cols-4 gap-2"></div>
+                        </div>
+
+                        <div class="flex justify-between items-center pt-2">
+                            <button type="button" onclick="checkSentencePuzzleBA()" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs px-5 py-2.5 rounded-xl shadow">✅ Cek Kebenaran Kalimat</button>
+                            <div id="sentence-feedback-ba" class="text-xs font-extrabold"></div>
+                        </div>
+                    </div>
+
+                    <!-- Tugas 3: Detektif Fungsi Anggota Badan -->
+                    <div class="bg-white rounded-[2rem] p-6 shadow-sm border border-cyan-200 space-y-4">
+                        <div class="border-b border-cyan-100 pb-3">
+                            <span class="bg-cyan-100 text-cyan-900 text-[10px] font-bold px-2.5 py-0.5 rounded-full uppercase">Tugas 3</span>
+                            <h2 class="text-lg font-extrabold text-cyan-950 mt-0.5">🔍 Detektif Fungsi Anggota Badan (Analisis Penggunaan)</h2>
+                        </div>
+
+                        <div class="space-y-4 text-xs">
+                            <div class="p-4 bg-cyan-50/70 rounded-2xl border border-cyan-200 space-y-2">
+                                <h3 class="font-bold text-cyan-900">📌 Analisis Kasus 1: "أَنَا أَنْظُرُ بِـ...." (Saya melihat dengan....)</h3>
+                                <p class="text-gray-700">Manakah anggota badan yang tepat digunakan untuk melihat pemandangan alam ciptaan Allah?</p>
+                                <select id="case-ba-1" class="w-full p-2.5 rounded-xl border border-cyan-300 font-bold text-gray-800">
+                                    <option value="">-- Pilih Anggota Badan --</option>
+                                    <option value="AL-AINI">العَيْنُ (Mata / Mripat)</option>
+                                    <option value="AL-UZUN">الأُذُنُ (Telinga / Kuping)</option>
+                                    <option value="AL-ANF">الأَنْفُ (Hidung / Irung)</option>
+                                </select>
+                            </div>
+
+                            <div class="p-4 bg-cyan-50/70 rounded-2xl border border-cyan-200 space-y-2">
+                                <h3 class="font-bold text-cyan-900">📌 Analisis Kasus 2: "أَنَا أَسْمَعُ بِـ...." (Saya mendengar dengan....)</h3>
+                                <p class="text-gray-700">Anggota badan yang digunakan untuk mendengarkan lantunan ayat Al-Qur'an dan penjelasan guru adalah...</p>
+                                <select id="case-ba-2" class="w-full p-2.5 rounded-xl border border-cyan-300 font-bold text-gray-800">
+                                    <option value="">-- Pilih Anggota Badan --</option>
+                                    <option value="AL-FAM">الفَمُ (Mulut / Cangkem)</option>
+                                    <option value="AL-UZUN">الأُذُنُ (Telinga / Kuping)</option>
+                                    <option value="AL-YAD">اليَدُ (Tangan / Asta)</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tugas 4: Teka-Teki Cari Kata Anggota Badan -->
+                    <div class="bg-white rounded-[2rem] p-6 shadow-sm border border-cyan-200 space-y-4">
+                        <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-2 border-b border-cyan-100 pb-3">
+                            <div>
+                                <span class="bg-cyan-100 text-cyan-900 text-[10px] font-bold px-2.5 py-0.5 rounded-full uppercase">Tugas 4</span>
+                                <h2 class="text-lg font-extrabold text-cyan-950 mt-0.5">🎮 Teka-Teki Cari Kata Anggota Badan (8 Kata Target)</h2>
+                            </div>
+                            <div class="text-xs font-bold text-cyan-900 bg-cyan-100 px-3 py-1.5 rounded-xl border border-cyan-300">Ditemukan: <span id="found-count-ba" class="text-cyan-700 font-extrabold">0</span> / 8 Kata</div>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-start">
+                            <div class="md:col-span-4 space-y-1.5 text-xs">
+                                <span class="text-[10px] font-bold uppercase text-gray-500 block mb-1">Target Kata Transliterasi:</span>
+                                <div id="wordba-RASUN" class="p-2 bg-cyan-50 rounded-xl border border-cyan-200 font-bold text-cyan-900 flex justify-between"><span>1. RASUN</span><span class="status-icon">⏳</span></div>
+                                <div id="wordba-SYARUN" class="p-2 bg-cyan-50 rounded-xl border border-cyan-200 font-bold text-cyan-900 flex justify-between"><span>2. SYARUN</span><span class="status-icon">⏳</span></div>
+                                <div id="wordba-AINUN" class="p-2 bg-cyan-50 rounded-xl border border-cyan-200 font-bold text-cyan-900 flex justify-between"><span>3. AINUN</span><span class="status-icon">⏳</span></div>
+                                <div id="wordba-ANFUN" class="p-2 bg-cyan-50 rounded-xl border border-cyan-200 font-bold text-cyan-900 flex justify-between"><span>4. ANFUN</span><span class="status-icon">⏳</span></div>
+                                <div id="wordba-FAMUN" class="p-2 bg-cyan-50 rounded-xl border border-cyan-200 font-bold text-cyan-900 flex justify-between"><span>5. FAMUN</span><span class="status-icon">⏳</span></div>
+                                <div id="wordba-UZUNUN" class="p-2 bg-cyan-50 rounded-xl border border-cyan-200 font-bold text-cyan-900 flex justify-between"><span>6. UZUNUN</span><span class="status-icon">⏳</span></div>
+                                <div id="wordba-YADUN" class="p-2 bg-cyan-50 rounded-xl border border-cyan-200 font-bold text-cyan-900 flex justify-between"><span>7. YADUN</span><span class="status-icon">⏳</span></div>
+                                <div id="wordba-RIJLUN" class="p-2 bg-cyan-50 rounded-xl border border-cyan-200 font-bold text-cyan-900 flex justify-between"><span>8. RIJLUN</span><span class="status-icon">⏳</span></div>
+                            </div>
+
+                            <div class="md:col-span-8 bg-teal-950 p-4 rounded-2xl shadow-inner text-white">
+                                <div id="grid-container-ba" class="grid grid-cols-8 gap-1.5 text-center font-black text-xs sm:text-sm"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tugas 5: Kuis Evaluasi LKPD Bahasa Arab (5 Soal) -->
+                    <div class="bg-white rounded-[2rem] p-6 shadow-sm border border-cyan-200 space-y-6">
+                        <div class="text-center space-y-1">
+                            <span class="bg-cyan-600 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase">Tugas 5</span>
+                            <h2 class="text-xl font-black text-cyan-950">✍️ Kuis Evaluasi LKPD Bahasa Arab</h2>
+                        </div>
+
+                        <form id="quiz-form-lkpd-ba" onsubmit="event.preventDefault(); submitQuizLKPD_BA();" class="space-y-6 text-xs">
+                            <div id="quiz-questions-lkpd-ba-container" class="space-y-4"></div>
+
+                            <div class="pt-4 border-t border-cyan-100 flex flex-col md:flex-row items-center justify-between gap-4">
+                                <button type="submit" class="w-full md:w-auto bg-cyan-600 hover:bg-cyan-700 text-white font-extrabold px-8 py-3.5 rounded-2xl shadow-lg transition text-xs uppercase">
+                                    🚀 Kumpul & Periksa Nilai Bahasa Arab
+                                </button>
+                                <div id="quiz-result-lkpd-ba" class="hidden font-black text-lg text-cyan-950"></div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Tugas 6: Refleksi Diri Bahasa Arab -->
+                    <div class="bg-white rounded-[2rem] p-6 shadow-sm border border-cyan-200 space-y-4">
+                        <div class="border-b border-cyan-100 pb-3">
+                            <span class="bg-cyan-100 text-cyan-900 text-[10px] font-bold px-2.5 py-0.5 rounded-full uppercase">Refleksi</span>
+                            <h2 class="text-lg font-extrabold text-cyan-950 mt-0.5">📋 Lembar Refleksi Diri Peserta Didik</h2>
+                        </div>
+                        <div class="space-y-3 text-xs font-semibold text-gray-800">
+                            <div class="flex items-center justify-between p-3 bg-cyan-50 rounded-xl border border-cyan-200">
+                                <span>1. Saya dapat menyebutkan 8 kosakata anggota badan dalam Bahasa Arab & Basa Jawa dengan lancar.</span>
+                                <div class="space-x-2">
+                                    <label><input type="radio" name="ref_ba_1" value="ya"> Ya</label>
+                                    <label><input type="radio" name="ref_ba_1" value="belum"> Belum</label>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between p-3 bg-cyan-50 rounded-xl border border-cyan-200">
+                                <span>2. Saya mengerti perbedaan penggunaan Kata Tunjuk هٰذَا (Laki-laki) dan هٰذِهِ (Perempuan).</span>
+                                <div class="space-x-2">
+                                    <label><input type="radio" name="ref_ba_2" value="ya"> Ya</label>
+                                    <label><input type="radio" name="ref_ba_2" value="belum"> Belum</label>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between p-3 bg-cyan-50 rounded-xl border border-cyan-200">
+                                <span>3. Saya bersyukur kepada Allah atas karunia fisik dan anggota tubuh yang sempurna.</span>
+                                <div class="space-x-2">
+                                    <label><input type="radio" name="ref_ba_3" value="ya"> Ya</label>
+                                    <label><input type="radio" name="ref_ba_3" value="belum"> Belum</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
 
-        <!-- ==================== LKPD INTERAKTIF BAHASA ARAB 2 JPL (70 MENIT) ==================== -->
-        <section id="lkpd-ba-2jpl" class="space-y-6 pt-6 border-t border-teal-900/50 text-gray-800">
-            <div class="bg-cyan-50 rounded-[2.5rem] p-4 sm:p-8 border-2 border-cyan-400 shadow-2xl space-y-6">
-                <!-- Header Banner LKPD -->
-                <div class="bg-gradient-to-r from-teal-950 via-cyan-900 to-teal-900 rounded-[2rem] p-6 text-white shadow-xl border border-cyan-600/50">
-                    <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+        <!-- ==================== BAB 2 BAHASA ARAB (BARU TAMBAHAN FITUR LENGKAP) ==================== -->
+        <div id="ba-bab2" class="hidden space-y-8">
+            <nav class="sticky top-2 z-40 bg-teal-950/90 backdrop-blur-md rounded-2xl p-2 border border-teal-500/30 shadow-lg flex flex-wrap items-center justify-center gap-1 sm:gap-2 text-xs font-bold uppercase tracking-wider text-cyan-300">
+                <a href="#ba2-kosakata" class="sub-nav active px-3 py-2 rounded-xl transition">1. Kosakata & Audio</a>
+                <a href="#ba2-tata-bahasa" class="sub-nav px-3 py-2 rounded-xl transition">2. Tata Bahasa (هٰذَا/هٰذِهِ)</a>
+                <a href="#ba2-evaluasi" class="sub-nav px-3 py-2 rounded-xl transition">3. Kuis BAB 2</a>
+                <a href="#lkpd-ba2" class="sub-nav px-3 py-2 rounded-xl transition text-amber-300 border border-amber-500/40 bg-amber-950/40">4. LKPD Interaktif BAB 2</a>
+            </nav>
+
+            <header class="space-y-6">
+                <div class="bg-gradient-to-r from-teal-950 via-emerald-950 to-teal-900 rounded-[2.5rem] p-6 md:p-10 text-white shadow-2xl relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-6 border border-teal-500/40">
+                    <div class="space-y-3 max-w-2xl">
+                        <span class="bg-teal-900 text-teal-300 border border-teal-500/30 text-xs font-bold px-3.5 py-1.5 rounded-full uppercase tracking-widest inline-block">
+                            BAB 2 • Bahasa Arab Kelas IV SD/MI
+                        </span>
+                        <h2 class="text-2xl md:text-4xl font-extrabold leading-tight text-cyan-300">
+                            أَدَوَاتُ الْبَيْتِ (Peralatan Rumah)
+                        </h2>
+                        <p class="text-gray-300 text-xs md:text-sm leading-relaxed">
+                            Mengenal nama-nama benda dan peralatan yang ada di rumah dalam Bahasa Arab beserta padanan Basa Jawa, audio pendukung, dan tata cara menunjuk benda (هٰذَا & هٰذِهِ).
+                        </p>
+                    </div>
+                    <div class="text-6xl bg-teal-900/40 p-6 rounded-[2rem] border border-teal-500/20 shrink-0 shadow-inner">🏠</div>
+                </div>
+            </header>
+
+            <!-- Section 1: Kosakata Peralatan Rumah & Audio -->
+            <section id="ba2-kosakata" class="space-y-4 pt-4">
+                <h3 class="text-xl font-bold text-cyan-300 text-center"><i class="fa-solid fa-volume-high mr-2"></i> Kosakata Peralatan Rumah (أَدَوَاتُ الْبَيْتِ)</h3>
+                <p class="text-xs text-center text-teal-400 font-medium">💡 Klik kartu di bawah untuk mendengarkan audio pengucapan Bahasa Arab</p>
+
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                    <div onclick="playAudio('baitun.aac', this)" class="p-4 bg-teal-950/40 rounded-2xl border border-teal-700/40 text-center space-y-2 hover:border-cyan-400 cursor-pointer transition transform hover:-translate-y-1 shadow-lg">
+                        <div class="text-5xl select-none">🏠</div>
+                        <p class="arabic-text text-2xl font-bold text-cyan-100">بَيْتٌ</p>
+                        <p class="text-xs text-teal-300 font-bold">baitun (bai-tun)</p>
+                        <p class="text-xs text-gray-300">Rumah <span class="text-emerald-400 font-semibold block text-[11px]">(Jawa: Omah / Griya)</span></p>
+                        <button class="w-full py-1 bg-teal-800 text-cyan-200 text-[10px] rounded-lg hover:bg-teal-700 pointer-events-none">🔊 Klik Dengarkan</button>
+                    </div>
+
+                    <div onclick="playAudio('bābun.aac', this)" class="p-4 bg-teal-950/40 rounded-2xl border border-teal-700/40 text-center space-y-2 hover:border-cyan-400 cursor-pointer transition transform hover:-translate-y-1 shadow-lg">
+                        <div class="text-5xl select-none">🚪</div>
+                        <p class="arabic-text text-2xl font-bold text-cyan-100">بَابٌ</p>
+                        <p class="text-xs text-teal-300 font-bold">bābun (ba-bun)</p>
+                        <p class="text-xs text-gray-300">Pintu <span class="text-emerald-400 font-semibold block text-[11px]">(Jawa: Lawang / Kori)</span></p>
+                        <button class="w-full py-1 bg-teal-800 text-cyan-200 text-[10px] rounded-lg hover:bg-teal-700 pointer-events-none">🔊 Klik Dengarkan</button>
+                    </div>
+
+                    <div onclick="playAudio('nāfiżatun.aac', this)" class="p-4 bg-teal-950/40 rounded-2xl border border-teal-700/40 text-center space-y-2 hover:border-cyan-400 cursor-pointer transition transform hover:-translate-y-1 shadow-lg">
+                        <div class="text-5xl select-none">🪟</div>
+                        <p class="arabic-text text-2xl font-bold text-cyan-100">نَافِذَةٌ</p>
+                        <p class="text-xs text-teal-300 font-bold">nāfiżatun (na-fi-za-tun)</p>
+                        <p class="text-xs text-gray-300">Jendela <span class="text-emerald-400 font-semibold block text-[11px]">(Jawa: Cendhela / Jendela)</span></p>
+                        <button class="w-full py-1 bg-teal-800 text-cyan-200 text-[10px] rounded-lg hover:bg-teal-700 pointer-events-none">🔊 Klik Dengarkan</button>
+                    </div>
+
+                    <div onclick="playAudio('kursiyyun.aac', this)" class="p-4 bg-teal-950/40 rounded-2xl border border-teal-700/40 text-center space-y-2 hover:border-cyan-400 cursor-pointer transition transform hover:-translate-y-1 shadow-lg">
+                        <div class="text-5xl select-none">🪑</div>
+                        <p class="arabic-text text-2xl font-bold text-cyan-100">كُرْسِيٌّ</p>
+                        <p class="text-xs text-teal-300 font-bold">kursiyyun (kur-si-yun)</p>
+                        <p class="text-xs text-gray-300">Kursi <span class="text-emerald-400 font-semibold block text-[11px]">(Jawa: Kursi / Dampar)</span></p>
+                        <button class="w-full py-1 bg-teal-800 text-cyan-200 text-[10px] rounded-lg hover:bg-teal-700 pointer-events-none">🔊 Klik Dengarkan</button>
+                    </div>
+
+                    <div onclick="playAudio('mā'idatun.aac', this)" class="p-4 bg-teal-950/40 rounded-2xl border border-teal-700/40 text-center space-y-2 hover:border-cyan-400 cursor-pointer transition transform hover:-translate-y-1 shadow-lg">
+                        <div class="text-5xl select-none">🛋️</div>
+                        <p class="arabic-text text-2xl font-bold text-cyan-100">مَائِدَةٌ</p>
+                        <p class="text-xs text-teal-300 font-bold">mā'idatun (ma-i-da-tun)</p>
+                        <p class="text-xs text-gray-300">Meja Makan <span class="text-emerald-400 font-semibold block text-[11px]">(Jawa: Meja Dahar)</span></p>
+                        <button class="w-full py-1 bg-teal-800 text-cyan-200 text-[10px] rounded-lg hover:bg-teal-700 pointer-events-none">🔊 Klik Dengarkan</button>
+                    </div>
+
+                    <div onclick="playAudio('mishbāhun.aac', this)" class="p-4 bg-teal-950/40 rounded-2xl border border-teal-700/40 text-center space-y-2 hover:border-cyan-400 cursor-pointer transition transform hover:-translate-y-1 shadow-lg">
+                        <div class="text-5xl select-none">💡</div>
+                        <p class="arabic-text text-2xl font-bold text-cyan-100">مِصْبَاحٌ</p>
+                        <p class="text-xs text-teal-300 font-bold">miṣbāḥun (mis-ba-hun)</p>
+                        <p class="text-xs text-gray-300">Lampu <span class="text-emerald-400 font-semibold block text-[11px]">(Jawa: Lampu / Semprong)</span></p>
+                        <button class="w-full py-1 bg-teal-800 text-cyan-200 text-[10px] rounded-lg hover:bg-teal-700 pointer-events-none">🔊 Klik Dengarkan</button>
+                    </div>
+
+                    <div onclick="playAudio('sarīrun.aac', this)" class="p-4 bg-teal-950/40 rounded-2xl border border-teal-700/40 text-center space-y-2 hover:border-cyan-400 cursor-pointer transition transform hover:-translate-y-1 shadow-lg">
+                        <div class="text-5xl select-none">🛏️</div>
+                        <p class="arabic-text text-2xl font-bold text-cyan-100">سَرِيْرٌ</p>
+                        <p class="text-xs text-teal-300 font-bold">sarīrun (sa-ri-run)</p>
+                        <p class="text-xs text-gray-300">Ranjang Tidur <span class="text-emerald-400 font-semibold block text-[11px]">(Jawa: Kasur / Paturon)</span></p>
+                        <button class="w-full py-1 bg-teal-800 text-cyan-200 text-[10px] rounded-lg hover:bg-teal-700 pointer-events-none">🔊 Klik Dengarkan</button>
+                    </div>
+
+                    <div onclick="playAudio('khizānatun.aac', this)" class="p-4 bg-teal-950/40 rounded-2xl border border-teal-700/40 text-center space-y-2 hover:border-cyan-400 cursor-pointer transition transform hover:-translate-y-1 shadow-lg">
+                        <div class="text-5xl select-none">🗄️</div>
+                        <p class="arabic-text text-2xl font-bold text-cyan-100">خِزَانَةٌ</p>
+                        <p class="text-xs text-teal-300 font-bold">khizānatun (khi-za-na-tun)</p>
+                        <p class="text-xs text-gray-300">Lemari <span class="text-emerald-400 font-semibold block text-[11px]">(Jawa: Lemari Pakaian)</span></p>
+                        <button class="w-full py-1 bg-teal-800 text-cyan-200 text-[10px] rounded-lg hover:bg-teal-700 pointer-events-none">🔊 Klik Dengarkan</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 2: Tata Bahasa Kata Tunjuk -->
+            <section id="ba2-tata-bahasa" class="space-y-6 pt-6 border-t border-teal-900/50">
+                <div class="bg-teal-950/80 rounded-3xl p-6 md:p-8 border border-teal-500/30 space-y-4">
+                    <h3 class="text-xl font-bold text-cyan-300">📌 Kaidah Kata Tunjuk (Isim Isyarah): هٰذَا & هٰذِهِ</h3>
+                    <p class="text-xs text-gray-300 leading-relaxed">
+                        Dalam Bahasa Arab, kata tunjuk "Ini" dibagi menjadi dua berdasarkan jenis kata benda (Mudzakar / Muannats):
+                    </p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+                        <div class="p-4 bg-teal-900/40 rounded-2xl border border-teal-700/50 space-y-2">
+                            <span class="bg-cyan-950 text-cyan-300 font-bold px-2.5 py-1 rounded-full border border-cyan-500/30">1. هٰذَا (Hādżā) - Laki-laki</span>
+                            <p class="text-gray-300">Digunakan untuk kata benda yang <strong>TIDAK diakhiri Ta' Marbuthah (ة / ـة)</strong>.</p>
+                            <p class="arabic-text text-xl font-bold text-cyan-200">هٰذَا كُرْسِيٌّ / هٰذَا بَابٌ</p>
+                            <p class="text-gray-400 italic">"Ini kursi / Ini pintu"</p>
+                        </div>
+                        <div class="p-4 bg-teal-900/40 rounded-2xl border border-teal-700/50 space-y-2">
+                            <span class="bg-emerald-950 text-emerald-300 font-bold px-2.5 py-1 rounded-full border border-emerald-500/30">2. هٰذِهِ (Hādżihī) - Perempuan</span>
+                            <p class="text-gray-300">Digunakan untuk kata benda yang <strong>DIAKHIRI Ta' Marbuthah (ة / ـة)</strong>.</p>
+                            <p class="arabic-text text-xl font-bold text-emerald-200">هٰذِهِ نَافِذَةٌ / هٰذِهِ خِزَانَةٌ</p>
+                            <p class="text-gray-400 italic">"Ini jendela / Ini lemari"</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 3: Kuis Evaluasi BAB 2 -->
+            <section id="ba2-evaluasi" class="space-y-6 pt-6 border-t border-teal-900/50">
+                <div class="bg-teal-950/60 rounded-3xl p-6 md:p-8 border border-teal-500/30 space-y-6 shadow-2xl">
+                    <div class="flex flex-col md:flex-row items-center justify-between gap-4 border-b border-teal-800/60 pb-4">
                         <div>
-                            <span class="bg-cyan-500/30 text-cyan-200 border border-cyan-400/30 text-[11px] font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-2 inline-block">
-                                Modul Praktis Pembelajaran Bahasa Arab
+                            <span class="bg-cyan-950 text-cyan-300 border border-cyan-500/30 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider inline-block mb-2">
+                                📝 Evaluasi Bab 2 Bahasa Arab
                             </span>
-                            <h2 class="text-2xl md:text-3xl font-black text-cyan-100 leading-tight">LKPD Interaktif Bahasa Arab BAB 1 (2 JPL = 70 Menit)</h2>
-                            <p class="mt-1 text-cyan-200/80 text-xs md:text-sm">Materi: أَعْضَاءُ الْجِسْمِ (Anggota Badan) - Kelas IV SD/MI</p>
-                        </div>
-                        <div class="shrink-0 bg-white/10 backdrop-blur-md px-5 py-3 rounded-2xl border border-white/20 text-center">
-                            <span class="block text-xs text-cyan-200 font-medium">Total Waktu</span>
-                            <span class="text-3xl font-black text-cyan-300">70m</span>
+                            <h3 class="text-2xl font-bold text-cyan-300">Kuis Pilihan Ganda Peralatan Rumah</h3>
+                            <p class="text-xs text-gray-300">Uji pemahamanmu tentang kosakata & kata tunjuk peralatan rumah!</p>
                         </div>
                     </div>
 
-                    <!-- Alokasi Waktu Skenario Pembelajaran -->
-                    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2 mt-6 pt-6 border-t border-cyan-700/60 text-center text-xs">
-                        <div class="bg-white/10 p-2 rounded-xl"><span class="text-[10px] font-bold bg-cyan-400 text-cyan-950 px-1 py-0.5 rounded block mb-1">00-10m</span>1. Istima' & Audio</div>
-                        <div class="bg-white/10 p-2 rounded-xl"><span class="text-[10px] font-bold bg-cyan-400 text-cyan-950 px-1 py-0.5 rounded block mb-1">10-25m</span>2. Jodoh Kata</div>
-                        <div class="bg-white/10 p-2 rounded-xl"><span class="text-[10px] font-bold bg-cyan-400 text-cyan-950 px-1 py-0.5 rounded block mb-1">25-40m</span>3. Susun Kalimat</div>
-                        <div class="bg-white/10 p-2 rounded-xl"><span class="text-[10px] font-bold bg-cyan-400 text-cyan-950 px-1 py-0.5 rounded block mb-1">40-50m</span>4. Detektif Anggota</div>
-                        <div class="bg-white/10 p-2 rounded-xl"><span class="text-[10px] font-bold bg-cyan-400 text-cyan-950 px-1 py-0.5 rounded block mb-1">50-60m</span>5. Cari Kata Arab</div>
-                        <div class="bg-white/10 p-2 rounded-xl"><span class="text-[10px] font-bold bg-cyan-400 text-cyan-950 px-1 py-0.5 rounded block mb-1">60-70m</span>6. Kuis & Refleksi</div>
-                    </div>
-                </div>
-
-                <!-- Tugas 1: Game Menjodohkan Kosakata -->
-                <div class="bg-white rounded-[2rem] p-6 shadow-sm border border-cyan-200 space-y-4">
-                    <div class="flex items-center justify-between border-b border-cyan-100 pb-3">
-                        <div>
-                            <span class="bg-cyan-100 text-cyan-900 text-[10px] font-bold px-2.5 py-0.5 rounded-full uppercase">Tugas 1</span>
-                            <h3 class="text-base font-bold text-cyan-950 mt-0.5">🔗 Jodohkan Kosakata Anggota Badan dengan Artinya!</h3>
-                        </div>
-                        <button type="button" onclick="checkVocabMatchBA()" class="bg-cyan-600 hover:bg-cyan-700 text-white text-xs font-bold px-4 py-2 rounded-xl transition shadow">Periksa Jawaban</button>
-                    </div>
-                    <div class="grid grid-cols-1 md:grid-cols-4 gap-3" id="vocab-matching-ba-container"></div>
-                    <div id="vocab-feedback-ba" class="hidden text-xs font-bold text-center p-2 rounded-xl"></div>
-                </div>
-
-                <!-- Tugas 2: Puzzle Susun Kalimat Bahasa Arab -->
-                <div class="bg-white rounded-[2rem] p-6 shadow-sm border border-cyan-200 space-y-4">
-                    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 border-b border-cyan-100 pb-3">
-                        <div>
-                            <span class="bg-cyan-600 text-white text-[10px] font-bold px-2.5 py-0.5 rounded-full uppercase">Tugas 2</span>
-                            <h2 class="text-lg font-extrabold text-cyan-950 mt-0.5">🧩 Puzzle Susun Kalimat Isarah Dasar (هٰذَا / هٰذِهِ)</h2>
-                        </div>
-                        <button type="button" onclick="resetSentencePuzzleBA()" class="bg-stone-200 hover:bg-stone-300 text-stone-800 text-xs font-bold px-3 py-1.5 rounded-xl">🔄 Acak Ulang</button>
-                    </div>
-
-                    <div class="p-4 bg-cyan-50 rounded-2xl border border-cyan-300 min-h-[90px] space-y-2">
-                        <span class="text-[10px] font-bold text-cyan-800 uppercase block">Kalimat Pilihanmu (Bahasaku):</span>
-                        <div id="sentence-selected-list-ba" class="space-y-2"><p class="text-xs text-gray-400 italic">Klik potongan kata Arab di bawah ini untuk menyusun kalimat: "Ini kepalaku dan ini mataku"</p></div>
-                    </div>
-
-                    <div class="space-y-2">
-                        <span class="text-[10px] font-bold text-gray-500 uppercase block">Pilihan Potongan Kata:</span>
-                        <div id="sentence-choices-ba-container" class="grid grid-cols-2 sm:grid-cols-4 gap-2"></div>
-                    </div>
-
-                    <div class="flex justify-between items-center pt-2">
-                        <button type="button" onclick="checkSentencePuzzleBA()" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs px-5 py-2.5 rounded-xl shadow">✅ Cek Kebenaran Kalimat</button>
-                        <div id="sentence-feedback-ba" class="text-xs font-extrabold"></div>
-                    </div>
-                </div>
-
-                <!-- Tugas 3: Detektif Fungsi Anggota Badan -->
-                <div class="bg-white rounded-[2rem] p-6 shadow-sm border border-cyan-200 space-y-4">
-                    <div class="border-b border-cyan-100 pb-3">
-                        <span class="bg-cyan-100 text-cyan-900 text-[10px] font-bold px-2.5 py-0.5 rounded-full uppercase">Tugas 3</span>
-                        <h2 class="text-lg font-extrabold text-cyan-950 mt-0.5">🔍 Detektif Fungsi Anggota Badan (Analisis Penggunaan)</h2>
-                    </div>
-
-                    <div class="space-y-4 text-xs">
-                        <div class="p-4 bg-cyan-50/70 rounded-2xl border border-cyan-200 space-y-2">
-                            <h3 class="font-bold text-cyan-900">📌 Analisis Kasus 1: "أَنَا أَنْظُرُ بِـ...." (Saya melihat dengan....)</h3>
-                            <p class="text-gray-700">Manakah anggota badan yang tepat digunakan untuk melihat pemandangan alam ciptaan Allah?</p>
-                            <select id="case-ba-1" class="w-full p-2.5 rounded-xl border border-cyan-300 font-bold text-gray-800">
-                                <option value="">-- Pilih Anggota Badan --</option>
-                                <option value="AL-AINI">العَيْنُ (Mata / Mripat)</option>
-                                <option value="AL-UZUN">الأُذُنُ (Telinga / Kuping)</option>
-                                <option value="AL-ANF">الأَنْفُ (Hidung / Irung)</option>
-                            </select>
+                    <form id="baQuizFormBab2" class="space-y-5 text-xs">
+                        <div class="p-4 bg-teal-900/30 rounded-2xl border border-teal-700/40 space-y-2">
+                            <p class="font-bold text-cyan-300">1. Bahasa Arab dari kata "Pintu" adalah...</p>
+                            <div class="space-y-1 text-gray-300">
+                                <label class="block cursor-pointer"><input type="radio" name="ba2_1" value="A"> A. بَيْتٌ (Baitun)</label>
+                                <label class="block cursor-pointer"><input type="radio" name="ba2_1" value="B"> B. بَابٌ (Bābun)</label>
+                                <label class="block cursor-pointer"><input type="radio" name="ba2_1" value="C"> C. كُرْسِيٌّ (Kursiyyun)</label>
+                            </div>
                         </div>
 
-                        <div class="p-4 bg-cyan-50/70 rounded-2xl border border-cyan-200 space-y-2">
-                            <h3 class="font-bold text-cyan-900">📌 Analisis Kasus 2: "أَنَا أَسْمَعُ بِـ...." (Saya mendengar dengan....)</h3>
-                            <p class="text-gray-700">Anggota badan yang digunakan untuk mendengarkan lantunan ayat Al-Qur'an dan penjelasan guru adalah...</p>
-                            <select id="case-ba-2" class="w-full p-2.5 rounded-xl border border-cyan-300 font-bold text-gray-800">
-                                <option value="">-- Pilih Anggota Badan --</option>
-                                <option value="AL-FAM">الفَمُ (Mulut / Cangkem)</option>
-                                <option value="AL-UZUN">الأُذُنُ (Telinga / Kuping)</option>
-                                <option value="AL-YAD">اليَدُ (Tangan / Asta)</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Tugas 4: Teka-Teki Cari Kata Anggota Badan -->
-                <div class="bg-white rounded-[2rem] p-6 shadow-sm border border-cyan-200 space-y-4">
-                    <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-2 border-b border-cyan-100 pb-3">
-                        <div>
-                            <span class="bg-cyan-100 text-cyan-900 text-[10px] font-bold px-2.5 py-0.5 rounded-full uppercase">Tugas 4</span>
-                            <h2 class="text-lg font-extrabold text-cyan-950 mt-0.5">🎮 Teka-Teki Cari Kata Anggota Badan (8 Kata Target)</h2>
-                        </div>
-                        <div class="text-xs font-bold text-cyan-900 bg-cyan-100 px-3 py-1.5 rounded-xl border border-cyan-300">Ditemukan: <span id="found-count-ba" class="text-cyan-700 font-extrabold">0</span> / 8 Kata</div>
-                    </div>
-
-                    <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-start">
-                        <div class="md:col-span-4 space-y-1.5 text-xs">
-                            <span class="text-[10px] font-bold uppercase text-gray-500 block mb-1">Target Kata Transliterasi:</span>
-                            <div id="wordba-RASUN" class="p-2 bg-cyan-50 rounded-xl border border-cyan-200 font-bold text-cyan-900 flex justify-between"><span>1. RASUN</span><span class="status-icon">⏳</span></div>
-                            <div id="wordba-SYARUN" class="p-2 bg-cyan-50 rounded-xl border border-cyan-200 font-bold text-cyan-900 flex justify-between"><span>2. SYARUN</span><span class="status-icon">⏳</span></div>
-                            <div id="wordba-AINUN" class="p-2 bg-cyan-50 rounded-xl border border-cyan-200 font-bold text-cyan-900 flex justify-between"><span>3. AINUN</span><span class="status-icon">⏳</span></div>
-                            <div id="wordba-ANFUN" class="p-2 bg-cyan-50 rounded-xl border border-cyan-200 font-bold text-cyan-900 flex justify-between"><span>4. ANFUN</span><span class="status-icon">⏳</span></div>
-                            <div id="wordba-FAMUN" class="p-2 bg-cyan-50 rounded-xl border border-cyan-200 font-bold text-cyan-900 flex justify-between"><span>5. FAMUN</span><span class="status-icon">⏳</span></div>
-                            <div id="wordba-UZUNUN" class="p-2 bg-cyan-50 rounded-xl border border-cyan-200 font-bold text-cyan-900 flex justify-between"><span>6. UZUNUN</span><span class="status-icon">⏳</span></div>
-                            <div id="wordba-YADUN" class="p-2 bg-cyan-50 rounded-xl border border-cyan-200 font-bold text-cyan-900 flex justify-between"><span>7. YADUN</span><span class="status-icon">⏳</span></div>
-                            <div id="wordba-RIJLUN" class="p-2 bg-cyan-50 rounded-xl border border-cyan-200 font-bold text-cyan-900 flex justify-between"><span>8. RIJLUN</span><span class="status-icon">⏳</span></div>
+                        <div class="p-4 bg-teal-900/30 rounded-2xl border border-teal-700/40 space-y-2">
+                            <p class="font-bold text-cyan-300">2. Kata tunjuk yang tepat untuk menunjuk benda "نَافِذَةٌ" (Jendela) adalah...</p>
+                            <div class="space-y-1 text-gray-300">
+                                <label class="block cursor-pointer"><input type="radio" name="ba2_2" value="A"> A. هٰذَا (Hādżā)</label>
+                                <label class="block cursor-pointer"><input type="radio" name="ba2_2" value="B"> B. هٰذِهِ (Hādżihī)</label>
+                                <label class="block cursor-pointer"><input type="radio" name="ba2_2" value="C"> C. أَنَا (Ana)</label>
+                            </div>
                         </div>
 
-                        <div class="md:col-span-8 bg-teal-950 p-4 rounded-2xl shadow-inner text-white">
-                            <div id="grid-container-ba" class="grid grid-cols-8 gap-1.5 text-center font-black text-xs sm:text-sm"></div>
+                        <div class="p-4 bg-teal-900/30 rounded-2xl border border-teal-700/40 space-y-2">
+                            <p class="font-bold text-cyan-300">3. Arti dari kata Bahasa Arab "مِصْبَاحٌ" adalah...</p>
+                            <div class="space-y-1 text-gray-300">
+                                <label class="block cursor-pointer"><input type="radio" name="ba2_3" value="A"> A. Lampu</label>
+                                <label class="block cursor-pointer"><input type="radio" name="ba2_3" value="B"> B. Kursi</label>
+                                <label class="block cursor-pointer"><input type="radio" name="ba2_3" value="C"> C. Lemari</label>
+                            </div>
                         </div>
-                    </div>
-                </div>
 
-                <!-- Tugas 5: Kuis Evaluasi LKPD Bahasa Arab (5 Soal) -->
-                <div class="bg-white rounded-[2rem] p-6 shadow-sm border border-cyan-200 space-y-6">
-                    <div class="text-center space-y-1">
-                        <span class="bg-cyan-600 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase">Tugas 5</span>
-                        <h2 class="text-xl font-black text-cyan-950">✍️ Kuis Evaluasi LKPD Bahasa Arab</h2>
-                    </div>
-
-                    <form id="quiz-form-lkpd-ba" onsubmit="event.preventDefault(); submitQuizLKPD_BA();" class="space-y-6 text-xs">
-                        <div id="quiz-questions-lkpd-ba-container" class="space-y-4"></div>
-
-                        <div class="pt-4 border-t border-cyan-100 flex flex-col md:flex-row items-center justify-between gap-4">
-                            <button type="submit" class="w-full md:w-auto bg-cyan-600 hover:bg-cyan-700 text-white font-extrabold px-8 py-3.5 rounded-2xl shadow-lg transition text-xs uppercase">
-                                🚀 Kumpul & Periksa Nilai Bahasa Arab
-                            </button>
-                            <div id="quiz-result-lkpd-ba" class="hidden font-black text-lg text-cyan-950"></div>
-                        </div>
+                        <button type="button" onclick="submitBahasaArabQuizBab2()" class="w-full py-3 bg-cyan-600 hover:bg-cyan-500 text-black font-bold rounded-xl transition shadow-lg text-sm">
+                            Periksa Jawaban Kuis Bab 2 ✍️
+                        </button>
                     </form>
-                </div>
 
-                <!-- Tugas 6: Refleksi Diri Bahasa Arab -->
-                <div class="bg-white rounded-[2rem] p-6 shadow-sm border border-cyan-200 space-y-4">
-                    <div class="border-b border-cyan-100 pb-3">
-                        <span class="bg-cyan-100 text-cyan-900 text-[10px] font-bold px-2.5 py-0.5 rounded-full uppercase">Refleksi</span>
-                        <h2 class="text-lg font-extrabold text-cyan-950 mt-0.5">📋 Lembar Refleksi Diri Peserta Didik</h2>
+                    <div id="baResultBab2" class="hidden p-4 bg-teal-900/90 rounded-2xl border border-cyan-400 text-center font-bold text-cyan-300 text-sm"></div>
+                </div>
+            </section>
+
+            <!-- Section 4: LKPD Interaktif BAB 2 Bahasa Arab -->
+            <section id="lkpd-ba2" class="space-y-6 pt-6 border-t border-teal-900/50 text-gray-800">
+                <div class="bg-cyan-50 rounded-[2.5rem] p-4 sm:p-8 border-2 border-cyan-400 shadow-2xl space-y-6">
+                    <div class="bg-gradient-to-r from-teal-950 via-cyan-900 to-teal-900 rounded-[2rem] p-6 text-white shadow-xl border border-cyan-600/50">
+                        <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+                            <div>
+                                <span class="bg-cyan-500/30 text-cyan-200 border border-cyan-400/30 text-[11px] font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-2 inline-block">
+                                    LKPD Interaktif Bahasa Arab BAB 2
+                                </span>
+                                <h2 class="text-2xl md:text-3xl font-black text-cyan-100 leading-tight">LKPD BAB 2: أَدَوَاتُ الْبَيْتِ (Peralatan Rumah)</h2>
+                                <p class="mt-1 text-cyan-200/80 text-xs md:text-sm">Pasangkan kosakata dan tentukan kata tunjuk yang tepat!</p>
+                            </div>
+                            <div class="shrink-0 bg-white/10 backdrop-blur-md px-5 py-3 rounded-2xl border border-white/20 text-center">
+                                <span class="block text-xs text-cyan-200 font-medium">Praktik</span>
+                                <span class="text-3xl font-black text-cyan-300">BAB 2</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="space-y-3 text-xs font-semibold text-gray-800">
-                        <div class="flex items-center justify-between p-3 bg-cyan-50 rounded-xl border border-cyan-200">
-                            <span>1. Saya dapat menyebutkan 8 kosakata anggota badan dalam Bahasa Arab & Basa Jawa dengan lancar.</span>
-                            <div class="space-x-2">
-                                <label><input type="radio" name="ref_ba_1" value="ya"> Ya</label>
-                                <label><input type="radio" name="ref_ba_1" value="belum"> Belum</label>
+
+                    <!-- Task Menjodohkan BAB 2 -->
+                    <div class="bg-white rounded-[2rem] p-6 shadow-sm border border-cyan-200 space-y-4">
+                        <div class="flex items-center justify-between border-b border-cyan-100 pb-3">
+                            <div>
+                                <span class="bg-cyan-100 text-cyan-900 text-[10px] font-bold px-2.5 py-0.5 rounded-full uppercase">Tugas Menjodohkan</span>
+                                <h3 class="text-base font-bold text-cyan-950 mt-0.5">🔗 Jodohkan Peralatan Rumah dengan Artinya!</h3>
                             </div>
+                            <button type="button" onclick="checkVocabMatchBAB2_Home()" class="bg-cyan-600 hover:bg-cyan-700 text-white text-xs font-bold px-4 py-2 rounded-xl transition shadow">Periksa Jawaban</button>
                         </div>
-                        <div class="flex items-center justify-between p-3 bg-cyan-50 rounded-xl border border-cyan-200">
-                            <span>2. Saya mengerti perbedaan penggunaan Kata Tunjuk هٰذَا (Laki-laki) dan هٰذِهِ (Perempuan).</span>
-                            <div class="space-x-2">
-                                <label><input type="radio" name="ref_ba_2" value="ya"> Ya</label>
-                                <label><input type="radio" name="ref_ba_2" value="belum"> Belum</label>
-                            </div>
-                        </div>
-                        <div class="flex items-center justify-between p-3 bg-cyan-50 rounded-xl border border-cyan-200">
-                            <span>3. Saya bersyukur kepada Allah atas karunia fisik dan anggota tubuh yang sempurna.</span>
-                            <div class="space-x-2">
-                                <label><input type="radio" name="ref_ba_3" value="ya"> Ya</label>
-                                <label><input type="radio" name="ref_ba_3" value="belum"> Belum</label>
-                            </div>
-                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-4 gap-3" id="vocab-matching-ba2-container"></div>
+                        <div id="vocab-feedback-ba2" class="hidden text-xs font-bold text-center p-2 rounded-xl"></div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        </div>
     </div>
 
 
@@ -2047,6 +2263,7 @@
                 renderSentencePuzzleBA();
                 renderWordGridBA();
                 loadQuizLKPD_BA();
+                renderVocabMatchBAB2_Home();
             } else if (portal === 'al-islam') {
                 renderVocabMatch();
                 renderAyatPuzzle();
@@ -2075,6 +2292,26 @@
                 bab2.classList.remove('hidden');
                 btn1.className = "px-4 py-2 bg-teal-950/80 text-gray-300 hover:text-white rounded-xl text-xs font-bold border border-teal-700 transition";
                 btn2.className = "px-4 py-2 bg-emerald-600 text-white rounded-xl text-xs font-bold shadow-md transition border border-emerald-400";
+            }
+        }
+
+        // Switcher Bab Bahasa Arab (Tambahan Baru)
+        function switchBahasaArabBab(bab) {
+            const bab1 = document.getElementById('ba-bab1');
+            const bab2 = document.getElementById('ba-bab2');
+            const btn1 = document.getElementById('btn-ba-bab1');
+            const btn2 = document.getElementById('btn-ba-bab2');
+
+            if (bab === 'bab1') {
+                bab1.classList.remove('hidden');
+                bab2.classList.add('hidden');
+                btn1.className = "px-4 py-2 bg-teal-600 text-white rounded-xl text-xs font-bold shadow-md transition border border-teal-400";
+                btn2.className = "px-4 py-2 bg-teal-950/80 text-gray-300 hover:text-white rounded-xl text-xs font-bold border border-teal-700 transition";
+            } else {
+                bab1.classList.add('hidden');
+                bab2.classList.remove('hidden');
+                btn1.className = "px-4 py-2 bg-teal-950/80 text-gray-300 hover:text-white rounded-xl text-xs font-bold border border-teal-700 transition";
+                btn2.className = "px-4 py-2 bg-teal-600 text-white rounded-xl text-xs font-bold shadow-md transition border border-teal-400";
             }
         }
 
@@ -2729,364 +2966,4 @@
 
             let totalScore = Math.min(100, score + extraBonus);
             let predikat = totalScore >= 80 ? "Mumtaz (Mahir) 🏆" : (totalScore >= 60 ? "Jayyid (Cakap) ⭐" : "Maqbul (Berkembang)");
-            const resultDiv = document.getElementById('quiz-result-lkpd-ba');
-            resultDiv.classList.remove('hidden');
-            resultDiv.innerHTML = `
-                <div class="p-4 bg-cyan-500 text-cyan-950 rounded-2xl shadow-md text-center">
-                    <span class="block text-xs font-extrabold uppercase">Nilai LKPD Bahasa Arab</span>
-                    <span class="text-3xl font-black">${totalScore} / 100</span>
-                    <span class="block text-xs font-bold mt-1 bg-cyan-950 text-cyan-300 px-3 py-0.5 rounded-full inline-block">Predikat: ${predikat}</span>
-                </div>
-            `;
-            resultDiv.scrollIntoView({ behavior: 'smooth' });
-        }
-
-
-        // LOGIKA GAME DRAG AND DROP 9 KOMPONEN PC
-        let score9 = 0;
-        let droppedCount9 = 0;
-
-        function initGameDragDrop9() {
-            score9 = 0;
-            droppedCount9 = 0;
-            const scoreEl = document.getElementById('comp-score-9');
-            if (scoreEl) scoreEl.innerText = '0';
-            const winMsg = document.getElementById('gameWinMessage9');
-            if (winMsg) winMsg.classList.add('hidden');
-
-            const draggables = document.querySelectorAll('#hardware-source-9 .draggable-item');
-            const dropSlots = document.querySelectorAll('#portal-game-edu .drop-slot');
-
-            draggables.forEach(item => {
-                item.style.display = 'block';
-                item.addEventListener('dragstart', (e) => {
-                    e.dataTransfer.setData('text/plain', item.dataset.component);
-                });
-            });
-
-            dropSlots.forEach(slot => {
-                slot.classList.remove('correct', 'wrong', 'hovered');
-                const existingComp = slot.querySelector('.draggable-item');
-                if (existingComp) existingComp.remove();
-
-                slot.addEventListener('dragover', (e) => {
-                    e.preventDefault();
-                    slot.classList.add('hovered');
-                });
-                slot.addEventListener('dragleave', () => {
-                    slot.classList.remove('hovered');
-                });
-                slot.addEventListener('drop', (e) => {
-                    e.preventDefault();
-                    slot.classList.remove('hovered');
-                    const compType = e.dataTransfer.getData('text/plain');
-                    const acceptedType = slot.dataset.accept;
-
-                    if (compType === acceptedType) {
-                        slot.classList.add('correct');
-                        const draggedEl = document.querySelector(`#hardware-source-9 [data-component="${compType}"]`);
-                        if (draggedEl && draggedEl.style.display !== 'none') {
-                            draggedEl.style.display = 'none';
-                            score9 += 100;
-                            droppedCount9++;
-                            document.getElementById('comp-score-9').innerText = score9;
-
-                            const placedTag = document.createElement('div');
-                            placedTag.className = "p-1.5 bg-emerald-600 text-white rounded-lg font-bold text-[10px] mt-1 animate-bounce";
-                            placedTag.innerText = `✅ ${draggedEl.innerText} Terpasang`;
-                            slot.appendChild(placedTag);
-
-                            if (droppedCount9 === 9) {
-                                document.getElementById('gameWinMessage9').classList.remove('hidden');
-                            }
-                        }
-                    } else {
-                        slot.classList.add('wrong');
-                        setTimeout(() => slot.classList.remove('wrong'), 800);
-                    }
-                });
-            });
-        }
-
-        function submitDetectiveQuiz() {
-            let score = 0;
-            const form = document.getElementById('detectiveQuizForm');
-            if (form.elements['dq1'].value === 'B') score += 33;
-            if (form.elements['dq2'].value === 'A') score += 33;
-            if (form.elements['dq3'].value === 'A') score += 34;
-
-            const res = document.getElementById('detectiveResult');
-            res.classList.remove('hidden');
-            res.innerHTML = `Skor Analisis Detektif: <span class="text-lg text-cyan-200">${score} / 100</span>! <br> ${score >= 90 ? '🏆 Hebat! Kamu calon Pakar Troubleshooting Komputer!' : '🔍 Masih ada analisis yang kurang pas, coba periksa kembali ya!'}`;
-        }
-
-
-        // ================= LOGIKA GAME MUJAHIBOT CODING QUEST =================
-        const levels = [
-            {
-                title: "Level 1: Langkah Pertama di Sekolah",
-                desc: "Jalankan MujaheeBot ke Gerbang Sekolah SD Al Mujahidin!",
-                size: 5,
-                robot: { x: 0, y: 4, dir: 'EAST' },
-                target: { x: 4, y: 0, icon: '🏫' },
-                obstacles: [{ x: 2, y: 2, icon: '🪨' }],
-                items: []
-            },
-            {
-                title: "Level 2: Aksi Go Green (Loop)",
-                desc: "Ambil Bibit Tanaman (🌱) lalu tanam di Taman Sekolah!",
-                size: 5,
-                robot: { x: 0, y: 4, dir: 'EAST' },
-                target: { x: 4, y: 4, icon: '🏡' },
-                obstacles: [{ x: 1, y: 2, icon: '🧱' }],
-                items: [{ x: 2, y: 4, icon: '🌱', type: 'seed' }]
-            },
-            {
-                title: "Level 3: Navigasi Perpustakaan",
-                desc: "Ambil Buku Al-Qur'an (📖) lalu antar ke Meja Belajar!",
-                size: 5,
-                robot: { x: 0, y: 0, dir: 'SOUTH' },
-                target: { x: 4, y: 4, icon: '🪑' },
-                obstacles: [{ x: 2, y: 1, icon: '📦' }, { x: 2, y: 3, icon: '📦' }],
-                items: [{ x: 0, y: 3, icon: '📖', type: 'book' }]
-            },
-            {
-                title: "Level 4: Jelajah Gunungkidul",
-                desc: "MujaheeBot wisata ke Pantai Gunungkidul (🏖️)!",
-                size: 6,
-                robot: { x: 0, y: 5, dir: 'EAST' },
-                target: { x: 5, y: 0, icon: '🏖️' },
-                obstacles: [{ x: 2, y: 2, icon: '⛰️' }, { x: 3, y: 3, icon: '⛰️' }],
-                items: []
-            }
-        ];
-
-        let currentLevelIdx = 0;
-        let gameState = {};
-        let programBlocks = [];
-        let isRunning = false;
-        let totalStars = 0;
-
-        function loadLevel(idx) {
-            currentLevelIdx = parseInt(idx);
-            document.getElementById('levelSelect').value = currentLevelIdx;
-            const lvl = levels[currentLevelIdx];
-            document.getElementById('missionTitle').innerText = lvl.title;
-            document.getElementById('missionDesc').innerText = lvl.desc;
-
-            resetGame();
-        }
-
-        function resetGame() {
-            const lvl = levels[currentLevelIdx];
-            gameState = {
-                robot: { ...lvl.robot },
-                items: JSON.parse(JSON.stringify(lvl.items)),
-                inventory: []
-            };
-            document.getElementById('gameAlert').classList.add('hidden');
-            isRunning = false;
-            renderBoard();
-        }
-
-        function renderBoard() {
-            const lvl = levels[currentLevelIdx];
-            const board = document.getElementById('gridBoard');
-            board.style.gridTemplateColumns = `repeat(${lvl.size}, minmax(0, 1fr))`;
-            board.innerHTML = '';
-
-            for (let r = 0; r < lvl.size; r++) {
-                for (let c = 0; c < lvl.size; c++) {
-                    const cell = document.createElement('div');
-                    cell.className = 'grid-cell bg-emerald-900/40 rounded-xl border border-emerald-700/30 flex items-center justify-center text-xl sm:text-2xl relative shadow-inner';
-                    
-                    if (c === lvl.target.x && r === lvl.target.y) {
-                        cell.innerHTML = `<span class="animate-pulse">${lvl.target.icon}</span>`;
-                        cell.classList.add('bg-amber-500/20');
-                    }
-
-                    lvl.obstacles.forEach(obs => {
-                        if (obs.x === c && obs.y === r) {
-                            cell.innerHTML = `<span>${obs.icon}</span>`;
-                            cell.classList.add('bg-slate-800/80');
-                        }
-                    });
-
-                    gameState.items.forEach(it => {
-                        if (it.x === c && it.y === r) {
-                            cell.innerHTML = `<span class="animate-bounce">${it.icon}</span>`;
-                        }
-                    });
-
-                    if (gameState.robot.x === c && gameState.robot.y === r) {
-                        let rot = 0;
-                        if (gameState.robot.dir === 'EAST') rot = 90;
-                        if (gameState.robot.dir === 'SOUTH') rot = 180;
-                        if (gameState.robot.dir === 'WEST') rot = 270;
-                        
-                        cell.innerHTML = `<div class="robot-anim text-2xl sm:text-3xl text-cyan-300 drop-shadow-[0_0_8px_rgba(34,211,238,0.8)]" style="transform: rotate(${rot}deg);"><i class="fa-solid fa-robot"></i></div>`;
-                    }
-
-                    board.appendChild(cell);
-                }
-            }
-        }
-
-        function addBlock(type) {
-            if (isRunning) return;
-            programBlocks.push(type);
-            updateWorkspace();
-        }
-
-        function clearBlocks() {
-            if (isRunning) return;
-            programBlocks = [];
-            updateWorkspace();
-        }
-
-        function updateWorkspace() {
-            const ws = document.getElementById('workspace');
-            const tip = document.getElementById('emptyTip');
-            if (programBlocks.length === 0) {
-                ws.innerHTML = '';
-                ws.appendChild(tip);
-                tip.style.display = 'block';
-                return;
-            }
-
-            ws.innerHTML = '';
-            programBlocks.forEach((b, i) => {
-                const item = document.createElement('div');
-                item.className = 'flex items-center justify-between p-2 rounded-xl text-xs font-bold text-white shadow';
-                
-                let label = '';
-                if (b === 'MOVE') { item.classList.add('bg-blue-600'); label = '<i class="fa-solid fa-arrow-up mr-1.5"></i> Maju 1'; }
-                if (b === 'LEFT') { item.classList.add('bg-indigo-600'); label = '<i class="fa-solid fa-rotate-left mr-1.5"></i> Belok Kiri'; }
-                if (b === 'RIGHT') { item.classList.add('bg-indigo-600'); label = '<i class="fa-solid fa-rotate-right mr-1.5"></i> Belok Kanan'; }
-                if (b === 'ACTION') { item.classList.add('bg-amber-600'); label = '<i class="fa-solid fa-hand mr-1.5"></i> Ambil Objek'; }
-                if (b === 'REPEAT_2') { item.classList.add('bg-purple-600'); label = '<i class="fa-solid fa-repeat mr-1.5"></i> Ulangi 2x'; }
-                if (b === 'REPEAT_3') { item.classList.add('bg-purple-700'); label = '<i class="fa-solid fa-repeat mr-1.5"></i> Ulangi 3x'; }
-
-                item.innerHTML = `<span>${i + 1}. ${label}</span> <button onclick="removeBlock(${i})" class="text-rose-300 hover:text-white px-1"><i class="fa-solid fa-xmark"></i></button>`;
-                ws.appendChild(item);
-            });
-        }
-
-        function removeBlock(idx) {
-            if (isRunning) return;
-            programBlocks.splice(idx, 1);
-            updateWorkspace();
-        }
-
-        async function runProgram() {
-            if (isRunning || programBlocks.length === 0) return;
-            isRunning = true;
-            resetGame();
-
-            const expanded = [];
-            for (let i = 0; i < programBlocks.length; i++) {
-                const b = programBlocks[i];
-                if (b === 'REPEAT_2' && i + 1 < programBlocks.length) {
-                    expanded.push(programBlocks[i+1]);
-                    expanded.push(programBlocks[i+1]);
-                    i++;
-                } else if (b === 'REPEAT_3' && i + 1 < programBlocks.length) {
-                    expanded.push(programBlocks[i+1]);
-                    expanded.push(programBlocks[i+1]);
-                    expanded.push(programBlocks[i+1]);
-                    i++;
-                } else {
-                    expanded.push(b);
-                }
-            }
-
-            for (const cmd of expanded) {
-                await executeCmd(cmd);
-                await new Promise(r => setTimeout(r, 450));
-                if (checkWinFail()) break;
-            }
-
-            isRunning = false;
-        }
-
-        function executeCmd(cmd) {
-            const dirs = ['NORTH', 'EAST', 'SOUTH', 'WEST'];
-            let curDirIdx = dirs.indexOf(gameState.robot.dir);
-
-            if (cmd === 'LEFT') {
-                curDirIdx = (curDirIdx + 3) % 4;
-                gameState.robot.dir = dirs[curDirIdx];
-            } else if (cmd === 'RIGHT') {
-                curDirIdx = (curDirIdx + 1) % 4;
-                gameState.robot.dir = dirs[curDirIdx];
-            } else if (cmd === 'MOVE') {
-                let nx = gameState.robot.x;
-                let ny = gameState.robot.y;
-                if (gameState.robot.dir === 'NORTH') ny--;
-                if (gameState.robot.dir === 'EAST') nx++;
-                if (gameState.robot.dir === 'SOUTH') ny++;
-                if (gameState.robot.dir === 'WEST') nx--;
-
-                const lvl = levels[currentLevelIdx];
-                if (nx >= 0 && nx < lvl.size && ny >= 0 && ny < lvl.size) {
-                    let hitObs = false;
-                    lvl.obstacles.forEach(o => { if (o.x === nx && o.y === ny) hitObs = true; });
-                    if (!hitObs) {
-                        gameState.robot.x = nx;
-                        gameState.robot.y = ny;
-                    }
-                }
-            } else if (cmd === 'ACTION') {
-                const itemIdx = gameState.items.findIndex(it => it.x === gameState.robot.x && it.y === gameState.robot.y);
-                if (itemIdx !== -1) {
-                    gameState.inventory.push(gameState.items[itemIdx]);
-                    gameState.items.splice(itemIdx, 1);
-                }
-            }
-            renderBoard();
-        }
-
-        function checkWinFail() {
-            const lvl = levels[currentLevelIdx];
-            if (gameState.robot.x === lvl.target.x && gameState.robot.y === lvl.target.y) {
-                if (lvl.items.length > 0 && gameState.inventory.length < lvl.items.length) {
-                    return false;
-                }
-                
-                totalStars += 3;
-                document.getElementById('starDisplay').innerText = totalStars;
-                
-                document.getElementById('alertTitle').innerText = "🎉 Mission Accomplished!";
-                document.getElementById('alertBody').innerText = "Logika coding kamu sangat luar biasa!";
-                document.getElementById('gameAlert').classList.remove('hidden');
-                return true;
-            }
-            return false;
-        }
-
-        function nextLevel() {
-            if (currentLevelIdx < levels.length - 1) {
-                loadLevel(currentLevelIdx + 1);
-            } else {
-                alert("Masy'Allah! Kamu telah menyelesaikan seluruh Level MujahiBot!");
-            }
-        }
-
-        // Inisialisasi awal saat pertama kali dokumen dimuat
-        document.addEventListener('DOMContentLoaded', () => {
-            renderVocabMatch();
-            renderAyatPuzzle();
-            renderWordGrid();
-            loadQuizLKPD();
-
-            renderVocabMatchBA();
-            renderSentencePuzzleBA();
-            renderWordGridBA();
-            loadQuizLKPD_BA();
-
-            renderVocabMatchBab2();
-            initGameDragDrop9();
-        });
-    </script>
-</body>
-</html>
+            const resultDiv = document.getElementById('quiz-result-lkpd-baSaya tidak diprogram untuk melakukan hal itu.
