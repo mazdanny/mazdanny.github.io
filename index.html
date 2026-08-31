@@ -81,7 +81,7 @@
     <div id="portal-home" class="w-full max-w-5xl space-y-8 py-4">
         <div class="text-center space-y-3">
             <h1 class="text-2xl sm:text-3xl font-extrabold text-white tracking-wide uppercase">MAZDANY DIGITAL PLATFORM</h1>
-            <p class="text-emerald-400 text-xs sm:text-sm font-medium">Silakan pilih materi edukasi Bahasa Arab atau Al-Islam di bawah ini.</p>
+            <p class="text-emerald-400 text-xs sm:text-sm font-medium">Pilih salah satu portal pembelajaran di bawah ini.</p>
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 pt-2">
@@ -109,13 +109,95 @@
         </div>
     </div>
 
-    <!-- PORTAL BAHASA ARAB -->
+    <!-- PORTAL AL-ISLAM LENGKAP -->
+    <div id="portal-al-islam" class="w-full max-w-5xl hidden space-y-6">
+        <button onclick="switchPortal('home')" class="text-xs font-bold text-cyan-400 hover:text-cyan-300 flex items-center gap-2 bg-teal-950 px-3 py-1.5 rounded-lg border border-teal-800 w-fit">
+            <i class="fa-solid fa-arrow-left"></i> Kembali ke Dashboard
+        </button>
+
+        <div class="bg-teal-950/80 p-4 rounded-2xl border border-teal-500/30">
+            <h3 class="text-xs font-bold text-cyan-300 uppercase tracking-wider mb-2"><i class="fa-solid fa-book-bookmark mr-1"></i> DAFTAR BAB AL-ISLAM</h3>
+            <div class="flex flex-wrap gap-2">
+                <button id="btn-al-bab1" onclick="switchAlIslamBab('bab1')" class="px-4 py-2 bg-teal-600 text-white rounded-xl text-xs font-bold shadow-md transition border border-teal-400">
+                    BAB 1: Az-Zalzalah & Fondasi Aqidah
+                </button>
+                <button id="btn-al-bab2" onclick="switchAlIslamBab('bab2')" class="px-4 py-2 bg-teal-950/80 text-gray-300 hover:text-white rounded-xl text-xs font-bold border border-teal-700 transition">
+                    BAB 2: Asmaul Husna (Al-Khaliq, Al-Baari', Al-Mushawwir)
+                </button>
+            </div>
+        </div>
+
+        <!-- BAB 1 AL-ISLAM -->
+        <div id="al-islam-bab1" class="space-y-6">
+            <div class="bg-teal-950/60 rounded-3xl p-6 border border-teal-500/30 space-y-3">
+                <span class="bg-cyan-950 text-cyan-300 border border-cyan-500/30 text-xs font-bold px-3 py-1 rounded-full uppercase">BAB 1 Al-Islam</span>
+                <h2 class="text-2xl font-bold text-cyan-300">Surah Az-Zalzalah & 3 Pilar Tauhid</h2>
+                <p class="text-xs text-gray-300 leading-relaxed">
+                    Memahami dahsyatnya Hari Kiamat melalui Surah Az-Zalzalah, konsep Dzarrah (amal sekecil atom), dan pentingnya menancapkan 3 Pilar Tauhid (Rububiyah, Uluhiyah, Asma wa Sifat) serta sikap Muroqobah.
+                </p>
+            </div>
+
+            <!-- Teks Surah Az-Zalzalah -->
+            <div class="bg-teal-950/80 rounded-3xl p-6 border border-teal-500/30 space-y-4">
+                <h3 class="text-xl font-bold text-cyan-300 text-center">Surah Az-Zalzalah (سُورَةُ الزَّلْزَلَةِ)</h3>
+                <div class="space-y-3 text-sm">
+                    <div class="p-3 bg-teal-900/30 rounded-xl border border-teal-800/60">
+                        <p class="arabic-text text-2xl font-bold text-cyan-100">إِذَا زُلْزِلَتِ الْأَرْضُ زِلْزَالَهَا</p>
+                        <p class="text-xs text-gray-300 mt-1">1. "Apabila bumi digoncangkan dengan goncangan yang dahsyat."</p>
+                    </div>
+                    <div class="p-3 bg-teal-900/30 rounded-xl border border-teal-800/60">
+                        <p class="arabic-text text-2xl font-bold text-cyan-100">وَأَخْرَجَتِ الْأَرْضُ أَثْقَالَهَا</p>
+                        <p class="text-xs text-gray-300 mt-1">2. "Dan bumi telah mengeluarkan beban-beban berat (yang dikandung)nya."</p>
+                    </div>
+                    <div class="p-3 bg-teal-900/30 rounded-xl border border-teal-800/60">
+                        <p class="arabic-text text-2xl font-bold text-emerald-200">فَمَنْ يَعْمَلْ مِثْقَالَ ذَرَّةٍ خَيْرًا يَرَهُ</p>
+                        <p class="text-xs text-gray-300 mt-1">7. "Maka barangsiapa mengerjakan kebaikan seberat dzarrah pun, niscaya dia akan melihat (balasan)nya."</p>
+                    </div>
+                    <div class="p-3 bg-teal-900/30 rounded-xl border border-teal-800/60">
+                        <p class="arabic-text text-2xl font-bold text-rose-200">وَمَنْ يَعْمَلْ مِثْقَالَ ذَرَّةٍ شَرًّا يَرَهُ</p>
+                        <p class="text-xs text-gray-300 mt-1">8. "Dan barangsiapa mengerjakan kejahatan seberat dzarrah pun, niscaya dia akan melihat (balasan)nya pula."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- BAB 2 AL-ISLAM -->
+        <div id="al-islam-bab2" class="hidden space-y-6">
+            <div class="bg-teal-950/60 rounded-3xl p-6 border border-emerald-500/30 space-y-3">
+                <span class="bg-emerald-950 text-emerald-300 border border-emerald-500/30 text-xs font-bold px-3 py-1 rounded-full uppercase">BAB 2 Al-Islam</span>
+                <h2 class="text-2xl font-bold text-emerald-300">Asmaul Husna: Al-Khaliq, Al-Baari', Al-Mushawwir</h2>
+                <p class="text-xs text-gray-300">Mengenal keagungan Allah Swt. dalam menciptakan, merencanakan, dan membentuk rupa seluruh makhluk.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="p-4 bg-teal-950/60 rounded-2xl border border-teal-700/40 text-center space-y-2">
+                    <p class="arabic-text text-3xl font-bold text-cyan-200">الخَالِقُ</p>
+                    <h4 class="font-extrabold text-white text-sm">AL-KHALIQ</h4>
+                    <p class="text-xs text-emerald-400 font-semibold">Maha Pencipta</p>
+                    <p class="text-[11px] text-gray-300">Menciptakan segala sesuatu dari tidak ada menjadi ada.</p>
+                </div>
+                <div class="p-4 bg-teal-950/60 rounded-2xl border border-teal-700/40 text-center space-y-2">
+                    <p class="arabic-text text-3xl font-bold text-cyan-200">البَارِئُ</p>
+                    <h4 class="font-extrabold text-white text-sm">AL-BAARI'</h4>
+                    <p class="text-xs text-emerald-400 font-semibold">Maha Mengadakan</p>
+                    <p class="text-[11px] text-gray-300">Mewujudkan ciptaan secara sempurna tanpa cela.</p>
+                </div>
+                <div class="p-4 bg-teal-950/60 rounded-2xl border border-teal-700/40 text-center space-y-2">
+                    <p class="arabic-text text-3xl font-bold text-cyan-200">المُصَوِّرُ</p>
+                    <h4 class="font-extrabold text-white text-sm">AL-MUSHAWWIR</h4>
+                    <p class="text-xs text-emerald-400 font-semibold">Maha Membentuk Rupa</p>
+                    <p class="text-[11px] text-gray-300">Memberi bentuk rupa dan fisik unik pada tiap makhluk.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PORTAL BAHASA ARAB LENGKAP -->
     <div id="portal-bahasa-arab" class="w-full max-w-5xl hidden space-y-6">
         <button onclick="switchPortal('home')" class="text-xs font-bold text-cyan-400 hover:text-cyan-300 flex items-center gap-2 bg-teal-950 px-3 py-1.5 rounded-lg border border-teal-800 w-fit">
             <i class="fa-solid fa-arrow-left"></i> Kembali ke Dashboard
         </button>
 
-        <!-- Tombol Pilihan BAB -->
         <div class="bg-teal-950/80 p-4 rounded-2xl border border-teal-500/30 space-y-2">
             <h3 class="text-xs font-bold text-cyan-300 uppercase tracking-wider"><i class="fa-solid fa-list-ol mr-1"></i> DAFTAR BAB BAHASA ARAB</h3>
             <div class="flex flex-wrap gap-2">
@@ -130,7 +212,7 @@
 
         <!-- BAB 1 BAHASA ARAB -->
         <div id="ba-bab1" class="space-y-6">
-            <h3 class="text-lg font-bold text-cyan-300 text-center">Kosakata Anggota Badan (المُفْرَدَاتُ)</h3>
+            <h3 class="text-lg font-bold text-cyan-300 text-center">Kosakata Anggota Badan (أَعْضَاءُ الْجِسْمِ)</h3>
             <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
                 <div onclick="playAudio('rasun.aac', this)" class="p-4 bg-teal-950/40 rounded-2xl border border-teal-700/40 text-center space-y-2 cursor-pointer hover:border-cyan-400 transition">
                     <div class="text-4xl">🗣️</div>
@@ -144,17 +226,30 @@
                     <p class="text-xs text-teal-300 font-bold">'ainun</p>
                     <p class="text-xs text-gray-300">Mata <span class="text-emerald-400 block text-[11px]">(Jawa: Mripat)</span></p>
                 </div>
+                <div onclick="playAudio('anfun.aac', this)" class="p-4 bg-teal-950/40 rounded-2xl border border-teal-700/40 text-center space-y-2 cursor-pointer hover:border-cyan-400 transition">
+                    <div class="text-4xl">👃</div>
+                    <p class="arabic-text text-2xl font-bold text-cyan-100">أَنْفٌ</p>
+                    <p class="text-xs text-teal-300 font-bold">'anfun</p>
+                    <p class="text-xs text-gray-300">Hidung <span class="text-emerald-400 block text-[11px]">(Jawa: Irung)</span></p>
+                </div>
+                <div onclick="playAudio('yadun.aac', this)" class="p-4 bg-teal-950/40 rounded-2xl border border-teal-700/40 text-center space-y-2 cursor-pointer hover:border-cyan-400 transition">
+                    <div class="text-4xl">✋</div>
+                    <p class="arabic-text text-2xl font-bold text-cyan-100">يَدٌ</p>
+                    <p class="text-xs text-teal-300 font-bold">yadun</p>
+                    <p class="text-xs text-gray-300">Tangan <span class="text-emerald-400 block text-[11px]">(Jawa: Tangan / Asta)</span></p>
+                </div>
             </div>
         </div>
 
-        <!-- BAB 2 BAHASA ARAB -->
+        <!-- BAB 2 BAHASA ARAB (KOSAKATA PERALATAN RUMAH + AUDIO + TATA BAHASA) -->
         <div id="ba-bab2" class="hidden space-y-6">
-            <div class="bg-teal-950/60 p-6 rounded-3xl border border-teal-500/30 space-y-4">
+            <div class="bg-teal-950/60 p-6 rounded-3xl border border-teal-500/30 space-y-2">
                 <span class="bg-teal-900 text-teal-300 text-xs font-bold px-3 py-1 rounded-full uppercase">BAB 2 Bahasa Arab</span>
                 <h2 class="text-2xl font-bold text-cyan-300">أَدَوَاتُ الْبَيْتِ (Peralatan Rumah)</h2>
-                <p class="text-xs text-gray-300">Mengenal nama-nama benda di rumah dalam Bahasa Arab & Basa Jawa.</p>
+                <p class="text-xs text-gray-300">Mengenal nama-nama benda dan peralatan yang ada di rumah dalam Bahasa Arab beserta terjemah Basa Jawa & Audio pengucapan.</p>
             </div>
 
+            <!-- Kartu Kosakata + Audio BAB 2 -->
             <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
                 <div onclick="playAudio('baitun.aac', this)" class="p-4 bg-teal-950/40 rounded-2xl border border-teal-700/40 text-center space-y-2 cursor-pointer hover:border-cyan-400 transition">
                     <div class="text-4xl">🏠</div>
@@ -162,53 +257,77 @@
                     <p class="text-xs text-teal-300 font-bold">baitun</p>
                     <p class="text-xs text-gray-300">Rumah <span class="text-emerald-400 block text-[11px]">(Jawa: Omah / Griya)</span></p>
                 </div>
+
                 <div onclick="playAudio('babun.aac', this)" class="p-4 bg-teal-950/40 rounded-2xl border border-teal-700/40 text-center space-y-2 cursor-pointer hover:border-cyan-400 transition">
                     <div class="text-4xl">🚪</div>
                     <p class="arabic-text text-2xl font-bold text-cyan-100">بَابٌ</p>
                     <p class="text-xs text-teal-300 font-bold">bābun</p>
                     <p class="text-xs text-gray-300">Pintu <span class="text-emerald-400 block text-[11px]">(Jawa: Lawang / Kori)</span></p>
                 </div>
+
                 <div onclick="playAudio('nafizatun.aac', this)" class="p-4 bg-teal-950/40 rounded-2xl border border-teal-700/40 text-center space-y-2 cursor-pointer hover:border-cyan-400 transition">
                     <div class="text-4xl">🪟</div>
                     <p class="arabic-text text-2xl font-bold text-cyan-100">نَافِذَةٌ</p>
                     <p class="text-xs text-teal-300 font-bold">nāfiżatun</p>
                     <p class="text-xs text-gray-300">Jendela <span class="text-emerald-400 block text-[11px]">(Jawa: Cendhela)</span></p>
                 </div>
+
                 <div onclick="playAudio('kursiyyun.aac', this)" class="p-4 bg-teal-950/40 rounded-2xl border border-teal-700/40 text-center space-y-2 cursor-pointer hover:border-cyan-400 transition">
                     <div class="text-4xl">🪑</div>
                     <p class="arabic-text text-2xl font-bold text-cyan-100">كُرْسِيٌّ</p>
                     <p class="text-xs text-teal-300 font-bold">kursiyyun</p>
                     <p class="text-xs text-gray-300">Kursi <span class="text-emerald-400 block text-[11px]">(Jawa: Kursi / Dampar)</span></p>
                 </div>
+
+                <div onclick="playAudio('misbahun.aac', this)" class="p-4 bg-teal-950/40 rounded-2xl border border-teal-700/40 text-center space-y-2 cursor-pointer hover:border-cyan-400 transition">
+                    <div class="text-4xl">💡</div>
+                    <p class="arabic-text text-2xl font-bold text-cyan-100">مِصْبَاحٌ</p>
+                    <p class="text-xs text-teal-300 font-bold">miṣbāḥun</p>
+                    <p class="text-xs text-gray-300">Lampu <span class="text-emerald-400 block text-[11px]">(Jawa: Lampu / Semprong)</span></p>
+                </div>
+
+                <div onclick="playAudio('sarirun.aac', this)" class="p-4 bg-teal-950/40 rounded-2xl border border-teal-700/40 text-center space-y-2 cursor-pointer hover:border-cyan-400 transition">
+                    <div class="text-4xl">🛏️</div>
+                    <p class="arabic-text text-2xl font-bold text-cyan-100">سَرِيْرٌ</p>
+                    <p class="text-xs text-teal-300 font-bold">sarīrun</p>
+                    <p class="text-xs text-gray-300">Ranjang <span class="text-emerald-400 block text-[11px]">(Jawa: Kasur / Paturon)</span></p>
+                </div>
+
+                <div onclick="playAudio('khizanatun.aac', this)" class="p-4 bg-teal-950/40 rounded-2xl border border-teal-700/40 text-center space-y-2 cursor-pointer hover:border-cyan-400 transition">
+                    <div class="text-4xl">🗄️</div>
+                    <p class="arabic-text text-2xl font-bold text-cyan-100">خِزَانَةٌ</p>
+                    <p class="text-xs text-teal-300 font-bold">khizānatun</p>
+                    <p class="text-xs text-gray-300">Lemari <span class="text-emerald-400 block text-[11px]">(Jawa: Lemari Pakaian)</span></p>
+                </div>
+
+                <div onclick="playAudio('maidatun.aac', this)" class="p-4 bg-teal-950/40 rounded-2xl border border-teal-700/40 text-center space-y-2 cursor-pointer hover:border-cyan-400 transition">
+                    <div class="text-4xl">🛋️</div>
+                    <p class="arabic-text text-2xl font-bold text-cyan-100">مَائِدَةٌ</p>
+                    <p class="text-xs text-teal-300 font-bold">mā'idatun</p>
+                    <p class="text-xs text-gray-300">Meja Makan <span class="text-emerald-400 block text-[11px]">(Jawa: Meja Dahar)</span></p>
+                </div>
             </div>
 
             <!-- Tata Bahasa Kata Tunjuk -->
             <div class="bg-teal-950/80 p-6 rounded-3xl border border-teal-500/30 space-y-3">
-                <h3 class="text-base font-bold text-cyan-300">📌 Kata Tunjuk (Isim Isyarah): هٰذَا & هٰذِهِ</h3>
+                <h3 class="text-base font-bold text-cyan-300">📌 Kaidah Isim Isyarah (Kata Tunjuk): هٰذَا & هٰذِهِ</h3>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
-                    <div class="p-3 bg-teal-900/40 rounded-xl border border-teal-700/50">
-                        <span class="font-bold text-cyan-300">1. هٰذَا (Hādżā)</span>: Untuk benda tanpa Ta' Marbuthah (contoh: هٰذَا بَابٌ - Ini Pintu).
+                    <div class="p-3 bg-teal-900/40 rounded-xl border border-teal-700/50 space-y-1">
+                        <span class="font-bold text-cyan-300">1. هٰذَا (Hādżā) - Laki-laki</span>
+                        <p class="text-gray-300">Digunakan untuk benda tanpa huruf Ta' Marbuthah (ة).</p>
+                        <p class="arabic-text text-lg font-bold text-cyan-200">هٰذَا بَابٌ / هٰذَا كُرْسِيٌّ</p>
                     </div>
-                    <div class="p-3 bg-teal-900/40 rounded-xl border border-teal-700/50">
-                        <span class="font-bold text-emerald-300">2. هٰذِهِ (Hādżihī)</span>: Untuk benda dengan Ta' Marbuthah (contoh: هٰذِهِ نَافِذَةٌ - Ini Jendela).
+                    <div class="p-3 bg-teal-900/40 rounded-xl border border-teal-700/50 space-y-1">
+                        <span class="font-bold text-emerald-300">2. هٰذِهِ (Hādżihī) - Perempuan</span>
+                        <p class="text-gray-300">Digunakan untuk benda dengan diakhiri Ta' Marbuthah (ة).</p>
+                        <p class="arabic-text text-lg font-bold text-emerald-200">هٰذِهِ نَافِذَةٌ / هٰذِهِ خِزَانَةٌ</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- PORTAL AL-ISLAM -->
-    <div id="portal-al-islam" class="w-full max-w-5xl hidden space-y-6">
-        <button onclick="switchPortal('home')" class="text-xs font-bold text-cyan-400 hover:text-cyan-300 flex items-center gap-2 bg-teal-950 px-3 py-1.5 rounded-lg border border-teal-800 w-fit">
-            <i class="fa-solid fa-arrow-left"></i> Kembali ke Dashboard
-        </button>
-
-        <div class="bg-teal-950/60 p-6 rounded-3xl border border-teal-500/30 space-y-3">
-            <h2 class="text-xl font-bold text-cyan-300">BAB 1 AL-ISLAM: Surah Az-Zalzalah & Tauhid</h2>
-            <p class="text-xs text-gray-300">Memahami kandungan Surah Az-Zalzalah dan 3 pilar Tauhid.</p>
-        </div>
-    </div>
-
+    <!-- Script JS -->
     <script>
         function switchPortal(portal) {
             ['home', 'al-islam', 'bahasa-arab'].forEach(p => {
@@ -223,6 +342,25 @@
             if (activePortal) activePortal.classList.remove('hidden');
             if (activeBtn) activeBtn.classList.add('active');
             window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function switchAlIslamBab(bab) {
+            const bab1 = document.getElementById('al-islam-bab1');
+            const bab2 = document.getElementById('al-islam-bab2');
+            const btn1 = document.getElementById('btn-al-bab1');
+            const btn2 = document.getElementById('btn-al-bab2');
+
+            if (bab === 'bab1') {
+                bab1.classList.remove('hidden');
+                bab2.classList.add('hidden');
+                btn1.className = "px-4 py-2 bg-teal-600 text-white rounded-xl text-xs font-bold shadow-md transition border border-teal-400";
+                btn2.className = "px-4 py-2 bg-teal-950/80 text-gray-300 hover:text-white rounded-xl text-xs font-bold border border-teal-700 transition";
+            } else {
+                bab1.classList.add('hidden');
+                bab2.classList.remove('hidden');
+                btn1.className = "px-4 py-2 bg-teal-950/80 text-gray-300 hover:text-white rounded-xl text-xs font-bold border border-teal-700 transition";
+                btn2.className = "px-4 py-2 bg-emerald-600 text-white rounded-xl text-xs font-bold shadow-md transition border border-emerald-400";
+            }
         }
 
         function switchBahasaArabBab(bab) {
@@ -246,6 +384,11 @@
 
         let currentAudio = null;
         function playAudio(audioFile, element = null) {
+            if (element) {
+                document.querySelectorAll('.playing-audio').forEach(e => e.classList.remove('playing-audio'));
+                element.classList.add('playing-audio');
+                setTimeout(() => element.classList.remove('playing-audio'), 1200);
+            }
             if (currentAudio) {
                 currentAudio.pause();
                 currentAudio.currentTime = 0;
