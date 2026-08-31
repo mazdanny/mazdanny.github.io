@@ -1463,7 +1463,7 @@
         <div class="text-center mb-6">
             <div class="relative w-20 h-20 mx-auto mb-3">
                 <div class="w-full h-full rounded-full border-4 border-cyan-500 overflow-hidden bg-white shadow-[0_0_15px_rgba(34,211,238,0.5)] flex items-center justify-center">
-                    <img src="MAZDANY-LOGO.png" alt="Mazdany Avatar" class="w-full h-full object-cover object-top scale-105" onerror="this.src='https://ui-avatars.com/api/?name=Mazdany&background=0d9488&color=fff'">
+                    <img src="logomazdanybro.png" alt="Mazdany Avatar" class="w-full h-full object-cover object-top scale-105" onerror="this.src='https://ui-avatars.com/api/?name=Mazdany&background=0d9488&color=fff'">
                 </div>
             </div>
             <h1 class="text-2xl font-light text-white tracking-wide uppercase">Asisten Perangkat Ajar AI</h1>
@@ -1749,7 +1749,7 @@
 
                     <div class="grid grid-cols-1 gap-2.5">
                         <div class="drop-slot p-2.5 bg-teal-950/80 rounded-xl border-2 border-dashed border-teal-700/60 text-center space-y-0.5" data-accept="cpu">
-                            <h4 class="font-bold text-xs text-cyan-300">Otak Pemroses Perintah Utama</h4>
+                            <h4 class="font-bold text-xs text-cyan-300">Otak Pemproses Perintah Utama</h4>
                         </div>
                         <div class="drop-slot p-2.5 bg-teal-950/80 rounded-xl border-2 border-dashed border-teal-700/60 text-center space-y-0.5" data-accept="ram">
                             <h4 class="font-bold text-xs text-cyan-300">Memori Menyimpan Aplikasi Sementara</h4>
@@ -2719,13 +2719,22 @@
                 const selected = document.querySelector(`input[name="lkpdbaq${idx}"]:checked`);
                 if (selected && parseInt(selected.value) === qData.answer) score += 20;
             });
-            let predikat = score >= 80 ? "Mumtaz 🏆" : (score >= 60 ? "Jayyid ⭐" : "Maqbul");
+
+            const case1 = document.getElementById('case-ba-1').value;
+            const case2 = document.getElementById('case-ba-2').value;
+
+            let extraBonus = 0;
+            if (case1 === 'AL-AINI') extraBonus += 10;
+            if (case2 === 'AL-UZUN') extraBonus += 10;
+
+            let totalScore = Math.min(100, score + extraBonus);
+            let predikat = totalScore >= 80 ? "Mumtaz (Mahir) 🏆" : (totalScore >= 60 ? "Jayyid (Cakap) ⭐" : "Maqbul (Berkembang)");
             const resultDiv = document.getElementById('quiz-result-lkpd-ba');
             resultDiv.classList.remove('hidden');
             resultDiv.innerHTML = `
                 <div class="p-4 bg-cyan-500 text-cyan-950 rounded-2xl shadow-md text-center">
-                    <span class="block text-xs font-extrabold uppercase">Nilai Bahasa Arab Kamu</span>
-                    <span class="text-3xl font-black">${score} / 100</span>
+                    <span class="block text-xs font-extrabold uppercase">Nilai LKPD Bahasa Arab</span>
+                    <span class="text-3xl font-black">${totalScore} / 100</span>
                     <span class="block text-xs font-bold mt-1 bg-cyan-950 text-cyan-300 px-3 py-0.5 rounded-full inline-block">Predikat: ${predikat}</span>
                 </div>
             `;
@@ -2733,10 +2742,13 @@
         }
 
 
-        // ================= LOGIKA KHUSUS GAME DRAG & DROP 9 PC =================
-        let scoreDragDrop9 = 0;
+        // LOGIKA GAME DRAG AND DROP 9 KOMPONEN PC
+        let score9 = 0;
+        let droppedCount9 = 0;
+
         function initGameDragDrop9() {
-            scoreDragDrop9 = 0;
+            score9 = 0;
+            droppedCount9 = 0;
             const scoreEl = document.getElementById('comp-score-9');
             if (scoreEl) scoreEl.innerText = '0';
             const winMsg = document.getElementById('gameWinMessage9');
@@ -2745,21 +2757,18 @@
             const draggables = document.querySelectorAll('#hardware-source-9 .draggable-item');
             const dropSlots = document.querySelectorAll('#portal-game-edu .drop-slot');
 
-            draggables.forEach(draggable => {
-                draggable.addEventListener('dragstart', (e) => {
-                    e.dataTransfer.setData('text/plain', draggable.dataset.component);
-                    e.dataTransfer.setData('text/id', draggable.innerText);
-                    draggable.classList.add('opacity-50');
-                });
-                draggable.addEventListener('dragend', () => {
-                    draggable.classList.remove('opacity-50');
+            draggables.forEach(item => {
+                item.style.display = 'block';
+                item.addEventListener('dragstart', (e) => {
+                    e.dataTransfer.setData('text/plain', item.dataset.component);
                 });
             });
 
             dropSlots.forEach(slot => {
                 slot.classList.remove('correct', 'wrong', 'hovered');
-                slot.innerHTML = `<h4 class="font-bold text-xs text-cyan-300">${slot.dataset.title || slot.innerText}</h4>`;
-                
+                const existingComp = slot.querySelector('.draggable-item');
+                if (existingComp) existingComp.remove();
+
                 slot.addEventListener('dragover', (e) => {
                     e.preventDefault();
                     slot.classList.add('hovered');
@@ -2771,23 +2780,29 @@
                     e.preventDefault();
                     slot.classList.remove('hovered');
                     const compType = e.dataTransfer.getData('text/plain');
-                    const compText = e.dataTransfer.getData('text/id');
+                    const acceptedType = slot.dataset.accept;
 
-                    if (slot.dataset.accept === compType) {
+                    if (compType === acceptedType) {
                         slot.classList.add('correct');
-                        slot.innerHTML = `<span class="text-xs font-bold text-emerald-300">✅ ${compText} (Terpasang)</span>`;
-                        const itemToHide = document.querySelector(`#hardware-source-9 [data-component="${compType}"]`);
-                        if (itemToHide) itemToHide.style.display = 'none';
+                        const draggedEl = document.querySelector(`#hardware-source-9 [data-component="${compType}"]`);
+                        if (draggedEl && draggedEl.style.display !== 'none') {
+                            draggedEl.style.display = 'none';
+                            score9 += 100;
+                            droppedCount9++;
+                            document.getElementById('comp-score-9').innerText = score9;
 
-                        scoreDragDrop9 += 100;
-                        if (scoreEl) scoreEl.innerText = scoreDragDrop9;
+                            const placedTag = document.createElement('div');
+                            placedTag.className = "p-1.5 bg-emerald-600 text-white rounded-lg font-bold text-[10px] mt-1 animate-bounce";
+                            placedTag.innerText = `✅ ${draggedEl.innerText} Terpasang`;
+                            slot.appendChild(placedTag);
 
-                        if (scoreDragDrop9 >= 900) {
-                            if (winMsg) winMsg.classList.remove('hidden');
+                            if (droppedCount9 === 9) {
+                                document.getElementById('gameWinMessage9').classList.remove('hidden');
+                            }
                         }
                     } else {
                         slot.classList.add('wrong');
-                        setTimeout(() => slot.classList.remove('wrong'), 1000);
+                        setTimeout(() => slot.classList.remove('wrong'), 800);
                     }
                 });
             });
@@ -2802,55 +2817,55 @@
 
             const res = document.getElementById('detectiveResult');
             res.classList.remove('hidden');
-            res.innerHTML = `Skor Detektif Kamu: <span class="text-xl text-cyan-200">${score} / 100</span>! <br> ${score >= 80 ? '🕵️‍♂️ Mantap! Analisis troubleshooting kamu sangat akurat!' : '💪 Periksa kembali fungsi komponen PC di menu Anatomi ya!'}`;
+            res.innerHTML = `Skor Analisis Detektif: <span class="text-lg text-cyan-200">${score} / 100</span>! <br> ${score >= 90 ? '🏆 Hebat! Kamu calon Pakar Troubleshooting Komputer!' : '🔍 Masih ada analisis yang kurang pas, coba periksa kembali ya!'}`;
         }
 
 
-        // ================= LOGIKA KHUSUS GAME MUJAHIBOT CODING =================
+        // ================= LOGIKA GAME MUJAHIBOT CODING QUEST =================
         const levels = [
             {
                 title: "Level 1: Langkah Pertama di Sekolah",
-                desc: "Gunakan perintah MAJU untuk membantu MujaheeBot sampai di Gerbang Sekolah!",
-                gridSize: 4,
-                start: { r: 3, c: 0, dir: 1 }, // dir: 0:N, 1:E, 2:S, 3:W
-                target: { r: 3, c: 3 },
-                obstacles: [],
+                desc: "Jalankan MujaheeBot ke Gerbang Sekolah SD Al Mujahidin!",
+                size: 5,
+                robot: { x: 0, y: 4, dir: 'EAST' },
+                target: { x: 4, y: 0, icon: '🏫' },
+                obstacles: [{ x: 2, y: 2, icon: '🪨' }],
                 items: []
             },
             {
                 title: "Level 2: Aksi Go Green (Loop)",
-                desc: "Ambil Pohon dan tanam di area penghijauan menggunakan pengulangan!",
-                gridSize: 5,
-                start: { r: 4, c: 0, dir: 1 },
-                target: { r: 0, c: 4 },
-                obstacles: [{ r: 2, c: 2 }, { r: 2, c: 3 }],
-                items: [{ r: 4, c: 2, type: "TREE" }]
+                desc: "Ambil Bibit Tanaman (🌱) lalu tanam di Taman Sekolah!",
+                size: 5,
+                robot: { x: 0, y: 4, dir: 'EAST' },
+                target: { x: 4, y: 4, icon: '🏡' },
+                obstacles: [{ x: 1, y: 2, icon: '🧱' }],
+                items: [{ x: 2, y: 4, icon: '🌱', type: 'seed' }]
             },
             {
-                title: "Level 3: Navigasi Perpustakaan (Kondisi)",
-                desc: "Belok dan hindari tumpukan meja untuk mengambil buku perpustakaan!",
-                gridSize: 5,
-                start: { r: 4, c: 0, dir: 0 },
-                target: { r: 0, c: 4 },
-                obstacles: [{ r: 3, c: 0 }, { r: 1, c: 2 }, { r: 2, c: 2 }],
-                items: [{ r: 2, c: 0, type: "BOOK" }]
+                title: "Level 3: Navigasi Perpustakaan",
+                desc: "Ambil Buku Al-Qur'an (📖) lalu antar ke Meja Belajar!",
+                size: 5,
+                robot: { x: 0, y: 0, dir: 'SOUTH' },
+                target: { x: 4, y: 4, icon: '🪑' },
+                obstacles: [{ x: 2, y: 1, icon: '📦' }, { x: 2, y: 3, icon: '📦' }],
+                items: [{ x: 0, y: 3, icon: '📖', type: 'book' }]
             },
             {
                 title: "Level 4: Jelajah Gunungkidul",
-                desc: "Misi rumit! Navigasi jalur berliku menuju Alun-Alun Wonosari!",
-                gridSize: 6,
-                start: { r: 5, c: 0, dir: 0 },
-                target: { r: 0, c: 5 },
-                obstacles: [{ r: 4, c: 0 }, { r: 2, c: 1 }, { r: 3, c: 3 }, { r: 1, c: 4 }],
-                items: [{ r: 3, c: 0, type: "STAR" }]
+                desc: "MujaheeBot wisata ke Pantai Gunungkidul (🏖️)!",
+                size: 6,
+                robot: { x: 0, y: 5, dir: 'EAST' },
+                target: { x: 5, y: 0, icon: '🏖️' },
+                obstacles: [{ x: 2, y: 2, icon: '⛰️' }, { x: 3, y: 3, icon: '⛰️' }],
+                items: []
             }
         ];
 
         let currentLevelIdx = 0;
-        let robotState = { r: 0, c: 0, dir: 1 };
-        let program = [];
-        let stars = 0;
+        let gameState = {};
+        let programBlocks = [];
         let isRunning = false;
+        let totalStars = 0;
 
         function loadLevel(idx) {
             currentLevelIdx = parseInt(idx);
@@ -2858,51 +2873,58 @@
             const lvl = levels[currentLevelIdx];
             document.getElementById('missionTitle').innerText = lvl.title;
             document.getElementById('missionDesc').innerText = lvl.desc;
-            robotState = { ...lvl.start };
-            program = [];
-            renderWorkspace();
-            renderGrid();
-            hideAlert();
+
+            resetGame();
         }
 
-        function renderGrid() {
+        function resetGame() {
+            const lvl = levels[currentLevelIdx];
+            gameState = {
+                robot: { ...lvl.robot },
+                items: JSON.parse(JSON.stringify(lvl.items)),
+                inventory: []
+            };
+            document.getElementById('gameAlert').classList.add('hidden');
+            isRunning = false;
+            renderBoard();
+        }
+
+        function renderBoard() {
             const lvl = levels[currentLevelIdx];
             const board = document.getElementById('gridBoard');
-            board.style.gridTemplateColumns = `repeat(${lvl.gridSize}, minmax(0, 1fr))`;
+            board.style.gridTemplateColumns = `repeat(${lvl.size}, minmax(0, 1fr))`;
             board.innerHTML = '';
 
-            for (let r = 0; r < lvl.gridSize; r++) {
-                for (let c = 0; c < lvl.gridSize; c++) {
+            for (let r = 0; r < lvl.size; r++) {
+                for (let c = 0; c < lvl.size; c++) {
                     const cell = document.createElement('div');
-                    cell.className = 'grid-cell bg-emerald-900/40 rounded-xl border border-emerald-700/40 flex items-center justify-center text-xl relative';
+                    cell.className = 'grid-cell bg-emerald-900/40 rounded-xl border border-emerald-700/30 flex items-center justify-center text-xl sm:text-2xl relative shadow-inner';
+                    
+                    if (c === lvl.target.x && r === lvl.target.y) {
+                        cell.innerHTML = `<span class="animate-pulse">${lvl.target.icon}</span>`;
+                        cell.classList.add('bg-amber-500/20');
+                    }
 
-                    // Check Obstacles
-                    if (lvl.obstacles.some(o => o.r === r && o.c === c)) {
-                        cell.innerHTML = '🪨';
-                        cell.classList.add('bg-slate-800/80');
-                    }
-                    // Check Target
-                    else if (lvl.target.r === r && lvl.target.c === c) {
-                        cell.innerHTML = '🏫';
-                        cell.classList.add('bg-amber-500/20', 'border-amber-400');
-                    }
-                    // Check Items
-                    else {
-                        const item = lvl.items.find(i => i.r === r && i.c === c);
-                        if (item) {
-                            if (item.type === 'TREE') cell.innerHTML = '🌱';
-                            else if (item.type === 'BOOK') cell.innerHTML = '📚';
-                            else if (item.type === 'STAR') cell.innerHTML = '⭐';
+                    lvl.obstacles.forEach(obs => {
+                        if (obs.x === c && obs.y === r) {
+                            cell.innerHTML = `<span>${obs.icon}</span>`;
+                            cell.classList.add('bg-slate-800/80');
                         }
-                    }
+                    });
 
-                    // Check Robot
-                    if (robotState.r === r && robotState.c === c) {
-                        const bot = document.createElement('div');
-                        bot.className = 'robot-anim text-2xl sm:text-3xl z-10';
-                        const dirs = ['rotate-0', 'rotate-90', 'rotate-180', '-rotate-90'];
-                        bot.innerHTML = `<i class="fa-solid fa-robot text-cyan-300 transform ${dirs[robotState.dir]}"></i>`;
-                        cell.appendChild(bot);
+                    gameState.items.forEach(it => {
+                        if (it.x === c && it.y === r) {
+                            cell.innerHTML = `<span class="animate-bounce">${it.icon}</span>`;
+                        }
+                    });
+
+                    if (gameState.robot.x === c && gameState.robot.y === r) {
+                        let rot = 0;
+                        if (gameState.robot.dir === 'EAST') rot = 90;
+                        if (gameState.robot.dir === 'SOUTH') rot = 180;
+                        if (gameState.robot.dir === 'WEST') rot = 270;
+                        
+                        cell.innerHTML = `<div class="robot-anim text-2xl sm:text-3xl text-cyan-300 drop-shadow-[0_0_8px_rgba(34,211,238,0.8)]" style="transform: rotate(${rot}deg);"><i class="fa-solid fa-robot"></i></div>`;
                     }
 
                     board.appendChild(cell);
@@ -2912,165 +2934,159 @@
 
         function addBlock(type) {
             if (isRunning) return;
-            program.push(type);
-            renderWorkspace();
+            programBlocks.push(type);
+            updateWorkspace();
         }
 
         function clearBlocks() {
             if (isRunning) return;
-            program = [];
-            renderWorkspace();
+            programBlocks = [];
+            updateWorkspace();
         }
 
-        function renderWorkspace() {
+        function updateWorkspace() {
             const ws = document.getElementById('workspace');
-            ws.innerHTML = '';
-            if (program.length === 0) {
-                ws.innerHTML = `<div id="emptyTip" class="text-center text-slate-500 text-xs my-auto py-6">Belum ada perintah.<br>Klik tombol di atas untuk menyusun logika MujahiBot!</div>`;
+            const tip = document.getElementById('emptyTip');
+            if (programBlocks.length === 0) {
+                ws.innerHTML = '';
+                ws.appendChild(tip);
+                tip.style.display = 'block';
                 return;
             }
 
-            const names = {
-                'MOVE': 'Maju 1 Langkah',
-                'LEFT': 'Belok Kiri 90°',
-                'RIGHT': 'Belok Kanan 90°',
-                'ACTION': 'Ambil Objek',
-                'REPEAT_2': 'Ulangi (2x)',
-                'REPEAT_3': 'Ulangi (3x)'
-            };
-
-            const colors = {
-                'MOVE': 'bg-blue-600 border-blue-800',
-                'LEFT': 'bg-indigo-600 border-indigo-800',
-                'RIGHT': 'bg-indigo-600 border-indigo-800',
-                'ACTION': 'bg-amber-600 border-amber-800',
-                'REPEAT_2': 'bg-purple-600 border-purple-800',
-                'REPEAT_3': 'bg-purple-700 border-purple-900'
-            };
-
-            program.forEach((cmd, i) => {
+            ws.innerHTML = '';
+            programBlocks.forEach((b, i) => {
                 const item = document.createElement('div');
-                item.className = `${colors[cmd]} text-white px-3 py-1.5 rounded-lg text-xs font-bold flex justify-between items-center shadow border-b-2`;
-                item.innerHTML = `
-                    <span>${i + 1}. ${names[cmd]}</span>
-                    <i onclick="removeBlock(${i})" class="fa-solid fa-xmark hover:text-rose-300 cursor-pointer ml-2"></i>
-                `;
+                item.className = 'flex items-center justify-between p-2 rounded-xl text-xs font-bold text-white shadow';
+                
+                let label = '';
+                if (b === 'MOVE') { item.classList.add('bg-blue-600'); label = '<i class="fa-solid fa-arrow-up mr-1.5"></i> Maju 1'; }
+                if (b === 'LEFT') { item.classList.add('bg-indigo-600'); label = '<i class="fa-solid fa-rotate-left mr-1.5"></i> Belok Kiri'; }
+                if (b === 'RIGHT') { item.classList.add('bg-indigo-600'); label = '<i class="fa-solid fa-rotate-right mr-1.5"></i> Belok Kanan'; }
+                if (b === 'ACTION') { item.classList.add('bg-amber-600'); label = '<i class="fa-solid fa-hand mr-1.5"></i> Ambil Objek'; }
+                if (b === 'REPEAT_2') { item.classList.add('bg-purple-600'); label = '<i class="fa-solid fa-repeat mr-1.5"></i> Ulangi 2x'; }
+                if (b === 'REPEAT_3') { item.classList.add('bg-purple-700'); label = '<i class="fa-solid fa-repeat mr-1.5"></i> Ulangi 3x'; }
+
+                item.innerHTML = `<span>${i + 1}. ${label}</span> <button onclick="removeBlock(${i})" class="text-rose-300 hover:text-white px-1"><i class="fa-solid fa-xmark"></i></button>`;
                 ws.appendChild(item);
             });
         }
 
         function removeBlock(idx) {
             if (isRunning) return;
-            program.splice(idx, 1);
-            renderWorkspace();
+            programBlocks.splice(idx, 1);
+            updateWorkspace();
         }
 
         async function runProgram() {
-            if (isRunning || program.length === 0) return;
+            if (isRunning || programBlocks.length === 0) return;
             isRunning = true;
-            document.getElementById('btnRun').disabled = true;
+            resetGame();
 
-            const lvl = levels[currentLevelIdx];
-            robotState = { ...lvl.start };
-            renderGrid();
-
-            // Expand Repeat Loops
-            let expandedCmds = [];
-            for (let i = 0; i < program.length; i++) {
-                const cmd = program[i];
-                if (cmd === 'REPEAT_2') {
-                    if (i + 1 < program.length) expandedCmds.push(program[i+1], program[i+1]);
-                } else if (cmd === 'REPEAT_3') {
-                    if (i + 1 < program.length) expandedCmds.push(program[i+1], program[i+1], program[i+1]);
+            const expanded = [];
+            for (let i = 0; i < programBlocks.length; i++) {
+                const b = programBlocks[i];
+                if (b === 'REPEAT_2' && i + 1 < programBlocks.length) {
+                    expanded.push(programBlocks[i+1]);
+                    expanded.push(programBlocks[i+1]);
+                    i++;
+                } else if (b === 'REPEAT_3' && i + 1 < programBlocks.length) {
+                    expanded.push(programBlocks[i+1]);
+                    expanded.push(programBlocks[i+1]);
+                    expanded.push(programBlocks[i+1]);
+                    i++;
                 } else {
-                    expandedCmds.push(cmd);
+                    expanded.push(b);
                 }
             }
 
-            for (let cmd of expandedCmds) {
-                await new Promise(r => setTimeout(r, 400));
-
-                if (cmd === 'MOVE') {
-                    let nr = robotState.r;
-                    let nc = robotState.c;
-                    if (robotState.dir === 0) nr--;
-                    else if (robotState.dir === 1) nc++;
-                    else if (robotState.dir === 2) nr++;
-                    else if (robotState.dir === 3) nc--;
-
-                    if (nr >= 0 && nr < lvl.gridSize && nc >= 0 && nc < lvl.gridSize) {
-                        if (!lvl.obstacles.some(o => o.r === nr && o.c === nc)) {
-                            robotState.r = nr;
-                            robotState.c = nc;
-                        }
-                    }
-                } else if (cmd === 'LEFT') {
-                    robotState.dir = (robotState.dir + 3) % 4;
-                } else if (cmd === 'RIGHT') {
-                    robotState.dir = (robotState.dir + 1) % 4;
-                }
-
-                renderGrid();
-            }
-
-            // Check Win
-            if (robotState.r === lvl.target.r && robotState.c === lvl.target.c) {
-                stars += 3;
-                document.getElementById('starDisplay').innerText = stars;
-                showAlert("🎉 Luar Biasa!", "Kamu berhasil membawa MujahiBot ke tujuan dengan logika yang tepat!");
-            } else {
-                showAlert("❌ Belum Sampai", "MujahiBot belum mencapai target. Periksa kembali urutan kodenya!", false);
+            for (const cmd of expanded) {
+                await executeCmd(cmd);
+                await new Promise(r => setTimeout(r, 450));
+                if (checkWinFail()) break;
             }
 
             isRunning = false;
-            document.getElementById('btnRun').disabled = false;
         }
 
-        function resetGame() {
+        function executeCmd(cmd) {
+            const dirs = ['NORTH', 'EAST', 'SOUTH', 'WEST'];
+            let curDirIdx = dirs.indexOf(gameState.robot.dir);
+
+            if (cmd === 'LEFT') {
+                curDirIdx = (curDirIdx + 3) % 4;
+                gameState.robot.dir = dirs[curDirIdx];
+            } else if (cmd === 'RIGHT') {
+                curDirIdx = (curDirIdx + 1) % 4;
+                gameState.robot.dir = dirs[curDirIdx];
+            } else if (cmd === 'MOVE') {
+                let nx = gameState.robot.x;
+                let ny = gameState.robot.y;
+                if (gameState.robot.dir === 'NORTH') ny--;
+                if (gameState.robot.dir === 'EAST') nx++;
+                if (gameState.robot.dir === 'SOUTH') ny++;
+                if (gameState.robot.dir === 'WEST') nx--;
+
+                const lvl = levels[currentLevelIdx];
+                if (nx >= 0 && nx < lvl.size && ny >= 0 && ny < lvl.size) {
+                    let hitObs = false;
+                    lvl.obstacles.forEach(o => { if (o.x === nx && o.y === ny) hitObs = true; });
+                    if (!hitObs) {
+                        gameState.robot.x = nx;
+                        gameState.robot.y = ny;
+                    }
+                }
+            } else if (cmd === 'ACTION') {
+                const itemIdx = gameState.items.findIndex(it => it.x === gameState.robot.x && it.y === gameState.robot.y);
+                if (itemIdx !== -1) {
+                    gameState.inventory.push(gameState.items[itemIdx]);
+                    gameState.items.splice(itemIdx, 1);
+                }
+            }
+            renderBoard();
+        }
+
+        function checkWinFail() {
             const lvl = levels[currentLevelIdx];
-            robotState = { ...lvl.start };
-            renderGrid();
-            hideAlert();
-        }
-
-        function showAlert(title, body, isWin = true) {
-            const alert = document.getElementById('gameAlert');
-            document.getElementById('alertTitle').innerText = title;
-            document.getElementById('alertBody').innerText = body;
-            document.getElementById('alertIcon').innerHTML = isWin ? '<i class="fa-solid fa-trophy"></i>' : '<i class="fa-solid fa-circle-exclamation text-rose-400"></i>';
-            document.getElementById('btnNextLevel').style.display = isWin ? 'inline-block' : 'none';
-            alert.classList.remove('hidden');
-        }
-
-        function hideAlert() {
-            document.getElementById('gameAlert').classList.add('hidden');
+            if (gameState.robot.x === lvl.target.x && gameState.robot.y === lvl.target.y) {
+                if (lvl.items.length > 0 && gameState.inventory.length < lvl.items.length) {
+                    return false;
+                }
+                
+                totalStars += 3;
+                document.getElementById('starDisplay').innerText = totalStars;
+                
+                document.getElementById('alertTitle').innerText = "🎉 Mission Accomplished!";
+                document.getElementById('alertBody').innerText = "Logika coding kamu sangat luar biasa!";
+                document.getElementById('gameAlert').classList.remove('hidden');
+                return true;
+            }
+            return false;
         }
 
         function nextLevel() {
             if (currentLevelIdx < levels.length - 1) {
                 loadLevel(currentLevelIdx + 1);
             } else {
-                alert("🎉 Selamat! Kamu sudah menyelesaikan semua Level MujahiBot Coding Quest!");
-                loadLevel(0);
+                alert("Masy'Allah! Kamu telah menyelesaikan seluruh Level MujahiBot!");
             }
         }
 
-        // On Load Initial Setup
-        window.onload = function() {
+        // Inisialisasi awal saat pertama kali dokumen dimuat
+        document.addEventListener('DOMContentLoaded', () => {
+            renderVocabMatch();
+            renderAyatPuzzle();
+            renderWordGrid();
+            loadQuizLKPD();
+
             renderVocabMatchBA();
             renderSentencePuzzleBA();
             renderWordGridBA();
             loadQuizLKPD_BA();
 
-            renderVocabMatch();
-            renderAyatPuzzle();
-            renderWordGrid();
-            loadQuizLKPD();
             renderVocabMatchBab2();
-            
             initGameDragDrop9();
-            loadLevel(0);
-        };
+        });
     </script>
 </body>
 </html>
