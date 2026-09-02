@@ -3001,6 +3001,24 @@
             initGameDragDrop9();
             loadLevel(0);
         };
+        function switchBahasaArabBab(babId) {
+    var b1 = document.getElementById('ba-bab1');
+    var b2 = document.getElementById('ba-bab2');
+    var btn1 = document.getElementById('btn-ba-bab1');
+    var btn2 = document.getElementById('btn-ba-bab2');
+
+    if (babId === 'bab1') {
+        if(b1) b1.style.display = 'block';
+        if(b2) b2.style.display = 'none';
+        if(btn1) btn1.className = "px-3 py-1.5 bg-teal-600 text-white rounded-lg text-xs font-bold shadow-md cursor-pointer border border-teal-400";
+        if(btn2) btn2.className = "px-3 py-1.5 bg-teal-950/80 text-gray-300 hover:text-white rounded-lg text-xs font-bold border border-teal-700 cursor-pointer";
+    } else {
+        if(b1) b1.style.display = 'none';
+        if(b2) b2.style.display = 'block';
+        if(btn1) btn1.className = "px-3 py-1.5 bg-teal-950/80 text-gray-300 hover:text-white rounded-lg text-xs font-bold border border-teal-700 cursor-pointer";
+        if(btn2) btn2.className = "px-3 py-1.5 bg-teal-600 text-white rounded-lg text-xs font-bold shadow-md cursor-pointer border border-teal-400";
+    }
+}
     </script>
 </body>
 </html>
