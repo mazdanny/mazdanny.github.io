@@ -127,7 +127,7 @@
         <div class="text-center space-y-3">
             <div class="relative w-24 h-24 mx-auto mb-2">
                 <div class="w-full h-full rounded-full border-4 border-cyan-500 overflow-hidden bg-white shadow-[0_0_20px_rgba(34,211,238,0.5)] flex items-center justify-center">
-                    <img src="logomazdanybro.png" alt="Mazdany Avatar" class="w-full h-full object-cover object-top scale-105" onerror="this.src='https://ui-avatars.com/api/?name=Mazdany&background=0d9488&color=fff'">
+                    <img src="MAZDANY-LOGO.png" alt="Mazdany Avatar" class="w-full h-full object-cover object-top scale-105" onerror="this.src='https://ui-avatars.com/api/?name=Mazdany&background=0d9488&color=fff'">
                 </div>
             </div>
             <h1 class="text-2xl sm:text-3xl font-extrabold text-white tracking-wide uppercase">MAZDANY DIGITAL PLATFORM</h1>
@@ -145,8 +145,8 @@
                     <span class="text-[10px] font-bold text-emerald-400 bg-emerald-950 px-2.5 py-1 rounded-full uppercase border border-emerald-500/30">Menu 1</span>
                 </div>
                 <div>
-                    <h3 class="text-lg font-bold text-white tracking-wide">MATERI AL-ISLAM</h3>
-                    <p class="text-xs text-gray-300 mt-1">BAB 1: Az-Zalzalah & Tauhid | BAB 2: Asmaul Husna (Al-Khaliq, Al-Baari', Al-Mushawwir).</p>
+                    <h3 class="text-lg font-bold text-white tracking-wide">MATERI AL-ISLAM KELAS 3</h3>
+                    <p class="text-xs text-gray-300 mt-1">BAB 1 (Az-Zalzalah) & BAB 2 Asmaul Husna (Al-Khaliq, Al-Baari', Al-Mushawwir).</p>
                 </div>
             </div>
 
@@ -160,7 +160,7 @@
                 </div>
                 <div>
                     <h3 class="text-lg font-bold text-white tracking-wide">MATERI BAHASA ARAB</h3>
-                    <p class="text-xs text-gray-300 mt-1">Kosakata Anggota Badan (أَعْضَاءُ الْجِسْمِ) + Terjemah Basa Jawa + Audio AAC + LKPD Interaktif 2 JPL.</p>
+                    <p class="text-xs text-gray-300 mt-1">BAB 1 Anggota Badan & BAB 2 Anggota Keluarga (أَعْضَاءُ الْأُسْرَةِ) + Pemutar Audio.</p>
                 </div>
             </div>
 
@@ -237,26 +237,27 @@
     </div>
 
 
-    <!-- MENU 1: AL-ISLAM -->
+    <!-- MENU 1: AL-ISLAM KELAS 3 -->
     <div id="portal-al-islam" class="w-full max-w-5xl hidden space-y-8">
         <button onclick="switchPortal('home')" class="text-xs font-bold text-cyan-400 hover:text-cyan-300 flex items-center gap-2 bg-teal-950 px-3 py-1.5 rounded-lg border border-teal-800 w-fit">
             <i class="fa-solid fa-arrow-left"></i> Kembali ke Dashboard
         </button>
 
-        <div class="bg-teal-950/80 p-4 rounded-2xl border border-teal-500/30">
-            <h3 class="text-xs font-bold text-cyan-300 uppercase tracking-wider mb-2"><i class="fa-solid fa-book-bookmark mr-1"></i> Pilih BAB Al-Islam</h3>
+        <!-- Sub Navbar Bab Al-Islam -->
+        <div class="bg-teal-950/80 p-4 rounded-2xl border border-teal-500/30 shadow-lg">
+            <h3 class="text-xs font-bold text-cyan-300 uppercase tracking-wider mb-2"><i class="fa-solid fa-book-bookmark mr-1"></i> Pilih BAB Materi Al-Islam</h3>
             <div class="flex flex-wrap gap-2">
-                <button id="btn-al-bab1" onclick="switchAlIslamBab('bab1')" class="px-4 py-2 bg-teal-600 text-white rounded-xl text-xs font-bold shadow-md transition border border-teal-400">
+                <button id="btn-al-islam-bab1" onclick="switchAlIslamBab(1)" class="px-4 py-2 bg-teal-600 text-white rounded-xl text-xs font-bold shadow-md transition">
                     BAB 1: Az-Zalzalah & Fondasi Aqidah
                 </button>
-                <button id="btn-al-bab2" onclick="switchAlIslamBab('bab2')" class="px-4 py-2 bg-teal-950/80 text-gray-300 hover:text-white rounded-xl text-xs font-bold border border-teal-700 transition">
-                    BAB 2: Asmaul Husna (Al-Khaliq, Al-Baari', Al-Mushawwir)
+                <button id="btn-al-islam-bab2" onclick="switchAlIslamBab(2)" class="px-4 py-2 bg-teal-900/50 text-gray-300 hover:text-white rounded-xl text-xs font-bold border border-teal-800 transition">
+                    BAB 2: Mengenal Allah Melalui Asmaul Husna ✨
                 </button>
             </div>
         </div>
 
-        <!-- ==================== BAB 1 AL-ISLAM ==================== -->
-        <div id="al-islam-bab1" class="space-y-8">
+        <!-- KONTEN BAB 1 AL-ISLAM -->
+        <div id="al-islam-bab1-content" class="space-y-8">
             <nav class="sticky top-2 z-40 bg-teal-950/90 backdrop-blur-md rounded-2xl p-2 border border-teal-500/30 shadow-lg flex flex-wrap items-center justify-center gap-1 sm:gap-2 text-xs font-bold uppercase tracking-wider text-cyan-300">
                 <a href="#intro" class="sub-nav active px-3 py-2 rounded-xl transition">1. Fondasi Aqidah</a>
                 <a href="#pemantik" class="sub-nav px-3 py-2 rounded-xl transition">2. Pemantik & Surah</a>
@@ -303,7 +304,7 @@
                     </div>
                 </div>
 
-                <div class="space-y-4">
+                <div class="space-y-4 pb-24">
                     <div class="text-center space-y-1">
                         <h3 class="text-xl font-bold text-cyan-300">Mengenal Allah Melalui 3 Pilar Tauhid</h3>
                         <p class="text-xs text-gray-400">Bagaimana cara kita menguatkan akar aqidah tersebut? Kita harus mengenal Allah melalui tiga hal mendasar:</p>
@@ -315,7 +316,7 @@
                             <h4 class="font-bold text-cyan-300 text-sm">Tauhid Rububiyah</h4>
                             <p class="text-[11px] text-teal-400 font-semibold">Keyakinan akan Keagungan Allah sebagai Pencipta</p>
                             <p class="text-xs text-gray-300 leading-relaxed">
-                                Kalian harus yakin bahwa Allah-lah yang menciptakan diri kita, langit, bumi, dan seluruh isinya. Allah yang memberi kita napas, makanan, dan kesehatan.
+                                Kalian harus yakin bahwa Allah-lah yang menciptakan diri kita, langit, bumi, dan seluruh isinya. Allah yang memberi kita napas, makanan, dan kesehatan. Tidak ada satu pun benda di dunia ini yang ada tanpa ciptaan Allah.
                             </p>
                         </div>
 
@@ -324,7 +325,7 @@
                             <h4 class="font-bold text-cyan-300 text-sm">Tauhid Uluhiyah</h4>
                             <p class="text-[11px] text-teal-400 font-semibold">Mengesakan Allah dalam Ibadah</p>
                             <p class="text-xs text-gray-300 leading-relaxed">
-                                Karena Allah yang menciptakan dan merawat kita, maka hanya Allah satu-satunya yang berhak disembah. Kita shalat bukan karena takut dimarahi guru, melainkan semata-mata tunduk kepada Allah.
+                                Karena Allah yang menciptakan dan merawat kita, maka hanya Allah satu-satunya yang berhak disembah. Kita shalat bukan karena takut dimarahi guru, melainkan semata-mata tunduk dan bersyukur kepada Allah.
                             </p>
                         </div>
 
@@ -346,7 +347,7 @@
                         </span>
                         <h3 class="text-xl font-bold text-cyan-300">Buah Aqidah: Sikap Muroqobah (Merasa Selalu Diawasi Allah)</h3>
                         <p class="text-xs text-gray-300 mt-1 leading-relaxed">
-                            Jika ketiga pilar Tauhid ini sudah tertanam di hati, maka akan lahir sikap <strong>Muroqobah</strong>—perasaan sadar bahwa Allah senantiasa melihat dan mengawasi kita.
+                            Jamaah dan anak-anakku yang berbahagia, jika ketiga pilar Tauhid ini sudah tertanam di hati, maka akan lahir satu sikap yang sangat indah, yaitu <strong>Muroqobah</strong>—perasaan sadar bahwa Allah senantiasa melihat dan mengawasi kita di mana pun kita berada.
                         </p>
                     </div>
 
@@ -354,17 +355,17 @@
                         <div class="p-4 bg-teal-900/30 rounded-2xl border border-teal-700/40 space-y-2">
                             <span class="text-2xl">📝</span>
                             <h4 class="font-bold text-cyan-300 text-xs">Di Kelas Saat Ujian</h4>
-                            <p class="text-[11px] text-gray-300 leading-relaxed">Meskipun guru sedang tidak melihat, murid tidak akan mencontek karena tahu <strong>Al-Bashir</strong> memperhatikannya.</p>
+                            <p class="text-[11px] text-gray-300 leading-relaxed">Meskipun guru sedang tidak melihat, murid yang punya Muroqobah tidak akan mencontek karena tahu <strong>Al-Bashir</strong> memperhatikannya.</p>
                         </div>
                         <div class="p-4 bg-teal-900/30 rounded-2xl border border-teal-700/40 space-y-2">
                             <span class="text-2xl">📱</span>
                             <h4 class="font-bold text-cyan-300 text-xs">Saat Sendirian Memegang HP</h4>
-                            <p class="text-[11px] text-gray-300 leading-relaxed">Ia tidak akan membuka hal-hal yang dilarang, karena sadar Allah tahu apa yang ada di dalam hatinya.</p>
+                            <p class="text-[11px] text-gray-300 leading-relaxed">Ia tidak akan membuka hal-hal yang dilarang, karena ia sadar Allah tahu apa yang ada di dalam hatinya.</p>
                         </div>
                         <div class="p-4 bg-teal-900/30 rounded-2xl border border-teal-700/40 space-y-2">
                             <span class="text-2xl">🤝</span>
                             <h4 class="font-bold text-cyan-300 text-xs">Saat Berinteraksi dengan Teman</h4>
-                            <p class="text-[11px] text-gray-300 leading-relaxed">Ia tidak akan membuli, karena tahu setiap ucapannya didengar oleh Allah (<strong>Al-Sami'</strong>).</p>
+                            <p class="text-[11px] text-gray-300 leading-relaxed">Ia tidak akan membuli atau menyakiti, karena tahu setiap ucapannya didengar oleh Allah (<strong>Al-Sami'</strong>).</p>
                         </div>
                     </div>
                 </div>
@@ -505,7 +506,7 @@
                             <p class="text-xs text-gray-300">Uji pemahamanmu tentang Surah Az-Zalzalah & Tauhid!</p>
                         </div>
                         <div class="bg-teal-900/80 px-4 py-2 rounded-2xl border border-cyan-400 text-cyan-300 font-bold text-sm">
-                            Kuis Al-Islam Kelas 4
+                            Kuis Al-Islam Kelas 3
                         </div>
                     </div>
 
@@ -634,7 +635,7 @@
                             <h2 class="text-lg font-extrabold text-amber-950 mt-0.5">🔍 Detektif Kebaikan: Penerapan Surah Az-Zalzalah</h2>
                         </div>
 
-                        <div class="space-y-4">
+                        <div class="space-y-4 pb-24">
                             <div class="p-4 bg-amber-50/70 rounded-2xl border border-amber-200 space-y-2">
                                 <h3 class="font-bold text-amber-900 text-xs">📌 Kasus 1: Paku di Jalanan Sekolah</h3>
                                 <p class="text-xs text-gray-700">Budi mengambil paku tajam di jalanan sekolah dan membuangnya ke tempat sampah agar tidak melukai orang.</p>
@@ -693,379 +694,298 @@
             </section>
         </div>
 
-        <!-- ==================== BAB 2 AL-ISLAM ==================== -->
-        <div id="al-islam-bab2" class="hidden space-y-8">
-            <nav class="sticky top-2 z-40 bg-teal-950/90 backdrop-blur-md rounded-2xl p-2 border border-teal-500/30 shadow-lg flex flex-wrap items-center justify-center gap-1 sm:gap-2 text-xs font-bold uppercase tracking-wider text-cyan-300">
-                <a href="#bab2-intro" class="sub-nav active px-3 py-2 rounded-xl transition">1. Pengenalan Bab 2</a>
-                <a href="#bab2-asmaul" class="sub-nav px-3 py-2 rounded-xl transition">2. 3 Asmaul Husna</a>
-                <a href="#bab2-akhlak" class="sub-nav px-3 py-2 rounded-xl transition">3. Implementasi & P5</a>
-                <a href="#bab2-evaluasi" class="sub-nav px-3 py-2 rounded-xl transition">4. Uji Kompetensi</a>
-                <a href="#lkpd-bab2" class="sub-nav px-3 py-2 rounded-xl transition text-amber-300 border border-amber-500/40 bg-amber-950/40">5. LKPD & Refleksi</a>
-            </nav>
-
-            <header id="bab2-intro" class="space-y-6">
-                <div class="bg-gradient-to-r from-teal-950 via-emerald-950 to-teal-900 rounded-[2.5rem] p-6 md:p-10 text-white shadow-2xl relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-6 border border-emerald-500/40">
-                    <div class="space-y-3 max-w-2xl">
-                        <span class="bg-emerald-900 text-emerald-300 border border-emerald-500/30 text-xs font-bold px-3.5 py-1.5 rounded-full uppercase tracking-widest inline-block">
-                            BAB 2 • PAI & Budi Pekerti Kelas IV SD/MI
-                        </span>
-                        <h2 class="text-2xl md:text-4xl font-extrabold leading-tight text-emerald-300">
-                            Mengenal Allah Melalui Asmaul Husna
-                        </h2>
-                        <p class="text-gray-300 text-xs md:text-sm leading-relaxed">
-                            Memahami Kebesaran Allah Sang Maha Pencipta (Al-Khaliq), Maha Mengadakan (Al-Baari'), dan Maha Membentuk Rupa (Al-Mushawwir) Serta Mengagumi Karya-Nya dalam Kehidupan.
-                        </p>
-                    </div>
-                    <div class="text-6xl bg-emerald-900/40 p-6 rounded-[2rem] border border-emerald-500/20 shrink-0 shadow-inner">✨</div>
+        <!-- KONTEN BAB 2 AL-ISLAM: ASMAUL HUSNA (BARU DITAMBAHKAN) -->
+        <div id="al-islam-bab2-content" class="hidden space-y-8">
+            <div class="bg-teal-950/60 rounded-[2.5rem] p-6 md:p-10 text-white shadow-2xl relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-6 border border-teal-500/30">
+                <div class="space-y-3 max-w-2xl">
+                    <span class="bg-amber-950 text-amber-300 border border-amber-500/40 text-xs font-bold px-3.5 py-1.5 rounded-full uppercase tracking-widest inline-block">
+                        BAB 2 • PENDIDIKAN AGAMA ISLAM & BUDI PEKERTI KELAS 3/4
+                    </span>
+                    <h2 class="text-2xl md:text-4xl font-extrabold leading-tight text-cyan-300">
+                        BAB 2: Mengenal Allah Melalui Asmaul Husna ✨
+                    </h2>
+                    <p class="text-gray-300 text-xs md:text-sm leading-relaxed">
+                        Memahami Kebesaran Allah Sang Maha Pencipta (Al-Khaliq), Maha Mengadakan (Al-Baari'), dan Maha Membentuk Rupa (Al-Mushawwir) Serta Mengagumi Karya-Nya dalam Kehidupan.
+                    </p>
                 </div>
-            </header>
+                <div class="text-6xl bg-teal-900/40 p-6 rounded-[2rem] border border-teal-500/20 shrink-0 shadow-inner">🕌</div>
+            </div>
 
-            <section id="bab2-asmaul" class="space-y-6 pt-4">
+            <!-- Prinsip Tauhid Asma wa Sifat -->
+            <div class="bg-teal-950/60 rounded-3xl p-6 md:p-8 border border-teal-500/30 space-y-4 shadow-xl">
+                <div class="flex items-center gap-3 border-b border-teal-800/60 pb-3">
+                    <span class="text-3xl">💡</span>
+                    <div>
+                        <h3 class="text-lg font-bold text-cyan-300">Konsep Tauhid Asma wa Sifat</h3>
+                        <p class="text-xs text-teal-400 font-medium">Apa Artinya Mengimani Nama & Sifat Allah?</p>
+                    </div>
+                </div>
+
+                <p class="text-xs text-gray-300 leading-relaxed">
+                    Meyakini bahwa Allah ﷻ memiliki Nama-Nama Indah (Asmaul Husna) dan Sifat-Sifat Sempurna sesuai yang disebutkan dalam Al-Qur'an dan Hadits Nabi ﷺ tanpa mengubah maknanya, menolaknya, atau membayangkan bentuk fisiknya.
+                </p>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 pt-2">
+                    <div class="p-3 bg-teal-900/40 rounded-xl border border-teal-700/50 text-xs">
+                        <span class="font-bold text-cyan-300 block mb-1">1. Percaya Apa Adanya</span>
+                        <p class="text-gray-300 text-[11px]">Mempercayai seluruh nama dan sifat Allah persis seperti di dalam Al-Qur'an & Hadits.</p>
+                    </div>
+                    <div class="p-3 bg-teal-900/40 rounded-xl border border-teal-700/50 text-xs">
+                        <span class="font-bold text-cyan-300 block mb-1">2. Tidak Sama dg Makhluk</span>
+                        <p class="text-gray-300 text-[11px]">Sifat Allah (seperti Melihat & Mendengar) berbeda total dengan cara dan fisik makhluk.</p>
+                    </div>
+                    <div class="p-3 bg-teal-900/40 rounded-xl border border-teal-700/50 text-xs">
+                        <span class="font-bold text-cyan-300 block mb-1">3. Tidak Membayangkan</span>
+                        <p class="text-gray-300 text-[11px]">Tidak menerka-nerka atau membayangkan wujud fisiknya karena Allah Maha Gaib.</p>
+                    </div>
+                    <div class="p-3 bg-teal-900/40 rounded-xl border border-teal-700/50 text-xs">
+                        <span class="font-bold text-cyan-300 block mb-1">4. Tidak Menolak</span>
+                        <p class="text-gray-300 text-[11px]">Tidak ragu atau menolak kabar dari Allah dan Rasul-Nya mengenai sifat keagungan-Nya.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Detail 3 Asmaul Husna Pilihan -->
+            <div class="space-y-6">
                 <div class="text-center space-y-1">
-                    <h3 class="text-xl font-bold text-cyan-300">Bagian 1: Menulis & Menghafal 3 Asmaul Husna Pilihan</h3>
-                    <p class="text-xs text-gray-400">Mengenal Kaligrafi, Lafal, Arti, Makna Kandungan, dan Panduan Menulisnya:</p>
+                    <h3 class="text-2xl font-bold text-cyan-300">Bagian 1: Menulis & Menghafal 3 Asmaul Husna Pilihan</h3>
+                    <p class="text-xs text-gray-400">Pelajari kaligrafi, lafal, panduan menulis, dan makna kandungannya:</p>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
-                    <!-- Asmaul Husna 1: AL-KHALIQ -->
-                    <div class="bg-teal-950/60 p-6 rounded-2xl border border-teal-700/40 space-y-3 hover:border-cyan-400 transition shadow-lg">
-                        <div class="flex justify-between items-center">
-                            <span class="text-xs font-bold text-emerald-400 bg-emerald-950 px-2.5 py-1 rounded-full border border-emerald-500/30">Asmaul Husna #1</span>
-                            <span class="text-xs text-gray-400">Q.S. Ar-Ra'd: 16</span>
+                    <!-- Asmaul Husna 1: Al-Khaliq -->
+                    <div class="bg-teal-950/80 p-6 rounded-3xl border border-teal-500/40 space-y-4 hover:border-cyan-400 transition shadow-xl">
+                        <div class="flex justify-between items-center border-b border-teal-800 pb-2">
+                            <span class="text-[10px] font-bold bg-cyan-950 text-cyan-300 px-3 py-1 rounded-full border border-cyan-500/30">Asmaul Husna #1</span>
+                            <span class="text-xs text-teal-300 font-bold">الخَالِقُ</span>
                         </div>
-                        <div class="text-center py-2 bg-teal-900/30 rounded-xl border border-teal-700/30">
+                        <div class="text-center space-y-1">
                             <p class="arabic-text text-3xl font-bold text-cyan-200">الخَالِقُ</p>
-                            <p class="text-sm font-extrabold text-white mt-1">AL-KHALIQ</p>
-                            <p class="text-xs text-emerald-400 font-semibold">Maha Pencipta</p>
+                            <h4 class="font-bold text-white text-base">Al-Khaliq</h4>
+                            <p class="text-xs font-bold text-emerald-400 uppercase">Maha Pencipta</p>
                         </div>
-                        <div class="text-xs text-gray-300 leading-relaxed space-y-2">
+                        <div class="p-3 bg-teal-900/40 rounded-xl border border-teal-700/50 text-xs space-y-1.5 text-gray-300">
                             <p><strong>Arti:</strong> Allah Maha Pencipta segalanya dari tidak ada menjadi ada.</p>
                             <p><strong>Makna Kandungan:</strong> Seluruh alam semesta, bumi, langit, manusia, hewan, dan tumbuhan diciptakan oleh Allah tanpa bantuan siapa pun. Ciptaan Allah dinamakan <em>makhluq</em>.</p>
+                            <p class="text-[11px] text-cyan-200 italic pt-1 border-t border-teal-800">✍️ <strong>Panduan Menulis:</strong> Mulai dari huruf Kha (خ), Alif (ا), Lam (ل), dan Qaf (ق).</p>
                         </div>
-                        <div class="p-2.5 bg-teal-900/50 rounded-xl text-[11px] text-cyan-200 border border-teal-700/40">
-                            <strong>✍️ Panduan Menulis:</strong> Mulai dari huruf Kha (خ), Alif (ا), Lam (ل), dan Qaf (ق).
+                        <div class="p-3 bg-cyan-950/60 rounded-xl border border-cyan-500/30 text-[11px] text-cyan-200 italic">
+                            "Katakanlah: Allah adalah Pencipta segala sesuatu dan Dialah Tuhan Yang Maha Esa lagi Maha Perkasa." (Q.S. Ar-Ra'd [13]: 16)
                         </div>
                     </div>
 
-                    <!-- Asmaul Husna 2: AL-BAARI' -->
-                    <div class="bg-teal-950/60 p-6 rounded-2xl border border-teal-700/40 space-y-3 hover:border-cyan-400 transition shadow-lg">
-                        <div class="flex justify-between items-center">
-                            <span class="text-xs font-bold text-emerald-400 bg-emerald-950 px-2.5 py-1 rounded-full border border-emerald-500/30">Asmaul Husna #2</span>
-                            <span class="text-xs text-gray-400">Eksekutor Sempurna</span>
+                    <!-- Asmaul Husna 2: Al-Baari' -->
+                    <div class="bg-teal-950/80 p-6 rounded-3xl border border-teal-500/40 space-y-4 hover:border-cyan-400 transition shadow-xl">
+                        <div class="flex justify-between items-center border-b border-teal-800 pb-2">
+                            <span class="text-[10px] font-bold bg-cyan-950 text-cyan-300 px-3 py-1 rounded-full border border-cyan-500/30">Asmaul Husna #2</span>
+                            <span class="text-xs text-teal-300 font-bold">البَارِئُ</span>
                         </div>
-                        <div class="text-center py-2 bg-teal-900/30 rounded-xl border border-teal-700/30">
+                        <div class="text-center space-y-1">
                             <p class="arabic-text text-3xl font-bold text-cyan-200">البَارِئُ</p>
-                            <p class="text-sm font-extrabold text-white mt-1">AL-BAARI'</p>
-                            <p class="text-xs text-emerald-400 font-semibold">Maha Mengadakan / Pembuat</p>
+                            <h4 class="font-bold text-white text-base">Al-Baari'</h4>
+                            <p class="text-xs font-bold text-emerald-400 uppercase">Maha Mengadakan / Pembuat</p>
                         </div>
-                        <div class="text-xs text-gray-300 leading-relaxed space-y-2">
+                        <div class="p-3 bg-teal-900/40 rounded-xl border border-teal-700/50 text-xs space-y-1.5 text-gray-300">
                             <p><strong>Arti:</strong> Allah Maha Mengadakan dan Memperbarui ciptaan tanpa cela.</p>
-                            <p><strong>Makna Kandungan:</strong> Allah yang melepaskan dan mewujudkan ciptaan dengan rancangan yang sangat seimbang, teratur, dan tidak pernah salah dalam merencana segala sesuatu.</p>
+                            <p><strong>Makna Kandungan:</strong> Allah yang melepaskan dan mewujudkan ciptaan dengan rancangan yang sangat seimbang, teratur, dan tidak pernah salah dalam merencanakan segala sesuatu.</p>
+                            <p class="text-[11px] text-cyan-200 italic pt-1 border-t border-teal-800">✍️ <strong>Panduan Menulis:</strong> Mulai dari Ba (ب), Alif (ا), Ra (ر), dan Hamzah di atas Ya (ئ).</p>
                         </div>
-                        <div class="p-2.5 bg-amber-950/60 rounded-xl text-[11px] text-amber-200 border border-amber-500/40">
-                            <strong>🔑 Poin Kunci:</strong> Al-Khaliq merencanakan penciptaan, sedangkan Al-Baari' mengeksekusi dan mewujudkannya dalam keadaan sempurna.
-                        </div>
-                        <div class="p-2.5 bg-teal-900/50 rounded-xl text-[11px] text-cyan-200 border border-teal-700/40">
-                            <strong>✍️ Panduan Menulis:</strong> Mulai dari Ba (ب), Alif (ا), Ra (ر), dan Hamzah di atas Ya (ئ).
+                        <div class="p-3 bg-cyan-950/60 rounded-xl border border-cyan-500/30 text-[11px] text-cyan-200 italic">
+                            📌 <strong>Poin Kunci:</strong> Al-Khaliq merencanakan penciptaan, sedangkan Al-Baari' mengeksekusi dan mewujudkannya dalam keadaan sempurna.
                         </div>
                     </div>
 
-                    <!-- Asmaul Husna 3: AL-MUSHAWWIR -->
-                    <div class="bg-teal-950/60 p-6 rounded-2xl border border-teal-700/40 space-y-3 hover:border-cyan-400 transition shadow-lg">
-                        <div class="flex justify-between items-center">
-                            <span class="text-xs font-bold text-emerald-400 bg-emerald-950 px-2.5 py-1 rounded-full border border-emerald-500/30">Asmaul Husna #3</span>
-                            <span class="text-xs text-gray-400">Q.S. Al-Hasyr: 24</span>
+                    <!-- Asmaul Husna 3: Al-Mushawwir -->
+                    <div class="bg-teal-950/80 p-6 rounded-3xl border border-teal-500/40 space-y-4 hover:border-cyan-400 transition shadow-xl">
+                        <div class="flex justify-between items-center border-b border-teal-800 pb-2">
+                            <span class="text-[10px] font-bold bg-cyan-950 text-cyan-300 px-3 py-1 rounded-full border border-cyan-500/30">Asmaul Husna #3</span>
+                            <span class="text-xs text-teal-300 font-bold">المُصَوِّرُ</span>
                         </div>
-                        <div class="text-center py-2 bg-teal-900/30 rounded-xl border border-teal-700/30">
+                        <div class="text-center space-y-1">
                             <p class="arabic-text text-3xl font-bold text-cyan-200">المُصَوِّرُ</p>
-                            <p class="text-sm font-extrabold text-white mt-1">AL-MUSHAWWIR</p>
-                            <p class="text-xs text-emerald-400 font-semibold">Maha Membentuk Rupa</p>
+                            <h4 class="font-bold text-white text-base">Al-Mushawwir</h4>
+                            <p class="text-xs font-bold text-emerald-400 uppercase">Maha Membentuk Rupa</p>
                         </div>
-                        <div class="text-xs text-gray-300 leading-relaxed space-y-2">
+                        <div class="p-3 bg-teal-900/40 rounded-xl border border-teal-700/50 text-xs space-y-1.5 text-gray-300">
                             <p><strong>Arti:</strong> Allah Maha Memberi Bentuk dan Rupa pada setiap ciptaan-Nya.</p>
                             <p><strong>Makna Kandungan:</strong> Tidak ada dua manusia yang benar-benar sama persis. Allah memberi warna kulit, bentuk wajah, sidik jari, dan rupa yang unik pada setiap makhluk sesuai kehendak-Nya.</p>
+                            <p class="text-[11px] text-cyan-200 italic pt-1 border-t border-teal-800">✍️ <strong>Panduan Menulis:</strong> Mim (م), Sad (ص) bertasydid, Wa (و), dan Ra (ر).</p>
                         </div>
-                        <div class="p-2.5 bg-teal-900/50 rounded-xl text-[11px] text-cyan-200 border border-teal-700/40">
-                            <strong>✍️ Panduan Menulis:</strong> Mulai dari Mim (م), Sad bertasydid (صّ), Wa (و), dan Ra (ر).
+                        <div class="p-3 bg-cyan-950/60 rounded-xl border border-cyan-500/30 text-[11px] text-cyan-200 italic">
+                            "Dialah Allah Yang Menciptakan, Yang Mengadakan, Yang Membentuk Rupa, Yang Mempunyai Asmaul Husna." (Q.S. Al-Hasyr [59]: 24)
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <!-- Kutipan Ayat Al-Qur'an -->
-                <div class="bg-teal-950/80 p-5 rounded-2xl border border-cyan-500/40 space-y-3 text-center">
-                    <span class="bg-cyan-950 text-cyan-300 text-[10px] font-bold px-3 py-1 rounded-full uppercase border border-cyan-500/30">Dalil Al-Qur'an (Q.S. Al-Hasyr [59]: 24)</span>
-                    <p class="arabic-text text-2xl font-bold text-cyan-100">هُوَ اللَّهُ الْخَالِقُ الْبَارِئُ الْمُصَوِّرُ ۖ لَهُ الْأَسْمَاءُ الْحُسْنَىٰ</p>
-                    <p class="text-xs text-gray-300 italic">"Dialah Allah Yang Menciptakan, Yang Mengadakan, Yang Membentuk Rupa, Yang Mempunyai Asmaul Husna."</p>
+            <!-- Implementasi Sikap & Buah Positif -->
+            <div class="bg-teal-950/60 rounded-3xl p-6 md:p-8 border border-teal-500/30 space-y-4 shadow-xl">
+                <div class="border-b border-teal-800 pb-3">
+                    <span class="bg-emerald-950 text-emerald-300 border border-emerald-500/30 text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider inline-block mb-2">
+                        Implementasi Sikap
+                    </span>
+                    <h3 class="text-xl font-bold text-cyan-300">Buah & Penerapan dalam Kehidupan Sehari-hari</h3>
+                    <p class="text-xs text-gray-300 mt-1">Setelah mengimani Asmaul Husna di atas, berikut wujud perilaku positif siswa:</p>
                 </div>
-            </section>
 
-            <section id="bab2-akhlak" class="space-y-6 pt-6 border-t border-teal-900/50">
-                <div class="bg-teal-950/80 rounded-3xl p-6 md:p-8 border border-teal-500/30 space-y-5 shadow-2xl">
-                    <div class="border-b border-teal-800/60 pb-3">
-                        <span class="bg-emerald-950 text-emerald-300 border border-emerald-500/40 text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider inline-block mb-2">
-                            Buah & Penerapan dalam Kehidupan Sehari-hari
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+                    <div class="p-4 bg-teal-900/30 rounded-2xl border border-teal-700/40 space-y-2">
+                        <span class="text-2xl">❤️</span>
+                        <h4 class="font-bold text-cyan-300">1. Mengagumi Ciptaan Allah</h4>
+                        <p class="text-gray-300 leading-relaxed">Menumbuhkan rasa takjub dan syukur saat melihat keindahan alam, lautan, gunung, dan ragam hewan tanpa menyekutukan Penciptanya.</p>
+                    </div>
+                    <div class="p-4 bg-teal-900/30 rounded-2xl border border-teal-700/40 space-y-2">
+                        <span class="text-2xl">🌱</span>
+                        <h4 class="font-bold text-cyan-300">2. Merawat Lingkungan</h4>
+                        <p class="text-gray-300 leading-relaxed">Sebagai wujud menghargai karya Allah Sang Al-Khaliq, kita aktif menjaga kebersihan, menyiram tanaman, dan tidak menyiksa hewan.</p>
+                    </div>
+                    <div class="p-4 bg-teal-900/30 rounded-2xl border border-teal-700/40 space-y-2">
+                        <span class="text-2xl">🤲</span>
+                        <h4 class="font-bold text-cyan-300">3. Menghargai Perbedaan</h4>
+                        <p class="text-gray-300 leading-relaxed">Menghormati perbedaan rupa, warna kulit, dan fisik kawan karena menyadari bahwa itu adalah keindahan racikan Al-Mushawwir.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Projek P5: Aktivitas Praktis -->
+            <div class="bg-amber-950/40 rounded-3xl p-6 border border-amber-500/40 space-y-4 shadow-xl text-gray-200">
+                <div class="flex items-center justify-between border-b border-amber-800/60 pb-3">
+                    <div>
+                        <span class="bg-amber-500 text-amber-950 text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider">Aktivitas Praktis</span>
+                        <h3 class="text-lg font-bold text-amber-200 mt-1">Projek Pelajar Berkemajuan (P5): "Jurnal Mengagumi Ciptaan Allah"</h3>
+                    </div>
+                    <span class="text-3xl">🌿</span>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs">
+                    <div class="p-3 bg-amber-900/30 rounded-xl border border-amber-700/50"><strong class="text-amber-300 block mb-1">Langkah 1 (Amati):</strong> Cari 1 objek tumbuhan atau hewan di sekitar rumah/sekolah.</div>
+                    <div class="p-3 bg-amber-900/30 rounded-xl border border-amber-700/50"><strong class="text-amber-300 block mb-1">Langkah 2 (Gambar/Foto):</strong> Gambar bentuk rupanya secara kreatif sebagai bukti keindahan buatan Al-Mushawwir.</div>
+                    <div class="p-3 bg-amber-900/30 rounded-xl border border-amber-700/50"><strong class="text-amber-300 block mb-1">Langkah 3 (Aksi Nyata):</strong> Lakukan tindakan merawat objek tersebut (contoh: menyiram tanaman / memberi makan kucing) 3 hari berturut-turut.</div>
+                    <div class="p-3 bg-amber-900/30 rounded-xl border border-amber-700/50"><strong class="text-amber-300 block mb-1">Langkah 4 (Presentasi):</strong> Ceritakan di depan kelas keagungan Allah yang tercermin dari objek tersebut.</div>
+                </div>
+            </div>
+
+            <!-- Evaluasi Bab 2 Asmaul Husna -->
+            <div class="bg-teal-950/80 rounded-3xl p-6 md:p-8 border border-teal-500/30 space-y-6 shadow-2xl">
+                <div class="flex flex-col md:flex-row items-center justify-between gap-4 border-b border-teal-800/60 pb-4">
+                    <div>
+                        <span class="bg-cyan-950 text-cyan-300 border border-cyan-500/30 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider inline-block mb-2">
+                            📝 Evaluasi Bab 2
                         </span>
-                        <h3 class="text-xl font-bold text-emerald-300">Implementasi Sikap Peserta Didik</h3>
-                        <p class="text-xs text-gray-300 mt-1 leading-relaxed">
-                            Setelah mengimani dan memahami Asmaul Husna tersebut, berikut adalah buah positif yang terwujud dalam perilaku harian:
-                        </p>
+                        <h3 class="text-2xl font-bold text-cyan-300">Uji Kompetensi BAB 2: Asmaul Husna</h3>
+                        <p class="text-xs text-gray-300">Jawablah pertanyaan pilihan ganda & isian di bawah ini dengan tepat!</p>
                     </div>
-
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                        <div class="p-4 bg-teal-900/30 rounded-2xl border border-teal-700/40 space-y-2">
-                            <span class="text-2xl">🌊</span>
-                            <h4 class="font-bold text-cyan-300 text-xs">1. Mengagumi Ciptaan Allah</h4>
-                            <p class="text-[11px] text-gray-300 leading-relaxed">Menumbuhkan rasa takjub dan syukur saat melihat keindahan alam, lautan, gunung, dan ragam hewan tanpa menyekutukan Penciptanya.</p>
-                        </div>
-                        <div class="p-4 bg-teal-900/30 rounded-2xl border border-teal-700/40 space-y-2">
-                            <span class="text-2xl">🌱</span>
-                            <h4 class="font-bold text-cyan-300 text-xs">2. Merawat Lingkungan</h4>
-                            <p class="text-[11px] text-gray-300 leading-relaxed">Sebagai wujud menghargai karya Allah Sang Al-Khaliq, kita aktif menjaga kebersihan, menyiram tanaman, dan tidak menyiksa hewan.</p>
-                        </div>
-                        <div class="p-4 bg-teal-900/30 rounded-2xl border border-teal-700/40 space-y-2">
-                            <span class="text-2xl">🤝</span>
-                            <h4 class="font-bold text-cyan-300 text-xs">3. Menghargai Perbedaan</h4>
-                            <p class="text-[11px] text-gray-300 leading-relaxed">Menghormati perbedaan rupa, warna kulit, dan fisik kawan karena menyadari bahwa itu adalah keindahan racikan Al-Mushawwir.</p>
-                        </div>
+                    <div class="bg-teal-900/80 px-4 py-2 rounded-2xl border border-cyan-400 text-cyan-300 font-bold text-sm">
+                        Kuis Bab 2 PAI
                     </div>
                 </div>
 
-                <!-- Projek P5 -->
-                <div class="bg-gradient-to-r from-emerald-950 via-teal-900 to-emerald-900 rounded-3xl p-6 border border-emerald-400/50 text-white space-y-4 shadow-xl">
-                    <div class="flex items-center gap-3 border-b border-emerald-700/60 pb-3">
-                        <span class="text-3xl">📘</span>
-                        <div>
-                            <span class="bg-emerald-500/30 text-emerald-200 border border-emerald-400/30 text-[10px] font-bold px-2.5 py-0.5 rounded-full uppercase">Aktivitas Praktis</span>
-                            <h3 class="text-lg font-extrabold text-amber-200">Projek Pelajar Berkemajuan (P5)</h3>
+                <form id="asmaulHusnaQuizForm" class="space-y-5 text-xs">
+                    <div class="p-4 bg-teal-900/30 rounded-2xl border border-teal-700/40 space-y-2">
+                        <p class="font-bold text-cyan-300">1. Allah Swt. menciptakan alam semesta beserta isinya dari tidak ada menjadi ada. Hal ini membuktikan bahwa Allah bersifat...</p>
+                        <div class="space-y-1 text-gray-300">
+                            <label class="block cursor-pointer"><input type="radio" name="ahq1" value="A"> A. Al-Malik</label>
+                            <label class="block cursor-pointer"><input type="radio" name="ahq1" value="B"> B. Al-Khaliq</label>
+                            <label class="block cursor-pointer"><input type="radio" name="ahq1" value="C"> C. Al-Quddus</label>
+                            <label class="block cursor-pointer"><input type="radio" name="ahq1" value="D"> D. Al-Aziz</label>
                         </div>
                     </div>
-                    <p class="text-xs text-emerald-100 font-bold">Judul Projek: "Jurnal Mengagumi Ciptaan Allah di Sekitarku"</p>
-                    <p class="text-xs text-gray-200">Tujuan: Mengamati dan merawat keindahan ciptaan Allah di lingkungan rumah atau sekolah.</p>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs pt-2">
-                        <div class="bg-white/10 p-3 rounded-xl border border-white/20">
-                            <span class="font-bold text-amber-300 block mb-1">Langkah 1 (Amati)</span>
-                            Cari 1 objek tumbuhan atau hewan di sekitar rumah/sekolah.
-                        </div>
-                        <div class="bg-white/10 p-3 rounded-xl border border-white/20">
-                            <span class="font-bold text-amber-300 block mb-1">Langkah 2 (Gambar)</span>
-                            Gambar bentuk rupanya secara kreatif sebagai bukti keindahan buatan Al-Mushawwir.
-                        </div>
-                        <div class="bg-white/10 p-3 rounded-xl border border-white/20">
-                            <span class="font-bold text-amber-300 block mb-1">Langkah 3 (Aksi Nyata)</span>
-                            Merawat objek tersebut (menyiram tanaman / memberi makan kucing) selama 3 hari berturut-turut.
-                        </div>
-                        <div class="bg-white/10 p-3 rounded-xl border border-white/20">
-                            <span class="font-bold text-amber-300 block mb-1">Langkah 4 (Presentasi)</span>
-                            Ceritakan di depan kelas keagungan Allah yang tercermin dari objek tersebut.
+
+                    <div class="p-4 bg-teal-900/30 rounded-2xl border border-teal-700/40 space-y-2">
+                        <p class="font-bold text-cyan-300">2. Nama Asmaul Husna yang memiliki arti "Maha Membentuk Rupa" adalah...</p>
+                        <div class="space-y-1 text-gray-300">
+                            <label class="block cursor-pointer"><input type="radio" name="ahq2" value="A"> A. Al-Baari'</label>
+                            <label class="block cursor-pointer"><input type="radio" name="ahq2" value="B"> B. Al-Khaliq</label>
+                            <label class="block cursor-pointer"><input type="radio" name="ahq2" value="C"> C. Al-Mushawwir</label>
+                            <label class="block cursor-pointer"><input type="radio" name="ahq2" value="D"> D. Ar-Rahman</label>
                         </div>
                     </div>
+
+                    <div class="p-4 bg-teal-900/30 rounded-2xl border border-teal-700/40 space-y-2">
+                        <p class="font-bold text-cyan-300">3. Setiap manusia memiliki bentuk wajah dan sidik jari yang unik. Bukti ini menunjukkan keagungan sifat Allah...</p>
+                        <div class="space-y-1 text-gray-300">
+                            <label class="block cursor-pointer"><input type="radio" name="ahq3" value="A"> A. Al-Mushawwir</label>
+                            <label class="block cursor-pointer"><input type="radio" name="ahq3" value="B"> B. Al-Ghaffar</label>
+                            <label class="block cursor-pointer"><input type="radio" name="ahq3" value="C"> C. Al-Wahhab</label>
+                            <label class="block cursor-pointer"><input type="radio" name="ahq3" value="D"> D. Al-Alim</label>
+                        </div>
+                    </div>
+
+                    <div class="p-4 bg-teal-900/30 rounded-2xl border border-teal-700/40 space-y-2">
+                        <p class="font-bold text-cyan-300">4. Wujud rasa syukur atas ciptaan Al-Khaliq pada lingkungan sekitar dilakukan dengan cara...</p>
+                        <div class="space-y-1 text-gray-300">
+                            <label class="block cursor-pointer"><input type="radio" name="ahq4" value="A"> A. Merusak tanaman dan membakar sampah sembarangan</label>
+                            <label class="block cursor-pointer"><input type="radio" name="ahq4" value="B"> B. Menyiram tanaman dan menjaga kebersihan lingkungan</label>
+                        </div>
+                    </div>
+
+                    <div class="p-4 bg-teal-900/30 rounded-2xl border border-teal-700/40 space-y-2">
+                        <p class="font-bold text-cyan-300">5. Asmaul Husna Al-Baari' mengajarkan bahwa Allah Maha Mengadakan ciptaan secara...</p>
+                        <div class="space-y-1 text-gray-300">
+                            <label class="block cursor-pointer"><input type="radio" name="ahq5" value="A"> A. Sempurna, teratur, dan tanpa cela</label>
+                            <label class="block cursor-pointer"><input type="radio" name="ahq5" value="B"> B. Kebetulan tanpa tujuan</label>
+                        </div>
+                    </div>
+
+                    <!-- Isian Singkat -->
+                    <div class="p-4 bg-teal-900/30 rounded-2xl border border-teal-700/40 space-y-3">
+                        <h4 class="font-bold text-cyan-300 text-xs">✍️ Bagian II: Isian Singkat</h4>
+                        <div class="space-y-2">
+                            <label class="block">1. Segala sesuatu yang diciptakan oleh Allah disebut <input type="text" id="ahis1" class="bg-teal-950 border border-teal-600 rounded px-2 py-1 text-cyan-200">.</label>
+                            <label class="block">2. Asmaul Husna Al-Khaliq artinya Allah Maha <input type="text" id="ahis2" class="bg-teal-950 border border-teal-600 rounded px-2 py-1 text-cyan-200">.</label>
+                            <label class="block">3. Sifat Allah yang Maha Mengadakan ciptaan tanpa cela adalah <input type="text" id="ahis3" class="bg-teal-950 border border-teal-600 rounded px-2 py-1 text-cyan-200">.</label>
+                        </div>
+                    </div>
+
+                    <button type="button" onclick="submitAsmaulHusnaQuiz()" class="w-full py-3 bg-cyan-600 hover:bg-cyan-500 text-black font-bold rounded-xl transition shadow-lg text-sm">
+                        Periksa Jawaban Kuis Bab 2 Asmaul Husna ✍️
+                    </button>
+                </form>
+
+                <div id="asmaulHusnaResult" class="hidden p-4 bg-teal-900/90 rounded-2xl border border-cyan-400 text-center font-bold text-cyan-300 text-sm"></div>
+            </div>
+
+            <!-- Pengayaan & Refleksi Diri -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-teal-950/60 rounded-3xl p-6 border border-teal-500/30 space-y-3 text-xs">
+                    <h3 class="text-sm font-bold text-cyan-300 flex items-center gap-1.5"><i class="fa-solid fa-star text-amber-400"></i> Pengayaan (Enrichment)</h3>
+                    <p class="text-gray-300 leading-relaxed">
+                        Bagi siswa yang telah menguasai materi: Carilah ayat Al-Qur'an lain yang menyebutkan penciptaan langit dan bumi (misalnya Q.S. Ali 'Imran: 190-191), lalu buatlah kaligrafi sederhana dari salah satu Asmaul Husna di atas pada kertas gambar!
+                    </p>
                 </div>
-            </section>
-
-            <section id="bab2-evaluasi" class="space-y-6 pt-6 border-t border-teal-900/50">
-                <div class="bg-teal-950/60 rounded-3xl p-6 md:p-8 border border-teal-500/30 space-y-6 shadow-2xl">
-                    <div class="flex flex-col md:flex-row items-center justify-between gap-4 border-b border-teal-800/60 pb-4">
-                        <div>
-                            <span class="bg-emerald-950 text-emerald-300 border border-emerald-500/30 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider inline-block mb-2">
-                                📝 Evaluasi Bab 2 PAI
-                            </span>
-                            <h3 class="text-2xl font-bold text-emerald-300">Uji Kompetensi Soal Pilihan Ganda</h3>
-                            <p class="text-xs text-gray-300">Uji pemahamanmu tentang Al-Khaliq, Al-Baari', dan Al-Mushawwir!</p>
-                        </div>
-                        <div class="bg-teal-900/80 px-4 py-2 rounded-2xl border border-emerald-400 text-emerald-300 font-bold text-sm">
-                            Evaluasi 1
-                        </div>
-                    </div>
-
-                    <form id="alIslamQuizFormBab2" class="space-y-5 text-xs">
-                        <div class="p-4 bg-teal-900/30 rounded-2xl border border-teal-700/40 space-y-2">
-                            <p class="font-bold text-emerald-300">1. Allah Swt. menciptakan alam semesta beserta isinya dari tidak ada menjadi ada. Hal ini membuktikan bahwa Allah bersifat...</p>
-                            <div class="space-y-1 text-gray-300">
-                                <label class="block cursor-pointer"><input type="radio" name="ais2_1" value="A"> A. Al-Malik</label>
-                                <label class="block cursor-pointer"><input type="radio" name="ais2_1" value="B"> B. Al-Khaliq</label>
-                                <label class="block cursor-pointer"><input type="radio" name="ais2_1" value="C"> C. Al-Quddus</label>
-                                <label class="block cursor-pointer"><input type="radio" name="ais2_1" value="D"> D. Al-Aziz</label>
-                            </div>
-                        </div>
-
-                        <div class="p-4 bg-teal-900/30 rounded-2xl border border-teal-700/40 space-y-2">
-                            <p class="font-bold text-emerald-300">2. Nama Asmaul Husna yang memiliki arti "Maha Membentuk Rupa" adalah...</p>
-                            <div class="space-y-1 text-gray-300">
-                                <label class="block cursor-pointer"><input type="radio" name="ais2_2" value="A"> A. Al-Baari</label>
-                                <label class="block cursor-pointer"><input type="radio" name="ais2_2" value="B"> B. Al-Khaliq</label>
-                                <label class="block cursor-pointer"><input type="radio" name="ais2_2" value="C"> C. Al-Mushawwir</label>
-                                <label class="block cursor-pointer"><input type="radio" name="ais2_2" value="D"> D. Ar-Rahman</label>
-                            </div>
-                        </div>
-
-                        <div class="p-4 bg-teal-900/30 rounded-2xl border border-teal-700/40 space-y-2">
-                            <p class="font-bold text-emerald-300">3. Setiap manusia memiliki bentuk wajah dan sidik jari yang unik. Bukti ini menunjukkan keagungan sifat Allah...</p>
-                            <div class="space-y-1 text-gray-300">
-                                <label class="block cursor-pointer"><input type="radio" name="ais2_3" value="A"> A. Al-Mushawwir</label>
-                                <label class="block cursor-pointer"><input type="radio" name="ais2_3" value="B"> B. Al-Ghaffar</label>
-                                <label class="block cursor-pointer"><input type="radio" name="ais2_3" value="C"> C. Al-Wahhab</label>
-                                <label class="block cursor-pointer"><input type="radio" name="ais2_3" value="D"> D. Al-Alim</label>
-                            </div>
-                        </div>
-
-                        <div class="p-4 bg-teal-900/30 rounded-2xl border border-teal-700/40 space-y-2">
-                            <p class="font-bold text-emerald-300">4. Wujud rasa syukur atas ciptaan Al-Khaliq pada lingkungan sekitar dilakukan dengan cara...</p>
-                            <div class="space-y-1 text-gray-300">
-                                <label class="block cursor-pointer"><input type="radio" name="ais2_4" value="A"> A. Merusak bunga</label>
-                                <label class="block cursor-pointer"><input type="radio" name="ais2_4" value="B"> B. Menyiram tanaman</label>
-                            </div>
-                        </div>
-
-                        <div class="p-4 bg-teal-900/30 rounded-2xl border border-teal-700/40 space-y-2">
-                            <p class="font-bold text-emerald-300">5. Asmaul Husna Al-Baari' mengajarkan bahwa Allah Maha Mengadakan ciptaan secara...</p>
-                            <div class="space-y-1 text-gray-300">
-                                <label class="block cursor-pointer"><input type="radio" name="ais2_5" value="A"> A. Sempurna & teratur</label>
-                                <label class="block cursor-pointer"><input type="radio" name="ais2_5" value="B"> B. Kebetulan</label>
-                            </div>
-                        </div>
-
-                        <button type="button" onclick="submitAlIslamQuizBab2()" class="w-full py-3 bg-emerald-600 hover:bg-emerald-500 text-black font-bold rounded-xl transition shadow-lg text-sm">
-                            Periksa Jawaban Evaluasi 1 ✍️
-                        </button>
-                    </form>
-
-                    <div id="alIslamResultBab2" class="hidden p-4 bg-teal-900/90 rounded-2xl border border-emerald-400 text-center font-bold text-emerald-300 text-sm"></div>
+                <div class="bg-teal-950/60 rounded-3xl p-6 border border-teal-500/30 space-y-3 text-xs">
+                    <h3 class="text-sm font-bold text-cyan-300 flex items-center gap-1.5"><i class="fa-solid fa-heart text-rose-400"></i> Lembar Refleksi Diri</h3>
+                    <ul class="space-y-1.5 text-gray-300">
+                        <li>✅ Saya bisa menyebutkan arti Al-Khaliq, Al-Baari', dan Al-Mushawwir.</li>
+                        <li>✅ Saya sudah bisa menuliskan kaligrafi 3 Asmaul Husna tersebut.</li>
+                        <li>✅ Saya terbiasa merawat tanaman/hewan sebagai wujud kagum pada Pencipta.</li>
+                    </ul>
                 </div>
-            </section>
-
-            <!-- LKPD INTERAKTIF BAB 2 (EVALUASI 2 & ISIAN SINGKAT) -->
-            <section id="lkpd-bab2" class="space-y-6 pt-6 border-t border-teal-900/50 text-gray-800">
-                <div class="bg-amber-50 rounded-[2.5rem] p-4 sm:p-8 border-2 border-amber-400 shadow-2xl space-y-6">
-                    <div class="bg-gradient-to-r from-emerald-950 via-teal-900 to-emerald-900 rounded-[2rem] p-6 text-white shadow-xl border border-emerald-700/50">
-                        <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-                            <div>
-                                <span class="bg-emerald-500/30 text-emerald-200 border border-emerald-400/30 text-[11px] font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-2 inline-block">
-                                    Lembar Kerja Peserta Didik (LKPD Interaktif Modul Modifikasi)
-                                </span>
-                                <h2 class="text-2xl md:text-3xl font-black text-amber-100 leading-tight">LKPD BAB 2: Asmaul Husna (Al-Khaliq, Al-Baari', Al-Mushawwir)</h2>
-                                <p class="mt-1 text-emerald-200/80 text-xs md:text-sm">Isi lembar isian singkat dan tabel refleksi diri di bawah ini!</p>
-                            </div>
-                            <div class="shrink-0 bg-white/10 backdrop-blur-md px-5 py-3 rounded-2xl border border-white/20 text-center">
-                                <span class="block text-xs text-amber-200 font-medium">Evaluasi 2</span>
-                                <span class="text-3xl font-black text-amber-300">Isian</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Task 1: Menjodohkan Asmaul Husna Modul -->
-                    <div class="bg-white rounded-[2rem] p-6 shadow-sm border border-amber-200 space-y-4">
-                        <div class="flex items-center justify-between border-b border-amber-100 pb-3">
-                            <div>
-                                <span class="bg-emerald-100 text-emerald-900 text-[10px] font-bold px-2.5 py-0.5 rounded-full uppercase">Tugas 1: Jodohkan Asmaul Husna Modul</span>
-                                <h3 class="text-base font-bold text-amber-950 mt-0.5">🔗 Pasangkan Kaligrafi Asmaul Husna dengan Artinya!</h3>
-                            </div>
-                            <button type="button" onclick="checkVocabMatchBab2()" class="bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold px-4 py-2 rounded-xl transition shadow">Periksa Jawaban</button>
-                        </div>
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4" id="vocab-matching-bab2-container"></div>
-                        <div id="vocab-feedback-bab2" class="hidden text-xs font-bold text-center p-2 rounded-xl"></div>
-                    </div>
-
-                    <!-- Task 2: Soal Isian Singkat Evaluasi 2 Modul -->
-                    <div class="bg-white rounded-[2rem] p-6 shadow-sm border border-amber-200 space-y-6">
-                        <div class="border-b border-amber-100 pb-3">
-                            <span class="bg-amber-100 text-amber-900 text-[10px] font-bold px-2.5 py-0.5 rounded-full uppercase">Evaluasi 2</span>
-                            <h2 class="text-xl font-black text-amber-950 mt-0.5">✍️ Soal Isian Singkat (5 Soal Modul)</h2>
-                        </div>
-
-                        <form id="quiz-form-lkpd-bab2" onsubmit="event.preventDefault(); submitQuizLKPD2();" class="space-y-4 text-xs">
-                            <div class="p-4 bg-amber-50/70 rounded-2xl border border-amber-200 space-y-2">
-                                <label class="font-bold text-amber-950 block">1. Segala sesuatu yang diciptakan oleh Allah disebut...</label>
-                                <input type="text" id="isian1" placeholder="Ketik jawaban..." class="w-full p-2.5 rounded-xl border border-amber-300 font-semibold text-gray-800">
-                            </div>
-
-                            <div class="p-4 bg-amber-50/70 rounded-2xl border border-amber-200 space-y-2">
-                                <label class="font-bold text-amber-950 block">2. Asmaul Husna Al-Khaliq artinya Allah Maha...</label>
-                                <input type="text" id="isian2" placeholder="Ketik jawaban..." class="w-full p-2.5 rounded-xl border border-amber-300 font-semibold text-gray-800">
-                            </div>
-
-                            <div class="p-4 bg-amber-50/70 rounded-2xl border border-amber-200 space-y-2">
-                                <label class="font-bold text-amber-950 block">3. Sifat Allah yang Maha Mengadakan ciptaan tanpa cela adalah...</label>
-                                <input type="text" id="isian3" placeholder="Ketik jawaban..." class="w-full p-2.5 rounded-xl border border-amber-300 font-semibold text-gray-800">
-                            </div>
-
-                            <div class="p-4 bg-amber-50/70 rounded-2xl border border-amber-200 space-y-2">
-                                <label class="font-bold text-amber-950 block">4. Merawat kebersihan fisik tubuh merupakan bukti rasa syukur kita kepada Allah Sang Maha Membentuk Rupa, yaitu...</label>
-                                <input type="text" id="isian4" placeholder="Ketik jawaban..." class="w-full p-2.5 rounded-xl border border-amber-300 font-semibold text-gray-800">
-                            </div>
-
-                            <div class="p-4 bg-amber-50/70 rounded-2xl border border-amber-200 space-y-2">
-                                <label class="font-bold text-amber-950 block">5. Q.S. Al-Hasyr ayat 24 menjelaskan tentang...</label>
-                                <input type="text" id="isian5" placeholder="Ketik jawaban..." class="w-full p-2.5 rounded-xl border border-amber-300 font-semibold text-gray-800">
-                            </div>
-
-                            <div class="pt-4 border-t border-amber-100 flex flex-col md:flex-row items-center justify-between gap-4">
-                                <button type="submit" class="w-full md:w-auto bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold px-8 py-3.5 rounded-2xl shadow-lg transition text-xs uppercase">
-                                    🚀 Kumpul & Periksa Isian Singkat
-                                </button>
-                                <div id="quiz-result-lkpd-bab2" class="hidden font-black text-lg text-amber-950"></div>
-                            </div>
-                        </form>
-                    </div>
-
-                    <!-- Task 3: Lembar Refleksi Diri -->
-                    <div class="bg-white rounded-[2rem] p-6 shadow-sm border border-amber-200 space-y-4">
-                        <div class="border-b border-amber-100 pb-3">
-                            <span class="bg-emerald-100 text-emerald-900 text-[10px] font-bold px-2.5 py-0.5 rounded-full uppercase">Umpan Balik</span>
-                            <h2 class="text-lg font-extrabold text-amber-950 mt-0.5">📋 Lembar Refleksi Diri Peserta Didik</h2>
-                        </div>
-                        <div class="space-y-3 text-xs font-semibold text-gray-800">
-                            <div class="flex items-center justify-between p-3 bg-amber-50 rounded-xl border border-amber-200">
-                                <span>1. Saya bisa menyebutkan arti Al-Khaliq, Al-Baari', dan Al-Mushawwir.</span>
-                                <div class="space-x-2">
-                                    <label><input type="radio" name="ref1" value="ya"> Ya</label>
-                                    <label><input type="radio" name="ref1" value="belum"> Belum</label>
-                                </div>
-                            </div>
-                            <div class="flex items-center justify-between p-3 bg-amber-50 rounded-xl border border-amber-200">
-                                <span>2. Saya sudah bisa menuliskan kaligrafi 3 Asmaul Husna tersebut.</span>
-                                <div class="space-x-2">
-                                    <label><input type="radio" name="ref2" value="ya"> Ya</label>
-                                    <label><input type="radio" name="ref2" value="belum"> Belum</label>
-                                </div>
-                            </div>
-                            <div class="flex items-center justify-between p-3 bg-amber-50 rounded-xl border border-amber-200">
-                                <span>3. Saya terbiasa merawat tanaman/hewan sebagai wujud kagum pada Pencipta.</span>
-                                <div class="space-x-2">
-                                    <label><input type="radio" name="ref3" value="ya"> Ya</label>
-                                    <label><input type="radio" name="ref3" value="belum"> Belum</label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+            </div>
         </div>
     </div>
 
 
     <!-- MENU 2: BAHASA ARAB -->
-<div id="portal-bahasa-arab" class="w-full max-w-5xl hidden space-y-8">
-    <button onclick="switchPortal('home')" class="text-xs font-bold text-cyan-400 hover:text-cyan-300 flex items-center gap-2 bg-teal-950 px-3 py-1.5 rounded-lg border border-teal-800 w-fit">
-        <i class="fa-solid fa-arrow-left"></i> Kembali ke Dashboard
-    </button>
+    <div id="portal-bahasa-arab" class="w-full max-w-5xl hidden space-y-8">
+        <button onclick="switchPortal('home')" class="text-xs font-bold text-cyan-400 hover:text-cyan-300 flex items-center gap-2 bg-teal-950 px-3 py-1.5 rounded-lg border border-teal-800 w-fit">
+            <i class="fa-solid fa-arrow-left"></i> Kembali ke Dashboard
+        </button>
 
-    <!-- Switcher Bab 1 & Bab 2 -->
-    <div class="bg-teal-950/80 p-4 rounded-2xl border border-teal-500/30">
-        <h3 class="text-xs font-bold text-cyan-300 uppercase tracking-wider mb-2"><i class="fa-solid fa-list-ol mr-1"></i> Daftar BAB Bahasa Arab</h3>
-        <div class="flex flex-wrap gap-2">
-            <button id="btn-ba-bab1" type="button" onclick="switchBahasaArabBab('bab1')" class="px-3 py-1.5 bg-teal-600 text-white rounded-lg text-xs font-bold shadow-md cursor-pointer border border-teal-400">
-                BAB 1: أَعْضَاءُ الْجِسْمِ (Anggota Badan)
-            </button>
-            <button id="btn-ba-bab2" type="button" onclick="switchBahasaArabBab('bab2')" class="px-3 py-1.5 bg-teal-950/80 text-gray-300 hover:text-white rounded-lg text-xs font-bold border border-teal-700 cursor-pointer">
-                BAB 2: أَفْرَادُ الأُسْرَةِ (Anggota Keluarga)
-            </button>
+        <!-- Sub Navbar Bab Bahasa Arab -->
+        <div class="bg-teal-950/80 p-4 rounded-2xl border border-teal-500/30 shadow-lg">
+            <h3 class="text-xs font-bold text-cyan-300 uppercase tracking-wider mb-2"><i class="fa-solid fa-list-ol mr-1"></i> Pilih BAB Materi Bahasa Arab Kelas 3</h3>
+            <div class="flex flex-wrap gap-2">
+                <button id="btn-arab-bab1" onclick="switchBahasaArabBab(1)" class="px-4 py-2 bg-teal-600 text-white rounded-xl text-xs font-bold shadow-md transition">
+                    BAB 1: أَعْضَاءُ الْجِسْمِ (Anggota Badan)
+                </button>
+                <button id="btn-arab-bab2" onclick="switchBahasaArabBab(2)" class="px-4 py-2 bg-teal-900/50 text-gray-300 hover:text-white rounded-xl text-xs font-bold border border-teal-800 transition">
+                    BAB 2: أَعْضَاءُ الْأُسْرَةِ (Anggota Keluarga) ✨
+                </button>
+            </div>
         </div>
-    </div>
 
-    <!-- ==================== KONTEN BAB 1 (ANGGOTA BADAN) ==================== -->
-    <div id="ba-bab1" class="space-y-8">
-        <!-- Bagian Kosakata Utama & Pemutar Suara -->
-        <div class="space-y-4">
+        <!-- KONTEN BAB 1 BAHASA ARAB: ANGGOTA BADAN -->
+        <div id="arab-bab1-content" class="space-y-4 pb-24">
             <h3 class="text-xl font-bold text-cyan-300 text-center"><i class="fa-solid fa-volume-high mr-2"></i> Kosakata Anggota Badan (المُفْرَدَاتُ)</h3>
             <p class="text-xs text-center text-teal-400 font-medium">💡 Klik kartu di bawah untuk mendengarkan rekaman audio Bahasa Arab</p>
 
@@ -1074,7 +994,7 @@
                     <div class="text-5xl select-none">🗣️</div>
                     <p class="arabic-text text-2xl font-bold text-cyan-100">رَأْسٌ</p>
                     <p class="text-xs text-teal-300 font-bold">ra'sun (ra-sun)</p>
-                    <p class="text-xs text-gray-300">Kepala <span class="text-emerald-400 font-semibold block text-[11px]">(Jawa: Sirah / Sirah)</span></p>
+                    <p class="text-xs text-gray-300">Kepala</p>
                     <button class="w-full py-1 bg-teal-800 text-cyan-200 text-[10px] rounded-lg hover:bg-teal-700 pointer-events-none">🔊 Klik Dengarkan</button>
                 </div>
 
@@ -1082,7 +1002,7 @@
                     <div class="text-5xl select-none">🦱</div>
                     <p class="arabic-text text-2xl font-bold text-cyan-100">شَعْرٌ</p>
                     <p class="text-xs text-teal-300 font-bold">sya'run (sya-run)</p>
-                    <p class="text-xs text-gray-300">Rambut <span class="text-emerald-400 font-semibold block text-[11px]">(Jawa: Rambut / Rikma)</span></p>
+                    <p class="text-xs text-gray-300">Rambut</p>
                     <button class="w-full py-1 bg-teal-800 text-cyan-200 text-[10px] rounded-lg hover:bg-teal-700 pointer-events-none">🔊 Klik Dengarkan</button>
                 </div>
 
@@ -1090,7 +1010,7 @@
                     <div class="text-5xl select-none">👁️</div>
                     <p class="arabic-text text-2xl font-bold text-cyan-100">عَيْنٌ</p>
                     <p class="text-xs text-teal-300 font-bold">'ainun (a-i-nun)</p>
-                    <p class="text-xs text-gray-300">Mata <span class="text-emerald-400 font-semibold block text-[11px]">(Jawa: Mripat / Soca)</span></p>
+                    <p class="text-xs text-gray-300">Mata</p>
                     <button class="w-full py-1 bg-teal-800 text-cyan-200 text-[10px] rounded-lg hover:bg-teal-700 pointer-events-none">🔊 Klik Dengarkan</button>
                 </div>
 
@@ -1098,7 +1018,7 @@
                     <div class="text-5xl select-none">👃</div>
                     <p class="arabic-text text-2xl font-bold text-cyan-100">أَنْفٌ</p>
                     <p class="text-xs text-teal-300 font-bold">'anfun (a-n-fun)</p>
-                    <p class="text-xs text-gray-300">Hidung <span class="text-emerald-400 font-semibold block text-[11px]">(Jawa: Irung / Grana)</span></p>
+                    <p class="text-xs text-gray-300">Hidung</p>
                     <button class="w-full py-1 bg-teal-800 text-cyan-200 text-[10px] rounded-lg hover:bg-teal-700 pointer-events-none">🔊 Klik Dengarkan</button>
                 </div>
 
@@ -1106,7 +1026,7 @@
                     <div class="text-5xl select-none">👄</div>
                     <p class="arabic-text text-2xl font-bold text-cyan-100">فَمٌ</p>
                     <p class="text-xs text-teal-300 font-bold">famun (fa-mun)</p>
-                    <p class="text-xs text-gray-300">Mulut <span class="text-emerald-400 font-semibold block text-[11px]">(Jawa: Cangkem / Tutuk)</span></p>
+                    <p class="text-xs text-gray-300">Mulut</p>
                     <button class="w-full py-1 bg-teal-800 text-cyan-200 text-[10px] rounded-lg hover:bg-teal-700 pointer-events-none">🔊 Klik Dengarkan</button>
                 </div>
 
@@ -1114,7 +1034,7 @@
                     <div class="text-5xl select-none">👂</div>
                     <p class="arabic-text text-2xl font-bold text-cyan-100">أُذُنٌ</p>
                     <p class="text-xs text-teal-300 font-bold">'uzunun (u-zu-nun)</p>
-                    <p class="text-xs text-gray-300">Telinga <span class="text-emerald-400 font-semibold block text-[11px]">(Jawa: Kuping / Talingan)</span></p>
+                    <p class="text-xs text-gray-300">Telinga</p>
                     <button class="w-full py-1 bg-teal-800 text-cyan-200 text-[10px] rounded-lg hover:bg-teal-700 pointer-events-none">🔊 Klik Dengarkan</button>
                 </div>
 
@@ -1122,7 +1042,7 @@
                     <div class="text-5xl select-none">✋</div>
                     <p class="arabic-text text-2xl font-bold text-cyan-100">يَدٌ</p>
                     <p class="text-xs text-teal-300 font-bold">yadun (ya-dun)</p>
-                    <p class="text-xs text-gray-300">Tangan <span class="text-emerald-400 font-semibold block text-[11px]">(Jawa: Tangan / Asta)</span></p>
+                    <p class="text-xs text-gray-300">Tangan</p>
                     <button class="w-full py-1 bg-teal-800 text-cyan-200 text-[10px] rounded-lg hover:bg-teal-700 pointer-events-none">🔊 Klik Dengarkan</button>
                 </div>
 
@@ -1130,299 +1050,97 @@
                     <div class="text-5xl select-none">🦶</div>
                     <p class="arabic-text text-2xl font-bold text-cyan-100">رِجْلٌ</p>
                     <p class="text-xs text-teal-300 font-bold">rijlun (ri-j-lun)</p>
-                    <p class="text-xs text-gray-300">Kaki <span class="text-emerald-400 font-semibold block text-[11px]">(Jawa: Sikil / Suku)</span></p>
+                    <p class="text-xs text-gray-300">Kaki</p>
+                    <button class="w-full py-1 bg-teal-800 text-cyan-200 text-[10px] rounded-lg hover:bg-teal-700 pointer-events-none">🔊 Klik Dengarkan</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- KONTEN BAB 2 BAHASA ARAB: ANGGOTA KELUARGA (أَعْضَاءُ الْأُسْرَةِ) (BARU DITAMBAHKAN) -->
+        <div id="arab-bab2-content" class="hidden space-y-6 pb-24">
+            <div class="text-center space-y-2">
+                <span class="bg-amber-950 text-amber-300 border border-amber-500/40 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider inline-block">
+                    BAB 2 • KOSAKATA KELUARGA (أَسْمَاءُ أَفْرَادِ الْعَائِلَةِ)
+                </span>
+                <h3 class="text-2xl font-bold text-cyan-300"><i class="fa-solid fa-people-roof mr-2"></i> Kosakata Anggota Keluarga (أَعْضَاءُ الْأُسْرَةِ)</h3>
+                <p class="text-xs text-teal-400 font-medium">💡 Klik kartu untuk mendengarkan pelafalan Bahasa Arab anggota keluarga!</p>
+            </div>
+
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                <!-- 1. Ayah -->
+                <div onclick="playAudio('abun.aac', this)" class="p-4 bg-teal-950/60 rounded-2xl border border-teal-700/40 text-center space-y-2 hover:border-cyan-400 cursor-pointer transition transform hover:-translate-y-1 shadow-lg">
+                    <div class="text-5xl select-none">👨‍👩‍👦</div>
+                    <p class="arabic-text text-2xl font-bold text-cyan-100">أَبٌ</p>
+                    <p class="text-xs text-teal-300 font-bold">Abun [A-bun]</p>
+                    <p class="text-xs text-gray-300 font-bold">Ayah</p>
+                    <button class="w-full py-1 bg-teal-800 text-cyan-200 text-[10px] rounded-lg hover:bg-teal-700 pointer-events-none">🔊 Klik Dengarkan</button>
+                </div>
+
+                <!-- 2. Ibu -->
+                <div onclick="playAudio('ummun.aac', this)" class="p-4 bg-teal-950/60 rounded-2xl border border-teal-700/40 text-center space-y-2 hover:border-cyan-400 cursor-pointer transition transform hover:-translate-y-1 shadow-lg">
+                    <div class="text-5xl select-none">🤱</div>
+                    <p class="arabic-text text-2xl font-bold text-cyan-100">أُمٌّ</p>
+                    <p class="text-xs text-teal-300 font-bold">Ummun [Um-mun]</p>
+                    <p class="text-xs text-gray-300 font-bold">Ibu</p>
+                    <button class="w-full py-1 bg-teal-800 text-cyan-200 text-[10px] rounded-lg hover:bg-teal-700 pointer-events-none">🔊 Klik Dengarkan</button>
+                </div>
+
+                <!-- 3. Kakek -->
+                <div onclick="playAudio('jaddun.aac', this)" class="p-4 bg-teal-950/60 rounded-2xl border border-teal-700/40 text-center space-y-2 hover:border-cyan-400 cursor-pointer transition transform hover:-translate-y-1 shadow-lg">
+                    <div class="text-5xl select-none">👴</div>
+                    <p class="arabic-text text-2xl font-bold text-cyan-100">جَدٌّ</p>
+                    <p class="text-xs text-teal-300 font-bold">Jaddun [Jad-dun]</p>
+                    <p class="text-xs text-gray-300 font-bold">Kakek</p>
+                    <button class="w-full py-1 bg-teal-800 text-cyan-200 text-[10px] rounded-lg hover:bg-teal-700 pointer-events-none">🔊 Klik Dengarkan</button>
+                </div>
+
+                <!-- 4. Nenek -->
+                <div onclick="playAudio('jaddatun.aac', this)" class="p-4 bg-teal-950/60 rounded-2xl border border-teal-700/40 text-center space-y-2 hover:border-cyan-400 cursor-pointer transition transform hover:-translate-y-1 shadow-lg">
+                    <div class="text-5xl select-none">👵</div>
+                    <p class="arabic-text text-2xl font-bold text-cyan-100">جَدَّةٌ</p>
+                    <p class="text-xs text-teal-300 font-bold">Jaddatun [Jad-da-tun]</p>
+                    <p class="text-xs text-gray-300 font-bold">Nenek</p>
+                    <button class="w-full py-1 bg-teal-800 text-cyan-200 text-[10px] rounded-lg hover:bg-teal-700 pointer-events-none">🔊 Klik Dengarkan</button>
+                </div>
+
+                <!-- 5. Paman -->
+                <div onclick="playAudio('ammun.aac', this)" class="p-4 bg-teal-950/60 rounded-2xl border border-teal-700/40 text-center space-y-2 hover:border-cyan-400 cursor-pointer transition transform hover:-translate-y-1 shadow-lg">
+                    <div class="text-5xl select-none">👨‍💼</div>
+                    <p class="arabic-text text-2xl font-bold text-cyan-100">عَمٌّ</p>
+                    <p class="text-xs text-teal-300 font-bold">'Ammun [Am-mun]</p>
+                    <p class="text-xs text-gray-300 font-bold">Paman</p>
+                    <button class="w-full py-1 bg-teal-800 text-cyan-200 text-[10px] rounded-lg hover:bg-teal-700 pointer-events-none">🔊 Klik Dengarkan</button>
+                </div>
+
+                <!-- 6. Bibi -->
+                <div onclick="playAudio('ammatun.aac', this)" class="p-4 bg-teal-950/60 rounded-2xl border border-teal-700/40 text-center space-y-2 hover:border-cyan-400 cursor-pointer transition transform hover:-translate-y-1 shadow-lg">
+                    <div class="text-5xl select-none">👩‍💼</div>
+                    <p class="arabic-text text-2xl font-bold text-cyan-100">عَمَّةٌ</p>
+                    <p class="text-xs text-teal-300 font-bold">'Ammatun [Am-ma-tun]</p>
+                    <p class="text-xs text-gray-300 font-bold">Bibi</p>
+                    <button class="w-full py-1 bg-teal-800 text-cyan-200 text-[10px] rounded-lg hover:bg-teal-700 pointer-events-none">🔊 Klik Dengarkan</button>
+                </div>
+
+                <!-- 7. Saudara Laki-Laki -->
+                <div onclick="playAudio('akhun.aac', this)" class="p-4 bg-teal-950/60 rounded-2xl border border-teal-700/40 text-center space-y-2 hover:border-cyan-400 cursor-pointer transition transform hover:-translate-y-1 shadow-lg">
+                    <div class="text-5xl select-none">👦</div>
+                    <p class="arabic-text text-2xl font-bold text-cyan-100">أَخٌ</p>
+                    <p class="text-xs text-teal-300 font-bold">Akhun [A-khun]</p>
+                    <p class="text-xs text-gray-300 font-bold">Saudara Laki-Laki</p>
+                    <button class="w-full py-1 bg-teal-800 text-cyan-200 text-[10px] rounded-lg hover:bg-teal-700 pointer-events-none">🔊 Klik Dengarkan</button>
+                </div>
+
+                <!-- 8. Saudari Perempuan -->
+                <div onclick="playAudio('ukhtun.aac', this)" class="p-4 bg-teal-950/60 rounded-2xl border border-teal-700/40 text-center space-y-2 hover:border-cyan-400 cursor-pointer transition transform hover:-translate-y-1 shadow-lg">
+                    <div class="text-5xl select-none">👧</div>
+                    <p class="arabic-text text-2xl font-bold text-cyan-100">أُخْتٌ</p>
+                    <p class="text-xs text-teal-300 font-bold">Ukhtun [Ukh-tun]</p>
+                    <p class="text-xs text-gray-300 font-bold">Saudari Perempuan</p>
                     <button class="w-full py-1 bg-teal-800 text-cyan-200 text-[10px] rounded-lg hover:bg-teal-700 pointer-events-none">🔊 Klik Dengarkan</button>
                 </div>
             </div>
         </div>
     </div>
-
-    <!-- ==================== KONTEN BAB 2 (ANGGOTA KELUARGA) ==================== -->
-    <div id="ba-bab2" style="display: none;" class="space-y-8">
-        <div class="bg-teal-950/60 p-6 rounded-3xl border border-teal-500/30 space-y-2">
-            <span class="bg-teal-900 text-teal-300 text-xs font-bold px-3 py-1 rounded-full uppercase">BAB 2 Bahasa Arab</span>
-            <h2 class="text-2xl font-bold text-cyan-300">أَفْرَادُ الأُسْرَةِ (Anggota Keluarga)</h2>
-            <p class="text-xs text-gray-300">Mengenal sebutan anggota keluarga dalam Bahasa Arab, audio pelafalan, terjemah Basa Jawa, dan kaidah Isim Isyarah.</p>
-        </div>
-
-        <div class="space-y-4">
-            <h3 class="text-xl font-bold text-cyan-300 text-center"><i class="fa-solid fa-volume-high mr-2"></i> Kosakata Anggota Keluarga (أَفْرَادُ الأُسْرَةِ)</h3>
-            <p class="text-xs text-center text-teal-400 font-medium">💡 Klik kartu di bawah untuk mendengarkan rekaman audio Bahasa Arab</p>
-
-            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
-                <div onclick="playAudio('abun.aac', this)" class="p-4 bg-teal-950/40 rounded-2xl border border-teal-700/40 text-center space-y-2 hover:border-cyan-400 cursor-pointer transition transform hover:-translate-y-1 shadow-lg">
-                    <div class="text-5xl select-none">👨</div>
-                    <p class="arabic-text text-2xl font-bold text-cyan-100">أَبٌ</p>
-                    <p class="text-xs text-teal-300 font-bold">abun (a-bun)</p>
-                    <p class="text-xs text-gray-300">Ayah <span class="text-emerald-400 font-semibold block text-[11px]">(Jawa: Bapak / Rama)</span></p>
-                    <button class="w-full py-1 bg-teal-800 text-cyan-200 text-[10px] rounded-lg hover:bg-teal-700 pointer-events-none">🔊 Klik Dengarkan</button>
-                </div>
-
-                <div onclick="playAudio('ummun.aac', this)" class="p-4 bg-teal-950/40 rounded-2xl border border-teal-700/40 text-center space-y-2 hover:border-cyan-400 cursor-pointer transition transform hover:-translate-y-1 shadow-lg">
-                    <div class="text-5xl select-none">👩</div>
-                    <p class="arabic-text text-2xl font-bold text-cyan-100">أُمٌّ</p>
-                    <p class="text-xs text-teal-300 font-bold">ummun (um-mun)</p>
-                    <p class="text-xs text-gray-300">Ibu <span class="text-emerald-400 font-semibold block text-[11px]">(Jawa: Ibu / Ibu)</span></p>
-                    <button class="w-full py-1 bg-teal-800 text-cyan-200 text-[10px] rounded-lg hover:bg-teal-700 pointer-events-none">🔊 Klik Dengarkan</button>
-                </div>
-
-                <div onclick="playAudio('akhun.aac', this)" class="p-4 bg-teal-950/40 rounded-2xl border border-teal-700/40 text-center space-y-2 hover:border-cyan-400 cursor-pointer transition transform hover:-translate-y-1 shadow-lg">
-                    <div class="text-5xl select-none">👦</div>
-                    <p class="arabic-text text-2xl font-bold text-cyan-100">أَخٌ</p>
-                    <p class="text-xs text-teal-300 font-bold">akhun (a-khun)</p>
-                    <p class="text-xs text-gray-300">Saudara Laki-laki <span class="text-emerald-400 font-semibold block text-[11px]">(Jawa: Mas / Kangmas)</span></p>
-                    <button class="w-full py-1 bg-teal-800 text-cyan-200 text-[10px] rounded-lg hover:bg-teal-700 pointer-events-none">🔊 Klik Dengarkan</button>
-                </div>
-
-                <div onclick="playAudio('ukhtun.aac', this)" class="p-4 bg-teal-950/40 rounded-2xl border border-teal-700/40 text-center space-y-2 hover:border-cyan-400 cursor-pointer transition transform hover:-translate-y-1 shadow-lg">
-                    <div class="text-5xl select-none">👧</div>
-                    <p class="arabic-text text-2xl font-bold text-cyan-100">أُخْتٌ</p>
-                    <p class="text-xs text-teal-300 font-bold">ukhtun (ukh-tun)</p>
-                    <p class="text-xs text-gray-300">Saudara Perempuan <span class="text-emerald-400 font-semibold block text-[11px]">(Jawa: Mbak / Mbakyu)</span></p>
-                    <button class="w-full py-1 bg-teal-800 text-cyan-200 text-[10px] rounded-lg hover:bg-teal-700 pointer-events-none">🔊 Klik Dengarkan</button>
-                </div>
-
-                <div onclick="playAudio('jaddun.aac', this)" class="p-4 bg-teal-950/40 rounded-2xl border border-teal-700/40 text-center space-y-2 hover:border-cyan-400 cursor-pointer transition transform hover:-translate-y-1 shadow-lg">
-                    <div class="text-5xl select-none">👴</div>
-                    <p class="arabic-text text-2xl font-bold text-cyan-100">جَدٌّ</p>
-                    <p class="text-xs text-teal-300 font-bold">jaddun (jad-dun)</p>
-                    <p class="text-xs text-gray-300">Kakek <span class="text-emerald-400 font-semibold block text-[11px]">(Jawa: Mbah Kakung)</span></p>
-                    <button class="w-full py-1 bg-teal-800 text-cyan-200 text-[10px] rounded-lg hover:bg-teal-700 pointer-events-none">🔊 Klik Dengarkan</button>
-                </div>
-
-                <div onclick="playAudio('jaddatun.aac', this)" class="p-4 bg-teal-950/40 rounded-2xl border border-teal-700/40 text-center space-y-2 hover:border-cyan-400 cursor-pointer transition transform hover:-translate-y-1 shadow-lg">
-                    <div class="text-5xl select-none">👵</div>
-                    <p class="arabic-text text-2xl font-bold text-cyan-100">جَدَّةٌ</p>
-                    <p class="text-xs text-teal-300 font-bold">jaddatun (jad-da-tun)</p>
-                    <p class="text-xs text-gray-300">Nenek <span class="text-emerald-400 font-semibold block text-[11px]">(Jawa: Mbah Putri)</span></p>
-                    <button class="w-full py-1 bg-teal-800 text-cyan-200 text-[10px] rounded-lg hover:bg-teal-700 pointer-events-none">🔊 Klik Dengarkan</button>
-                </div>
-
-                <div onclick="playAudio('ammun.aac', this)" class="p-4 bg-teal-950/40 rounded-2xl border border-teal-700/40 text-center space-y-2 hover:border-cyan-400 cursor-pointer transition transform hover:-translate-y-1 shadow-lg">
-                    <div class="text-5xl select-none">🧔</div>
-                    <p class="arabic-text text-2xl font-bold text-cyan-100">عَمٌّ</p>
-                    <p class="text-xs text-teal-300 font-bold">'ammun ('am-mun)</p>
-                    <p class="text-xs text-gray-300">Paman <span class="text-emerald-400 font-semibold block text-[11px]">(Jawa: Paklik / Pakde)</span></p>
-                    <button class="w-full py-1 bg-teal-800 text-cyan-200 text-[10px] rounded-lg hover:bg-teal-700 pointer-events-none">🔊 Klik Dengarkan</button>
-                </div>
-
-                <div onclick="playAudio('ammatun.aac', this)" class="p-4 bg-teal-950/40 rounded-2xl border border-teal-700/40 text-center space-y-2 hover:border-cyan-400 cursor-pointer transition transform hover:-translate-y-1 shadow-lg">
-                    <div class="text-5xl select-none">🧕</div>
-                    <p class="arabic-text text-2xl font-bold text-cyan-100">عَمَّةٌ</p>
-                    <p class="text-xs text-teal-300 font-bold">'ammatun ('am-ma-tun)</p>
-                    <p class="text-xs text-gray-300">Bibi <span class="text-emerald-400 font-semibold block text-[11px]">(Jawa: Bulik / Bude)</span></p>
-                    <button class="w-full py-1 bg-teal-800 text-cyan-200 text-[10px] rounded-lg hover:bg-teal-700 pointer-events-none">🔊 Klik Dengarkan</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Kaidah Isim Isyarah Bab 2 -->
-        <div class="bg-teal-950/80 p-6 rounded-3xl border border-teal-500/30 space-y-3">
-            <h3 class="text-base font-bold text-cyan-300"><i class="fa-solid fa-book-open mr-1.5"></i> Kaidah Tata Bahasa: Isim Isyarah & Kepemilikan (ـي / -ku)</h3>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
-                <div class="p-4 bg-teal-900/40 rounded-xl border border-teal-700/50 space-y-2">
-                    <span class="font-bold text-cyan-300 text-sm">1. Anggota Keluarga Mudzakar / Laki-laki (هٰذَا)</span>
-                    <p class="text-gray-300">Menggunakan <strong>هٰذَا</strong> (Ini) + akhiran <strong>ـي</strong> (ku).</p>
-                    <div class="p-2 bg-teal-950/80 rounded border border-teal-800">
-                        <p class="arabic-text text-xl font-bold text-cyan-200">هٰذَا أَبِي / هٰذَا جَدِّي</p>
-                        <p class="text-[11px] text-teal-300">"Ini Ayahku / Ini Kakekku"</p>
-                    </div>
-                </div>
-                <div class="p-4 bg-teal-900/40 rounded-xl border border-teal-700/50 space-y-2">
-                    <span class="font-bold text-emerald-300 text-sm">2. Anggota Keluarga Muannats / Perempuan (هٰذِهِ)</span>
-                    <p class="text-gray-300">Menggunakan <strong>هٰذِهِ</strong> (Ini) + akhiran <strong>ـي</strong> (ku).</p>
-                    <div class="p-2 bg-teal-950/80 rounded border border-teal-800">
-                        <p class="arabic-text text-xl font-bold text-emerald-200">هٰذِهِ أُمِّي / هٰذِهِ جَدَّتِي</p>
-                        <p class="text-[11px] text-emerald-300">"Ini Ibuku / Ini Nenekku"</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    
-    <!-- LKPD INTERAKTIF BAHASA ARAB 2 JPL (70 MENIT) BAB 2 -->
-        <section id="lkpd-ba-bab2-2jpl" class="space-y-6 pt-6 border-t border-teal-900/50 text-gray-800">
-            <div class="bg-cyan-50 rounded-[2.5rem] p-4 sm:p-8 border-2 border-cyan-400 shadow-2xl space-y-6">
-                
-                <!-- Header Banner LKPD Bab 2 -->
-                <div class="bg-gradient-to-r from-teal-950 via-cyan-900 to-teal-900 rounded-[2rem] p-6 text-white shadow-xl border border-cyan-600/50">
-                    <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-                        <div>
-                            <span class="bg-cyan-500/30 text-cyan-200 border border-cyan-400/30 text-[11px] font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-2 inline-block">
-                                Modul Praktis Pembelajaran Bahasa Arab Bab 2
-                            </span>
-                            <h2 class="text-2xl md:text-3xl font-black text-cyan-100 leading-tight">LKPD Interaktif Bahasa Arab BAB 2 (2 JPL = 70 Menit)</h2>
-                            <p class="mt-1 text-cyan-200/80 text-xs md:text-sm">Materi: أَفْرَادُ الأُسْرَةِ (Anggota Keluarga) - Kelas IV SD/MI</p>
-                        </div>
-                        <div class="shrink-0 bg-white/10 backdrop-blur-md px-5 py-3 rounded-2xl border border-white/20 text-center">
-                            <span class="block text-xs text-cyan-200 font-medium">Total Waktu</span>
-                            <span class="text-3xl font-black text-cyan-300">70m</span>
-                        </div>
-                    </div>
-
-                    <!-- Alokasi Waktu Skenario Pembelajaran Bab 2 -->
-                    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2 mt-6 pt-6 border-t border-cyan-700/60 text-center text-xs">
-                        <div class="bg-white/10 p-2 rounded-xl"><span class="text-[10px] font-bold bg-cyan-400 text-cyan-950 px-1 py-0.5 rounded block mb-1">00-15m</span>1. Istima' & Jodoh Kata</div>
-                        <div class="bg-white/10 p-2 rounded-xl"><span class="text-[10px] font-bold bg-cyan-400 text-cyan-950 px-1 py-0.5 rounded block mb-1">15-30m</span>2. Susun Kalimat Isyarah</div>
-                        <div class="bg-white/10 p-2 rounded-xl"><span class="text-[10px] font-bold bg-cyan-400 text-cyan-950 px-1 py-0.5 rounded block mb-1">30-40m</span>3. Detektif Silsilah</div>
-                        <div class="bg-white/10 p-2 rounded-xl"><span class="text-[10px] font-bold bg-cyan-400 text-cyan-950 px-1 py-0.5 rounded block mb-1">40-50m</span>4. Cari Kata Arab</div>
-                        <div class="bg-white/10 p-2 rounded-xl"><span class="text-[10px] font-bold bg-cyan-400 text-cyan-950 px-1 py-0.5 rounded block mb-1">50-60m</span>5. Evaluasi Kuis</div>
-                        <div class="bg-white/10 p-2 rounded-xl"><span class="text-[10px] font-bold bg-cyan-400 text-cyan-950 px-1 py-0.5 rounded block mb-1">60-70m</span>6. Refleksi & Syukur</div>
-                    </div>
-                </div>
-
-                <!-- Tugas 1: Game Menjodohkan Kosakata Keluarga -->
-                <div class="bg-white rounded-[2rem] p-6 shadow-sm border border-cyan-200 space-y-4">
-                    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 border-b border-cyan-100 pb-3">
-                        <div>
-                            <span class="bg-cyan-100 text-cyan-900 text-[10px] font-bold px-2.5 py-0.5 rounded-full uppercase">Tugas 1</span>
-                            <h3 class="text-base font-bold text-cyan-950 mt-0.5">🔗 Jodohkan Sebutan Keluarga dengan Artinya & Basa Jawa!</h3>
-                        </div>
-                        <button type="button" onclick="checkVocabMatchBab2()" class="bg-cyan-600 hover:bg-cyan-700 text-white text-xs font-bold px-4 py-2 rounded-xl transition shadow cursor-pointer">Periksa Jawaban</button>
-                    </div>
-                    <div class="grid grid-cols-1 md:grid-cols-4 gap-3" id="vocab-matching-bab2-container"></div>
-                    <div id="vocab-feedback-bab2" class="hidden text-xs font-bold text-center p-2 rounded-xl"></div>
-                </div>
-
-                <!-- Tugas 2: Puzzle Susun Kalimat Isim Isyarah Bab 2 -->
-                <div class="bg-white rounded-[2rem] p-6 shadow-sm border border-cyan-200 space-y-4">
-                    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 border-b border-cyan-100 pb-3">
-                        <div>
-                            <span class="bg-cyan-600 text-white text-[10px] font-bold px-2.5 py-0.5 rounded-full uppercase">Tugas 2</span>
-                            <h2 class="text-lg font-extrabold text-cyan-950 mt-0.5">🧩 Puzzle Susun Kalimat (هٰذَا أَبِي / هٰذِهِ أُمِّي)</h2>
-                        </div>
-                        <button type="button" onclick="resetSentencePuzzleBab2()" class="bg-stone-200 hover:bg-stone-300 text-stone-800 text-xs font-bold px-3 py-1.5 rounded-xl cursor-pointer">🔄 Acak Ulang</button>
-                    </div>
-
-                    <div class="p-4 bg-cyan-50 rounded-2xl border border-cyan-300 min-h-[90px] space-y-2">
-                        <span class="text-[10px] font-bold text-cyan-800 uppercase block">Kalimat Pilihanmu:</span>
-                        <div id="sentence-selected-list-bab2" class="space-y-2"><p class="text-xs text-gray-400 italic">Klik potongan kata Arab di bawah ini untuk menyusun kalimat: "Ini ayahku dan ini ibuku"</p></div>
-                    </div>
-
-                    <div class="space-y-2">
-                        <span class="text-[10px] font-bold text-gray-500 uppercase block">Pilihan Potongan Kata:</span>
-                        <div id="sentence-choices-bab2-container" class="grid grid-cols-2 sm:grid-cols-4 gap-2"></div>
-                    </div>
-
-                    <div class="flex justify-between items-center pt-2">
-                        <button type="button" onclick="checkSentencePuzzleBab2()" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs px-5 py-2.5 rounded-xl shadow cursor-pointer">✅ Cek Kebenaran Kalimat</button>
-                        <div id="sentence-feedback-bab2" class="text-xs font-extrabold"></div>
-                    </div>
-                </div>
-
-                <!-- Tugas 3: Detektif Silsilah Keluarga -->
-                <div class="bg-white rounded-[2rem] p-6 shadow-sm border border-cyan-200 space-y-4">
-                    <div class="border-b border-cyan-100 pb-3">
-                        <span class="bg-cyan-100 text-cyan-900 text-[10px] font-bold px-2.5 py-0.5 rounded-full uppercase">Tugas 3</span>
-                        <h2 class="text-lg font-extrabold text-cyan-950 mt-0.5">🔍 Detektif Silsilah Keluarga (Hubungan Kekeluargaan)</h2>
-                    </div>
-
-                    <div class="space-y-4 text-xs">
-                        <div class="p-4 bg-cyan-50/70 rounded-2xl border border-cyan-200 space-y-2">
-                            <h3 class="font-bold text-cyan-900">📌 Analisis Kasus 1: "Ayah dari Ayahku dinamakan..."</h3>
-                            <p class="text-gray-700">Dalam Bahasa Arab dan Basa Jawa, bapak dari bapak kita disebut sebagai...</p>
-                            <select id="case-b2-1" class="w-full p-2.5 rounded-xl border border-cyan-300 font-bold text-gray-800">
-                                <option value="">-- Pilih Anggota Keluarga --</option>
-                                <option value="JADDUN">جَدٌّ (Kakek / Mbah Kakung)</option>
-                                <option value="AMMUN">عَمٌّ (Paman / Paklik)</option>
-                                <option value="ABUN">أَبٌ (Ayah / Rama)</option>
-                            </select>
-                        </div>
-
-                        <div class="p-4 bg-cyan-50/70 rounded-2xl border border-cyan-200 space-y-2">
-                            <h3 class="font-bold text-cyan-900">📌 Analisis Kasus 2: "Saudara perempuan dari Ibuku dinamakan..."</h3>
-                            <p class="text-gray-700">Adik/kakak perempuan dari Ibu kita dalam Bahasa Arab disebut...</p>
-                            <select id="case-b2-2" class="w-full p-2.5 rounded-xl border border-cyan-300 font-bold text-gray-800">
-                                <option value="">-- Pilih Anggota Keluarga --</option>
-                                <option value="AMMATUN">عَمَّةٌ (Bibi / Bulik)</option>
-                                <option value="UKHTUN">أُخْتٌ (Saudara Perempuan / Mbakyu)</option>
-                                <option value="JADDATUN">جَدَّةٌ (Nenek / Mbah Putri)</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Tugas 4: Teka-Teki Cari Kata Anggota Keluarga -->
-                <div class="bg-white rounded-[2rem] p-6 shadow-sm border border-cyan-200 space-y-4">
-                    <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-2 border-b border-cyan-100 pb-3">
-                        <div>
-                            <span class="bg-cyan-100 text-cyan-900 text-[10px] font-bold px-2.5 py-0.5 rounded-full uppercase">Tugas 4</span>
-                            <h2 class="text-lg font-extrabold text-cyan-950 mt-0.5">🎮 Teka-Teki Cari Kata Anggota Keluarga (8 Kata Target)</h2>
-                        </div>
-                        <div class="text-xs font-bold text-cyan-900 bg-cyan-100 px-3 py-1.5 rounded-xl border border-cyan-300">Ditemukan: <span id="found-count-bab2" class="text-cyan-700 font-extrabold">0</span> / 8 Kata</div>
-                    </div>
-
-                    <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-start">
-                        <div class="md:col-span-4 space-y-1.5 text-xs">
-                            <span class="text-[10px] font-bold uppercase text-gray-500 block mb-1">Target Kata Transliterasi:</span>
-                            <div id="wordb2-ABUN" class="p-2 bg-cyan-50 rounded-xl border border-cyan-200 font-bold text-cyan-950 flex justify-between"><span>1. ABUN</span><span class="status-icon">⏳</span></div>
-                            <div id="wordb2-UMMUN" class="p-2 bg-cyan-50 rounded-xl border border-cyan-200 font-bold text-cyan-950 flex justify-between"><span>2. UMMUN</span><span class="status-icon">⏳</span></div>
-                            <div id="wordb2-AKHUN" class="p-2 bg-cyan-50 rounded-xl border border-cyan-200 font-bold text-cyan-950 flex justify-between"><span>3. AKHUN</span><span class="status-icon">⏳</span></div>
-                            <div id="wordb2-UKHTUN" class="p-2 bg-cyan-50 rounded-xl border border-cyan-200 font-bold text-cyan-950 flex justify-between"><span>4. UKHTUN</span><span class="status-icon">⏳</span></div>
-                            <div id="wordb2-JADDUN" class="p-2 bg-cyan-50 rounded-xl border border-cyan-200 font-bold text-cyan-950 flex justify-between"><span>5. JADDUN</span><span class="status-icon">⏳</span></div>
-                            <div id="wordb2-JADDATUN" class="p-2 bg-cyan-50 rounded-xl border border-cyan-200 font-bold text-cyan-950 flex justify-between"><span>6. JADDATUN</span><span class="status-icon">⏳</span></div>
-                            <div id="wordb2-AMMUN" class="p-2 bg-cyan-50 rounded-xl border border-cyan-200 font-bold text-cyan-950 flex justify-between"><span>7. AMMUN</span><span class="status-icon">⏳</span></div>
-                            <div id="wordb2-AMMATUN" class="p-2 bg-cyan-50 rounded-xl border border-cyan-200 font-bold text-cyan-950 flex justify-between"><span>8. AMMATUN</span><span class="status-icon">⏳</span></div>
-                        </div>
-
-                        <div class="md:col-span-8 bg-teal-950 p-4 rounded-2xl shadow-inner text-white">
-                            <div id="grid-container-bab2" class="grid grid-cols-8 gap-1.5 text-center font-black text-xs sm:text-sm"></div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Tugas 5: Kuis Evaluasi LKPD Bab 2 (5 Soal) -->
-                <div class="bg-white rounded-[2rem] p-6 shadow-sm border border-cyan-200 space-y-6">
-                    <div class="text-center space-y-1">
-                        <span class="bg-cyan-600 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase">Tugas 5</span>
-                        <h2 class="text-xl font-black text-cyan-950">✍️ Kuis Evaluasi LKPD Bab 2 (Anggota Keluarga)</h2>
-                    </div>
-
-                    <form id="quiz-form-lkpd-bab2" onsubmit="event.preventDefault(); submitQuizLKPD_Bab2();" class="space-y-6 text-xs">
-                        <div id="quiz-questions-lkpd-bab2-container" class="space-y-4"></div>
-
-                        <div class="pt-4 border-t border-cyan-100 flex flex-col md:flex-row items-center justify-between gap-4">
-                            <button type="submit" class="w-full md:w-auto bg-cyan-600 hover:bg-cyan-700 text-white font-extrabold px-8 py-3.5 rounded-2xl shadow-lg transition text-xs uppercase cursor-pointer">
-                                🚀 Kumpul & Periksa Nilai Bab 2
-                            </button>
-                            <div id="quiz-result-lkpd-bab2" class="hidden font-black text-lg text-cyan-950"></div>
-                        </div>
-                    </form>
-                </div>
-
-                <!-- Tugas 6: Refleksi Diri Bab 2 -->
-                <div class="bg-white rounded-[2rem] p-6 shadow-sm border border-cyan-200 space-y-4">
-                    <div class="border-b border-cyan-100 pb-3">
-                        <span class="bg-cyan-100 text-cyan-900 text-[10px] font-bold px-2.5 py-0.5 rounded-full uppercase">Refleksi</span>
-                        <h2 class="text-lg font-extrabold text-cyan-950 mt-0.5">📋 Lembar Refleksi Diri Peserta Didik</h2>
-                    </div>
-                    <div class="space-y-3 text-xs font-semibold text-gray-800">
-                        <div class="flex items-center justify-between p-3 bg-cyan-50 rounded-xl border border-cyan-200">
-                            <span>1. Saya dapat menyebutkan 8 sebutan anggota keluarga dalam Bahasa Arab & Basa Jawa dengan lancar.</span>
-                            <div class="space-x-2">
-                                <label><input type="radio" name="ref_b2_1" value="ya"> Ya</label>
-                                <label><input type="radio" name="ref_b2_1" value="belum"> Belum</label>
-                            </div>
-                        </div>
-                        <div class="flex items-center justify-between p-3 bg-cyan-50 rounded-xl border border-cyan-200">
-                            <span>2. Saya mengerti cara menggunakan Isim Isyarah هٰذَا (Laki-laki) dan هٰذِهِ (Perempuan) untuk keluarga.</span>
-                            <div class="space-x-2">
-                                <label><input type="radio" name="ref_b2_2" value="ya"> Ya</label>
-                                <label><input type="radio" name="ref_b2_2" value="belum"> Belum</label>
-                            </div>
-                        </div>
-                        <div class="flex items-center justify-between p-3 bg-cyan-50 rounded-xl border border-cyan-200">
-                            <span>3. Saya bersyukur kepada Allah atas karunia keluarga yang beriman dan saling menyayangi.</span>
-                            <div class="space-x-2">
-                                <label><input type="radio" name="ref_b2_3" value="ya"> Ya</label>
-                                <label><input type="radio" name="ref_b2_3" value="belum"> Belum</label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-</div>
 
 
     <!-- MENU 3: PANDUAN IBADAH PRAKTIS -->
@@ -1532,7 +1250,7 @@
                     <span><i class="fa-solid fa-table mr-1 text-cyan-400"></i> Spreadsheet Interactive: Nilai Al-Islam</span>
                     <span class="text-[10px] text-emerald-400 font-bold">● Status Edit Aktif</span>
                 </div>
-                <iframe class="w-full h-[600px] rounded-2xl border-0" src="https://docs.google.com/spreadsheets/d/1_tFrdz-QUB9kthNYOa9bh9sQJES5M-MQ/edit?usp=sharing&ouid=113036274336253405231&rtpof=true&sd=true"></iframe>
+                <iframe class="w-full h-[600px] rounded-2xl border-0" src="https://docs.google.com/spreadsheets/d/1_tFrdz-QUB9kthNYOa9bh9sQJES5M-MQ/edit?rm=minimal"></iframe>
             </div>
 
             <div id="nilai-sub-bahasa-arab" class="bg-teal-950/60 p-2 rounded-3xl border border-teal-500/30 shadow-2xl hidden">
@@ -1540,7 +1258,7 @@
                     <span><i class="fa-solid fa-table mr-1 text-cyan-400"></i> Spreadsheet Interactive: Nilai Bahasa Arab</span>
                     <span class="text-[10px] text-emerald-400 font-bold">● Status Edit Aktif</span>
                 </div>
-                <iframe class="w-full h-[600px] rounded-2xl border-0" src="https://docs.google.com/spreadsheets/d/1QMl5TiXZlZAvpUHGf5d_tuzpZBV9ypub/edit?usp=sharing&ouid=113036274336253405231&rtpof=true&sd=true"></iframe>
+                <iframe class="w-full h-[600px] rounded-2xl border-0" src="https://docs.google.com/spreadsheets/d/1_tFrdz-QUB9kthNYOa9bh9sQJES5M-MQ/edit?rm=minimal"></iframe>
             </div>
         </div>
     </div>
@@ -1943,7 +1661,162 @@
             </div>
         </div>
 
-        <!-- SUB-TAB 4: SCRATCH KIDS -->
+        <!-- SUB-TAB 4: MUJAHEEBOT CODING QUEST -->
+        <div id="game-sub-mujahibot" class="hidden space-y-6">
+            <!-- Header Game MujahiBot -->
+            <div class="bg-emerald-800 text-white p-4 sm:p-6 rounded-3xl shadow-xl border-2 border-emerald-500 flex flex-wrap justify-between items-center gap-4">
+                <div class="flex items-center space-x-3">
+                    <div class="bg-white p-3 rounded-2xl shadow text-emerald-600 text-3xl">
+                        <i class="fa-solid fa-robot"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-xl sm:text-2xl font-bold font-heading-bot tracking-wide">MujaheeBot Coding Quest</h2>
+                        <p class="text-xs text-emerald-100">Petualangan Logika & Coding SD Al Mujahidin Wonosari</p>
+                    </div>
+                </div>
+
+                <div class="flex items-center space-x-4">
+                    <!-- Level Selector -->
+                    <div class="bg-emerald-900/80 rounded-xl px-3 py-1.5 flex items-center space-x-2 border border-emerald-600">
+                        <span class="text-xs text-emerald-200 font-bold hidden sm:inline">Modul:</span>
+                        <select id="levelSelect" onchange="loadLevel(this.value)" class="bg-emerald-950 text-white text-xs font-bold rounded-lg px-2 py-1 outline-none border border-emerald-500 cursor-pointer">
+                            <option value="0">Level 1: Langkah Pertama di Sekolah</option>
+                            <option value="1">Level 2: Aksi Go Green (Loop)</option>
+                            <option value="2">Level 3: Navigasi Perpustakaan (Kondisi)</option>
+                            <option value="3">Level 4: Jelajah Gunungkidul</option>
+                        </select>
+                    </div>
+
+                    <!-- Bintang / Skor -->
+                    <div class="bg-amber-400 text-amber-950 font-extrabold px-3 py-1.5 rounded-xl flex items-center space-x-1 shadow">
+                        <i class="fa-solid fa-star text-amber-100 text-lg"></i>
+                        <span id="starDisplay" class="text-lg">0</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Container Game MujahiBot -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+
+                <!-- Panel Kiri: Kanvas Grid Misi & Instruksi -->
+                <section class="lg:col-span-6 flex flex-col gap-4">
+                    <!-- Box Briefing Misi -->
+                    <div class="bg-slate-900/90 text-white p-4 rounded-2xl border-2 border-emerald-500/40 shadow-sm flex items-start space-x-3">
+                        <div class="text-3xl text-emerald-400 mt-1">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h2 id="missionTitle" class="font-heading-bot text-base sm:text-lg font-bold text-emerald-300">Petunjuk Misi</h2>
+                            <p id="missionDesc" class="text-xs sm:text-sm text-slate-300 mt-1">Bantu MujahiBot berjalan menuju tujuan!</p>
+                        </div>
+                    </div>
+
+                    <!-- Papan Grid Game -->
+                    <div class="bg-slate-900 p-4 rounded-3xl border-4 border-emerald-500/50 shadow-lg flex flex-col items-center justify-center relative">
+                        <div id="gridBoard" class="grid gap-1.5 bg-emerald-950/80 p-3 rounded-2xl border-2 border-emerald-600/50 relative overflow-hidden" style="width: 100%; max-width: 420px;">
+                            <!-- Grid cells & items generated dynamically by JavaScript -->
+                        </div>
+
+                        <!-- Floating Feedback Alert -->
+                        <div id="gameAlert" class="hidden absolute inset-0 bg-slate-950/80 backdrop-blur-sm rounded-2xl flex flex-col justify-center items-center p-6 text-center text-white z-20">
+                            <div id="alertIcon" class="text-5xl mb-2 text-yellow-400">
+                                <i class="fa-solid fa-trophy"></i>
+                            </div>
+                            <h3 id="alertTitle" class="text-2xl font-bold font-heading-bot">Luar Biasa!</h3>
+                            <p id="alertBody" class="text-xs sm:text-sm mt-1 text-slate-200 max-w-xs">Kamu berhasil menyelesaikan misi ini!</p>
+                            <div class="flex gap-3 mt-4">
+                                <button onclick="resetGame()" class="bg-slate-700 hover:bg-slate-600 px-4 py-2 rounded-xl text-xs font-bold shadow">
+                                    <i class="fa-solid fa-rotate-right mr-1"></i> Ulangi
+                                </button>
+                                <button id="btnNextLevel" onclick="nextLevel()" class="bg-emerald-500 hover:bg-emerald-400 text-white px-5 py-2 rounded-xl text-xs font-bold shadow">
+                                    Lanjut Level <i class="fa-solid fa-arrow-right ml-1"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Panel Kanan: Blok Perintah & Area Kerja (Workspace) -->
+                <section class="lg:col-span-6 flex flex-col gap-4">
+
+                    <!-- Toolset Blok Kode -->
+                    <div class="bg-slate-900/90 p-4 rounded-2xl border-2 border-slate-700/60 shadow-sm">
+                        <h3 class="font-heading-bot text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">
+                            <i class="fa-solid fa-cubes mr-1 text-emerald-400"></i> Blok Perintah (Klik untuk Tambah)
+                        </h3>
+                        
+                        <div class="grid grid-cols-2 sm:grid-cols-3 gap-2">
+                            <button onclick="addBlock('MOVE')" class="block-item bg-blue-600 hover:bg-blue-500 text-white px-3 py-2.5 rounded-xl font-bold text-xs flex items-center justify-between shadow-sm border-b-4 border-blue-800">
+                                <span><i class="fa-solid fa-arrow-up mr-1.5"></i> Maju 1</span>
+                                <i class="fa-solid fa-plus text-blue-200"></i>
+                            </button>
+
+                            <button onclick="addBlock('LEFT')" class="block-item bg-indigo-600 hover:bg-indigo-500 text-white px-3 py-2.5 rounded-xl font-bold text-xs flex items-center justify-between shadow-sm border-b-4 border-indigo-800">
+                                <span><i class="fa-solid fa-rotate-left mr-1.5"></i> Belok Kiri</span>
+                                <i class="fa-solid fa-plus text-indigo-200"></i>
+                            </button>
+
+                            <button onclick="addBlock('RIGHT')" class="block-item bg-indigo-600 hover:bg-indigo-500 text-white px-3 py-2.5 rounded-xl font-bold text-xs flex items-center justify-between shadow-sm border-b-4 border-indigo-800">
+                                <span><i class="fa-solid fa-rotate-right mr-1.5"></i> Belok Kanan</span>
+                                <i class="fa-solid fa-plus text-indigo-200"></i>
+                            </button>
+
+                            <button onclick="addBlock('ACTION')" class="block-item bg-amber-600 hover:bg-amber-500 text-white px-3 py-2.5 rounded-xl font-bold text-xs flex items-center justify-between shadow-sm border-b-4 border-amber-800">
+                                <span><i class="fa-solid fa-hand mr-1.5"></i> Ambil Objek</span>
+                                <i class="fa-solid fa-plus text-amber-200"></i>
+                            </button>
+
+                            <button onclick="addBlock('REPEAT_2')" class="block-item bg-purple-600 hover:bg-purple-500 text-white px-3 py-2.5 rounded-xl font-bold text-xs flex items-center justify-between shadow-sm border-b-4 border-purple-800">
+                                <span><i class="fa-solid fa-repeat mr-1.5"></i> Ulangi 2x</span>
+                                <i class="fa-solid fa-plus text-purple-200"></i>
+                            </button>
+
+                            <button onclick="addBlock('REPEAT_3')" class="block-item bg-purple-700 hover:bg-purple-600 text-white px-3 py-2.5 rounded-xl font-bold text-xs flex items-center justify-between shadow-sm border-b-4 border-purple-900">
+                                <span><i class="fa-solid fa-repeat mr-1.5"></i> Ulangi 3x</span>
+                                <i class="fa-solid fa-plus text-purple-200"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Program Sequence Workspace -->
+                    <div class="bg-slate-900/90 p-4 rounded-2xl border-2 border-slate-700/60 shadow-sm flex-1 flex flex-col justify-between min-h-[260px]">
+                        <div>
+                            <div class="flex justify-between items-center mb-3">
+                                <h3 class="font-heading-bot text-xs font-bold text-slate-400 uppercase tracking-wider">
+                                    <i class="fa-solid fa-code mr-1 text-emerald-400"></i> Program MujahiBot
+                                </h3>
+                                <button onclick="clearBlocks()" class="text-xs text-rose-400 font-bold hover:underline">
+                                    <i class="fa-solid fa-trash-can mr-1"></i> Hapus Semua
+                                </button>
+                            </div>
+
+                            <!-- List Program yang disusun -->
+                            <div id="workspace" class="bg-slate-950/80 rounded-xl p-3 border-2 border-dashed border-slate-700 min-h-[160px] max-h-[220px] overflow-y-auto flex flex-col gap-2">
+                                <div id="emptyTip" class="text-center text-slate-500 text-xs my-auto py-6">
+                                    Belum ada perintah.<br>Klik tombol di atas untuk menyusun logika MujahiBot!
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tombol Kontrol Eksekusi -->
+                        <div class="flex gap-3 mt-4">
+                            <button id="btnRun" onclick="runProgram()" class="flex-1 bg-emerald-600 hover:bg-emerald-500 text-white py-3 rounded-2xl font-heading-bot font-bold text-base shadow-lg border-b-4 border-emerald-800 flex justify-center items-center space-x-2 transition">
+                                <i class="fa-solid fa-play"></i>
+                                <span>JALANKAN KODE</span>
+                            </button>
+                            
+                            <button onclick="resetGame()" class="bg-slate-700 hover:bg-slate-600 text-slate-200 px-4 py-3 rounded-2xl font-bold text-sm border-b-4 border-slate-800 transition">
+                                <i class="fa-solid fa-rotate-left"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                </section>
+
+            </div>
+        </div>
+
+        <!-- SUB-TAB 5: SCRATCH KIDS -->
         <div id="game-sub-scratch" class="hidden space-y-6">
             <div class="bg-teal-950/60 rounded-[2.5rem] p-6 md:p-10 border border-teal-500/30 text-center space-y-6 shadow-2xl">
                 <div class="w-20 h-20 bg-amber-500/20 rounded-3xl flex items-center justify-center mx-auto text-amber-400 border border-amber-400/40 shadow-lg text-4xl">
@@ -1986,146 +1859,6 @@
                 </div>
             </div>
         </div>
-
-        <!-- SUB-TAB 5: MUJAHEEBOT CODING QUEST -->
-        <div id="game-sub-mujahibot" class="hidden space-y-6">
-            <!-- Header Game MujahiBot -->
-            <div class="bg-emerald-800 text-white p-4 sm:p-6 rounded-3xl shadow-xl border-2 border-emerald-500 flex flex-wrap justify-between items-center gap-4">
-                <div class="flex items-center space-x-3">
-                    <div class="bg-white p-3 rounded-2xl shadow text-emerald-600 text-3xl">
-                        <i class="fa-solid fa-robot"></i>
-                    </div>
-                    <div>
-                        <h2 class="text-xl sm:text-2xl font-bold font-heading-bot tracking-wide">MujaheeBot Coding Quest</h2>
-                        <p class="text-xs text-emerald-100">Petualangan Logika & Coding SD Al Mujahidin Wonosari</p>
-                    </div>
-                </div>
-
-                <div class="flex items-center space-x-4">
-                    <div class="bg-emerald-900/80 rounded-xl px-3 py-1.5 flex items-center space-x-2 border border-emerald-600">
-                        <span class="text-xs text-emerald-200 font-bold hidden sm:inline">Modul:</span>
-                        <select id="levelSelect" onchange="loadLevel(this.value)" class="bg-emerald-950 text-white text-xs font-bold rounded-lg px-2 py-1 outline-none border border-emerald-500 cursor-pointer">
-                            <option value="0">Level 1: Langkah Pertama di Sekolah</option>
-                            <option value="1">Level 2: Aksi Go Green (Loop)</option>
-                            <option value="2">Level 3: Navigasi Perpustakaan (Kondisi)</option>
-                            <option value="3">Level 4: Jelajah Gunungkidul</option>
-                        </select>
-                    </div>
-
-                    <div class="bg-amber-400 text-amber-950 font-extrabold px-3 py-1.5 rounded-xl flex items-center space-x-1 shadow">
-                        <i class="fa-solid fa-star text-amber-100 text-lg"></i>
-                        <span id="starDisplay" class="text-lg">0</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Main Container Game MujahiBot -->
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
-                <!-- Panel Kiri -->
-                <section class="lg:col-span-6 flex flex-col gap-4">
-                    <div class="bg-slate-900/90 text-white p-4 rounded-2xl border-2 border-emerald-500/40 shadow-sm flex items-start space-x-3">
-                        <div class="text-3xl text-emerald-400 mt-1">
-                            <i class="fa-solid fa-graduation-cap"></i>
-                        </div>
-                        <div class="flex-1">
-                            <h2 id="missionTitle" class="font-heading-bot text-base sm:text-lg font-bold text-emerald-300">Petunjuk Misi</h2>
-                            <p id="missionDesc" class="text-xs sm:text-sm text-slate-300 mt-1">Bantu MujaheeBot berjalan menuju tujuan!</p>
-                        </div>
-                    </div>
-
-                    <div class="bg-slate-900 p-4 rounded-3xl border-4 border-emerald-500/50 shadow-lg flex flex-col items-center justify-center relative">
-                        <div id="gridBoard" class="grid gap-1.5 bg-emerald-950/80 p-3 rounded-2xl border-2 border-emerald-600/50 relative overflow-hidden" style="width: 100%; max-width: 420px;"></div>
-
-                        <div id="gameAlert" class="hidden absolute inset-0 bg-slate-950/80 backdrop-blur-sm rounded-2xl flex flex-col justify-center items-center p-6 text-center text-white z-20">
-                            <div id="alertIcon" class="text-5xl mb-2 text-yellow-400">
-                                <i class="fa-solid fa-trophy"></i>
-                            </div>
-                            <h3 id="alertTitle" class="text-2xl font-bold font-heading-bot">Luar Biasa!</h3>
-                            <p id="alertBody" class="text-xs sm:text-sm mt-1 text-slate-200 max-w-xs">Kamu berhasil menyelesaikan misi ini!</p>
-                            <div class="flex gap-3 mt-4">
-                                <button onclick="resetGame()" class="bg-slate-700 hover:bg-slate-600 px-4 py-2 rounded-xl text-xs font-bold shadow">
-                                    <i class="fa-solid fa-rotate-right mr-1"></i> Ulangi
-                                </button>
-                                <button id="btnNextLevel" onclick="nextLevel()" class="bg-emerald-500 hover:bg-emerald-400 text-white px-5 py-2 rounded-xl text-xs font-bold shadow">
-                                    Lanjut Level <i class="fa-solid fa-arrow-right ml-1"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Panel Kanan -->
-                <section class="lg:col-span-6 flex flex-col gap-4">
-                    <div class="bg-slate-900/90 p-4 rounded-2xl border-2 border-slate-700/60 shadow-sm">
-                        <h3 class="font-heading-bot text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">
-                            <i class="fa-solid fa-cubes mr-1 text-emerald-400"></i> Blok Perintah (Klik untuk Tambah)
-                        </h3>
-                        
-                        <div class="grid grid-cols-2 sm:grid-cols-3 gap-2">
-                            <button onclick="addBlock('MOVE')" class="block-item bg-blue-600 hover:bg-blue-500 text-white px-3 py-2.5 rounded-xl font-bold text-xs flex items-center justify-between shadow-sm border-b-4 border-blue-800">
-                                <span><i class="fa-solid fa-arrow-up mr-1.5"></i> Maju 1</span>
-                                <i class="fa-solid fa-plus text-blue-200"></i>
-                            </button>
-
-                            <button onclick="addBlock('LEFT')" class="block-item bg-indigo-600 hover:bg-indigo-500 text-white px-3 py-2.5 rounded-xl font-bold text-xs flex items-center justify-between shadow-sm border-b-4 border-indigo-800">
-                                <span><i class="fa-solid fa-rotate-left mr-1.5"></i> Belok Kiri</span>
-                                <i class="fa-solid fa-plus text-indigo-200"></i>
-                            </button>
-
-                            <button onclick="addBlock('RIGHT')" class="block-item bg-indigo-600 hover:bg-indigo-500 text-white px-3 py-2.5 rounded-xl font-bold text-xs flex items-center justify-between shadow-sm border-b-4 border-indigo-800">
-                                <span><i class="fa-solid fa-rotate-right mr-1.5"></i> Belok Kanan</span>
-                                <i class="fa-solid fa-plus text-indigo-200"></i>
-                            </button>
-
-                            <button onclick="addBlock('ACTION')" class="block-item bg-amber-600 hover:bg-amber-500 text-white px-3 py-2.5 rounded-xl font-bold text-xs flex items-center justify-between shadow-sm border-b-4 border-amber-800">
-                                <span><i class="fa-solid fa-hand mr-1.5"></i> Ambil Objek</span>
-                                <i class="fa-solid fa-plus text-amber-200"></i>
-                            </button>
-
-                            <button onclick="addBlock('REPEAT_2')" class="block-item bg-purple-600 hover:bg-purple-500 text-white px-3 py-2.5 rounded-xl font-bold text-xs flex items-center justify-between shadow-sm border-b-4 border-purple-800">
-                                <span><i class="fa-solid fa-repeat mr-1.5"></i> Ulangi 2x</span>
-                                <i class="fa-solid fa-plus text-purple-200"></i>
-                            </button>
-
-                            <button onclick="addBlock('REPEAT_3')" class="block-item bg-purple-700 hover:bg-purple-600 text-white px-3 py-2.5 rounded-xl font-bold text-xs flex items-center justify-between shadow-sm border-b-4 border-purple-900">
-                                <span><i class="fa-solid fa-repeat mr-1.5"></i> Ulangi 3x</span>
-                                <i class="fa-solid fa-plus text-purple-200"></i>
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="bg-slate-900/90 p-4 rounded-2xl border-2 border-slate-700/60 shadow-sm flex-1 flex flex-col justify-between min-h-[260px]">
-                        <div>
-                            <div class="flex justify-between items-center mb-3">
-                                <h3 class="font-heading-bot text-xs font-bold text-slate-400 uppercase tracking-wider">
-                                    <i class="fa-solid fa-code mr-1 text-emerald-400"></i> Program MujahiBot
-                                </h3>
-                                <button onclick="clearBlocks()" class="text-xs text-rose-400 font-bold hover:underline">
-                                    <i class="fa-solid fa-trash-can mr-1"></i> Hapus Semua
-                                </button>
-                            </div>
-
-                            <div id="workspace" class="bg-slate-950/80 rounded-xl p-3 border-2 border-dashed border-slate-700 min-h-[160px] max-h-[220px] overflow-y-auto flex flex-col gap-2">
-                                <div id="emptyTip" class="text-center text-slate-500 text-xs my-auto py-6">
-                                    Belum ada perintah.<br>Klik tombol di atas untuk menyusun logika MujahiBot!
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="flex gap-3 mt-4">
-                            <button id="btnRun" onclick="runProgram()" class="flex-1 bg-emerald-600 hover:bg-emerald-500 text-white py-3 rounded-2xl font-heading-bot font-bold text-base shadow-lg border-b-4 border-emerald-800 flex justify-center items-center space-x-2 transition">
-                                <i class="fa-solid fa-play"></i>
-                                <span>JALANKAN KODE</span>
-                            </button>
-                            
-                            <button onclick="resetGame()" class="bg-slate-700 hover:bg-slate-600 text-slate-200 px-4 py-3 rounded-2xl font-bold text-sm border-b-4 border-slate-800 transition">
-                                <i class="fa-solid fa-rotate-left"></i>
-                            </button>
-                        </div>
-                    </div>
-                </section>
-            </div>
-        </div>
     </div>
 
 
@@ -2135,7 +1868,7 @@
     </div>
 
 
-    <!-- SCRIPT JAVASCRIPT FIXED & EXTENDED LENGKAP -->
+    <!-- SCRIPT JAVASCRIPT FIXED & UPDATED -->
     <script>
         // Switcher Menu Utama / Portal
         function switchPortal(portal) {
@@ -2155,39 +1888,48 @@
             if (portal === 'game-edu') {
                 initGameDragDrop9();
                 loadLevel(0);
-            } else if (portal === 'bahasa-arab') {
-                renderVocabMatchBA();
-                renderSentencePuzzleBA();
-                renderWordGridBA();
-                loadQuizLKPD_BA();
-            } else if (portal === 'al-islam') {
-                renderVocabMatch();
-                renderAyatPuzzle();
-                renderWordGrid();
-                loadQuizLKPD();
-                renderVocabMatchBab2();
             }
 
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
         // Switcher Bab Al-Islam
-        function switchAlIslamBab(bab) {
-            const bab1 = document.getElementById('al-islam-bab1');
-            const bab2 = document.getElementById('al-islam-bab2');
-            const btn1 = document.getElementById('btn-al-bab1');
-            const btn2 = document.getElementById('btn-al-bab2');
+        function switchAlIslamBab(babNum) {
+            const bab1 = document.getElementById('al-islam-bab1-content');
+            const bab2 = document.getElementById('al-islam-bab2-content');
+            const btn1 = document.getElementById('btn-al-islam-bab1');
+            const btn2 = document.getElementById('btn-al-islam-bab2');
 
-            if (bab === 'bab1') {
+            if (babNum === 1) {
                 bab1.classList.remove('hidden');
                 bab2.classList.add('hidden');
-                btn1.className = "px-4 py-2 bg-teal-600 text-white rounded-xl text-xs font-bold shadow-md transition border border-teal-400";
-                btn2.className = "px-4 py-2 bg-teal-950/80 text-gray-300 hover:text-white rounded-xl text-xs font-bold border border-teal-700 transition";
+                btn1.className = "px-4 py-2 bg-teal-600 text-white rounded-xl text-xs font-bold shadow-md transition";
+                btn2.className = "px-4 py-2 bg-teal-900/50 text-gray-300 hover:text-white rounded-xl text-xs font-bold border border-teal-800 transition";
             } else {
                 bab1.classList.add('hidden');
                 bab2.classList.remove('hidden');
-                btn1.className = "px-4 py-2 bg-teal-950/80 text-gray-300 hover:text-white rounded-xl text-xs font-bold border border-teal-700 transition";
-                btn2.className = "px-4 py-2 bg-emerald-600 text-white rounded-xl text-xs font-bold shadow-md transition border border-emerald-400";
+                btn2.className = "px-4 py-2 bg-teal-600 text-white rounded-xl text-xs font-bold shadow-md transition";
+                btn1.className = "px-4 py-2 bg-teal-900/50 text-gray-300 hover:text-white rounded-xl text-xs font-bold border border-teal-800 transition";
+            }
+        }
+
+        // Switcher Bab Bahasa Arab
+        function switchBahasaArabBab(babNum) {
+            const bab1 = document.getElementById('arab-bab1-content');
+            const bab2 = document.getElementById('arab-bab2-content');
+            const btn1 = document.getElementById('btn-arab-bab1');
+            const btn2 = document.getElementById('btn-arab-bab2');
+
+            if (babNum === 1) {
+                bab1.classList.remove('hidden');
+                bab2.classList.add('hidden');
+                btn1.className = "px-4 py-2 bg-teal-600 text-white rounded-xl text-xs font-bold shadow-md transition";
+                btn2.className = "px-4 py-2 bg-teal-900/50 text-gray-300 hover:text-white rounded-xl text-xs font-bold border border-teal-800 transition";
+            } else {
+                bab1.classList.add('hidden');
+                bab2.classList.remove('hidden');
+                btn2.className = "px-4 py-2 bg-teal-600 text-white rounded-xl text-xs font-bold shadow-md transition";
+                btn1.className = "px-4 py-2 bg-teal-900/50 text-gray-300 hover:text-white rounded-xl text-xs font-bold border border-teal-800 transition";
             }
         }
 
@@ -2223,7 +1965,7 @@
             if (activeBtn) activeBtn.classList.add('active');
         }
 
-        // Mode Edit Guru
+        // Verifikasi Password & Toggle Akses Mode Edit Guru
         let isGuruEditMode = false;
         function requestGuruEditAccess() {
             if (!isGuruEditMode) {
@@ -2247,6 +1989,7 @@
                 }
             } else {
                 isGuruEditMode = false;
+                
                 document.getElementById('nilai-public-container').classList.remove('hidden');
                 document.getElementById('nilai-edit-container').classList.add('hidden');
 
@@ -2300,7 +2043,7 @@
             currentAudio.play().catch(error => console.log("Audio play failed:", error));
         }
 
-        // Kuis Al-Islam Bab 1
+        // Kuis Interaktif Al-Islam Bab 1
         function submitAlIslamQuiz() {
             let score = 0;
             const form = document.getElementById('alIslamQuizForm');
@@ -2315,95 +2058,32 @@
             res.innerHTML = `Nilai Kuis Kamu: <span class="text-xl text-cyan-200">${score} / 100</span>! <br> ${score >= 80 ? '🎉 Masy\'Allah Luar Biasa! Pemahaman Al-Islam kamu sangat mantap!' : '💪 Tetap semangat, pelajari kembali materi di atas ya!'}`;
         }
 
-        // Kuis Bab 2 Sesuai Kunci Dokumen Modul (Evaluasi 1)
-        function submitAlIslamQuizBab2() {
+        // Kuis Interaktif Al-Islam Bab 2 (Asmaul Husna)
+        function submitAsmaulHusnaQuiz() {
             let score = 0;
-            const form = document.getElementById('alIslamQuizFormBab2');
-            if (form.elements['ais2_1'].value === 'B') score += 20;
-            if (form.elements['ais2_2'].value === 'C') score += 20;
-            if (form.elements['ais2_3'].value === 'A') score += 20;
-            if (form.elements['ais2_4'].value === 'B') score += 20;
-            if (form.elements['ais2_5'].value === 'A') score += 20;
+            const form = document.getElementById('asmaulHusnaQuizForm');
+            if (form.elements['ahq1'].value === 'B') score += 20;
+            if (form.elements['ahq2'].value === 'C') score += 20;
+            if (form.elements['ahq3'].value === 'A') score += 20;
+            if (form.elements['ahq4'].value === 'B') score += 10;
+            if (form.elements['ahq5'].value === 'A') score += 10;
 
-            const res = document.getElementById('alIslamResultBab2');
+            const is1 = document.getElementById('ahis1').value.trim().toLowerCase();
+            const is2 = document.getElementById('ahis2').value.trim().toLowerCase();
+            const is3 = document.getElementById('ahis3').value.trim().toLowerCase();
+
+            if (is1 === 'makhluq' || is1 === 'makhluk') score += 6.6;
+            if (is2 === 'pencipta') score += 6.7;
+            if (is3 === 'al-baari\'' || is3 === 'al baari' || is3 === 'albaari') score += 6.7;
+
+            score = Math.round(score);
+
+            const res = document.getElementById('asmaulHusnaResult');
             res.classList.remove('hidden');
-            res.innerHTML = `Nilai Evaluasi 1: <span class="text-xl text-emerald-200">${score} / 100</span>! <br> ${score >= 80 ? '🎉 Alhamdulillah! Kamu menguasai Evaluasi 1 Bab 2!' : '💪 Periksa kembali kunci materi Asmaul Husna di atas!'}`;
+            res.innerHTML = `Nilai Kuis Asmaul Husna: <span class="text-xl text-cyan-200">${score} / 100</span>! <br> ${score >= 80 ? '🎉 Masy\'Allah Luar Biasa! Pemahaman Asmaul Husna kamu sangat baik!' : '💪 Tetap semangat, baca kembali rangkuman Asmaul Husna di atas!'}`;
         }
 
-        // Logika LKPD BAB 2 - Menjodohkan Asmaul Husna
-        const vocabBab2Data = [
-            { id: 1, arab: "الخَالِقُ", target: "Maha Pencipta" },
-            { id: 2, arab: "البَارِئُ", target: "Maha Mengadakan / Pembuat" },
-            { id: 3, arab: "المُصَوِّرُ", target: "Maha Membentuk Rupa" }
-        ];
-
-        function renderVocabMatchBab2() {
-            const container = document.getElementById('vocab-matching-bab2-container');
-            if (!container) return;
-            container.innerHTML = '';
-            const meanings = ["Maha Mengadakan / Pembuat", "Maha Membentuk Rupa", "Maha Pencipta"];
-
-            vocabBab2Data.forEach((item, idx) => {
-                const box = document.createElement('div');
-                box.className = 'p-3 bg-amber-50 rounded-2xl border border-amber-200 text-center space-y-2';
-                let selectOptions = `<option value="">-- Pilih Arti --</option>`;
-                meanings.forEach(m => { selectOptions += `<option value="${m}">${m}</option>`; });
-                box.innerHTML = `
-                    <span class="arabic-text text-2xl font-bold text-amber-950 block">${item.arab}</span>
-                    <select id="vocab2-sel-${idx}" class="w-full p-2 text-xs rounded-xl border border-amber-300 font-semibold text-gray-800">
-                        ${selectOptions}
-                    </select>
-                `;
-                container.appendChild(box);
-            });
-        }
-
-        function checkVocabMatchBab2() {
-            let correct = 0;
-            vocabBab2Data.forEach((item, idx) => {
-                const sel = document.getElementById(`vocab2-sel-${idx}`).value;
-                if (sel === item.target) correct++;
-            });
-            const feedback = document.getElementById('vocab-feedback-bab2');
-            feedback.classList.remove('hidden');
-            if (correct === vocabBab2Data.length) {
-                feedback.className = "text-xs font-bold text-center p-2 rounded-xl bg-emerald-100 text-emerald-900 border border-emerald-300";
-                feedback.innerHTML = "🎉 Masy'Allah! Pasangan 3 Asmaul Husna Bab 2 BENAR!";
-            } else {
-                feedback.className = "text-xs font-bold text-center p-2 rounded-xl bg-amber-100 text-amber-900 border border-amber-300";
-                feedback.innerHTML = `👍 Kamu berhasil menjawab ${correct} dari ${vocabBab2Data.length} Asmaul Husna. Coba lagi!`;
-            }
-        }
-
-        // Evaluasi 2: Isian Singkat Sesuai Kunci Dokumen
-        function submitQuizLKPD2() {
-            let score = 0;
-            const ans1 = document.getElementById('isian1').value.trim().toLowerCase();
-            const ans2 = document.getElementById('isian2').value.trim().toLowerCase();
-            const ans3 = document.getElementById('isian3').value.trim().toLowerCase();
-            const ans4 = document.getElementById('isian4').value.trim().toLowerCase();
-            const ans5 = document.getElementById('isian5').value.trim().toLowerCase();
-
-            if (ans1.includes('makhluq') || ans1.includes('makhluk')) score += 20;
-            if (ans2.includes('pencipta')) score += 20;
-            if (ans3.includes('baari') || ans3.includes('baari\'') || ans3.includes('al-baari')) score += 20;
-            if (ans4.includes('mushawwir') || ans4.includes('al-mushawwir')) score += 20;
-            if (ans5.includes('asmaul husna') || ans5.includes('penciptaan') || ans5.includes('allah')) score += 20;
-
-            let predikat = score >= 80 ? "Mahir 🏆" : (score >= 60 ? "Cakap ⭐" : "Berkembang");
-            const resultDiv = document.getElementById('quiz-result-lkpd-bab2');
-            resultDiv.classList.remove('hidden');
-            resultDiv.innerHTML = `
-                <div class="p-4 bg-emerald-500 text-amber-950 rounded-2xl shadow-md text-center">
-                    <span class="block text-xs font-extrabold uppercase">Nilai Isian Singkat Evaluasi 2</span>
-                    <span class="text-3xl font-black">${score} / 100</span>
-                    <span class="block text-xs font-bold mt-1 bg-amber-950 text-amber-300 px-3 py-0.5 rounded-full inline-block">Predikat: ${predikat}</span>
-                </div>
-            `;
-            resultDiv.scrollIntoView({ behavior: 'smooth' });
-        }
-
-        // LKPD BAB 1 AL ISLAM Setup
+        // LKPD INTERAKTIF 3 JPL
         const vocabData = [
             { id: 1, arab: "زُلْزِلَتِ", target: "Digoncangkan" },
             { id: 2, arab: "الْأَرْضُ", target: "Bumi" },
@@ -2623,237 +2303,14 @@
             resultDiv.scrollIntoView({ behavior: 'smooth' });
         }
 
+        // Game Drag and Drop 9 Komponen PC
+        let game9Initialized = false;
+        let score9 = 0;
+        let correct9Count = 0;
 
-        // ================= LOGIKA KHUSUS LKPD BAHASA ARAB 2 JPL =================
-        const vocabBA_Data = [
-            { id: 1, arab: "رَأْسٌ", target: "Kepala" },
-            { id: 2, arab: "شَعْرٌ", target: "Rambut" },
-            { id: 3, arab: "عَيْنٌ", target: "Mata" },
-            { id: 4, arab: "أَنْفٌ", target: "Hidung" },
-            { id: 5, arab: "فَمٌ", target: "Mulut" },
-            { id: 6, arab: "أُذُنٌ", target: "Telinga" },
-            { id: 7, arab: "يَدٌ", target: "Tangan" },
-            { id: 8, arab: "رِجْلٌ", target: "Kaki" }
-        ];
-
-        function renderVocabMatchBA() {
-            const container = document.getElementById('vocab-matching-ba-container');
-            if (!container) return;
-            container.innerHTML = '';
-            const meanings = ["Kepala", "Rambut", "Mata", "Hidung", "Mulut", "Telinga", "Tangan", "Kaki"];
-
-            vocabBA_Data.forEach((item, idx) => {
-                const box = document.createElement('div');
-                box.className = 'p-3 bg-cyan-50 rounded-2xl border border-cyan-200 text-center space-y-2';
-                let selectOptions = `<option value="">-- Pilih Arti --</option>`;
-                meanings.forEach(m => { selectOptions += `<option value="${m}">${m}</option>`; });
-                box.innerHTML = `
-                    <span class="arabic-text text-2xl font-bold text-cyan-950 block">${item.arab}</span>
-                    <select id="vocab-ba-sel-${idx}" class="w-full p-2 text-xs rounded-xl border border-cyan-300 font-semibold text-gray-800">
-                        ${selectOptions}
-                    </select>
-                `;
-                container.appendChild(box);
-            });
-        }
-
-        function checkVocabMatchBA() {
-            let correct = 0;
-            vocabBA_Data.forEach((item, idx) => {
-                const sel = document.getElementById(`vocab-ba-sel-${idx}`).value;
-                if (sel === item.target) correct++;
-            });
-            const feedback = document.getElementById('vocab-feedback-ba');
-            feedback.classList.remove('hidden');
-            if (correct === vocabBA_Data.length) {
-                feedback.className = "text-xs font-bold text-center p-2 rounded-xl bg-emerald-100 text-emerald-900 border border-emerald-300";
-                feedback.innerHTML = "🎉 Mumtaz! Semua pasangan kosakata Bahasa Arab BENAR!";
-            } else {
-                feedback.className = "text-xs font-bold text-center p-2 rounded-xl bg-amber-100 text-amber-900 border border-amber-300";
-                feedback.innerHTML = `👍 Kamu berhasil menjawab ${correct} dari ${vocabBA_Data.length} kosakata. Coba lagi!`;
-            }
-        }
-
-        const sentenceBA_Data = [
-            { id: 1, text: "هٰذَا رَأْسِي" },
-            { id: 2, text: "وَ" },
-            { id: 3, text: "هٰذِهِ عَيْنِي" }
-        ];
-        let currentSelectedBA_Sentence = [];
-
-        function renderSentencePuzzleBA() {
-            const container = document.getElementById('sentence-choices-ba-container');
-            if (!container) return;
-            container.innerHTML = '';
-            let shuffled = [...sentenceBA_Data].sort(() => Math.random() - 0.5);
-
-            shuffled.forEach(item => {
-                const btn = document.createElement('button');
-                btn.type = 'button';
-                btn.id = `sentence-ba-btn-${item.id}`;
-                btn.className = 'p-3 bg-cyan-50 hover:bg-cyan-100 rounded-xl border border-cyan-200 text-center transition';
-                btn.onclick = () => selectSentenceBA(item);
-                btn.innerHTML = `<span class="arabic-text text-xl font-bold text-cyan-950 block">${item.text}</span>`;
-                container.appendChild(btn);
-            });
-        }
-
-        function selectSentenceBA(item) {
-            if (currentSelectedBA_Sentence.find(a => a.id === item.id)) return;
-            currentSelectedBA_Sentence.push(item);
-            document.getElementById(`sentence-ba-btn-${item.id}`).classList.add('opacity-40', 'pointer-events-none');
-            updateSelectedBA_SentenceUI();
-        }
-
-        function updateSelectedBA_SentenceUI() {
-            const listDiv = document.getElementById('sentence-selected-list-ba');
-            if (currentSelectedBA_Sentence.length === 0) {
-                listDiv.innerHTML = `<p class="text-xs text-gray-400 italic">Klik potongan kata Arab di bawah ini untuk menyusun kalimat: "Ini kepalaku dan ini mataku"</p>`;
-                return;
-            }
-            listDiv.innerHTML = '';
-            const rowDiv = document.createElement('div');
-            rowDiv.className = 'flex flex-row-reverse gap-2 justify-center p-2 bg-white rounded-xl border border-cyan-200';
-            currentSelectedBA_Sentence.forEach((item) => {
-                const span = document.createElement('span');
-                span.className = 'arabic-text text-xl font-bold text-cyan-950 px-2 bg-cyan-50 rounded';
-                span.innerText = item.text;
-                rowDiv.appendChild(span);
-            });
-            listDiv.appendChild(rowDiv);
-        }
-
-        function resetSentencePuzzleBA() {
-            currentSelectedBA_Sentence = [];
-            document.getElementById('sentence-feedback-ba').innerText = '';
-            renderSentencePuzzleBA();
-            updateSelectedBA_SentenceUI();
-        }
-
-        function checkSentencePuzzleBA() {
-            const feedback = document.getElementById('sentence-feedback-ba');
-            if (currentSelectedBA_Sentence.length < 3) {
-                feedback.className = "text-amber-800 font-bold";
-                feedback.innerText = "⚠️ Silakan pilih ke-3 potongan kata terlebih dahulu!";
-                return;
-            }
-            let isCorrect = true;
-            for (let i = 0; i < 3; i++) {
-                if (currentSelectedBA_Sentence[i].id !== i + 1) { isCorrect = false; break; }
-            }
-            if (isCorrect) {
-                feedback.className = "text-emerald-700 font-extrabold";
-                feedback.innerText = "🎉 MUMTAZ! Susunan Kalimat Bahasa Arab Kamu Tepat!";
-            } else {
-                feedback.className = "text-rose-700 font-bold";
-                feedback.innerText = "❌ Urutan kata masih keliru. Coba acak ulang!";
-            }
-        }
-
-        const gridMatrixBA = [
-            ['R', 'A', 'S', 'U', 'N', 'A', 'B', 'C'],
-            ['X', 'Y', 'Z', 'S', 'Y', 'A', 'R', 'U'],
-            ['A', 'I', 'N', 'U', 'N', 'M', 'N', 'N'],
-            ['A', 'N', 'F', 'U', 'N', 'O', 'P', 'Q'],
-            ['F', 'A', 'M', 'U', 'N', 'R', 'S', 'T'],
-            ['U', 'Z', 'U', 'N', 'U', 'N', 'V', 'W'],
-            ['Y', 'A', 'D', 'U', 'N', 'X', 'Y', 'Z'],
-            ['R', 'I', 'J', 'L', 'U', 'N', 'K', 'L']
-        ];
-        let foundWordsBA = { 'RASUN': false, 'SYARUN': false, 'AINUN': false, 'ANFUN': false, 'FAMUN': false, 'UZUNUN': false, 'YADUN': false, 'RIJLUN': false };
-        let selectedLettersBA = "";
-
-        function renderWordGridBA() {
-            const container = document.getElementById('grid-container-ba');
-            if (!container) return;
-            container.innerHTML = '';
-            gridMatrixBA.forEach((row) => {
-                row.forEach((letter) => {
-                    const btn = document.createElement('button');
-                    btn.type = 'button';
-                    btn.className = 'w-8 h-8 sm:w-10 sm:h-10 bg-teal-900/80 hover:bg-cyan-600 rounded-xl flex items-center justify-center font-black shadow border border-teal-800 transition';
-                    btn.innerText = letter;
-                    btn.onclick = () => highlightLetterBA(btn, letter);
-                    container.appendChild(btn);
-                });
-            });
-        }
-
-        function highlightLetterBA(btn, letter) {
-            btn.classList.toggle('bg-cyan-400');
-            btn.classList.toggle('text-cyan-950');
-            selectedLettersBA += letter;
-            Object.keys(foundWordsBA).forEach(word => {
-                if (selectedLettersBA.includes(word) && !foundWordsBA[word]) {
-                    foundWordsBA[word] = true;
-                    const elem = document.getElementById(`wordba-${word}`);
-                    if (elem) {
-                        elem.className = "p-2 bg-emerald-100 rounded-xl border border-emerald-300 font-bold text-emerald-900 flex justify-between";
-                        elem.querySelector('.status-icon').innerText = "✅";
-                    }
-                    let count = Object.values(foundWordsBA).filter(Boolean).length;
-                    document.getElementById('found-count-ba').innerText = count;
-                }
-            });
-        }
-
-        const quizQuestionsLKPD_BA = [
-            { q: "1. Bahasa Arab dari 'Kepala' adalah ....", options: ["رَأْسٌ (Ra'sun)", "عَيْنٌ ('Ainun)", "أَنْفٌ ('Anfun)", "يَدٌ (Yadun)"], answer: 0 },
-            { q: "2. Arti dari kata Bahasa Arab 'عَيْنٌ' adalah ....", options: ["Telinga", "Mata", "Mulut", "Hidung"], answer: 1 },
-            { q: "3. Untuk menunjuk kata benda laki-laki (mudzakkar) seperti 'رَأْسٌ' digunakan kata tunjuk ....", options: ["هٰذِهِ (Hadzihi)", "هٰذَا (Hadza)", "تِلْكَ (Tilka)", "أَنَا (Ana)"], answer: 1 },
-            { q: "4. Anggota badan 'أُذُنٌ' ('Uzunun) memiliki arti ....", options: ["Kaki", "Tangan", "Telinga", "Rambut"], answer: 2 },
-            { q: "5. Kalimat 'هٰذِهِ يَدِي' artinya adalah ....", options: ["Ini mataku", "Ini tanganku", "Ini kakiku", "Ini kepalaku"], answer: 1 }
-        ];
-
-        function loadQuizLKPD_BA() {
-            const container = document.getElementById('quiz-questions-lkpd-ba-container');
-            if (!container) return;
-            container.innerHTML = '';
-            quizQuestionsLKPD_BA.forEach((qData, idx) => {
-                const qDiv = document.createElement('div');
-                qDiv.className = 'p-4 bg-cyan-50/60 rounded-2xl border border-cyan-200/70 space-y-2';
-                let optionsHTML = '';
-                qData.options.forEach((opt, optIdx) => {
-                    optionsHTML += `
-                        <label class="flex items-center gap-2.5 p-2 bg-white rounded-xl border border-cyan-200 cursor-pointer hover:bg-cyan-100/50">
-                            <input type="radio" name="lkpdbaq${idx}" value="${optIdx}" class="text-cyan-600">
-                            <span class="text-xs font-semibold text-gray-800">${opt}</span>
-                        </label>
-                    `;
-                });
-                qDiv.innerHTML = `<h3 class="font-bold text-cyan-950 text-xs sm:text-sm">${qData.q}</h3><div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-2">${optionsHTML}</div>`;
-                container.appendChild(qDiv);
-            });
-        }
-
-        function submitQuizLKPD_BA() {
-            let score = 0;
-            quizQuestionsLKPD_BA.forEach((qData, idx) => {
-                const selected = document.querySelector(`input[name="lkpdbaq${idx}"]:checked`);
-                if (selected && parseInt(selected.value) === qData.answer) score += 20;
-            });
-            let predikat = score >= 80 ? "Mumtaz 🏆" : (score >= 60 ? "Jayyid ⭐" : "Maqbul");
-            const resultDiv = document.getElementById('quiz-result-lkpd-ba');
-            resultDiv.classList.remove('hidden');
-            resultDiv.innerHTML = `
-                <div class="p-4 bg-cyan-500 text-cyan-950 rounded-2xl shadow-md text-center">
-                    <span class="block text-xs font-extrabold uppercase">Nilai Bahasa Arab Kamu</span>
-                    <span class="text-3xl font-black">${score} / 100</span>
-                    <span class="block text-xs font-bold mt-1 bg-cyan-950 text-cyan-300 px-3 py-0.5 rounded-full inline-block">Predikat: ${predikat}</span>
-                </div>
-            `;
-            resultDiv.scrollIntoView({ behavior: 'smooth' });
-        }
-
-
-        // ================= LOGIKA KHUSUS GAME DRAG & DROP 9 PC =================
-        let scoreDragDrop9 = 0;
         function initGameDragDrop9() {
-            scoreDragDrop9 = 0;
-            const scoreEl = document.getElementById('comp-score-9');
-            if (scoreEl) scoreEl.innerText = '0';
-            const winMsg = document.getElementById('gameWinMessage9');
-            if (winMsg) winMsg.classList.add('hidden');
+            if (game9Initialized) return;
+            game9Initialized = true;
 
             const draggables = document.querySelectorAll('#hardware-source-9 .draggable-item');
             const dropSlots = document.querySelectorAll('#portal-game-edu .drop-slot');
@@ -2861,161 +2318,276 @@
             draggables.forEach(draggable => {
                 draggable.addEventListener('dragstart', (e) => {
                     e.dataTransfer.setData('text/plain', draggable.dataset.component);
-                    e.dataTransfer.setData('text/id', draggable.innerText);
-                    draggable.classList.add('opacity-50');
-                });
-                draggable.addEventListener('dragend', () => {
-                    draggable.classList.remove('opacity-50');
                 });
             });
 
             dropSlots.forEach(slot => {
-                slot.classList.remove('correct', 'wrong', 'hovered');
-                slot.innerHTML = `<h4 class="font-bold text-xs text-cyan-300">${slot.dataset.title || slot.innerText}</h4>`;
-                
                 slot.addEventListener('dragover', (e) => {
                     e.preventDefault();
                     slot.classList.add('hovered');
                 });
+
                 slot.addEventListener('dragleave', () => {
                     slot.classList.remove('hovered');
                 });
+
                 slot.addEventListener('drop', (e) => {
                     e.preventDefault();
                     slot.classList.remove('hovered');
-                    const compType = e.dataTransfer.getData('text/plain');
-                    const compText = e.dataTransfer.getData('text/id');
 
-                    if (slot.dataset.accept === compType) {
+                    const componentId = e.dataTransfer.getData('text/plain');
+                    const acceptId = slot.dataset.accept;
+                    const draggedElement = document.querySelector(`#hardware-source-9 [data-component="${componentId}"]`);
+
+                    if (componentId === acceptId && !slot.classList.contains('correct')) {
                         slot.classList.add('correct');
-                        slot.innerHTML = `<span class="text-xs font-bold text-emerald-300">✅ ${compText} (Terpasang)</span>`;
-                        const itemToHide = document.querySelector(`#hardware-source-9 [data-component="${compType}"]`);
-                        if (itemToHide) itemToHide.style.display = 'none';
+                        slot.innerHTML = `<h4 class="font-bold text-xs text-emerald-300">✅ TERPASANG: ${draggedElement.innerText}</h4>`;
+                        
+                        draggedElement.style.visibility = 'hidden';
+                        draggedElement.setAttribute('draggable', 'false');
 
-                        scoreDragDrop9 += 100;
-                        if (scoreEl) scoreEl.innerText = scoreDragDrop9;
+                        score9 += 100;
+                        correct9Count++;
+                        document.getElementById('comp-score-9').innerText = score9;
 
-                        if (scoreDragDrop9 >= 900) {
-                            if (winMsg) winMsg.classList.remove('hidden');
+                        if (correct9Count === dropSlots.length) {
+                            document.getElementById('gameWinMessage9').classList.remove('hidden');
                         }
-                    } else {
+                    } else if (componentId !== acceptId) {
                         slot.classList.add('wrong');
-                        setTimeout(() => slot.classList.remove('wrong'), 1000);
+                        setTimeout(() => slot.classList.remove('wrong'), 800);
                     }
                 });
             });
         }
 
+        // Kuis Detektif
         function submitDetectiveQuiz() {
             let score = 0;
             const form = document.getElementById('detectiveQuizForm');
-            if (form.elements['dq1'].value === 'B') score += 33;
-            if (form.elements['dq2'].value === 'A') score += 33;
-            if (form.elements['dq3'].value === 'A') score += 34;
+            if (form.elements['dq1'].value === 'B') score += 35;
+            if (form.elements['dq2'].value === 'A') score += 35;
+            if (form.elements['dq3'].value === 'A') score += 30;
 
             const res = document.getElementById('detectiveResult');
             res.classList.remove('hidden');
-            res.innerHTML = `Skor Detektif Kamu: <span class="text-xl text-cyan-200">${score} / 100</span>! <br> ${score >= 80 ? '🕵️‍♂️ Mantap! Analisis troubleshooting kamu sangat akurat!' : '💪 Periksa kembali fungsi komponen PC di menu Anatomi ya!'}`;
+            res.textContent = `Skor Detektif Kamu: ${score} / 100! ${score >= 70 ? 'Luar biasa, analisis kamu sangat tajam!' : 'Ulangi membaca menu Anatomi Komponen lagi ya!'}`;
         }
 
-
-        // ================= LOGIKA KHUSUS GAME MUJAHIBOT CODING =================
-        const levels = [
+        // ENGINE GAME MUJAHEEBOT CODING QUEST
+        const LEVELS = [
             {
-                title: "Level 1: Langkah Pertama di Sekolah",
-                desc: "Gunakan perintah MAJU untuk membantu MujaheeBot sampai di Gerbang Sekolah!",
-                gridSize: 4,
-                start: { r: 3, c: 0, dir: 1 }, // dir: 0:N, 1:E, 2:S, 3:W
-                target: { r: 3, c: 3 },
-                obstacles: [],
-                items: []
-            },
-            {
-                title: "Level 2: Aksi Go Green (Loop)",
-                desc: "Ambil Pohon dan tanam di area penghijauan menggunakan pengulangan!",
+                title: "Modul 1: Langkah Pertama di Sekolah",
+                desc: "Pandu MujahiBot menuju Ruang Kelas. Jangan lupa ambil Buku Pelajaran di jalan!",
                 gridSize: 5,
-                start: { r: 4, c: 0, dir: 1 },
-                target: { r: 0, c: 4 },
-                obstacles: [{ r: 2, c: 2 }, { r: 2, c: 3 }],
-                items: [{ r: 4, c: 2, type: "TREE" }]
+                start: { x: 0, y: 4, dir: 'EAST' },
+                goal: { x: 4, y: 0, icon: 'fa-school', label: 'Kelas' },
+                items: [
+                    { x: 2, y: 4, type: 'BOOK', icon: 'fa-book', collected: false }
+                ],
+                obstacles: [
+                    { x: 2, y: 1 }, { x: 2, y: 2 }, { x: 2, y: 3 }
+                ]
             },
             {
-                title: "Level 3: Navigasi Perpustakaan (Kondisi)",
-                desc: "Belok dan hindari tumpukan meja untuk mengambil buku perpustakaan!",
+                title: "Modul 2: Aksi Go Green Mujahidin",
+                desc: "Bersihkan sampah di lapangan sekolah! Gunakan perintah 'Ambil' dan blok 'Ulangi' agar lebih efisien.",
                 gridSize: 5,
-                start: { r: 4, c: 0, dir: 0 },
-                target: { r: 0, c: 4 },
-                obstacles: [{ r: 3, c: 0 }, { r: 1, c: 2 }, { r: 2, c: 2 }],
-                items: [{ r: 2, c: 0, type: "BOOK" }]
+                start: { x: 0, y: 0, dir: 'SOUTH' },
+                goal: { x: 4, y: 4, icon: 'fa-recycle', label: 'Bank Sampah' },
+                items: [
+                    { x: 0, y: 1, type: 'TRASH', icon: 'fa-trash-can', collected: false },
+                    { x: 0, y: 2, type: 'TRASH', icon: 'fa-trash-can', collected: false },
+                    { x: 0, y: 3, type: 'TRASH', icon: 'fa-trash-can', collected: false }
+                ],
+                obstacles: [
+                    { x: 1, y: 1 }, { x: 3, y: 3 }
+                ]
             },
             {
-                title: "Level 4: Jelajah Gunungkidul",
-                desc: "Misi rumit! Navigasi jalur berliku menuju Alun-Alun Wonosari!",
+                title: "Modul 3: Navigasi Cerdas Perpustakaan",
+                desc: "Cari buku materi di Perpustakaan. Hindari genangan air & rapihkan rak buku!",
+                gridSize: 5,
+                start: { x: 0, y: 2, dir: 'EAST' },
+                goal: { x: 4, y: 2, icon: 'fa-book-bookmark', label: 'Perpus' },
+                items: [
+                    { x: 2, y: 2, type: 'BOOK', icon: 'fa-book-open', collected: false }
+                ],
+                obstacles: [
+                    { x: 2, y: 0 }, { x: 2, y: 1 }, { x: 2, y: 3 }, { x: 2, y: 4 }
+                ]
+            },
+            {
+                title: "Modul 4: Jelajah Geopark Gunungkidul",
+                desc: "Petualangan MujahiBot menjelajah Geopark Gunungkidul. Kumpulkan Bintang Misi!",
                 gridSize: 6,
-                start: { r: 5, c: 0, dir: 0 },
-                target: { r: 0, c: 5 },
-                obstacles: [{ r: 4, c: 0 }, { r: 2, c: 1 }, { r: 3, c: 3 }, { r: 1, c: 4 }],
-                items: [{ r: 3, c: 0, type: "STAR" }]
+                start: { x: 0, y: 5, dir: 'NORTH' },
+                goal: { x: 5, y: 0, icon: 'fa-mountain-sun', label: 'Geopark' },
+                items: [
+                    { x: 0, y: 2, type: 'STAR', icon: 'fa-star', collected: false },
+                    { x: 3, y: 2, type: 'STAR', icon: 'fa-star', collected: false },
+                    { x: 5, y: 2, type: 'STAR', icon: 'fa-star', collected: false }
+                ],
+                obstacles: [
+                    { x: 1, y: 5 }, { x: 1, y: 4 }, { x: 1, y: 2 },
+                    { x: 3, y: 0 }, { x: 3, y: 1 }, { x: 4, y: 4 }
+                ]
             }
         ];
 
+        const DIRS = ['NORTH', 'EAST', 'SOUTH', 'WEST'];
+        const DIR_OFFSETS = {
+            'NORTH': { x: 0, y: -1 },
+            'EAST':  { x: 1, y: 0 },
+            'SOUTH': { x: 0, y: 1 },
+            'WEST':  { x: -1, y: 0 }
+        };
+
         let currentLevelIdx = 0;
-        let robotState = { r: 0, c: 0, dir: 1 };
-        let program = [];
-        let stars = 0;
-        let isRunning = false;
+        let currentLevelData = null;
+        let robotState = { x: 0, y: 0, dirIdx: 1 };
+        let programSequence = [];
+        let isExecuting = false;
+        let totalStars = 0;
+
+        let audioCtx = null;
+
+        function playSound(type) {
+            try {
+                if (!audioCtx) {
+                    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                }
+                if (audioCtx.state === 'suspended') {
+                    audioCtx.resume();
+                }
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+
+                const now = audioCtx.currentTime;
+
+                if (type === 'step') {
+                    osc.type = 'sine';
+                    osc.frequency.setValueAtTime(300, now);
+                    osc.frequency.exponentialRampToValueAtTime(150, now + 0.1);
+                    gain.gain.setValueAtTime(0.2, now);
+                    gain.gain.linearRampToValueAtTime(0.01, now + 0.1);
+                    osc.start(now);
+                    osc.stop(now + 0.1);
+                } else if (type === 'collect') {
+                    osc.type = 'triangle';
+                    osc.frequency.setValueAtTime(523.25, now);
+                    osc.frequency.setValueAtTime(659.25, now + 0.08);
+                    osc.frequency.setValueAtTime(783.99, now + 0.16);
+                    gain.gain.setValueAtTime(0.3, now);
+                    gain.gain.linearRampToValueAtTime(0.01, now + 0.25);
+                    osc.start(now);
+                    osc.stop(now + 0.25);
+                } else if (type === 'win') {
+                    osc.type = 'sine';
+                    osc.frequency.setValueAtTime(523.25, now);
+                    osc.frequency.setValueAtTime(659.25, now + 0.1);
+                    osc.frequency.setValueAtTime(783.99, now + 0.2);
+                    osc.frequency.setValueAtTime(1046.50, now + 0.3);
+                    gain.gain.setValueAtTime(0.4, now);
+                    gain.gain.linearRampToValueAtTime(0.01, now + 0.5);
+                    osc.start(now);
+                    osc.stop(now + 0.5);
+                } else if (type === 'error') {
+                    osc.type = 'sawtooth';
+                    osc.frequency.setValueAtTime(180, now);
+                    osc.frequency.setValueAtTime(110, now + 0.15);
+                    gain.gain.setValueAtTime(0.3, now);
+                    gain.gain.linearRampToValueAtTime(0.01, now + 0.3);
+                    osc.start(now);
+                    osc.stop(now + 0.3);
+                }
+            } catch(e) {
+                console.log("Sound disabled/not supported");
+            }
+        }
 
         function loadLevel(idx) {
             currentLevelIdx = parseInt(idx);
-            document.getElementById('levelSelect').value = currentLevelIdx;
-            const lvl = levels[currentLevelIdx];
-            document.getElementById('missionTitle').innerText = lvl.title;
-            document.getElementById('missionDesc').innerText = lvl.desc;
-            robotState = { ...lvl.start };
-            program = [];
-            renderWorkspace();
-            renderGrid();
+            const selectEl = document.getElementById('levelSelect');
+            if (selectEl) selectEl.value = currentLevelIdx;
+            
+            currentLevelData = JSON.parse(JSON.stringify(LEVELS[currentLevelIdx]));
+            
+            const titleEl = document.getElementById('missionTitle');
+            const descEl = document.getElementById('missionDesc');
+            if (titleEl) titleEl.innerText = currentLevelData.title;
+            if (descEl) descEl.innerText = currentLevelData.desc;
+
+            robotState.x = currentLevelData.start.x;
+            robotState.y = currentLevelData.start.y;
+            robotState.dirIdx = DIRS.indexOf(currentLevelData.start.dir);
+
             hideAlert();
+            renderGrid();
+            renderWorkspace();
+        }
+
+        function resetGame() {
+            if (isExecuting) return;
+            programSequence = [];
+            loadLevel(currentLevelIdx);
         }
 
         function renderGrid() {
-            const lvl = levels[currentLevelIdx];
             const board = document.getElementById('gridBoard');
-            board.style.gridTemplateColumns = `repeat(${lvl.gridSize}, minmax(0, 1fr))`;
+            if (!board || !currentLevelData) return;
             board.innerHTML = '';
+            
+            const size = currentLevelData.gridSize;
+            board.style.gridTemplateColumns = `repeat(${size}, minmax(0, 1fr))`;
 
-            for (let r = 0; r < lvl.gridSize; r++) {
-                for (let c = 0; c < lvl.gridSize; c++) {
+            for (let r = 0; r < size; r++) {
+                for (let c = 0; c < size; c++) {
                     const cell = document.createElement('div');
-                    cell.className = 'grid-cell bg-emerald-900/40 rounded-xl border border-emerald-700/40 flex items-center justify-center text-xl relative';
+                    cell.className = 'grid-cell bg-slate-800/80 rounded-xl border border-emerald-600/30 flex items-center justify-center relative shadow-inner text-lg';
+                    cell.dataset.x = c;
+                    cell.dataset.y = r;
 
-                    // Check Obstacles
-                    if (lvl.obstacles.some(o => o.r === r && o.c === c)) {
-                        cell.innerHTML = '🪨';
-                        cell.classList.add('bg-slate-800/80');
-                    }
-                    // Check Target
-                    else if (lvl.target.r === r && lvl.target.c === c) {
-                        cell.innerHTML = '🏫';
-                        cell.classList.add('bg-amber-500/20', 'border-amber-400');
-                    }
-                    // Check Items
-                    else {
-                        const item = lvl.items.find(i => i.r === r && i.c === c);
-                        if (item) {
-                            if (item.type === 'TREE') cell.innerHTML = '🌱';
-                            else if (item.type === 'BOOK') cell.innerHTML = '📚';
-                            else if (item.type === 'STAR') cell.innerHTML = '⭐';
-                        }
+                    const isObs = currentLevelData.obstacles.some(o => o.x === c && o.y === r);
+                    if (isObs) {
+                        cell.classList.add('bg-rose-950/80', 'border-rose-500/50');
+                        cell.innerHTML = `<i class="fa-solid fa-ban text-rose-400"></i>`;
                     }
 
-                    // Check Robot
-                    if (robotState.r === r && robotState.c === c) {
-                        const bot = document.createElement('div');
-                        bot.className = 'robot-anim text-2xl sm:text-3xl z-10';
-                        const dirs = ['rotate-0', 'rotate-90', 'rotate-180', '-rotate-90'];
-                        bot.innerHTML = `<i class="fa-solid fa-robot text-cyan-300 transform ${dirs[robotState.dir]}"></i>`;
-                        cell.appendChild(bot);
+                    if (currentLevelData.goal.x === c && currentLevelData.goal.y === r) {
+                        cell.classList.add('bg-amber-950/80', 'border-amber-500/50');
+                        cell.innerHTML = `
+                            <div class="flex flex-col items-center text-amber-400">
+                                <i class="fa-solid ${currentLevelData.goal.icon} text-xl"></i>
+                                <span class="text-[9px] font-bold mt-0.5">${currentLevelData.goal.label}</span>
+                            </div>
+                        `;
+                    }
+
+                    const item = currentLevelData.items.find(i => i.x === c && i.y === r && !i.collected);
+                    if (item) {
+                        const itemElem = document.createElement('div');
+                        itemElem.className = 'text-cyan-400 animate-bounce text-xl';
+                        itemElem.innerHTML = `<i class="fa-solid ${item.icon}"></i>`;
+                        cell.appendChild(itemElem);
+                    }
+
+                    if (robotState.x === c && robotState.y === r) {
+                        const robotElem = document.createElement('div');
+                        robotElem.className = 'robot-anim absolute inset-0 flex items-center justify-center text-emerald-400 text-2xl z-10';
+                        
+                        let rotDeg = robotState.dirIdx * 90;
+                        robotElem.style.transform = `rotate(${rotDeg}deg)`;
+
+                        robotElem.innerHTML = `
+                            <div class="relative flex items-center justify-center">
+                                <i class="fa-solid fa-robot drop-shadow"></i>
+                                <i class="fa-solid fa-caret-up text-amber-400 text-xs absolute -top-2"></i>
+                            </div>
+                        `;
+                        cell.appendChild(robotElem);
                     }
 
                     board.appendChild(cell);
@@ -3024,386 +2596,239 @@
         }
 
         function addBlock(type) {
-            if (isRunning) return;
-            program.push(type);
+            if (isExecuting) return;
+            programSequence.push(type);
+            renderWorkspace();
+            playSound('step');
+        }
+
+        function removeBlock(idx) {
+            if (isExecuting) return;
+            programSequence.splice(idx, 1);
             renderWorkspace();
         }
 
         function clearBlocks() {
-            if (isRunning) return;
-            program = [];
+            if (isExecuting) return;
+            programSequence = [];
             renderWorkspace();
         }
 
         function renderWorkspace() {
             const ws = document.getElementById('workspace');
+            if (!ws) return;
             ws.innerHTML = '';
-            if (program.length === 0) {
-                ws.innerHTML = `<div id="emptyTip" class="text-center text-slate-500 text-xs my-auto py-6">Belum ada perintah.<br>Klik tombol di atas untuk menyusun logika MujahiBot!</div>`;
+
+            if (programSequence.length === 0) {
+                ws.innerHTML = `
+                    <div id="emptyTip" class="text-center text-slate-500 text-xs my-auto py-6">
+                        Belum ada perintah.<br>Klik tombol di atas untuk menyusun logika MujahiBot!
+                    </div>
+                `;
                 return;
             }
 
-            const names = {
-                'MOVE': 'Maju 1 Langkah',
-                'LEFT': 'Belok Kiri 90°',
-                'RIGHT': 'Belok Kanan 90°',
-                'ACTION': 'Ambil Objek',
-                'REPEAT_2': 'Ulangi (2x)',
-                'REPEAT_3': 'Ulangi (3x)'
-            };
-
-            const colors = {
-                'MOVE': 'bg-blue-600 border-blue-800',
-                'LEFT': 'bg-indigo-600 border-indigo-800',
-                'RIGHT': 'bg-indigo-600 border-indigo-800',
-                'ACTION': 'bg-amber-600 border-amber-800',
-                'REPEAT_2': 'bg-purple-600 border-purple-800',
-                'REPEAT_3': 'bg-purple-700 border-purple-900'
-            };
-
-            program.forEach((cmd, i) => {
+            programSequence.forEach((cmd, idx) => {
                 const item = document.createElement('div');
-                item.className = `${colors[cmd]} text-white px-3 py-1.5 rounded-lg text-xs font-bold flex justify-between items-center shadow border-b-2`;
+                item.className = 'flex items-center justify-between p-2 rounded-xl text-xs font-bold text-white shadow-sm border-b-2';
+                
+                let label = '';
+                let bgClass = 'bg-slate-700 border-slate-900';
+
+                switch(cmd) {
+                    case 'MOVE':
+                        label = `<i class="fa-solid fa-arrow-up mr-2"></i> Maju 1 Langkah`;
+                        bgClass = 'bg-blue-600 border-blue-800';
+                        break;
+                    case 'LEFT':
+                        label = `<i class="fa-solid fa-rotate-left mr-2"></i> Belok Kiri`;
+                        bgClass = 'bg-indigo-600 border-indigo-800';
+                        break;
+                    case 'RIGHT':
+                        label = `<i class="fa-solid fa-rotate-right mr-2"></i> Belok Kanan`;
+                        bgClass = 'bg-indigo-600 border-indigo-800';
+                        break;
+                    case 'ACTION':
+                        label = `<i class="fa-solid fa-hand mr-2"></i> Ambil Objek`;
+                        bgClass = 'bg-amber-600 border-amber-800';
+                        break;
+                    case 'REPEAT_2':
+                        label = `<i class="fa-solid fa-repeat mr-2"></i> [Ulangi 2x] (Maju 1)`;
+                        bgClass = 'bg-purple-600 border-purple-800';
+                        break;
+                    case 'REPEAT_3':
+                        label = `<i class="fa-solid fa-repeat mr-2"></i> [Ulangi 3x] (Maju 1)`;
+                        bgClass = 'bg-purple-700 border-purple-900';
+                        break;
+                }
+
+                item.className += ' ' + bgClass;
                 item.innerHTML = `
-                    <span>${i + 1}. ${names[cmd]}</span>
-                    <i onclick="removeBlock(${i})" class="fa-solid fa-xmark hover:text-rose-300 cursor-pointer ml-2"></i>
+                    <span class="flex items-center">${idx + 1}. ${label}</span>
+                    <button onclick="removeBlock(${idx})" class="text-white/70 hover:text-white px-1">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
                 `;
                 ws.appendChild(item);
             });
         }
 
-        function removeBlock(idx) {
-            if (isRunning) return;
-            program.splice(idx, 1);
-            renderWorkspace();
-        }
-
         async function runProgram() {
-            if (isRunning || program.length === 0) return;
-            isRunning = true;
-            document.getElementById('btnRun').disabled = true;
+            if (isExecuting) return;
+            if (programSequence.length === 0) {
+                alert("Tambahkan blok perintah terlebih dahulu!");
+                return;
+            }
 
-            const lvl = levels[currentLevelIdx];
-            robotState = { ...lvl.start };
-            renderGrid();
+            isExecuting = true;
+            const btnRun = document.getElementById('btnRun');
+            if (btnRun) {
+                btnRun.disabled = true;
+                btnRun.classList.add('opacity-50');
+            }
 
-            // Expand Repeat Loops
-            let expandedCmds = [];
-            for (let i = 0; i < program.length; i++) {
-                const cmd = program[i];
+            let expandedCommands = [];
+            for (let cmd of programSequence) {
                 if (cmd === 'REPEAT_2') {
-                    if (i + 1 < program.length) expandedCmds.push(program[i+1], program[i+1]);
+                    expandedCommands.push('MOVE', 'MOVE');
                 } else if (cmd === 'REPEAT_3') {
-                    if (i + 1 < program.length) expandedCmds.push(program[i+1], program[i+1], program[i+1]);
+                    expandedCommands.push('MOVE', 'MOVE', 'MOVE');
                 } else {
-                    expandedCmds.push(cmd);
+                    expandedCommands.push(cmd);
                 }
             }
 
-            for (let cmd of expandedCmds) {
-                await new Promise(r => setTimeout(r, 400));
+            for (let i = 0; i < expandedCommands.length; i++) {
+                const cmd = expandedCommands[i];
+                let success = await executeCommand(cmd);
 
-                if (cmd === 'MOVE') {
-                    let nr = robotState.r;
-                    let nc = robotState.c;
-                    if (robotState.dir === 0) nr--;
-                    else if (robotState.dir === 1) nc++;
-                    else if (robotState.dir === 2) nr++;
-                    else if (robotState.dir === 3) nc--;
-
-                    if (nr >= 0 && nr < lvl.gridSize && nc >= 0 && nc < lvl.gridSize) {
-                        if (!lvl.obstacles.some(o => o.r === nr && o.c === nc)) {
-                            robotState.r = nr;
-                            robotState.c = nc;
-                        }
+                if (!success) {
+                    playSound('error');
+                    showAlert('Wah, MujahiBot Menabrak!', 'Periksa kembali jalan dan rintangan di papan.', false);
+                    isExecuting = false;
+                    if (btnRun) {
+                        btnRun.disabled = false;
+                        btnRun.classList.remove('opacity-50');
                     }
-                } else if (cmd === 'LEFT') {
-                    robotState.dir = (robotState.dir + 3) % 4;
-                } else if (cmd === 'RIGHT') {
-                    robotState.dir = (robotState.dir + 1) % 4;
+                    return;
                 }
 
                 renderGrid();
+                await sleep(400);
             }
 
-            // Check Win
-            if (robotState.r === lvl.target.r && robotState.c === lvl.target.c) {
-                stars += 3;
-                document.getElementById('starDisplay').innerText = stars;
-                showAlert("🎉 Luar Biasa!", "Kamu berhasil membawa MujahiBot ke tujuan dengan logika yang tepat!");
+            const uncollected = currentLevelData.items.filter(i => !i.collected);
+            const isAtGoal = robotState.x === currentLevelData.goal.x && robotState.y === currentLevelData.goal.y;
+
+            if (isAtGoal && uncollected.length === 0) {
+                playSound('win');
+                totalStars += 3;
+                document.getElementById('starDisplay').innerText = totalStars;
+                showAlert('Misi Berhasil! ⭐⭐⭐', 'MujahiBot berhasil menyelesaikan tugasnya dengan sempurna!', true);
+            } else if (isAtGoal && uncollected.length > 0) {
+                playSound('error');
+                showAlert('Hampir Berhasil!', `Kamu sudah di tujuan, tetapi belum mengambil ${uncollected.length} objek sasaran!`, false);
             } else {
-                showAlert("❌ Belum Sampai", "MujahiBot belum mencapai target. Periksa kembali urutan kodenya!", false);
+                playSound('error');
+                showAlert('Belum Sampai Tujuan!', 'MujahiBot berhenti sebelum mencapai lokasi tujuan.', false);
             }
 
-            isRunning = false;
-            document.getElementById('btnRun').disabled = false;
+            isExecuting = false;
+            if (btnRun) {
+                btnRun.disabled = false;
+                btnRun.classList.remove('opacity-50');
+            }
         }
 
-        function resetGame() {
-            const lvl = levels[currentLevelIdx];
-            robotState = { ...lvl.start };
-            renderGrid();
-            hideAlert();
+        function executeCommand(cmd) {
+            return new Promise((resolve) => {
+                if (cmd === 'MOVE') {
+                    const dirName = DIRS[robotState.dirIdx];
+                    const offset = DIR_OFFSETS[dirName];
+                    const nextX = robotState.x + offset.x;
+                    const nextY = robotState.y + offset.y;
+
+                    if (nextX < 0 || nextX >= currentLevelData.gridSize || nextY < 0 || nextY >= currentLevelData.gridSize) {
+                        resolve(false);
+                        return;
+                    }
+
+                    const isObs = currentLevelData.obstacles.some(o => o.x === nextX && o.y === nextY);
+                    if (isObs) {
+                        resolve(false);
+                        return;
+                    }
+
+                    robotState.x = nextX;
+                    robotState.y = nextY;
+                    playSound('step');
+                    resolve(true);
+
+                } else if (cmd === 'LEFT') {
+                    robotState.dirIdx = (robotState.dirIdx + 3) % 4;
+                    playSound('step');
+                    resolve(true);
+
+                } else if (cmd === 'RIGHT') {
+                    robotState.dirIdx = (robotState.dirIdx + 1) % 4;
+                    playSound('step');
+                    resolve(true);
+
+                } else if (cmd === 'ACTION') {
+                    const item = currentLevelData.items.find(i => i.x === robotState.x && i.y === robotState.y && !i.collected);
+                    if (item) {
+                        item.collected = true;
+                        playSound('collect');
+                    }
+                    resolve(true);
+                }
+            });
         }
 
-        function showAlert(title, body, isWin = true) {
-            const alert = document.getElementById('gameAlert');
+        function showAlert(title, body, isWin) {
+            const alertBox = document.getElementById('gameAlert');
+            if (!alertBox) return;
+
             document.getElementById('alertTitle').innerText = title;
             document.getElementById('alertBody').innerText = body;
-            document.getElementById('alertIcon').innerHTML = isWin ? '<i class="fa-solid fa-trophy"></i>' : '<i class="fa-solid fa-circle-exclamation text-rose-400"></i>';
-            document.getElementById('btnNextLevel').style.display = isWin ? 'inline-block' : 'none';
-            alert.classList.remove('hidden');
+
+            const alertIcon = document.getElementById('alertIcon');
+            if (isWin) {
+                alertIcon.innerHTML = `<i class="fa-solid fa-trophy text-amber-400"></i>`;
+                document.getElementById('btnNextLevel').style.display = 'inline-flex';
+            } else {
+                alertIcon.innerHTML = `<i class="fa-solid fa-circle-exclamation text-rose-400"></i>`;
+                document.getElementById('btnNextLevel').style.display = 'none';
+            }
+
+            alertBox.classList.remove('hidden');
         }
 
         function hideAlert() {
-            document.getElementById('gameAlert').classList.add('hidden');
+            const alertBox = document.getElementById('gameAlert');
+            if (alertBox) alertBox.classList.add('hidden');
         }
 
         function nextLevel() {
-            if (currentLevelIdx < levels.length - 1) {
+            if (currentLevelIdx < LEVELS.length - 1) {
                 loadLevel(currentLevelIdx + 1);
             } else {
-                alert("🎉 Selamat! Kamu sudah menyelesaikan semua Level MujahiBot Coding Quest!");
+                alert("Selamat! Kamu telah menyelesaikan semua level di MujaheeBot Coding Quest!");
                 loadLevel(0);
             }
         }
 
-        // On Load Initial Setup
-        window.onload = function() {
-            renderVocabMatchBA();
-            renderSentencePuzzleBA();
-            renderWordGridBA();
-            loadQuizLKPD_BA();
+        function sleep(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
 
+        window.addEventListener('DOMContentLoaded', function() {
             renderVocabMatch();
             renderAyatPuzzle();
             renderWordGrid();
             loadQuizLKPD();
-            renderVocabMatchBab2();
-            
-            initGameDragDrop9();
             loadLevel(0);
-        };
-        function switchBahasaArabBab(babId) {
-    var b1 = document.getElementById('ba-bab1');
-    var b2 = document.getElementById('ba-bab2');
-    var btn1 = document.getElementById('btn-ba-bab1');
-    var btn2 = document.getElementById('btn-ba-bab2');
-
-    if (babId === 'bab1') {
-        if(b1) b1.style.display = 'block';
-        if(b2) b2.style.display = 'none';
-        if(btn1) btn1.className = "px-3 py-1.5 bg-teal-600 text-white rounded-lg text-xs font-bold shadow-md cursor-pointer border border-teal-400";
-        if(btn2) btn2.className = "px-3 py-1.5 bg-teal-950/80 text-gray-300 hover:text-white rounded-lg text-xs font-bold border border-teal-700 cursor-pointer";
-    } else {
-        if(b1) b1.style.display = 'none';
-        if(b2) b2.style.display = 'block';
-        if(btn1) btn1.className = "px-3 py-1.5 bg-teal-950/80 text-gray-300 hover:text-white rounded-lg text-xs font-bold border border-teal-700 cursor-pointer";
-        if(btn2) btn2.className = "px-3 py-1.5 bg-teal-600 text-white rounded-lg text-xs font-bold shadow-md cursor-pointer border border-teal-400";
-    }
-}// ==================== ENGINE LKPD BAB 2 (ANGGOTA KELUARGA) ====================
-const vocabDataBab2 = [
-    { ar: 'أَبٌ', id: 'Ayah', jw: 'Bapak / Rama' },
-    { ar: 'أُمٌّ', id: 'Ibu', jw: 'Ibu / Ibu' },
-    { ar: 'أَخٌ', id: 'Saudara Laki-laki', jw: 'Mas / Kangmas' },
-    { ar: 'أُخْتٌ', id: 'Saudara Perempuan', jw: 'Mbak / Mbakyu' },
-    { ar: 'جَدٌّ', id: 'Kakek', jw: 'Mbah Kakung' },
-    { ar: 'جَدَّةٌ', id: 'Nenek', jw: 'Mbah Putri' },
-    { ar: 'عَمٌّ', id: 'Paman', jw: 'Paklik / Pakde' },
-    { ar: 'عَمَّةٌ', id: 'Bibi', jw: 'Bulik / Bude' }
-];
-
-function renderVocabMatchBab2() {
-    const container = document.getElementById('vocab-matching-bab2-container');
-    if (!container) return;
-    container.innerHTML = '';
-    
-    vocabDataBab2.forEach((item, idx) => {
-        const div = document.createElement('div');
-        div.className = 'p-3 bg-cyan-50 rounded-xl border border-cyan-200 space-y-2 text-xs';
-        div.innerHTML = `
-            <div class="text-center bg-teal-900 text-white p-2 rounded-lg font-bold text-lg arabic-text">${item.ar}</div>
-            <select id="vocab-select-b2-${idx}" class="w-full p-1.5 rounded-lg border border-cyan-300 font-semibold text-gray-800">
-                <option value="">-- Pilih Arti --</option>
-                ${vocabDataBab2.map(v => `<option value="${v.id}">${v.id} (${v.jw})</option>`).join('')}
-            </select>
-        `;
-        container.appendChild(div);
-    });
-}
-
-function checkVocabMatchBab2() {
-    let score = 0;
-    vocabDataBab2.forEach((item, idx) => {
-        const sel = document.getElementById(`vocab-select-b2-${idx}`);
-        if (sel && sel.value === item.id) score++;
-    });
-
-    const fb = document.getElementById('vocab-feedback-bab2');
-    if (fb) {
-        fb.classList.remove('hidden', 'bg-emerald-100', 'text-emerald-800', 'bg-rose-100', 'text-rose-800');
-        if (score === vocabDataBab2.length) {
-            fb.classList.add('bg-emerald-100', 'text-emerald-800');
-            fb.innerHTML = `🎉 Mumtaz! Semua ${score} jodoh kata anggota keluarga dijawab dengan benar!`;
-        } else {
-            fb.classList.add('bg-rose-100', 'text-rose-800');
-            fb.innerHTML = `💪 Kamu berhasil menjodohkan ${score} dari ${vocabDataBab2.length} kata. Coba periksa lagi!`;
-        }
-    }
-}
-
-// PUZZLE KALIMAT BAB 2
-const sentenceChoicesBab2 = [
-    { text: 'هٰذَا', id: 'haza' },
-    { text: 'أَبِي', id: 'abi' },
-    { text: 'وَ', id: 'wa' },
-    { text: 'هٰذِهِ', id: 'hazihi' },
-    { text: 'أُمِّي', id: 'ummi' }
-];
-let userSentenceBab2 = [];
-
-function renderSentencePuzzleBab2() {
-    const choicesContainer = document.getElementById('sentence-choices-bab2-container');
-    const selectedList = document.getElementById('sentence-selected-list-bab2');
-    if (!choicesContainer || !selectedList) return;
-
-    choicesContainer.innerHTML = '';
-    sentenceChoicesBab2.forEach((item) => {
-        const btn = document.createElement('button');
-        btn.type = 'button';
-        btn.className = 'p-3 bg-cyan-100 hover:bg-cyan-200 text-cyan-950 font-bold rounded-xl text-lg arabic-text shadow border border-cyan-300 transition cursor-pointer';
-        btn.innerText = item.text;
-        btn.onclick = () => {
-            userSentenceBab2.push(item);
-            updateSelectedSentenceBab2();
-        };
-        choicesContainer.appendChild(btn);
-    });
-}
-
-function updateSelectedSentenceBab2() {
-    const selectedList = document.getElementById('sentence-selected-list-bab2');
-    if (!selectedList) return;
-    
-    if (userSentenceBab2.length === 0) {
-        selectedList.innerHTML = `<p class="text-xs text-gray-400 italic">Klik potongan kata Arab di atas untuk menyusun kalimat: "Ini ayahku dan ini ibuku"</p>`;
-        return;
-    }
-
-    selectedList.innerHTML = `
-        <div class="flex flex-wrap gap-2 items-center justify-end">
-            ${userSentenceBab2.map(item => `<span class="px-3 py-1.5 bg-teal-800 text-white rounded-xl font-bold text-xl arabic-text">${item.text}</span>`).join('')}
-        </div>
-    `;
-}
-
-function resetSentencePuzzleBab2() {
-    userSentenceBab2 = [];
-    updateSelectedSentenceBab2();
-    const fb = document.getElementById('sentence-feedback-bab2');
-    if (fb) fb.innerText = '';
-}
-
-function checkSentencePuzzleBab2() {
-    const correctOrder = ['haza', 'abi', 'wa', 'hazihi', 'ummi'];
-    const userOrder = userSentenceBab2.map(i => i.id);
-    const fb = document.getElementById('sentence-feedback-bab2');
-    
-    if (!fb) return;
-
-    if (JSON.stringify(correctOrder) === JSON.stringify(userOrder)) {
-        fb.className = 'text-xs font-extrabold text-emerald-600';
-        fb.innerText = '✅ Sempurna! Susunan kalimat Isim Isyarah sudah tepat!';
-    } else {
-        fb.className = 'text-xs font-extrabold text-rose-600';
-        fb.innerText = '❌ Masih ada susunan yang kurang pas. Urutan yang benar: هٰذَا أَبِي وَ هٰذِهِ أُمِّي';
-    }
-}
-
-// CARI KATA ARAB BAB 2
-function renderWordGridBab2() {
-    const grid = document.getElementById('grid-container-bab2');
-    if (!grid) return;
-    
-    const letters = [
-        ['A','B','U','N','X','Y','Z','W'],
-        ['U','M','M','U','N','K','L','M'],
-        ['A','K','H','U','N','O','P','Q'],
-        ['U','K','H','T','U','N','R','S'],
-        ['J','A','D','D','U','N','T','U'],
-        ['J','A','D','D','A','T','U','N'],
-        ['A','M','M','U','N','V','W','X'],
-        ['A','M','M','A','T','U','N','Z']
-    ];
-
-    grid.innerHTML = '';
-    letters.forEach(row => {
-        row.forEach(char => {
-            const cell = document.createElement('div');
-            cell.className = 'p-2 bg-teal-900/60 rounded-lg border border-teal-700/50 text-cyan-200 font-bold hover:bg-cyan-500 hover:text-cyan-950 transition cursor-pointer select-none';
-            cell.innerText = char;
-            grid.appendChild(cell);
         });
-    });
-}
-
-// KUIS EVALUASI LKPD BAB 2
-const quizQuestionsBab2 = [
-    { q: '1. Kata "أَبٌ" dalam Bahasa Indonesia dan Basa Jawa berarti...', opt: ['Ayah / Rama', 'Kakek / Mbah Kakung', 'Paman / Paklik'], ans: 0 },
-    { q: '2. Kata Tunjuk (Isim Isyarah) yang tepat untuk "أُمِّي" (Ibuku) adalah...', opt: ['هٰذَا', 'هٰذِهِ', 'ذٰلِكَ'], ans: 1 },
-    { q: '3. Bahasa Arab dari sebutan "Nenek" (Mbah Putri) adalah...', opt: ['جَدٌّ', 'عَمَّةٌ', 'جَدَّةٌ'], ans: 2 },
-    { q: '4. Akhiran huruf "ـي" pada kata "أَخِي" menunjukkan arti...', opt: ['Kamu', 'Saya / -ku', 'Dia'], ans: 1 },
-    { q: '5. "هٰذَا عَمِّي" memiliki arti...', opt: ['Ini Ibuku', 'Ini Kakekku', 'Ini Pamanku'], ans: 2 }
-];
-
-function loadQuizLKPD_Bab2() {
-    const container = document.getElementById('quiz-questions-lkpd-bab2-container');
-    if (!container) return;
-    container.innerHTML = '';
-
-    quizQuestionsBab2.forEach((item, idx) => {
-        const qDiv = document.createElement('div');
-        qDiv.className = 'p-4 bg-cyan-50/60 rounded-2xl border border-cyan-200 space-y-2';
-        qDiv.innerHTML = `
-            <p class="font-bold text-cyan-950">${item.q}</p>
-            <div class="space-y-1.5 pl-2">
-                ${item.opt.map((opt, oIdx) => `
-                    <label class="flex items-center space-x-2 cursor-pointer font-semibold text-gray-700">
-                        <input type="radio" name="lkpd_b2_q_${idx}" value="${oIdx}">
-                        <span>${opt}</span>
-                    </label>
-                `).join('')}
-            </div>
-        `;
-        container.appendChild(qDiv);
-    });
-}
-
-function submitQuizLKPD_Bab2() {
-    let score = 0;
-    quizQuestionsBab2.forEach((item, idx) => {
-        const selected = document.querySelector(`input[name="lkpd_b2_q_${idx}"]:checked`);
-        if (selected && parseInt(selected.value) === item.ans) {
-            score += 20;
-        }
-    });
-
-    const res = document.getElementById('quiz-result-lkpd-bab2');
-    if (res) {
-        res.classList.remove('hidden');
-        res.innerHTML = `Nilai LKPD Bab 2: <span class="text-cyan-600">${score}</span> / 100 - ${score >= 80 ? '🎉 Mumtaz!' : '💪 Tingkatkan Lagi!'}`;
-    }
-}
-
-// JALANKAN SAAT WEB DIBUKA
-window.addEventListener('load', function() {
-    renderVocabMatchBab2();
-    renderSentencePuzzleBab2();
-    renderWordGridBab2();
-    loadQuizLKPD_Bab2();
-});
-
     </script>
 </body>
 </html>
-
