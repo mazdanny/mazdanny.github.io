@@ -2884,5 +2884,219 @@ window.addEventListener('DOMContentLoaded', function() {
     loadLevel(0);
 });
 </script>
+    <!-- ============================================================
+  GAME POHON KELUARGA (شَجَرَةُ العَائِلَةِ) - BAB 2 BAHASA ARAB
+  CARA PASANG: tempel SELURUH blok <script> ini di index.html,
+  tepat SEBELUM baris:  </body>
+  (setelah </script> terakhir milik kode lama). Selesai, tidak ada
+  bagian lain yang perlu diubah. Game otomatis muncul di bawah kartu
+  kosakata Bab 2 (menu 2. Bahasa Arab > BAB 2).
+============================================================ -->
+<script>
+(function () {
+  'use strict';
+
+  var CSS = `
+  #pk-game{margin-top:2rem;padding:1.25rem;border-radius:1.5rem;border:2px solid rgba(20,184,166,.35);background:rgba(4,38,31,.55);backdrop-filter:blur(12px)}
+  #pk-game .pk-head{display:flex;flex-wrap:wrap;gap:.75rem;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(20,184,166,.3);padding-bottom:.75rem;margin-bottom:.75rem}
+  #pk-game h3{margin:0;font-size:1.25rem;font-weight:800;color:#67e8f9}
+  #pk-game .pk-sub{margin:.15rem 0 0;font-size:.75rem;color:#cbd5e1}
+  #pk-game .pk-ar{font-family:'Amiri',serif;font-weight:400}
+  #pk-game .pk-lvl button,#pk-game .pk-btn{cursor:pointer;border:1px solid #0f766e;background:rgba(15,118,110,.25);color:#e2e8f0;font-size:.75rem;font-weight:700;padding:.4rem .8rem;border-radius:.75rem;transition:.2s}
+  #pk-game .pk-lvl button:hover,#pk-game .pk-btn:hover{border-color:#22d3ee;color:#fff}
+  #pk-game .pk-lvl button.on{background:#0d9488;border-color:#22d3ee;color:#fff;box-shadow:0 0 12px rgba(34,211,238,.4)}
+  #pk-game .pk-btn.go{background:#0891b2;color:#fff;border-color:#22d3ee}
+  #pk-game .pk-view{position:relative;border-radius:1rem;background:rgba(2,17,20,.7);border:1px solid rgba(20,184,166,.3);padding:.5rem}
+  #pk-game svg{width:100%;height:auto;display:block}
+  #pk-game canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+  #pk-game .pk-slot{cursor:pointer}
+  #pk-game .pk-rect{fill:rgba(4,38,31,.9);stroke:#0f766e;stroke-width:1.5}
+  #pk-game .pk-slot.sel .pk-rect{stroke:#22d3ee;stroke-dasharray:5 3}
+  #pk-game .pk-slot:hover .pk-rect{stroke:#22d3ee}
+  #pk-game .pk-slot.ok .pk-rect{fill:rgba(6,95,70,.8);stroke:#34d399;stroke-width:2.5}
+  #pk-game .pk-slot.bad .pk-rect{fill:rgba(127,29,29,.7);stroke:#f87171;stroke-width:2.5}
+  #pk-game .pk-bank{margin-top:.9rem;padding:.8rem;border-radius:1rem;background:rgba(15,118,110,.15);border:1px solid rgba(20,184,166,.3)}
+  #pk-game .pk-bank-h{display:flex;flex-wrap:wrap;gap:.5rem;justify-content:space-between;align-items:center;margin-bottom:.6rem;font-size:.75rem;font-weight:700;color:#5eead4}
+  #pk-game .pk-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:.6rem}
+  #pk-game .pk-card{cursor:pointer;user-select:none;text-align:center;padding:.6rem .3rem;border-radius:.9rem;border:2px solid rgba(34,211,238,.35);background:rgba(13,148,136,.3);color:#cffafe;font-family:'Amiri',serif;font-size:1.6rem;line-height:1.6;direction:rtl;transition:.2s}
+  #pk-game .pk-card:hover{transform:translateY(-2px);border-color:#22d3ee}
+  #pk-game .pk-card.act{background:#0891b2;color:#fff;border-color:#fff;box-shadow:0 0 16px rgba(34,211,238,.6)}
+  #pk-game .pk-card.used{opacity:.25;pointer-events:none}
+  #pk-game .pk-foot{display:flex;flex-wrap:wrap;gap:.6rem;align-items:center;justify-content:space-between;margin-top:.9rem}
+  #pk-game .pk-msg{font-size:.8rem;font-weight:700;color:#cbd5e1}
+  #pk-game .pk-msg.win{color:#6ee7b7}
+  `;
+
+  var D = {
+    jaddun:  {ar: 'جَدٌّ',    id: 'Kakek',             au: 'jaddun.aac'},
+    jaddatun:{ar: 'جَدَّةٌ',  id: 'Nenek',             au: 'jaddatun.aac'},
+    ammun:   {ar: 'عَمٌّ',    id: 'Paman',             au: 'ammun.aac'},
+    abun:    {ar: 'أَبٌ',     id: 'Ayah',              au: 'abun.aac'},
+    ummun:   {ar: 'أُمٌّ',    id: 'Ibu',               au: 'ummun.aac'},
+    ammatun: {ar: 'عَمَّةٌ',  id: 'Bibi',              au: 'ammatun.aac'},
+    akhun:   {ar: 'أَخٌ',     id: 'Sdr. Laki-laki',    au: 'akhun.aac'},
+    ukhtun:  {ar: 'أُخْتٌ',   id: 'Sdr. Perempuan',    au: 'ukhtun.aac'}
+  };
+
+  var LEVELS = {
+    1: {
+      nodes: [['jaddun', 200, 50], ['jaddatun', 440, 50], ['abun', 200, 180], ['ummun', 440, 180], ['akhun', 200, 310], ['ukhtun', 440, 310]],
+      lines: ['M 320 78 L 320 148', 'M 320 208 L 320 278']
+    },
+    2: {
+      nodes: [['jaddun', 220, 40], ['jaddatun', 420, 40], ['ammun', 90, 170], ['abun', 250, 170], ['ummun', 390, 170], ['ammatun', 550, 170], ['akhun', 250, 300], ['ukhtun', 390, 300]],
+      lines: ['M 320 68 L 320 115 M 90 115 L 550 115 M 90 115 L 90 142 M 250 115 L 250 142 M 390 115 L 390 142 M 550 115 L 550 142',
+              'M 320 200 L 320 245 M 250 245 L 390 245 M 250 245 L 250 272 M 390 245 L 390 272']
+    }
+  };
+
+  var level = 1, selected = null, placed = {}, soundOn = true, root;
+  var NS = 'http://www.w3.org/2000/svg';
+
+  function speak(key) {
+    if (!soundOn) return;
+    var d = D[key];
+    if (typeof window.playAudio === 'function') { window.playAudio(d.au); return; }
+    if ('speechSynthesis' in window) {
+      speechSynthesis.cancel();
+      var u = new SpeechSynthesisUtterance(d.ar); u.lang = 'ar-SA'; u.rate = 0.85;
+      speechSynthesis.speak(u);
+    }
+  }
+
+  function $(s) { return root.querySelector(s); }
+
+  function msg(text, win) {
+    var m = $('#pk-msg');
+    m.textContent = text;
+    m.className = 'pk-msg' + (win ? ' win' : '');
+  }
+
+  function build() {
+    root.innerHTML =
+      '<div class="pk-head"><div>' +
+      '<h3>🌳 Game Pohon Keluarga <span class="pk-ar">(شَجَرَةُ الْعَائِلَةِ)</span></h3>' +
+      '<p class="pk-sub">Pilih kartu kosakata Arab, lalu klik kotak yang tepat di pohon keluarga.</p></div>' +
+      '<div class="pk-lvl"><button id="pk-l1" class="on">Inti (6)</button> <button id="pk-l2">Lengkap (8)</button></div></div>' +
+      '<div class="pk-view"><canvas id="pk-cv"></canvas>' +
+      '<svg viewBox="0 0 640 380" preserveAspectRatio="xMidYMid meet"><g id="pk-lines"></g><g id="pk-slots"></g></svg></div>' +
+      '<div class="pk-bank"><div class="pk-bank-h"><span>Kotak Kosakata (klik kartu = dengar suara)</span>' +
+      '<button class="pk-btn" id="pk-snd">🔊 Suara: ON</button></div><div class="pk-cards" id="pk-cards"></div></div>' +
+      '<div class="pk-foot"><div class="pk-msg" id="pk-msg"></div><div>' +
+      '<button class="pk-btn" id="pk-reset">Ulangi</button> <button class="pk-btn go" id="pk-check">Periksa Jawaban</button></div></div>';
+
+    $('#pk-l1').onclick = function () { setLevel(1); };
+    $('#pk-l2').onclick = function () { setLevel(2); };
+    $('#pk-reset').onclick = reset;
+    $('#pk-check').onclick = check;
+    $('#pk-snd').onclick = function () {
+      soundOn = !soundOn;
+      this.textContent = '🔊 Suara: ' + (soundOn ? 'ON' : 'OFF');
+    };
+  }
+
+  function setLevel(l) {
+    level = l;
+    $('#pk-l1').className = l === 1 ? 'on' : '';
+    $('#pk-l2').className = l === 2 ? 'on' : '';
+    reset();
+  }
+
+  function reset() {
+    selected = null; placed = {};
+    msg('Pilih kartu Arab lalu klik posisi target pada pohon.', false);
+    renderCards(); renderTree();
+  }
+
+  function renderCards() {
+    var box = $('#pk-cards'); box.innerHTML = '';
+    var used = Object.keys(placed).map(function (k) { return placed[k]; });
+    LEVELS[level].nodes.map(function (n) { return n[0]; })
+      .sort(function (a, b) { return D[a].ar.localeCompare(D[b].ar); })
+      .forEach(function (key) {
+        var c = document.createElement('div');
+        c.className = 'pk-card' + (selected === key ? ' act' : '') + (used.indexOf(key) > -1 ? ' used' : '');
+        c.textContent = D[key].ar;
+        c.onclick = function () {
+          if (selected === key) { selected = null; } else { selected = key; speak(key); }
+          renderCards(); renderTree();
+        };
+        box.appendChild(c);
+      });
+  }
+
+  function el(name, attrs, text) {
+    var e = document.createElementNS(NS, name);
+    for (var k in attrs) e.setAttribute(k, attrs[k]);
+    if (text != null) e.textContent = text;
+    return e;
+  }
+
+  function renderTree() {
+    var lines = $('#pk-lines'), slots = $('#pk-slots');
+    lines.innerHTML = ''; slots.innerHTML = '';
+    LEVELS[level].lines.forEach(function (d) {
+      lines.appendChild(el('path', {d: d, fill: 'none', stroke: '#14b8a6', 'stroke-width': 2, 'stroke-linecap': 'round', 'stroke-dasharray': '0 5'}));
+    });
+    LEVELS[level].nodes.forEach(function (n) {
+      var key = n[0], card = placed[key];
+      var g = el('g', {'class': 'pk-slot' + (selected && !card ? ' sel' : ''), transform: 'translate(' + (n[1] - 65) + ',' + (n[2] - 28) + ')', 'data-id': key});
+      g.appendChild(el('rect', {'class': 'pk-rect', width: 130, height: 58, rx: 12}));
+      g.appendChild(el('text', {x: 65, y: 20, 'text-anchor': 'middle', 'font-size': 11, fill: '#94a3b8'}, D[key].id));
+      if (card) {
+        g.appendChild(el('text', {x: 65, y: 44, 'text-anchor': 'middle', 'font-size': 20, 'font-weight': 600, fill: '#67e8f9', 'font-family': "'Amiri',serif"}, D[card].ar));
+      } else {
+        g.appendChild(el('text', {x: 65, y: 42, 'text-anchor': 'middle', 'font-size': 12, fill: '#5eead4'}, '+ Tempel'));
+      }
+      g.addEventListener('click', function () {
+        if (selected) { placed[key] = selected; selected = null; }
+        else if (card) { delete placed[key]; }
+        else return;
+        renderCards(); renderTree();
+      });
+      slots.appendChild(g);
+    });
+  }
+
+  function check() {
+    var nodes = LEVELS[level].nodes, ok = 0;
+    nodes.forEach(function (n) {
+      var g = $('#pk-slots [data-id="' + n[0] + '"]');
+      g.classList.remove('ok', 'bad');
+      if (placed[n[0]] === n[0]) { ok++; g.classList.add('ok'); }
+      else if (placed[n[0]]) { g.classList.add('bad'); }
+    });
+    if (ok === nodes.length) {
+      msg('🎉 Sempurna! Semua ' + nodes.length + ' kosakata keluarga benar! أَحْسَنْتَ!', true);
+      confetti();
+    } else {
+      msg('Benar ' + ok + ' dari ' + nodes.length + '. Perbaiki kotak berwarna merah atau lengkapi yang kosong.', false);
+    }
+  }
+
+  function confetti() {
+    var cv = $('#pk-cv'), ctx = cv.getContext('2d');
+    cv.width = cv.parentElement.clientWidth; cv.height = cv.parentElement.clientHeight;
+    var colors = ['#22d3ee', '#34d399', '#fbbf24', '#f87171', '#a5f3fc'], p = [], f = 0, i;
+    for (i = 0; i < 70; i++) p.push({x: Math.random() * cv.width, y: -Math.random() * cv.height, s: Math.random() * 6 + 4, c: colors[i % 5], vy: Math.random() * 3 + 2, vx: Math.random() * 2 - 1});
+    (function loop() {
+      ctx.clearRect(0, 0, cv.width, cv.height);
+      p.forEach(function (q) { q.x += q.vx; q.y += q.vy; ctx.fillStyle = q.c; ctx.fillRect(q.x, q.y, q.s, q.s); });
+      if (++f < 120) requestAnimationFrame(loop); else ctx.clearRect(0, 0, cv.width, cv.height);
+    })();
+  }
+
+  function init() {
+    var host = document.getElementById('arab-bab2-content');
+    if (!host || document.getElementById('pk-game')) return;
+    var st = document.createElement('style'); st.textContent = CSS; document.head.appendChild(st);
+    root = document.createElement('div'); root.id = 'pk-game';
+    host.appendChild(root);
+    build(); reset();
+  }
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
+})();
+</script>
 </body>
 </html>
