@@ -3098,5 +3098,218 @@ window.addEventListener('DOMContentLoaded', function() {
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
 })();
 </script>
+    <!-- ============================================================
+  GAME COCOKKAN + BELAJAR CODING (ROBOT KOSAKATA) - BAB 1 s/d 4 BAHASA ARAB
+  CARA PASANG: tempel SELURUH blok <script> ini tepat SEBELUM </body>,
+  setelah </script> terakhir (boleh setelah script game Pohon Keluarga).
+  Tidak ada bagian lain yang perlu diubah.
+============================================================ -->
+<script>
+(function () {
+  'use strict';
+
+  /* [emoji, arab, indonesia, file audio] */
+  var V = {
+    1: [['👦','رَأْسٌ','Kepala','rasun.aac'],['💇','شَعْرٌ','Rambut','syarun.aac'],['👁️','عَيْنٌ','Mata','ainun.aac'],['👃','أَنْفٌ','Hidung','anfun.aac'],['👄','فَمٌ','Mulut','famun.aac'],['👂','أُذُنٌ','Telinga','uzunun.aac'],['✋','يَدٌ','Tangan','yadun.aac'],['🦶','رِجْلٌ','Kaki','rijlun.aac']],
+    2: [['👨','أَبٌ','Ayah','abun.aac'],['🧕','أُمٌّ','Ibu','ummun.aac'],['👴','جَدٌّ','Kakek','jaddun.aac'],['👵','جَدَّةٌ','Nenek','jaddatun.aac'],['🧔','عَمٌّ','Paman','ammun.aac'],['👩','عَمَّةٌ','Bibi','ammatun.aac'],['👦','أَخٌ','Saudara Laki-laki','akhun.aac'],['👧','أُخْتٌ','Saudara Perempuan','ukhtun.aac']],
+    3: [['🛋️','غُرْفَةُ الضُّيُوْفِ','Ruang Tamu','gurfatud_duyuf.aac'],['🛏️','غُرْفَةُ النَّوْمِ','Ruang Tidur','gurfatun_naum.aac'],['🍽️','غُرْفَةُ الأَكْلِ','Ruang Makan','gurfatul_akli.aac'],['📺','غُرْفَةُ الْجُلُوْسِ','Ruang Keluarga','gurfatul_julus.aac'],['🚿','حَمَّامٌ','Kamar Mandi','hammamun.aac'],['🚗','جرَاجٌ','Garasi','jirajun.aac'],['🍳','مَطْبَخٌ','Dapur','matbakhun.aac'],['📦','مُسْتَوْدَعٌ','Gudang','mustaudaun.aac']],
+    4: [['🚪','بَابٌ','Pintu','baabun.aac'],['🪟','نَافِذَةٌ','Jendela','naafidzatun.aac'],['🧵','سِتَارَةٌ','Gorden','sitaarotun.aac'],['🏠','سَقْفٌ','Atap','saqfun.aac'],['⬜','بلاَطٌ','Lantai','bilaatun.aac'],['🧱','جِدَارٌ','Tembok','jidarun.aac'],['🚧','سُورٌ','Pagar','suurun.aac'],['🪜','سُلَّمٌ','Tangga','sullamun.aac']]
+  };
+  var TITLE = {1: 'Anggota Badan', 2: 'Anggota Keluarga', 3: 'Di Rumahku', 4: 'Bagian-bagian Rumah'};
+
+  /* misi coding: target, rintangan (x,y). Robot mulai (0,4) menghadap Timur */
+  var MISSIONS = [
+    {t: [4, 0], obs: [[2, 1], [2, 2], [2, 3]], w: 0},
+    {t: [4, 2], obs: [[1, 4], [1, 3]], w: 3}
+  ];
+  var DIRS = [[0, -1], [1, 0], [0, 1], [-1, 0]]; /* U, T, S, B */
+
+  var CSS = `
+  .ab-box{margin-top:2rem;padding:1.25rem;border-radius:1.5rem;border:2px solid rgba(20,184,166,.35);background:rgba(4,38,31,.55);backdrop-filter:blur(12px)}
+  .ab-box h3{margin:0;font-size:1.2rem;font-weight:800;color:#67e8f9}
+  .ab-sub{margin:.2rem 0 .8rem;font-size:.75rem;color:#cbd5e1}
+  .ab-ar{font-family:'Amiri',serif;direction:rtl}
+  .ab-btn{cursor:pointer;border:1px solid #0f766e;background:rgba(15,118,110,.3);color:#e2e8f0;font-size:.75rem;font-weight:700;padding:.45rem .8rem;border-radius:.75rem;transition:.2s}
+  .ab-btn:hover{border-color:#22d3ee;color:#fff}
+  .ab-btn.go{background:#0891b2;color:#fff;border-color:#22d3ee}
+  .ab-btn:disabled{opacity:.4;pointer-events:none}
+  .ab-slots{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:.6rem}
+  .ab-slot{cursor:pointer;text-align:center;padding:.6rem .3rem;border-radius:1rem;border:2px dashed #0f766e;background:rgba(2,17,20,.7);transition:.2s}
+  .ab-slot .e{font-size:1.8rem}.ab-slot .i{font-size:.7rem;color:#94a3b8}
+  .ab-slot .a{font-family:'Amiri',serif;font-size:1.25rem;color:#67e8f9;min-height:1.9rem;direction:rtl}
+  .ab-slot.sel{border-color:#22d3ee}.ab-slot.ok{border:2px solid #34d399;background:rgba(6,95,70,.6)}.ab-slot.bad{border:2px solid #f87171;background:rgba(127,29,29,.5)}
+  .ab-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:.5rem;margin-top:.8rem;padding:.7rem;border-radius:1rem;background:rgba(15,118,110,.15);border:1px solid rgba(20,184,166,.3)}
+  .ab-card{cursor:pointer;user-select:none;text-align:center;padding:.5rem .2rem;border-radius:.8rem;border:2px solid rgba(34,211,238,.35);background:rgba(13,148,136,.3);color:#cffafe;font-family:'Amiri',serif;font-size:1.35rem;direction:rtl;transition:.2s}
+  .ab-card:hover{transform:translateY(-2px)}.ab-card.act{background:#0891b2;color:#fff;border-color:#fff}.ab-card.used{opacity:.25;pointer-events:none}
+  .ab-foot{display:flex;flex-wrap:wrap;gap:.6rem;align-items:center;justify-content:space-between;margin-top:.8rem}
+  .ab-msg{font-size:.8rem;font-weight:700;color:#cbd5e1}.ab-msg.win{color:#6ee7b7}
+  .ab-code{display:grid;gap:1rem;grid-template-columns:1fr}
+  @media(min-width:768px){.ab-code{grid-template-columns:1fr 1fr}}
+  .ab-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:4px;max-width:360px;margin:0 auto;padding:6px;border-radius:1rem;background:rgba(2,17,20,.8);border:1px solid rgba(20,184,166,.4)}
+  .ab-cell{aspect-ratio:1/1;border-radius:.6rem;background:rgba(15,118,110,.2);display:flex;align-items:center;justify-content:center;font-size:1.4rem;position:relative}
+  .ab-cell.obs{background:rgba(127,29,29,.5)}.ab-cell.tgt{background:rgba(180,83,9,.4);border:1px solid #f59e0b}
+  .ab-bot{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:1.5rem;transition:transform .3s}
+  .ab-blocks{display:grid;grid-template-columns:repeat(2,1fr);gap:.4rem}
+  .ab-prog{margin-top:.6rem;min-height:120px;max-height:200px;overflow:auto;padding:.5rem;border-radius:.8rem;border:2px dashed #334155;background:rgba(2,6,23,.7);font-family:monospace;font-size:.75rem;color:#a7f3d0}
+  .ab-prog div{display:flex;justify-content:space-between;padding:.15rem .3rem}
+  .ab-prog button{color:#fca5a5;background:none;border:0;cursor:pointer}
+  `;
+
+  function speak(it) {
+    if (typeof window.playAudio === 'function') window.playAudio(it[3]);
+    else if ('speechSynthesis' in window) { var u = new SpeechSynthesisUtterance(it[1]); u.lang = 'ar-SA'; u.rate = .85; speechSynthesis.speak(u); }
+  }
+  function shuf(a) { return a.slice().sort(function () { return Math.random() - .5; }); }
+
+  /* ================= GAME COCOKKAN ================= */
+  function gameHTML(n) {
+    return '<h3>🎮 Game Cocokkan Kosakata: ' + TITLE[n] + '</h3>' +
+      '<p class="ab-sub">Klik kartu Arab (akan terdengar suaranya), lalu klik kotak gambar yang artinya cocok.</p>' +
+      '<div class="ab-slots" id="ab-s' + n + '"></div><div class="ab-cards" id="ab-k' + n + '"></div>' +
+      '<div class="ab-foot"><div class="ab-msg" id="ab-m' + n + '"></div><div>' +
+      '<button class="ab-btn" id="ab-n' + n + '">Soal Baru</button> <button class="ab-btn go" id="ab-c' + n + '">Periksa</button></div></div>';
+  }
+
+  function initGame(n) {
+    var L = V[n], st, S = document.getElementById('ab-s' + n), K = document.getElementById('ab-k' + n), M = document.getElementById('ab-m' + n);
+    function fresh() {
+      var ids = shuf(L.map(function (_, i) { return i; })).slice(0, 6);
+      st = {ids: ids, order: shuf(ids), sel: null, pl: {}, res: {}};
+      M.textContent = 'Pilih kartu Arab, lalu klik kotak yang cocok.'; M.className = 'ab-msg'; draw();
+    }
+    function draw() {
+      var used = Object.keys(st.pl).map(function (k) { return st.pl[k]; });
+      S.innerHTML = st.ids.map(function (id, s) {
+        var p = st.pl[s];
+        return '<div class="ab-slot' + (st.sel !== null && p == null ? ' sel' : '') + (st.res[s] ? ' ' + st.res[s] : '') + '" data-s="' + s + '"><div class="e">' + L[id][0] + '</div><div class="i">' + L[id][2] + '</div><div class="a">' + (p != null ? L[p][1] : '+ Tempel') + '</div></div>';
+      }).join('');
+      K.innerHTML = st.order.map(function (id) {
+        return '<div class="ab-card' + (st.sel === id ? ' act' : '') + (used.indexOf(id) > -1 ? ' used' : '') + '" data-c="' + id + '">' + L[id][1] + '</div>';
+      }).join('');
+    }
+    K.onclick = function (e) {
+      var c = e.target.closest('.ab-card'); if (!c) return;
+      var id = +c.getAttribute('data-c');
+      if (st.sel === id) st.sel = null; else { st.sel = id; speak(L[id]); }
+      draw();
+    };
+    S.onclick = function (e) {
+      var s = e.target.closest('.ab-slot'); if (!s) return;
+      var i = +s.getAttribute('data-s'); st.res = {};
+      if (st.sel !== null) { st.pl[i] = st.sel; st.sel = null; } else if (st.pl[i] != null) delete st.pl[i]; else return;
+      draw();
+    };
+    document.getElementById('ab-n' + n).onclick = fresh;
+    document.getElementById('ab-c' + n).onclick = function () {
+      var ok = 0; st.res = {};
+      st.ids.forEach(function (id, s) {
+        if (st.pl[s] === id) { ok++; st.res[s] = 'ok'; } else if (st.pl[s] != null) st.res[s] = 'bad';
+      });
+      draw();
+      if (ok === 6) { M.textContent = '🎉 Sempurna! 6 dari 6 benar. أَحْسَنْتَ!'; M.className = 'ab-msg win'; }
+      else { M.textContent = 'Benar ' + ok + ' dari 6. Perbaiki kotak merah atau lengkapi yang kosong.'; M.className = 'ab-msg'; }
+    };
+    fresh();
+  }
+
+  /* ================= BELAJAR CODING: ROBOT KOSAKATA ================= */
+  function codeHTML(n) {
+    return '<h3>🤖 Belajar Coding: Robot Kosakata</h3>' +
+      '<p class="ab-sub" id="ab-q' + n + '"></p><div class="ab-code"><div><div class="ab-grid" id="ab-g' + n + '"></div></div><div>' +
+      '<div class="ab-blocks">' +
+      '<button class="ab-btn" data-b="F">⬆️ maju()</button><button class="ab-btn" data-b="L">↩️ belokKiri()</button>' +
+      '<button class="ab-btn" data-b="R">↪️ belokKanan()</button><button class="ab-btn" data-b="F2">🔁 ulangi 2x maju()</button>' +
+      '<button class="ab-btn" data-b="F3">🔁 ulangi 3x maju()</button><button class="ab-btn" data-b="B">🔊 bacaKata()</button></div>' +
+      '<div class="ab-prog" id="ab-p' + n + '"></div>' +
+      '<div class="ab-foot"><div class="ab-msg" id="ab-r' + n + '"></div><div>' +
+      '<button class="ab-btn" id="ab-x' + n + '">Hapus</button> <button class="ab-btn go" id="ab-y' + n + '">▶ Jalankan Kode</button></div></div></div></div>';
+  }
+
+  function initCode(n) {
+    var L = V[n], mi = 0, prog = [], busy = false, bot, mis, word;
+    var G = document.getElementById('ab-g' + n), P = document.getElementById('ab-p' + n), R = document.getElementById('ab-r' + n), Q = document.getElementById('ab-q' + n), run = document.getElementById('ab-y' + n);
+    var NAME = {F: 'maju();', L: 'belokKiri();', R: 'belokKanan();', F2: 'ulangi(2){ maju(); }', F3: 'ulangi(3){ maju(); }', B: 'bacaKata();'};
+
+    function load(i) {
+      mi = i % MISSIONS.length; mis = MISSIONS[mi]; word = L[(mis.w + n) % L.length];
+      bot = {x: 0, y: 4, d: 1, read: false}; prog = [];
+      Q.innerHTML = 'Misi ' + (mi + 1) + ': susun kode agar robot sampai ke ' + word[0] + ' (<span class="ab-ar">' + word[1] + '</span> = ' + word[2] + '), lalu panggil <b>bacaKata()</b>.';
+      R.textContent = ''; R.className = 'ab-msg'; drawG(); drawP();
+    }
+    function drawG() {
+      var h = '';
+      for (var y = 0; y < 5; y++) for (var x = 0; x < 5; x++) {
+        var obs = mis.obs.some(function (o) { return o[0] === x && o[1] === y; });
+        var tg = mis.t[0] === x && mis.t[1] === y;
+        h += '<div class="ab-cell' + (obs ? ' obs' : '') + (tg ? ' tgt' : '') + '">' + (obs ? '🚫' : (tg ? word[0] : '')) +
+          (bot.x === x && bot.y === y ? '<div class="ab-bot" style="transform:rotate(' + ((bot.d - 1) * 90) + 'deg)">🤖</div>' : '') + '</div>';
+      }
+      G.innerHTML = h;
+    }
+    function drawP() {
+      P.innerHTML = prog.length ? prog.map(function (c, i) { return '<div><span>' + (i + 1) + '. ' + NAME[c] + '</span><button data-d="' + i + '">✖</button></div>'; }).join('') : '// klik blok perintah untuk menyusun kode';
+    }
+    function blocked(x, y) {
+      return x < 0 || y < 0 || x > 4 || y > 4 || mis.obs.some(function (o) { return o[0] === x && o[1] === y; });
+    }
+    function step(c) {
+      if (c === 'L') bot.d = (bot.d + 3) % 4;
+      else if (c === 'R') bot.d = (bot.d + 1) % 4;
+      else if (c === 'B') { if (bot.x === mis.t[0] && bot.y === mis.t[1]) { bot.read = true; speak(word); } }
+      else { var nx = bot.x + DIRS[bot.d][0], ny = bot.y + DIRS[bot.d][1]; if (blocked(nx, ny)) return false; bot.x = nx; bot.y = ny; }
+      return true;
+    }
+    function sleep(ms) { return new Promise(function (r) { setTimeout(r, ms); }); }
+
+    var box = document.getElementById('ab-c-' + n);
+    box.onclick = function (e) {
+      var b = e.target.getAttribute && e.target.getAttribute('data-b'), d = e.target.getAttribute && e.target.getAttribute('data-d');
+      if (busy) return;
+      if (b) { prog.push(b); drawP(); }
+      if (d !== null && d !== undefined && d !== '') { prog.splice(+d, 1); drawP(); }
+    };
+    document.getElementById('ab-x' + n).onclick = function () { if (!busy) load(mi); };
+    run.onclick = async function () {
+      if (busy || !prog.length) return;
+      busy = true; run.disabled = true;
+      var seq = [];
+      prog.forEach(function (c) { if (c === 'F2') seq.push('F', 'F'); else if (c === 'F3') seq.push('F', 'F', 'F'); else seq.push(c); });
+      bot = {x: 0, y: 4, d: 1, read: false}; drawG();
+      var ok = true;
+      for (var i = 0; i < seq.length; i++) {
+        await sleep(350);
+        if (!step(seq[i])) { ok = false; break; }
+        drawG();
+      }
+      var at = bot.x === mis.t[0] && bot.y === mis.t[1];
+      if (!ok) { R.textContent = '💥 Robot menabrak! Periksa lagi kodenya.'; R.className = 'ab-msg'; }
+      else if (at && bot.read) {
+        R.textContent = '🎉 Berhasil! Robot membaca: ' + word[1] + ' (' + word[2] + ')'; R.className = 'ab-msg win';
+        setTimeout(function () { if (!busy) load(mi + 1); }, 2500);
+      } else if (at) { R.textContent = 'Sudah sampai! Tambahkan bacaKata() di akhir kode.'; R.className = 'ab-msg'; }
+      else { R.textContent = 'Robot belum sampai ke tujuan. Coba lagi!'; R.className = 'ab-msg'; }
+      busy = false; run.disabled = false;
+      if (R.className.indexOf('win') > -1) busy = false;
+    };
+    load(0);
+  }
+
+  function init() {
+    if (document.getElementById('ab-style')) return;
+    var st = document.createElement('style'); st.id = 'ab-style'; st.textContent = CSS; document.head.appendChild(st);
+    [1, 2, 3, 4].forEach(function (n) {
+      var host = document.getElementById('arab-bab' + n + '-content');
+      if (!host) return;
+      var g = document.createElement('div'); g.className = 'ab-box'; g.id = 'ab-g-' + n; g.innerHTML = gameHTML(n);
+      var c = document.createElement('div'); c.className = 'ab-box'; c.id = 'ab-c-' + n; c.innerHTML = codeHTML(n);
+      host.appendChild(g); host.appendChild(c);
+      initGame(n); initCode(n);
+    });
+  }
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
+})();
+</script>
+
 </body>
 </html>
