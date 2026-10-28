@@ -4673,5 +4673,284 @@ window.addEventListener('DOMContentLoaded', function() {
     
 window.addEventListener("DOMContentLoaded", window.mj_init);
 </script>
+    <script>
+(function () {
+  'use strict';
+  if (document.getElementById('b5-style')) return;
+
+  var SAW = 'ﷺ';
+  var CSS = `
+  .b5-hero{display:flex;flex-wrap:wrap;gap:1.2rem;align-items:center;justify-content:space-between;padding:1.5rem 2rem;border-radius:2rem;border:1px solid rgba(20,184,166,.3);background:rgba(4,38,31,.6)}
+  .b5-badge{display:inline-block;font-size:.7rem;font-weight:700;padding:.3rem .8rem;border-radius:99px;background:#451a03;color:#fcd34d;border:1px solid rgba(245,158,11,.4)}
+  .b5-hero h2{margin:.6rem 0 .3rem;font-size:1.8rem;font-weight:800;color:#67e8f9}
+  .b5-hero p{margin:0;font-size:.8rem;color:#cbd5e1;max-width:36rem}
+  .b5-big{font-size:3.5rem;padding:1rem 1.4rem;border-radius:1.5rem;background:rgba(15,118,110,.3)}
+  .b5-s,.b5-box{padding:1.25rem;border-radius:1.5rem;border:2px solid rgba(20,184,166,.3);background:rgba(4,38,31,.6);margin-top:1.25rem}
+  .b5-s h3,.b5-box h3{margin:0 0 .3rem;font-size:1.15rem;font-weight:800;color:#67e8f9}
+  .b5-title{margin-top:2rem;font-size:1.3rem;font-weight:800;color:#fcd34d;text-align:center}
+  .b5-sub{margin:.5rem 0;font-size:.75rem;color:#cbd5e1}
+  .b5-g{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:.8rem;margin-top:.8rem}
+  .b5-c{padding:1rem;border-radius:1rem;background:rgba(15,118,110,.2);border:1px solid rgba(20,184,166,.35);transition:.2s}
+  .b5-c:hover{border-color:#22d3ee;transform:translateY(-2px)}
+  .b5-e{font-size:2rem}.b5-c h4{margin:.3rem 0;font-size:.85rem;font-weight:800;color:#67e8f9}
+  .b5-c p{margin:0;font-size:.75rem;color:#d1d5db;line-height:1.6}
+  .b5-box.k{border-color:rgba(245,158,11,.45)}
+  .b5-btn{cursor:pointer;border:1px solid #0f766e;background:rgba(15,118,110,.3);color:#e2e8f0;font-size:.75rem;font-weight:700;padding:.45rem .8rem;border-radius:.75rem;transition:.2s}
+  .b5-btn:hover{border-color:#22d3ee;color:#fff}.b5-btn.go{background:#0891b2;color:#fff;border-color:#22d3ee}.b5-btn:disabled{opacity:.4;pointer-events:none}
+  .b5-qi{margin:.7rem 0;padding:.8rem;border-radius:1rem;background:rgba(2,17,20,.6);border:1px solid rgba(20,184,166,.25)}
+  .b5-qi p{margin:0 0 .5rem;font-size:.8rem;font-weight:700;color:#a5f3fc}
+  .b5-opt{display:block;width:100%;text-align:left;cursor:pointer;margin:.3rem 0;padding:.45rem .7rem;border-radius:.7rem;border:1px solid #0f766e;background:rgba(15,118,110,.2);color:#e2e8f0;font-size:.75rem}
+  .b5-opt:hover{border-color:#22d3ee}.b5-opt.ok{background:rgba(6,95,70,.8);border-color:#34d399}.b5-opt.bad{background:rgba(127,29,29,.7);border-color:#f87171}
+  .b5-exp{font-size:.72rem;color:#fde68a;margin-top:.3rem}
+  .b5-row{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;justify-content:space-between;margin:.4rem 0;padding:.5rem .7rem;border-radius:.8rem;background:rgba(2,17,20,.6);font-size:.78rem;color:#e2e8f0}
+  .b5-row select,.b5-box textarea{background:#042f2e;color:#cffafe;border:2px solid #0f766e;border-radius:.6rem;padding:.3rem .5rem;font-size:.75rem;max-width:100%}
+  .b5-row select.ok{border-color:#34d399}.b5-row select.bad{border-color:#f87171}
+  .b5-box textarea{width:100%}
+  .b5-foot{display:flex;flex-wrap:wrap;gap:.6rem;align-items:center;justify-content:space-between;margin-top:.8rem}
+  .b5-msg{font-size:.8rem;font-weight:700;color:#cbd5e1}.b5-msg.win{color:#6ee7b7}
+  .b5-code{display:grid;gap:1rem;grid-template-columns:1fr}@media(min-width:768px){.b5-code{grid-template-columns:1fr 1fr}}
+  .b5-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:4px;max-width:340px;width:100%;margin:0 auto;padding:6px;border-radius:1rem;background:rgba(2,17,20,.8);border:1px solid rgba(20,184,166,.4)}
+  .b5-cell{aspect-ratio:1/1;border-radius:.6rem;background:rgba(15,118,110,.2);display:flex;align-items:center;justify-content:center;font-size:1.4rem;position:relative}
+  .b5-cell.obs{background:rgba(127,29,29,.5)}.b5-cell.tgt{background:rgba(180,83,9,.4);border:1px solid #f59e0b}
+  .b5-bot{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:1.3rem;line-height:1}.b5-bot small{font-size:.6rem}
+  .b5-blocks{display:grid;grid-template-columns:repeat(2,1fr);gap:.4rem}
+  .b5-prog{margin-top:.6rem;min-height:110px;max-height:190px;overflow:auto;padding:.5rem;border-radius:.8rem;border:2px dashed #334155;background:rgba(2,6,23,.7);font-family:monospace;font-size:.72rem;color:#a7f3d0}
+  .b5-prog div{display:flex;justify-content:space-between;padding:.15rem .3rem}.b5-prog button{color:#fca5a5;background:none;border:0;cursor:pointer}
+  .b5-ws{display:grid;grid-template-columns:repeat(13,1fr);gap:3px;max-width:430px;font-family:monospace;font-weight:800;font-size:.8rem;color:#a5f3fc;text-align:center;padding:.6rem;border-radius:1rem;background:rgba(2,17,20,.7)}
+  .b5-ws span{padding:.25rem 0;border-radius:.3rem;background:rgba(15,118,110,.25)}
+  .b5-tl{display:grid;gap:.6rem;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));margin-top:.8rem}
+  .b5-tl .b5-c{border-top:4px solid #0891b2}
+  .b5-tl .b5-c b{display:inline-block;font-size:.68rem;padding:.15rem .6rem;border-radius:99px;background:#083344;color:#67e8f9;margin-bottom:.3rem}
+  `;
+  var st = document.createElement('style'); st.id = 'b5-style'; st.textContent = CSS; document.head.appendChild(st);
+
+  function $(s, r) { return (r || document).querySelector(s); }
+  function shuf(a) { return a.slice().sort(function () { return Math.random() - .5; }); }
+  function sleep(ms) { return new Promise(function (r) { setTimeout(r, ms); }); }
+  function card(e, t, x) { return '<div class="b5-c"><div class="b5-e">' + e + '</div><h4>' + t + '</h4><p>' + x + '</p></div>'; }
+  function grid(a) { return '<div class="b5-g">' + a.map(function (i) { return card(i[0], i[1], i[2]); }).join('') + '</div>'; }
+  function sec(h, s, b) { return '<div class="b5-s"><h3>' + h + '</h3>' + (s ? '<p class="b5-sub">' + s + '</p>' : '') + b + '</div>'; }
+
+  /* ================= MATERI BAB 5 ================= */
+  var WS = ['SABARTYYUUIOP', 'JUJURACALAHFE', 'MTTIDAKSOMBON', 'DISIPLINLQIKS', 'TANGGUNGJAWAB'];
+  var B5 =
+    '<div class="b5-hero"><div><span class="b5-badge">BAB 5 PENDIDIKAN AGAMA ISLAM &amp; BUDI PEKERTI KELAS 3</span>' +
+    '<h2>BAB 5: Meneladani Kisah Nabi Muhammad ' + SAW + '</h2><p>Menjadi Pelajar yang Unggul &amp; Tangguh. Berdasarkan rujukan Sahih Sirah Nabawiyah (Ar-Rahiq Al-Makhtum) Syaikh Shafiyurrahman Al-Mubarakfuri.</p></div><div class="b5-big">🌟</div></div>' +
+    sec('🎯 Target Pembelajaran: Apa yang Akan Kita Pelajari?', '', grid([
+      ['📖', '1. Memahami Alur Kisah', 'Menjelaskan perjalanan hidup Rasulullah ' + SAW + ' sejak masa lahir hingga usia remaja.'],
+      ['💚', '2. Mengenal Nilai Keteladanan', 'Menemukan karakter hebat seperti sabar, jujur, mandiri, dan pantang menyerah.'],
+      ['🏃', '3. Meneladani dalam Kehidupan', 'Menerapkan kebiasaan terpuji Rasulullah ' + SAW + ' sebagai pelajar di sekolah dan rumah.']])) +
+    sec('🤔 Siapakah Idola Sejati Kita?', 'Allah SWT menjadikan Rasulullah ' + SAW + ' sebagai teladan terbaik sepanjang masa (QS. Al-Ahzab: 21).', grid([
+      ['🕵️', 'Tantangan Detektif Cilik', '1) Siapakah nama ayah dan ibu Nabi Muhammad ' + SAW + '?<br>2) Mengapa tahun kelahiran Nabi disebut Tahun Gajah?<br>3) Apa pekerjaan Nabi Muhammad saat usia remaja?'],
+      ['🏅', 'Berakhlak Mulia', '"Dan sesungguhnya engkau benar-benar berbudi pekerti yang luhur." (QS. Al-Qalam: 4)']])) +
+    sec('🌅 Masa Kelahiran: Kelahiran Sang Cahaya &amp; Tahun Gajah', '12 Rabi’ul Awwal / 29 Agustus 580 M', grid([
+      ['👶', 'Lahir Yatim di Makkah', 'Ayah beliau, <b>Abdullah</b>, wafat di Madinah saat Nabi masih dalam kandungan usia 2 bulan.'],
+      ['🐘', 'Pertolongan Allah atas Ka’bah', 'Raja Abrahah menyerang Ka’bah membawa pasukan gajah, lalu Allah menghancurkannya dengan kawanan <b>Burung Ababil</b>.'],
+      ['🛡️', 'Fakta Sahih Sirah', 'Peristiwa Tahun Gajah membuktikan perlindungan Allah terhadap Kota Makkah sebagai tempat lahirnya Nabi Muhammad ' + SAW + ' (QS. Al-Fil).']])) +
+    sec('🌿 Masa Anak-Anak (Usia 0 - 5 Tahun): Keberkahan di Kampung Bani Sa’ad', '', grid([
+      ['🍼', 'Ibu Susu Halimah As-Sa’diyah', 'Sesuai tradisi Arab, bayi disusukan di pedesaan agar tumbuh sehat dan fasih berbahasa Arab.'],
+      ['🌾', 'Limpahan Keberkahan', 'Keluarga Halimah menjadi sejahtera, hewan ternak gemuk dan melimpah susunya karena keberkahan Nabi.'],
+      ['✨', 'Peristiwa Pembelahan Dada', 'Malaikat Jibril membersihkan hati Nabi kecil dari bagian syaitan sebagai pembersihan kesucian.']])) +
+    sec('⏳ Garis Waktu Pengasuhan: Pelajaran Kesabaran Sejak Anak-Anak', '', '<div class="b5-tl">' +
+      '<div class="b5-c"><b>Usia 6 Tahun</b><h4>Wafatnya Ibu Aminah</h4><p>Ibunda wafat di Abwa’ dalam perjalanan kembali dari ziarah makam ayah di Madinah.</p></div>' +
+      '<div class="b5-c"><b>Usia 6 - 8 Tahun</b><h4>Asuhan Kakek Abdul Muthalib</h4><p>Kakek menyayangi dan memuliakan Nabi. Namun 2 tahun kemudian sang kakek juga wafat.</p></div>' +
+      '<div class="b5-c"><b>Usia 8+ Tahun</b><h4>Asuhan Paman Abu Thalib</h4><p>Paman merawat Nabi dengan penuh kasih sayang walau dalam keterbatasan ekonomi.</p></div></div>') +
+    sec('🐐 Usia 8 - 12 Tahun: Menjadi Penggembala Kambing Tangguh', 'Nabi Muhammad ' + SAW + ' tidak bermalas-malasan. Beliau bekerja menggembalakan kambing milik penduduk Makkah.', grid([
+      ['🤲', 'Membantu Paman', 'Membantu meringankan beban ekonomi paman Abu Thalib.'],
+      ['🧠', 'Melatih Jiwa', 'Melatih kesabaran, kepemimpinan, dan ketenangan jiwa.'],
+      ['🌱', 'Latihan Calon Nabi', 'Merupakan latihan bagi seluruh calon Nabi dan Rasul.'],
+      ['💪', 'Pelajaran Kerja Keras', '"Semua Nabi pernah menggembalakan kambing." Anak tangguh tidak ragu membantu orang tua dengan pekerjaan yang jujur dan baik.']])) +
+    sec('🤝 Masa Remaja (Usia 12 - 25 Tahun): Pedagang Jujur dan Terpercaya (Al-Amin)', '', grid([
+      ['🗺️', 'Perjalanan ke Syam (12 Thn)', 'Ikut paman berdagang. Bertemu Pendeta Bahira yang melihat tanda-tanda kenabian pada Nabi cilik.'],
+      ['💼', 'Berdagang untuk Khadijah', 'Ditemani Maisarah, Nabi berniaga dengan santun, teliti, jujur, dan membawa keuntungan besar.'],
+      ['🛡️', 'Gelar “Al-Amin”', 'Masyarakat Makkah menggelari Nabi <b>Al-Amin</b> (orang yang sangat terpercaya) karena kejujurannya.']])) +
+    sec('🌟 3 Karakter Utama Nabi Masa Anak &amp; Remaja', 'Mari meniru 3 sikap unggul ini dalam kegiatan sekolah sehari-hari!', grid([
+      ['🕊️', 'Sifat 1: Kesabaran &amp; Ketabahan', 'Sabar saat diuji kehilangan orang tua sejak kecil, tidak pernah mengeluh.'],
+      ['✅', 'Sifat 2: Kejujuran &amp; Sungguh-Sungguh', 'Jujur dalam berdagang dan belajar, tidak pernah curang atau menyontek.'],
+      ['🤗', 'Sifat 3: Rendah Hati &amp; Peduli', 'Tidak sombong, menghormati yang lebih tua, dan selalu menolong sesama.']])) +
+    sec('🔎 Aktivitas Interaktif 1: Detektif Sifat Terpuji Nabi', 'Temukan 6 sifat: SABAR, JUJUR, DISIPLIN, TANGGUNG JAWAB, TABAH, dan TIDAK SOMBONG.',
+      '<div class="b5-g"><div class="b5-ws">' + WS.join('').split('').map(function (l) { return '<span>' + l + '</span>'; }).join('') + '</div>' +
+      card('📝', 'Daftar Sifat yang Ditemukan', '1. <b>SABAR</b> (Tangguh menghadapi cobaan)<br>2. <b>JUJUR</b> (Tidak menyontek/berbohong)<br>3. <b>DISIPLIN</b> (Tepat waktu &amp; patuh)<br>4. <b>TANGGUNG JAWAB</b> (Menjaga amanah)<br>5. <b>TABAH</b> (Kuat dan pantang menyerah)<br>6. <b>TIDAK SOMBONG</b> (Rendah hati)') + '</div>') +
+    sec('🧭 Aktivitas Interaktif 2: Bagaimana Sikapmu Sebagai Pelajar Unggul?', '', grid([
+      ['🧓', 'Situasi 1: Membantu Sesama', 'Melihat kakek/nenek menyeberang jalan atau orang tua kerepotan di rumah.<br><b>Teladan Nabi: Menolong tanpa mengeluh</b>'],
+      ['✏️', 'Situasi 2: Mengerjakan Ujian', 'Menghadapi soal ujian yang sulit saat belajar di kelas.<br><b>Teladan Nabi: Jujur &amp; tidak menyontek</b>']])) +
+    sec('📒 Projek Pelajar Berkemajuan: Jurnal 7 Hari Meneladani Rasulullah ' + SAW, 'Tugas Mandiri/Kelompok',
+      '<div style="overflow-x:auto"><table style="width:100%;font-size:.75rem;color:#e2e8f0;border-collapse:collapse"><tr style="background:rgba(15,118,110,.4)"><th style="padding:.4rem;text-align:left">No</th><th style="text-align:left">Hari</th><th style="text-align:left">Aktivitas Kebaikan (Meneladani Nabi)</th><th style="text-align:left">Hasil &amp; Perasaan</th></tr>' +
+      [['1', 'Senin', 'Jujur saat mengerjakan soal ulangan Harian PAI', 'Tenang dan bangga pada diri sendiri'], ['2', 'Selasa', 'Membantu ibu menyapu rumah tanpa mengeluh', 'Ibu senang dan mendoakan kebaikan'], ['3', 'Rabu', 'Disiplin piket kelas dan datang tepat waktu', 'Kelas bersih, belajar jadi nyaman'], ['4-7', 'Kamis - Ahad', '(Isi sendiri di buku jurnalmu)', '(Tuliskan perasaanmu)']].map(function (r) {
+        return '<tr style="border-top:1px solid rgba(20,184,166,.25)"><td style="padding:.4rem">' + r[0] + '</td><td>' + r[1] + '</td><td>' + r[2] + '</td><td>' + r[3] + '</td></tr>';
+      }).join('') + '</table></div>') +
+    sec('🔖 Rangkuman Materi', '', '<div class="b5-c"><p>• Nabi lahir tanggal 12 Rabi’ul Awwal Tahun Gajah di Makkah.<br>• Yatim sejak lahir, ditinggal ibu usia 6 tahun, kakek usia 8 tahun.<br>• Mandiri bekerja menggembala kambing &amp; berdagang ke Syam.<br>• Bergelar Al-Amin karena terbukti sangat jujur dan terpercaya.</p></div>') +
+    '<p class="b5-sub" style="text-align:center;font-weight:700;color:#6ee7b7">Aku bangga meneladani Nabi Muhammad ' + SAW + '! Mari menjadi anak yang jujur, disiplin, sabar, dan suka membantu di mana pun kita berada. Alhamdulillah.</p>';
+
+  /* ================= KUIS: [soal, [opsi], indeksBenar, penjelasan] ================= */
+  var Q = [
+    ['Nabi Muhammad ' + SAW + ' lahir di kota …', ['Madinah', 'Makkah', 'Syam'], 1, 'Nabi lahir di Makkah pada Tahun Gajah.'],
+    ['Tahun kelahiran Nabi disebut Tahun Gajah karena …', ['Ada pasukan gajah Abrahah yang menyerang Ka’bah', 'Banyak gajah di Makkah', 'Nabi menunggang gajah'], 0, 'Allah menghancurkan pasukan gajah dengan Burung Ababil (QS. Al-Fil).'],
+    ['Ibu susu Nabi Muhammad ' + SAW + ' adalah …', ['Aminah', 'Khadijah', 'Halimah As-Sa’diyah'], 2, 'Nabi disusui dan diasuh Halimah As-Sa’diyah di kampung Bani Sa’ad.'],
+    ['Pekerjaan Nabi saat berusia 8 - 12 tahun adalah …', ['Menggembala kambing', 'Menjadi raja', 'Bermain seharian'], 0, 'Menggembala kambing melatih kesabaran dan kemandirian.'],
+    ['Nabi Muhammad ' + SAW + ' bergelar Al-Amin yang artinya …', ['Pemimpin perang yang gagah', 'Orang yang sangat terpercaya (jujur)', 'Pedagang yang kaya raya'], 1, 'Al-Amin = orang yang sangat terpercaya karena kejujurannya.']
+  ];
+
+  /* ================= LKPD ================= */
+  var P = {
+    m: [['Abdullah', 'Ayah Nabi Muhammad'], ['Aminah', 'Ibu Nabi Muhammad'], ['Halimah As-Sa’diyah', 'Ibu susu Nabi'], ['Al-Amin', 'Orang yang sangat terpercaya']],
+    t: [['Nabi Muhammad lahir pada Tahun Gajah', 1], ['Nabi bermalas-malasan saat menggembala kambing', 0], ['Nabi berdagang untuk Khadijah dengan jujur dan teliti', 1]],
+    r: 'Tuliskan satu sikap Nabi yang akan kamu tiru di sekolah minggu ini!'
+  };
+
+  /* ================= GAME CODING ================= */
+  var M = {name: 'Misi Pelajar Al-Amin', icon: '🤝', act: 'jagaAmanah()', t: [3, 0], obs: [[1, 4], [2, 2], [2, 1]],
+    q: 'Antar robot ke tempat amanah 🤝, lalu panggil jagaAmanah() agar kamu dipercaya seperti Nabi Al-Amin!',
+    win: 'Seperti Nabi ' + SAW + ', jujur dan menjaga amanah membuat kita dipercaya banyak orang.'};
+  var DIRS = [[0, -1], [1, 0], [0, 1], [-1, 0]], ARW = ['⬆️', '➡️', '⬇️', '⬅️'];
+
+  function quizHTML() {
+    return '<h3>📝 Kuis Interaktif Bab 5</h3><p class="b5-sub">Klik jawaban yang menurutmu benar. Hasil langsung muncul!</p>' +
+      Q.map(function (q, i) {
+        return '<div class="b5-qi"><p>' + (i + 1) + '. ' + q[0] + '</p>' +
+          q[1].map(function (o, j) { return '<button class="b5-opt" data-i="' + i + '" data-j="' + j + '">' + o + '</button>'; }).join('') + '<div class="b5-exp" data-e="' + i + '"></div></div>';
+      }).join('') + '<div class="b5-foot"><div class="b5-msg"></div><button class="b5-btn" data-r="1">Ulangi Kuis</button></div>';
+  }
+  function initQuiz(box) {
+    var ans = {}, sc = 0, msg = $('.b5-msg', box);
+    box.onclick = function (e) {
+      var b = e.target.closest('.b5-opt');
+      if (b) {
+        var i = +b.dataset.i, j = +b.dataset.j, q = Q[i];
+        if (ans[i] !== undefined) return;
+        ans[i] = j;
+        if (j === q[2]) { sc++; b.classList.add('ok'); } else { b.classList.add('bad'); $('.b5-opt[data-i="' + i + '"][data-j="' + q[2] + '"]', box).classList.add('ok'); }
+        $('.b5-exp[data-e="' + i + '"]', box).textContent = '💡 ' + q[3];
+        var d = Object.keys(ans).length;
+        msg.textContent = d < Q.length ? 'Terjawab ' + d + ' / ' + Q.length : 'Nilai kamu: ' + (sc * 20) + ' / 100 ' + (sc >= 4 ? '— MasyaAllah, hebat! 🎉' : '— Ayo ulangi, kamu pasti bisa!');
+        msg.className = 'b5-msg' + (d === Q.length && sc >= 4 ? ' win' : '');
+        return;
+      }
+      if (e.target.getAttribute('data-r')) {
+        ans = {}; sc = 0; msg.textContent = ''; msg.className = 'b5-msg';
+        box.querySelectorAll('.b5-opt').forEach(function (x) { x.className = 'b5-opt'; });
+        box.querySelectorAll('.b5-exp').forEach(function (x) { x.textContent = ''; });
+      }
+    };
+  }
+
+  function lkpdHTML() {
+    var opt = '<option value="">-- pilih arti --</option>' + shuf(P.m.map(function (x) { return x[1]; })).map(function (m) { return '<option>' + m + '</option>'; }).join('');
+    return '<h3>📒 LKPD Bab 5</h3><p class="b5-sub">Tugas 1: Jodohkan tokoh/istilah dengan artinya.</p>' +
+      P.m.map(function (x, i) { return '<div class="b5-row"><b>' + x[0] + '</b><select data-m="' + i + '">' + opt + '</select></div>'; }).join('') +
+      '<p class="b5-sub">Tugas 2: Benar atau Salah?</p>' +
+      P.t.map(function (x, i) { return '<div class="b5-row"><span>' + x[0] + '</span><select data-t="' + i + '"><option value="">-- pilih --</option><option value="1">Benar</option><option value="0">Salah</option></select></div>'; }).join('') +
+      '<p class="b5-sub">Tugas 3 (Refleksi): ' + P.r + '</p><textarea rows="2" placeholder="Tulis jawabanmu di sini..."></textarea>' +
+      '<div class="b5-foot"><div class="b5-msg"></div><button class="b5-btn go">Periksa LKPD</button></div>';
+  }
+  function initLkpd(box) {
+    $('.go', box).onclick = function () {
+      var ok = 0, m = $('.b5-msg', box);
+      function mark(s, good) { s.className = s.value ? (good ? 'ok' : 'bad') : ''; if (good) ok++; }
+      P.m.forEach(function (x, i) { var s = $('select[data-m="' + i + '"]', box); mark(s, s.value === x[1]); });
+      P.t.forEach(function (x, i) { var s = $('select[data-t="' + i + '"]', box); mark(s, s.value === String(x[1])); });
+      var ref = $('textarea', box).value.trim().length >= 10; if (ref) ok++;
+      var tot = P.m.length + P.t.length + 1;
+      m.textContent = 'Nilai LKPD: ' + Math.round(ok / tot * 100) + ' / 100' + (ref ? '' : ' (isi refleksi minimal 10 huruf)');
+      m.className = 'b5-msg' + (ok === tot ? ' win' : '');
+    };
+  }
+
+  function codeHTML() {
+    return '<h3>🤖 Game Coding Islami: ' + M.name + '</h3><p class="b5-sub">' + M.q + '</p><div class="b5-code"><div class="b5-grid"></div><div>' +
+      '<div class="b5-blocks"><button class="b5-btn" data-b="F">⬆️ maju()</button><button class="b5-btn" data-b="L">↩️ belokKiri()</button><button class="b5-btn" data-b="R">↪️ belokKanan()</button>' +
+      '<button class="b5-btn" data-b="F2">🔁 ulangi 2x maju()</button><button class="b5-btn" data-b="F3">🔁 ulangi 3x maju()</button><button class="b5-btn" data-b="A">✨ ' + M.act + '</button></div>' +
+      '<div class="b5-prog"></div><div class="b5-foot"><div class="b5-msg"></div><div><button class="b5-btn" data-x="1">Hapus</button> <button class="b5-btn go">▶ Jalankan Kode</button></div></div></div></div>';
+  }
+  function initCode(box) {
+    var prog = [], bot, busy = false, Gd = $('.b5-grid', box), Pg = $('.b5-prog', box), Ms = $('.b5-msg', box), run = $('.go', box);
+    var NM = {F: 'maju();', L: 'belokKiri();', R: 'belokKanan();', F2: 'ulangi(2){ maju(); }', F3: 'ulangi(3){ maju(); }', A: M.act + ';'};
+    function isObs(x, y) { return M.obs.some(function (o) { return o[0] === x && o[1] === y; }); }
+    function blk(x, y) { return x < 0 || y < 0 || x > 4 || y > 4 || isObs(x, y); }
+    function dg() {
+      var h = '';
+      for (var y = 0; y < 5; y++) for (var x = 0; x < 5; x++) {
+        var ob = isObs(x, y), tg = M.t[0] === x && M.t[1] === y;
+        h += '<div class="b5-cell' + (ob ? ' obs' : '') + (tg ? ' tgt' : '') + '">' + (ob ? '🚧' : (tg ? M.icon : '')) +
+          (bot.x === x && bot.y === y ? '<div class="b5-bot">🤖<small>' + ARW[bot.d] + '</small></div>' : '') + '</div>';
+      }
+      Gd.innerHTML = h;
+    }
+    function dp() {
+      Pg.innerHTML = prog.length ? prog.map(function (c, i) { return '<div><span>' + (i + 1) + '. ' + NM[c] + '</span><button data-d="' + i + '">✖</button></div>'; }).join('') : '// klik blok perintah untuk menyusun kode';
+    }
+    function reset() { bot = {x: 0, y: 4, d: 1, a: false}; dg(); }
+    box.onclick = function (e) {
+      if (busy) return;
+      var b = e.target.getAttribute('data-b'), d = e.target.getAttribute('data-d');
+      if (b) { prog.push(b); dp(); }
+      else if (d !== null) { prog.splice(+d, 1); dp(); }
+      else if (e.target.getAttribute('data-x')) { prog = []; Ms.textContent = ''; Ms.className = 'b5-msg'; reset(); dp(); }
+    };
+    run.onclick = async function () {
+      if (busy || !prog.length) return;
+      busy = true; run.disabled = true; reset(); Ms.textContent = ''; Ms.className = 'b5-msg';
+      var seq = [], ok = true;
+      prog.forEach(function (c) { if (c === 'F2') seq.push('F', 'F'); else if (c === 'F3') seq.push('F', 'F', 'F'); else seq.push(c); });
+      for (var i = 0; i < seq.length; i++) {
+        await sleep(350);
+        var c = seq[i];
+        if (c === 'L') bot.d = (bot.d + 3) % 4;
+        else if (c === 'R') bot.d = (bot.d + 1) % 4;
+        else if (c === 'A') { if (bot.x === M.t[0] && bot.y === M.t[1]) bot.a = true; }
+        else { var nx = bot.x + DIRS[bot.d][0], ny = bot.y + DIRS[bot.d][1]; if (blk(nx, ny)) { ok = false; break; } bot.x = nx; bot.y = ny; }
+        dg();
+      }
+      var at = bot.x === M.t[0] && bot.y === M.t[1];
+      if (!ok) Ms.textContent = '💥 Robot menabrak! Periksa lagi kodenya.';
+      else if (at && bot.a) { Ms.textContent = '🎉 Berhasil! ' + M.win; Ms.className = 'b5-msg win'; }
+      else if (at) Ms.textContent = 'Sudah sampai! Tambahkan ' + M.act + ' di akhir kode.';
+      else Ms.textContent = 'Robot belum sampai ke tujuan. Coba lagi!';
+      busy = false; run.disabled = false;
+    };
+    reset(); dp();
+  }
+
+  /* ================= PEMASANGAN ================= */
+  var INACT = 'px-4 py-2 bg-teal-900/50 text-gray-300 hover:text-white rounded-xl text-xs font-bold border border-teal-800 transition';
+  var ACT = 'px-4 py-2 bg-teal-600 text-white rounded-xl text-xs font-bold shadow-md transition';
+
+  function init() {
+    var prev = document.getElementById('al-islam-bab4-content') || document.getElementById('al-islam-bab3-content');
+    var prevBtn = document.getElementById('btn-al-islam-bab4') || document.getElementById('btn-al-islam-bab3');
+    if (!prev || !prevBtn || document.getElementById('al-islam-bab5-content')) return;
+
+    var b5 = document.createElement('div');
+    b5.id = 'al-islam-bab5-content'; b5.className = 'hidden space-y-8'; b5.innerHTML = B5;
+    prev.parentNode.insertBefore(b5, prev.nextSibling);
+
+    var w = document.createElement('div');
+    w.innerHTML = '<div class="b5-title">🎮 Latihan Interaktif Bab 5: Kuis, LKPD &amp; Game Coding Islami</div>';
+    [['quiz', quizHTML, initQuiz, ''], ['lkpd', lkpdHTML, initLkpd, ' k'], ['code', codeHTML, initCode, '']].forEach(function (s) {
+      var box = document.createElement('div');
+      box.className = 'b5-box' + s[3]; box.innerHTML = s[1]();
+      w.appendChild(box); s[2](box);
+    });
+    b5.appendChild(w);
+
+    var btn = document.createElement('button');
+    btn.id = 'btn-al-islam-bab5'; btn.className = INACT; btn.textContent = 'BAB 5: Meneladani Kisah Nabi ' + SAW;
+    btn.setAttribute('onclick', 'switchAlIslamBab(5)');
+    prevBtn.parentNode.appendChild(btn);
+
+    var orig = window.switchAlIslamBab;
+    window.switchAlIslamBab = function (n) {
+      if (typeof orig === 'function') orig(n);
+      b5.classList.toggle('hidden', n !== 5);
+      btn.className = n === 5 ? ACT : INACT;
+    };
+
+    var tile = document.querySelector('#portal-home .metro-tile p');
+    if (tile) tile.textContent = 'BAB 1 (Az-Zalzalah), BAB 2 Asmaul Husna, BAB 3 Husnuzon dan Akhlak, BAB 4 Tata Cara Puasa, & BAB 5 Kisah Nabi ' + SAW + '.';
+  }
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
+})();
+</script>
 </body>
 </html>
