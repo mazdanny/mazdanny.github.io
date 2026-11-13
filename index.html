@@ -201,6 +201,8 @@ body {
 <button onclick="switchPortal('murojaah')" id="btn-portal-murojaah" class="nav-tab px-2.5 py-1.5 rounded-lg border border-teal-800 text-[11px] font-semibold tracking-wider text-gray-300 hover:text-white transition-all">
 <i class="fa-solid fa-book-quran mr-1"></i> 8. MUROJAAH
 </button>
+    </button>
+<button onclick="switchPortal('korektor')" id="btn-portal-korektor" class="nav-tab px-2.5 py-1.5 rounded-lg border border-teal-800 text-[11px] font-semibold tracking-wider text-gray-300 hover:text-white transition-all"><i class="fa-solid fa-square-check mr-1"></i> 9. KOREKTOR</button>
 </div>
 </div>
 <!-- DASHBOARD UTAMA: LUMIA METRO UI (7 PORTAL TILES) -->
@@ -319,6 +321,7 @@ body {
 </div>
 </div>
 </div>
+    <div onclick="switchPortal('korektor')" class="metro-tile p-6 rounded-2xl cursor-pointer flex flex-col justify-between h-48 border-violet-500/40"><div class="flex items-center justify-between"><span class="w-12 h-12 bg-violet-950/80 rounded-xl flex items-center justify-center text-violet-300 text-2xl border border-violet-500/30"><i class="fa-solid fa-square-check"></i></span><span class="text-[10px] font-bold text-violet-300 bg-violet-950 px-2.5 py-1 rounded-full uppercase border border-violet-500/30">Menu 9</span></div><div><h3 class="text-lg font-bold text-white tracking-wide">KOREKTOR GURU</h3><p class="text-xs text-gray-300 mt-1">Koreksi PG & uraian, kunci jawaban, rekap nilai, ekspor Excel per kelas dan mapel.</p></div></div>
 
 <!-- MENU 1: AL-ISLAM KELAS 3 -->
 <div id="portal-al-islam" class="w-full max-w-5xl hidden space-y-8">
@@ -2405,7 +2408,13 @@ Belajar pemrograman visual secara interaktif! Buat game, animasi, dan cerita dig
     </div>
 </div>
 </div>
-
+<!-- MENU 9: KOREKTOR -->
+<div id="portal-korektor" class="w-full max-w-6xl hidden space-y-4">
+    <button onclick="switchPortal('home')" class="text-xs font-bold text-cyan-400 hover:text-cyan-300 flex items-center gap-2 bg-teal-950 px-3 py-1.5 rounded-lg border border-teal-800 w-fit">
+        <i class="fa-solid fa-arrow-left"></i> Kembali ke Dashboard
+    </button>
+    <iframe id="korektorFrame" data-src="https://koreksiq.github.io/koreksiq/" class="w-full rounded-2xl border-2 border-teal-500/40 bg-white" style="height:85vh" title="Korektor Guru Mapel"></iframe>
+</div>
 <!-- Footer Utama -->
 <div class="mt-12 text-center text-xs text-gray-500 tracking-wider border-t border-teal-900/40 pt-4 w-full max-w-4xl">
 &copy; 2026 MAZDANY DIGITAL PLATFORM. ALL RIGHTS RESERVED.
@@ -2415,7 +2424,7 @@ Belajar pemrograman visual secara interaktif! Buat game, animasi, dan cerita dig
 <script>
 // Switcher Menu Utama / Portal
 function switchPortal(portal) {
-    const portals = ['home', 'al-islam', 'bahasa-arab', 'ibadah-praktis', 'nilai', 'shafwa', 'guru', 'game-edu', 'murojaah'];
+    const portals = ['home', 'al-islam', 'bahasa-arab', 'ibadah-praktis', 'nilai', 'shafwa', 'guru', 'game-edu', 'murojaah', 'korektor'];
     portals.forEach(p => {
         const portalEl = document.getElementById(`portal-${p}`);
         const btnEl = document.getElementById(`btn-portal-${p}`);
@@ -2429,6 +2438,15 @@ function switchPortal(portal) {
     if (portal === 'game-edu') {
         initGameDragDrop9();
         loadLevel(0);
+        if (portal === 'game-edu') {
+        initGameDragDrop9();
+        loadLevel(0);
+    }
+    if (portal === 'korektor') {
+        const fr = document.getElementById('korektorFrame');
+        if (fr && !fr.src) fr.src = fr.dataset.src;
+    }
+}
     }
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
