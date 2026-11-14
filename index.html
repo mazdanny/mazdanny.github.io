@@ -2435,18 +2435,14 @@ function switchPortal(portal) {
     const activeBtn = document.getElementById(`btn-portal-${portal}`);
     if (activePortal) activePortal.classList.remove('hidden');
     if (activeBtn) activeBtn.classList.add('active');
+
     if (portal === 'game-edu') {
-        initGameDragDrop9();
-        loadLevel(0);
-        if (portal === 'game-edu') {
         initGameDragDrop9();
         loadLevel(0);
     }
     if (portal === 'korektor') {
         const fr = document.getElementById('korektorFrame');
-        if (fr && !fr.src) fr.src = fr.dataset.src;
-    }
-}
+        if (fr && !fr.getAttribute('src')) fr.src = fr.dataset.src;
     }
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
