@@ -5252,6 +5252,469 @@ window.addEventListener("DOMContentLoaded", window.mj_init);
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
 })();
 </script>
+<script>
+(function () {
+  'use strict';
+  if (document.getElementById('lkh-style')) return;
+
+  var KEY = 'mazdany_lkh_v1';
+  var HARI = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
+  var BLN = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
+  var LIBS = {
+    pdf: ['https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js',
+          'https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js'],
+    docx: ['https://cdn.jsdelivr.net/npm/docx@8.5.0/build/index.js']
+  };
+
+  function p2(n) { return (n < 10 ? '0' : '') + n; }
+  var now = new Date();
+  var todayISO = now.getFullYear() + '-' + p2(now.getMonth() + 1) + '-' + p2(now.getDate());
+
+  /* ====== DEFAULT ISIAN (boleh diisi permanen di sini jika mau) ====== */
+  var DEF = {
+    f: {
+      nama: '', nip: '', sekolah: '', bulan: now.getMonth(), tahun: now.getFullYear(),
+      jabatan: 'Guru PAI', kelasDef: '', ketDef: 'Guru PAI',
+      kota: '', tglLaporan: todayISO, paper: 'a4',
+      kepsekJab: 'Kepala Sekolah', kepsekNama: '', kepsekNip: '',
+      pengawasJab: 'Pengawas Pendidikan Agama Islam', pengawasNama: '', pengawasNip: '', showPengawas: true
+    },
+    rows: [], ttd: {}
+  };
+
+  var S = loadState();
+  function loadState() {
+    var o = JSON.parse(JSON.stringify(DEF)), s = null;
+    try { s = JSON.parse(localStorage.getItem(KEY)); } catch (e) {}
+    if (s && s.f) { for (var k in s.f) o.f[k] = s.f[k]; o.rows = s.rows || []; o.ttd = s.ttd || {}; }
+    return o;
+  }
+  function save() { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) {} }
+
+  function esc(s) { return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
+  function hari(t) {
+    if (!t) return '';
+    var p = t.split('-'); if (p.length < 3) return '';
+    var d = new Date(+p[0], +p[1] - 1, +p[2]);
+    return isNaN(d.getTime()) ? '' : HARI[d.getDay()];
+  }
+  function dateLong(t) {
+    if (!t) return '';
+    var p = t.split('-'); if (p.length < 3) return '';
+    return (+p[2]) + ' ' + BLN[+p[1] - 1] + ' ' + p[0];
+  }
+  function bulanTxt() { return BLN[+S.f.bulan].toUpperCase() + ' ' + S.f.tahun; }
+  function fname() {
+    return 'LKH_' + (S.f.nama || 'Guru').replace(/[^\w]+/g, '_').replace(/^_|_$/g, '') + '_' + BLN[+S.f.bulan] + '_' + S.f.tahun;
+  }
+
+  /* ====== CSS ====== */
+  var CSS = `
+  #portal-lkh .lkh-hero{display:flex;flex-wrap:wrap;gap:1rem;align-items:center;justify-content:space-between;padding:1.4rem 1.8rem;border-radius:2rem;border:1px solid rgba(20,184,166,.3);background:rgba(4,38,31,.6)}
+  #portal-lkh .lkh-hero h2{margin:.5rem 0 .3rem;font-size:1.6rem;font-weight:800;color:#67e8f9}
+  #portal-lkh .lkh-hero p{margin:0;font-size:.8rem;color:#cbd5e1;max-width:40rem}
+  #portal-lkh .lkh-badge{display:inline-block;font-size:.7rem;font-weight:700;padding:.3rem .8rem;border-radius:99px;background:#451a03;color:#fcd34d;border:1px solid rgba(245,158,11,.4)}
+  #portal-lkh .lkh-big{font-size:3rem;padding:.8rem 1.2rem;border-radius:1.5rem;background:rgba(15,118,110,.3)}
+  #portal-lkh .lkh-card{margin-top:1rem;padding:1.2rem;border-radius:1.5rem;border:2px solid rgba(20,184,166,.3);background:rgba(4,38,31,.6)}
+  #portal-lkh .lkh-card h3{margin:0 0 .2rem;font-size:1.05rem;font-weight:800;color:#67e8f9}
+  #portal-lkh .lkh-sub{margin:.2rem 0 .8rem;font-size:.75rem;color:#cbd5e1}
+  #portal-lkh .lkh-grid{display:grid;gap:.7rem;grid-template-columns:repeat(auto-fit,minmax(210px,1fr))}
+  #portal-lkh label.lkh-f{display:block;font-size:.7rem;font-weight:700;color:#5eead4}
+  #portal-lkh input[type=text],#portal-lkh input[type=number],#portal-lkh input[type=date],#portal-lkh select,#portal-lkh textarea{width:100%;margin-top:.25rem;background:#042f2e;color:#cffafe;border:2px solid #0f766e;border-radius:.6rem;padding:.4rem .55rem;font-size:.8rem;font-family:inherit;color-scheme:dark}
+  #portal-lkh input:focus,#portal-lkh select:focus,#portal-lkh textarea:focus{outline:none;border-color:#22d3ee}
+  #portal-lkh textarea{resize:vertical;min-height:2.6rem}
+  #portal-lkh .lkh-btn{cursor:pointer;border:1px solid #0f766e;background:rgba(15,118,110,.3);color:#e2e8f0;font-size:.75rem;font-weight:700;padding:.5rem .9rem;border-radius:.75rem;transition:.2s}
+  #portal-lkh .lkh-btn:hover{border-color:#22d3ee;color:#fff}
+  #portal-lkh .lkh-btn.go{background:#0891b2;color:#fff;border-color:#22d3ee}
+  #portal-lkh .lkh-btn.word{background:#2563eb;color:#fff;border-color:#60a5fa}
+  #portal-lkh .lkh-btn.pdf{background:#dc2626;color:#fff;border-color:#f87171}
+  #portal-lkh .lkh-btn.warn{background:rgba(127,29,29,.5);border-color:#f87171}
+  #portal-lkh .lkh-btn:disabled{opacity:.5;pointer-events:none}
+  #portal-lkh .lkh-bar{display:flex;flex-wrap:wrap;gap:.6rem;align-items:flex-end;margin-bottom:.8rem}
+  #portal-lkh .lkh-bar>div{min-width:110px}
+  #portal-lkh .lkh-scroll{overflow-x:auto;border-radius:1rem;border:1px solid rgba(20,184,166,.35)}
+  #portal-lkh table{width:100%;min-width:980px;border-collapse:collapse;font-size:.75rem}
+  #portal-lkh th{background:rgba(15,118,110,.5);color:#ecfeff;padding:.45rem .3rem;font-size:.7rem;white-space:nowrap}
+  #portal-lkh td{padding:.25rem;border-top:1px solid rgba(20,184,166,.2);vertical-align:middle}
+  #portal-lkh td.c{text-align:center;color:#94a3b8}
+  #portal-lkh td.lkh-hari{text-align:center;font-weight:700;color:#fde68a;white-space:nowrap}
+  #portal-lkh td input,#portal-lkh td textarea{margin-top:0;padding:.3rem .4rem;font-size:.75rem}
+  #portal-lkh .lkh-del{cursor:pointer;background:none;border:0;color:#fca5a5;font-size:.9rem}
+  #portal-lkh .lkh-sig{display:flex;gap:.6rem;align-items:center;margin-top:.35rem;font-size:.7rem;color:#94a3b8}
+  #portal-lkh .lkh-sig img{max-height:42px;max-width:110px;background:#fff;border-radius:.3rem;padding:2px}
+  #portal-lkh .lkh-sig input[type=file]{font-size:.68rem;border:0;padding:0;background:none;width:auto}
+  #portal-lkh .lkh-msg{font-size:.8rem;font-weight:700;color:#cbd5e1;min-height:1.2rem}
+  #portal-lkh .lkh-msg.err{color:#fca5a5}.lkh-msg.ok{color:#6ee7b7}
+  #portal-lkh .lkh-chk{display:flex;gap:.5rem;align-items:center;font-size:.75rem;color:#cbd5e1;margin-top:.4rem}
+  #portal-lkh .lkh-chk input{width:auto;margin:0}
+  `;
+  var st = document.createElement('style'); st.id = 'lkh-style'; st.textContent = CSS; document.head.appendChild(st);
+
+  /* ====== BANGUN ANTARMUKA ====== */
+  function inp(label, key, type, ph) {
+    return '<label class="lkh-f">' + label + '<input type="' + (type || 'text') + '" data-f="' + key + '" placeholder="' + esc(ph || '') + '"></label>';
+  }
+  function sigBox(key) {
+    return '<div class="lkh-sig"><span id="lkh-sig-' + key + '"></span><input type="file" accept="image/*" data-sig="' + key + '"></div>';
+  }
+  function monthOpts() { return BLN.map(function (b, i) { return '<option value="' + i + '">' + b + '</option>'; }).join(''); }
+
+  var HTML =
+    '<button onclick="switchPortal(\'home\')" class="text-xs font-bold text-cyan-400 hover:text-cyan-300 flex items-center gap-2 bg-teal-950 px-3 py-1.5 rounded-lg border border-teal-800 w-fit"><i class="fa-solid fa-arrow-left"></i> Kembali ke Dashboard</button>' +
+    '<div class="lkh-hero"><div><span class="lkh-badge">MENU 10 • ADMINISTRASI GURU</span><h2>LKH: Lembar Kerja Harian Guru</h2>' +
+    '<p>Isi identitas dan kegiatan harian, lalu unduh Laporan Pelaksanaan LKH dalam bentuk PDF atau Word. Isian tersimpan otomatis di perangkat ini.</p></div><div class="lkh-big">📋</div></div>' +
+
+    '<div class="lkh-card"><h3>1. Identitas Guru</h3><p class="lkh-sub">Muncul di bagian atas laporan.</p><div class="lkh-grid">' +
+    inp('NAMA', 'nama', 'text', 'Nama lengkap beserta gelar') + inp('NIP', 'nip', 'text', 'Isi tanda - jika tidak ada') +
+    inp('SEKOLAH', 'sekolah', 'text', 'Nama sekolah') +
+    '<label class="lkh-f">BULAN<select data-f="bulan">' + monthOpts() + '</select></label>' +
+    inp('TAHUN', 'tahun', 'number', '2026') + '</div></div>' +
+
+    '<div class="lkh-card"><h3>2. Kegiatan Harian</h3><p class="lkh-sub">Klik “Isi Tanggal Otomatis” untuk membuat baris hari Senin–Jumat pada bulan terpilih (hapus baris hari libur dengan tombol ✖), atau tambah baris manual.</p>' +
+    '<div class="lkh-bar"><div><label class="lkh-f">Kelas bawaan<input type="text" data-f="kelasDef" placeholder="mis. 3"></label></div>' +
+    '<div><label class="lkh-f">Keterangan bawaan<input type="text" data-f="ketDef" placeholder="mis. Guru PAI"></label></div>' +
+    '<button class="lkh-btn go" data-act="gen">⚡ Isi Tanggal Otomatis</button><button class="lkh-btn" data-act="add">➕ Tambah Baris</button><button class="lkh-btn warn" data-act="clear">Kosongkan Baris</button></div>' +
+    '<div class="lkh-scroll"><table><thead><tr><th style="width:36px">NO</th><th style="width:78px">Hari</th><th style="width:140px">Tanggal</th><th style="width:70px">KELAS</th><th style="min-width:230px">MATERI</th><th style="width:120px">JAM</th><th style="min-width:260px">KEGIATAN</th><th style="width:120px">KETERANGAN</th><th style="width:30px"></th></tr></thead><tbody id="lkh-body"></tbody></table></div></div>' +
+
+    '<div class="lkh-card"><h3>3. Pengesahan &amp; Tanda Tangan</h3><p class="lkh-sub">Tanda tangan (gambar PNG/JPG) bersifat opsional; jika kosong, tersedia ruang untuk tanda tangan basah setelah dicetak.</p><div class="lkh-grid">' +
+    inp('Kota', 'kota', 'text', 'mis. Wonosari') + inp('Tanggal laporan', 'tglLaporan', 'date') + inp('Jabatan Anda', 'jabatan', 'text', 'Guru PAI') +
+    '<div><label class="lkh-f">Tanda tangan Guru</label>' + sigBox('guru') + '</div>' +
+    inp('Jabatan atasan (kiri)', 'kepsekJab', 'text', 'Kepala Sekolah') + inp('Nama Kepala Sekolah', 'kepsekNama', 'text', 'Nama beserta gelar') + inp('NIP Kepala Sekolah', 'kepsekNip', 'text', '-') +
+    '<div><label class="lkh-f">Tanda tangan Kepala Sekolah</label>' + sigBox('kepsek') + '</div>' +
+    inp('Jabatan pengawas', 'pengawasJab', 'text', 'Pengawas Pendidikan Agama Islam') + inp('Nama Pengawas', 'pengawasNama', 'text', 'Nama beserta gelar') + inp('NIP Pengawas', 'pengawasNip', 'text', '-') +
+    '<div><label class="lkh-f">Tanda tangan Pengawas</label>' + sigBox('pengawas') + '</div></div>' +
+    '<label class="lkh-chk"><input type="checkbox" data-f="showPengawas"> Tampilkan blok “Mengetahui, Pengawas” di bagian bawah</label></div>' +
+
+    '<div class="lkh-card"><h3>4. Unduh Laporan</h3><div class="lkh-bar">' +
+    '<div><label class="lkh-f">Ukuran kertas (landscape)<select data-f="paper"><option value="a4">A4</option><option value="f4">F4 / Folio</option></select></label></div>' +
+    '<button class="lkh-btn pdf" data-act="pdf">📄 Unduh PDF</button><button class="lkh-btn word" data-act="word">📝 Unduh Word (.docx)</button><button class="lkh-btn warn" data-act="reset">Reset Semua</button></div>' +
+    '<div class="lkh-msg" id="lkh-msg"></div></div>';
+
+  var R; // root portal
+
+  function msg(t, kind) { var m = document.getElementById('lkh-msg'); if (m) { m.textContent = t || ''; m.className = 'lkh-msg' + (kind ? ' ' + kind : ''); } }
+
+  function rowHTML(r, i) {
+    return '<tr data-i="' + i + '"><td class="c">' + (i + 1) + '</td><td class="lkh-hari">' + hari(r.t) + '</td>' +
+      '<td><input type="date" data-k="t" value="' + esc(r.t) + '"></td>' +
+      '<td><input type="text" data-k="k" value="' + esc(r.k) + '"></td>' +
+      '<td><textarea data-k="m" rows="2">' + esc(r.m) + '</textarea></td>' +
+      '<td><input type="text" data-k="j" placeholder="07:05 - 13:30" value="' + esc(r.j) + '"></td>' +
+      '<td><textarea data-k="g" rows="2">' + esc(r.g) + '</textarea></td>' +
+      '<td><input type="text" data-k="e" value="' + esc(r.e) + '"></td>' +
+      '<td><button class="lkh-del" data-del="' + i + '" title="Hapus baris">✖</button></td></tr>';
+  }
+  function renderRows() {
+    var tb = document.getElementById('lkh-body');
+    tb.innerHTML = S.rows.length ? S.rows.map(rowHTML).join('') :
+      '<tr><td colspan="9" style="text-align:center;padding:1.2rem;color:#94a3b8">Belum ada baris. Klik “Isi Tanggal Otomatis” atau “Tambah Baris”.</td></tr>';
+  }
+  function fillFields() {
+    R.querySelectorAll('[data-f]').forEach(function (el) {
+      var v = S.f[el.dataset.f];
+      if (el.type === 'checkbox') el.checked = !!v; else el.value = v == null ? '' : v;
+    });
+  }
+  function updSig() {
+    ['guru', 'kepsek', 'pengawas'].forEach(function (k) {
+      var el = document.getElementById('lkh-sig-' + k), t = S.ttd[k];
+      el.innerHTML = t ? '<img src="' + t.d + '" alt="ttd"> <button class="lkh-del" data-clr="' + k + '" title="Hapus gambar">✖</button>' : 'Belum ada gambar';
+    });
+  }
+  function readSig(file, key) {
+    var fr = new FileReader();
+    fr.onload = function () {
+      var im = new Image();
+      im.onload = function () {
+        var k = Math.min(1, 360 / im.width), w = Math.round(im.width * k), h = Math.round(im.height * k);
+        var c = document.createElement('canvas'); c.width = w; c.height = h;
+        c.getContext('2d').drawImage(im, 0, 0, w, h);
+        S.ttd[key] = { d: c.toDataURL('image/png'), w: w, h: h }; save(); updSig();
+      };
+      im.src = fr.result;
+    };
+    fr.readAsDataURL(file);
+  }
+
+  function gen() {
+    var y = +S.f.tahun, m = +S.f.bulan;
+    if (!y || y < 2000) { msg('Isi tahun dengan benar.', 'err'); return; }
+    var filled = S.rows.some(function (r) { return r.m || r.g || r.j; });
+    if (filled && !confirm('Baris akan dibuat ulang untuk ' + BLN[m] + ' ' + y + '. Isian pada tanggal yang sama tetap dipertahankan, baris tanggal lain dihapus. Lanjutkan?')) return;
+    var old = {}; S.rows.forEach(function (r) { old[r.t] = r; });
+    var n = new Date(y, m + 1, 0).getDate(), out = [];
+    for (var d = 1; d <= n; d++) {
+      var w = new Date(y, m, d).getDay(); if (w === 0 || w === 6) continue;
+      var t = y + '-' + p2(m + 1) + '-' + p2(d);
+      out.push(old[t] || { t: t, k: S.f.kelasDef, m: '', j: '', g: '', e: S.f.ketDef });
+    }
+    S.rows = out; save(); renderRows(); msg('Dibuat ' + out.length + ' baris hari kerja. Hapus baris hari libur bila perlu.', 'ok');
+  }
+
+  /* ====== DATA UNTUK EKSPOR ====== */
+  function D() {
+    var f = S.f;
+    return {
+      title: 'LAPORAN PELAKSANAAN LEMBAR KERJA HARIAN (LKH)',
+      head: [['NAMA', f.nama], ['NIP', f.nip || '-'], ['SEKOLAH', f.sekolah], ['BULAN', bulanTxt()]],
+      cols: ['NO', 'Hari', 'Tanggal', 'KELAS', 'MATERI', 'JAM', 'KEGIATAN', 'KETERANGAN'],
+      body: S.rows.map(function (r, i) { return [String(i + 1), hari(r.t), r.t, r.k, r.m, r.j, r.g, r.e]; }),
+      kiri1: 'Mengetahui,', kiri2: f.kepsekJab,
+      kanan1: (f.kota ? f.kota + ', ' : '') + dateLong(f.tglLaporan), kanan2: f.jabatan,
+      peng: f.showPengawas
+    };
+  }
+
+  /* ====== MUAT LIBRARY ====== */
+  function loadScript(src) {
+    return new Promise(function (ok, no) {
+      var s = document.createElement('script'); s.src = src; s.onload = ok;
+      s.onerror = function () { no(new Error('Gagal memuat ' + src)); };
+      document.head.appendChild(s);
+    });
+  }
+  async function libs(name) {
+    if (name === 'pdf') {
+      if (!window.jspdf) await loadScript(LIBS.pdf[0]);
+      if (!window.jspdf.jsPDF.API.autoTable) await loadScript(LIBS.pdf[1]);
+    } else {
+      if (!window.docx) await loadScript(LIBS.docx[0]);
+      if (!window.docx) throw new Error('docx tidak tersedia');
+    }
+  }
+  function dl(blob, name) {
+    var a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = name;
+    document.body.appendChild(a); a.click();
+    setTimeout(function () { URL.revokeObjectURL(a.href); a.remove(); }, 1500);
+  }
+  function u8(durl) {
+    var b = atob(durl.split(',')[1]), a = new Uint8Array(b.length);
+    for (var i = 0; i < b.length; i++) a[i] = b.charCodeAt(i);
+    return a;
+  }
+
+  /* ====== EKSPOR PDF ====== */
+  async function pdf() {
+    try {
+      msg('Menyiapkan PDF…'); await libs('pdf');
+      var Dt = D(), J = window.jspdf.jsPDF;
+      var doc = new J({ orientation: 'landscape', unit: 'mm', format: S.f.paper === 'f4' ? [215.9, 330] : 'a4' });
+      var W = doc.internal.pageSize.getWidth(), H = doc.internal.pageSize.getHeight(), mg = 12;
+      doc.setFont('helvetica', 'bold'); doc.setFontSize(12);
+      doc.text(Dt.title, W / 2, mg + 4, { align: 'center' });
+      doc.setFontSize(9.5);
+      var y = mg + 13;
+      Dt.head.forEach(function (h) {
+        doc.setFont('helvetica', 'normal');
+        doc.text(h[0], mg, y); doc.text(': ' + (h[1] || ''), mg + 26, y); y += 5;
+      });
+      var base = [9, 18, 24, 13, 70, 24, 85, 30], sc = (W - 2 * mg) / 273, cs = {};
+      base.forEach(function (w, i) { cs[i] = { cellWidth: w * sc, halign: [0, 2, 3, 5, 7].indexOf(i) > -1 ? 'center' : 'left' }; });
+      doc.autoTable({
+        startY: y + 1, head: [Dt.cols], body: Dt.body, theme: 'grid', margin: { left: mg, right: mg }, rowPageBreak: 'avoid',
+        styles: { font: 'helvetica', fontSize: 8.5, cellPadding: 1.6, lineColor: [0, 0, 0], lineWidth: 0.2, textColor: 0, valign: 'middle' },
+        headStyles: { fillColor: [255, 255, 255], textColor: 0, halign: 'center', fontStyle: 'bold' },
+        columnStyles: cs
+      });
+      var fy = doc.lastAutoTable.finalY + 8, need = Dt.peng ? 92 : 48;
+      if (fy + need > H - mg) { doc.addPage(); fy = mg + 4; }
+      function blk(cx, y0, l1, l2, img, name, nip) {
+        doc.setFont('helvetica', 'normal'); doc.setFontSize(9.5);
+        doc.text(l1 || '', cx, y0, { align: 'center' });
+        doc.text(l2 || '', cx, y0 + 5, { align: 'center' });
+        if (img) { var k = Math.min(40 / img.w, 20 / img.h); doc.addImage(img.d, 'PNG', cx - img.w * k / 2, y0 + 7, img.w * k, img.h * k); }
+        doc.setFont('helvetica', 'bold'); doc.text(name || '', cx, y0 + 30, { align: 'center' });
+        if (name) { var nw = doc.getTextWidth(name); doc.line(cx - nw / 2, y0 + 30.8, cx + nw / 2, y0 + 30.8); }
+        doc.setFont('helvetica', 'normal'); doc.text('NIP : ' + (nip || '-'), cx, y0 + 35.5, { align: 'center' });
+      }
+      blk(W * 0.25, fy, Dt.kiri1, Dt.kiri2, S.ttd.kepsek, S.f.kepsekNama, S.f.kepsekNip);
+      blk(W * 0.75, fy, Dt.kanan1, Dt.kanan2, S.ttd.guru, S.f.nama, S.f.nip);
+      if (Dt.peng) blk(W / 2, fy + 44, 'Mengetahui,', S.f.pengawasJab, S.ttd.pengawas, S.f.pengawasNama, S.f.pengawasNip);
+      doc.save(fname() + '.pdf');
+      msg('PDF berhasil dibuat ✔', 'ok');
+    } catch (e) { console.error(e); msg('Gagal membuat PDF. Pastikan internet aktif, lalu coba lagi.', 'err'); }
+  }
+
+  /* ====== EKSPOR WORD ====== */
+  function docHtml(Dt) {
+    var f = S.f;
+    var rows = Dt.body.map(function (r) {
+      return '<tr>' + r.map(function (c, i) {
+        return '<td style="border:1px solid #000;padding:2pt 3pt;' + ([0, 2, 3, 5, 7].indexOf(i) > -1 ? 'text-align:center;' : '') + '">' + esc(c).replace(/\n/g, '<br>') + '</td>';
+      }).join('') + '</tr>';
+    }).join('');
+    function img(t) { return t ? '<br><img src="' + t.d + '" height="60"><br>' : '<br><br><br><br>'; }
+    function bl(a, b, t, n, nip) { return '<td align="center" style="width:50%">' + esc(a) + '<br>' + esc(b) + img(t) + '<b><u>' + esc(n) + '</u></b><br>NIP : ' + esc(nip || '-') + '</td>'; }
+    return '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns="http://www.w3.org/TR/REC-html40"><head><meta charset="utf-8"><title>LKH</title>' +
+      '<style>@page{size:' + (f.paper === 'f4' ? '33cm 21.59cm' : '29.7cm 21cm') + ';mso-page-orientation:landscape;margin:1.5cm}body{font-family:Calibri;font-size:10pt}table{border-collapse:collapse;width:100%}</style></head><body>' +
+      '<p align="center"><b style="font-size:12pt">' + esc(Dt.title) + '</b></p>' +
+      Dt.head.map(function (h) { return '<p style="margin:0">' + h[0] + '&nbsp;&nbsp;&nbsp;&nbsp;: ' + esc(h[1]) + '</p>'; }).join('') + '<br>' +
+      '<table><tr>' + Dt.cols.map(function (c) { return '<td align="center" style="border:1px solid #000;padding:2pt"><b>' + c + '</b></td>'; }).join('') + '</tr>' + rows + '</table><br>' +
+      '<table><tr>' + bl(Dt.kiri1, Dt.kiri2, S.ttd.kepsek, f.kepsekNama, f.kepsekNip) + bl(Dt.kanan1, Dt.kanan2, S.ttd.guru, f.nama, f.nip) + '</tr></table>' +
+      (Dt.peng ? '<table><tr>' + bl('Mengetahui,', f.pengawasJab, S.ttd.pengawas, f.pengawasNama, f.pengawasNip) + '</tr></table>' : '') + '</body></html>';
+  }
+
+  async function word() {
+    try {
+      msg('Menyiapkan Word…');
+      var Dt = D(), ok = true;
+      try { await libs('docx'); } catch (e) { ok = false; }
+      if (!ok) {
+        dl(new Blob(['\ufeff', docHtml(Dt)], { type: 'application/msword' }), fname() + '.doc');
+        msg('Library .docx tidak bisa dimuat, jadi dibuat file .doc (bisa dibuka di Word).', 'ok'); return;
+      }
+      var d = window.docx, f = S.f, A = d.AlignmentType, WT = d.WidthType;
+      var pw = f.paper === 'f4' ? 12240 : 11906, ph = f.paper === 'f4' ? 18720 : 16838, mgT = 850;
+      var total = ph - 2 * mgT;
+      function P(text, o) {
+        o = o || {};
+        return new d.Paragraph({
+          alignment: o.c ? A.CENTER : A.LEFT, spacing: { after: o.after || 0 },
+          tabStops: o.tab ? [{ type: d.TabStopType.LEFT, position: o.tab }] : undefined,
+          children: o.children || [new d.TextRun({ text: String(text || ''), bold: !!o.b, underline: o.u ? {} : undefined, size: o.sz || 18 })]
+        });
+      }
+      function C(text, w, o) {
+        o = o || {};
+        return new d.TableCell({
+          width: { size: w, type: WT.DXA }, verticalAlign: d.VerticalAlign.CENTER, margins: { top: 30, bottom: 30, left: 70, right: 70 },
+          children: String(text || '').split('\n').map(function (l) { return P(l, { c: o.c, b: o.b }); })
+        });
+      }
+      var base = [9, 18, 24, 13, 70, 24, 85, 30], cw = base.map(function (b) { return Math.round(b / 273 * total); });
+      var center = [0, 2, 3, 5, 7];
+      var hdr = new d.TableRow({ tableHeader: true, cantSplit: true, children: Dt.cols.map(function (c, i) { return C(c, cw[i], { c: true, b: true }); }) });
+      var body = Dt.body.map(function (r) {
+        return new d.TableRow({ cantSplit: true, children: r.map(function (c, i) { return C(c, cw[i], { c: center.indexOf(i) > -1 }); }) });
+      });
+      var table = new d.Table({ width: { size: total, type: WT.DXA }, columnWidths: cw, rows: [hdr].concat(body) });
+
+      var nb = { style: d.BorderStyle.NONE, size: 0, color: 'FFFFFF' }, NB = { top: nb, bottom: nb, left: nb, right: nb };
+      function sigCell(l1, l2, img, name, nip, w) {
+        var ps = [P(l1, { c: true }), P(l2, { c: true })];
+        if (img) {
+          var k = Math.min(151 / img.w, 76 / img.h);
+          ps.push(new d.Paragraph({ alignment: A.CENTER, children: [new d.ImageRun({ data: u8(img.d), type: 'png', transformation: { width: Math.round(img.w * k), height: Math.round(img.h * k) } })] }));
+        } else { ps.push(P('', { c: true }), P('', { c: true }), P('', { c: true }), P('', { c: true })); }
+        ps.push(P(name, { c: true, b: true, u: true }), P('NIP : ' + (nip || '-'), { c: true }));
+        return new d.TableCell({ children: ps, width: { size: w, type: WT.DXA }, borders: NB });
+      }
+      var half = Math.floor(total / 2);
+      var sig = new d.Table({
+        width: { size: total, type: WT.DXA }, columnWidths: [half, total - half],
+        borders: { top: nb, bottom: nb, left: nb, right: nb, insideHorizontal: nb, insideVertical: nb },
+        rows: [new d.TableRow({ cantSplit: true, children: [sigCell(Dt.kiri1, Dt.kiri2, S.ttd.kepsek, f.kepsekNama, f.kepsekNip, half), sigCell(Dt.kanan1, Dt.kanan2, S.ttd.guru, f.nama, f.nip, total - half)] })]
+      });
+      var kids = [P(Dt.title, { c: true, b: true, sz: 24, after: 160 })];
+      Dt.head.forEach(function (h) {
+        kids.push(P('', { tab: 1800, children: [new d.TextRun({ text: h[0], size: 19 }), new d.TextRun({ children: [new d.Tab(), ': ' + (h[1] || '')], size: 19 })] }));
+      });
+      kids.push(P('', { after: 120 }), table, P('', { after: 200 }), sig);
+      if (Dt.peng) {
+        var one = new d.Table({
+          width: { size: total, type: WT.DXA }, columnWidths: [total],
+          borders: { top: nb, bottom: nb, left: nb, right: nb, insideHorizontal: nb, insideVertical: nb },
+          rows: [new d.TableRow({ cantSplit: true, children: [sigCell('Mengetahui,', f.pengawasJab, S.ttd.pengawas, f.pengawasNama, f.pengawasNip, total)] })]
+        });
+        kids.push(P('', { after: 100 }), one);
+      }
+      var docu = new d.Document({
+        styles: { default: { document: { run: { font: 'Calibri', size: 18 } } } },
+        sections: [{
+          properties: { page: { size: { width: pw, height: ph, orientation: d.PageOrientation.LANDSCAPE }, margin: { top: mgT, bottom: mgT, left: mgT, right: mgT } } },
+          children: kids
+        }]
+      });
+      dl(await d.Packer.toBlob(docu), fname() + '.docx');
+      msg('Word (.docx) berhasil dibuat ✔', 'ok');
+    } catch (e) {
+      console.error(e);
+      try { dl(new Blob(['\ufeff', docHtml(D())], { type: 'application/msword' }), fname() + '.doc'); msg('Dibuat sebagai file .doc (kompatibel Word).', 'ok'); }
+      catch (e2) { msg('Gagal membuat file Word. Coba lagi.', 'err'); }
+    }
+  }
+
+  /* ====== PEMASANGAN KE HALAMAN ====== */
+  function init() {
+    var anchor = document.getElementById('portal-korektor') || document.getElementById('portal-home');
+    if (!anchor || document.getElementById('portal-lkh')) return;
+
+    R = document.createElement('div');
+    R.id = 'portal-lkh'; R.className = 'w-full max-w-6xl hidden space-y-4'; R.innerHTML = HTML;
+    anchor.parentNode.insertBefore(R, anchor.nextSibling);
+
+    fillFields(); renderRows(); updSig();
+
+    R.addEventListener('input', function (e) {
+      var t = e.target;
+      if (t.dataset.f) { S.f[t.dataset.f] = t.type === 'checkbox' ? t.checked : t.value; save(); return; }
+      var tr = t.closest ? t.closest('tr[data-i]') : null;
+      if (tr && t.dataset.k) {
+        var r = S.rows[+tr.dataset.i]; if (!r) return;
+        r[t.dataset.k] = t.value;
+        if (t.dataset.k === 't') tr.querySelector('.lkh-hari').textContent = hari(t.value);
+        save();
+      }
+    });
+    R.addEventListener('change', function (e) {
+      var t = e.target;
+      if (t.dataset.sig && t.files && t.files[0]) readSig(t.files[0], t.dataset.sig);
+    });
+    R.addEventListener('click', function (e) {
+      var t = e.target, a = t.dataset.act;
+      if (t.dataset.del !== undefined) { S.rows.splice(+t.dataset.del, 1); save(); renderRows(); return; }
+      if (t.dataset.clr) { delete S.ttd[t.dataset.clr]; save(); updSig(); return; }
+      if (!a) return;
+      if (a === 'gen') gen();
+      else if (a === 'add') {
+        var last = S.rows[S.rows.length - 1], nt = '';
+        if (last && last.t) { var p = last.t.split('-'), dd = new Date(+p[0], +p[1] - 1, +p[2] + 1); nt = dd.getFullYear() + '-' + p2(dd.getMonth() + 1) + '-' + p2(dd.getDate()); }
+        S.rows.push({ t: nt, k: S.f.kelasDef, m: '', j: '', g: '', e: S.f.ketDef }); save(); renderRows();
+      }
+      else if (a === 'clear') { if (confirm('Hapus semua baris kegiatan?')) { S.rows = []; save(); renderRows(); } }
+      else if (a === 'pdf') pdf();
+      else if (a === 'word') word();
+      else if (a === 'reset') {
+        if (confirm('Reset semua isian LKH (identitas, baris, dan tanda tangan)?')) {
+          S = JSON.parse(JSON.stringify(DEF)); save(); fillFields(); renderRows(); updSig(); msg('Semua isian direset.', 'ok');
+        }
+      }
+    });
+
+    /* tombol navigasi atas */
+    var nav = document.getElementById('btn-portal-korektor');
+    if (nav && !document.getElementById('btn-portal-lkh')) {
+      var b = document.createElement('button');
+      b.id = 'btn-portal-lkh'; b.className = nav.className.replace(/\bactive\b/, '').trim();
+      b.setAttribute('onclick', "switchPortal('lkh')");
+      b.innerHTML = '<i class="fa-solid fa-file-signature mr-1"></i> 10. LKH';
+      nav.parentNode.appendChild(b);
+    }
+    /* ubin dashboard */
+    var grid = document.querySelector('#portal-home > .grid');
+    if (grid) {
+      var tile = document.createElement('div');
+      tile.setAttribute('onclick', "switchPortal('lkh')");
+      tile.className = 'metro-tile p-6 rounded-2xl cursor-pointer flex flex-col justify-between h-48 border-orange-500/40';
+      tile.innerHTML = '<div class="flex items-center justify-between"><span class="w-12 h-12 bg-orange-950/80 rounded-xl flex items-center justify-center text-orange-300 text-2xl border border-orange-500/30"><i class="fa-solid fa-file-signature"></i></span><span class="text-[10px] font-bold text-orange-300 bg-orange-950 px-2.5 py-1 rounded-full uppercase border border-orange-500/30">Menu 10</span></div>' +
+        '<div><h3 class="text-lg font-bold text-white tracking-wide">LKH GURU</h3><p class="text-xs text-gray-300 mt-1">Laporan Lembar Kerja Harian: isi formulir lalu unduh PDF atau Word.</p></div>';
+      grid.appendChild(tile);
+    }
+
+    /* sembunyikan portal LKH saat berpindah ke portal lain */
+    var orig = window.switchPortal;
+    if (typeof orig === 'function') {
+      window.switchPortal = function (p) {
+        var el = document.getElementById('portal-lkh');
+        if (el) el.classList.add('hidden');
+        orig(p);
+      };
+    }
+  }
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
+})();
+</script>
 <script src="pwa.js"></script>
 </body>
 </html>
