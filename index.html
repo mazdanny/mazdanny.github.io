@@ -5844,16 +5844,23 @@ window.addEventListener("DOMContentLoaded", window.mj_init);
     '<div class="pkb-c pkb-step"><div class="pkb-num">5</div><div><h4>Kembangkan dan bagikan</h4><p>Tambah materi per bab, lalu bagikan ke rekan guru.</p></div></div>'
   ]) + '</div>',
 
-  /* 6. DAMPAK (bisa diisi) */
+    /* 6. DAMPAK (angka sudah terisi, tetap bisa diubah) */
   '<div class="pkb-card"><h3>📊 Dampak dan Bukti</h3>' +
-  '<p class="pkb-sub pkb-nonslide">Klik angka untuk mengisi dengan data nyata sekolah Anda. Tersimpan otomatis di perangkat ini. Hanya tulis angka yang benar-benar ada.</p>' +
+  '<p class="pkb-sub pkb-nonslide">Klik angka untuk mengubah. Tersimpan otomatis di perangkat ini.</p>' +
   '<div class="pkb-g">' +
+  '<div class="pkb-stat"><input type="text" data-st="siswa" value="' + val('siswa', '409') + '"><span>Siswa kelas 3–5</span></div>' +
   '<div class="pkb-stat"><input type="text" data-st="misi" value="' + val('misi', '150') + '"><span>Misi MujaHeeBot (25 per kelas, 5 mapel)</span></div>' +
   '<div class="pkb-stat"><b id="pkb-menu-count">-</b><span>Menu di Mazdany (terhitung otomatis)</span></div>' +
-  '<div class="pkb-stat"><input type="text" data-st="murid" placeholder="isi" value="' + val('murid', '') + '"><span>Murid yang memakai platform</span></div>' +
-  '<div class="pkb-stat"><input type="text" data-st="hemat" placeholder="isi" value="' + val('hemat', '') + '"><span>Waktu penilaian/administrasi yang dihemat</span></div>' +
   '</div>' +
-  '<textarea data-note="1" placeholder="Catatan dampak / testimoni singkat murid atau guru (mis. antusiasme murid, hasil lomba coding daring, sertifikat ekskul)...">' + esc(S.note) + '</textarea></div>',
+  '<h3 style="margin-top:1.2rem">⏱️ Waktu Koreksi dan Administrasi (satu kali asesmen, 409 siswa)</h3>' +
+  '<div class="pkb-g">' +
+  '<div class="pkb-stat"><input type="text" data-st="tm" value="' + val('tm', '±27 jam') + '"><span>Manual (±120 menit per 30 siswa)</span></div>' +
+  '<div class="pkb-stat"><input type="text" data-st="ta" value="' + val('ta', '±9–11 jam') + '"><span>Dengan aplikasi (±40–50 menit per 30 siswa)</span></div>' +
+  '<div class="pkb-stat"><input type="text" data-st="th" value="' + val('th', '±16–18 jam') + '"><span>Waktu yang dihemat (sekitar 60%)</span></div>' +
+  '<div class="pkb-stat"><input type="text" data-st="td" value="' + val('td', '±2 hari kerja') + '"><span>Setara, dengan 8 jam kerja per hari</span></div>' +
+  '</div>' +
+  '<p class="pkb-sub">Estimasi dari pengalaman mengoreksi 30 siswa. Otomatis di aplikasi: mengetik nama, menghitung persentase, menentukan predikat, menulis deskripsi evaluasi, rekap kelas, dan mencetak lembar hasil.</p>' +
+  '<textarea class="pkb-nonslide" data-note="1" placeholder="Catatan dampak / testimoni singkat (tidak tampil di Mode Presentasi)...">' + esc(S.note) + '</textarea></div>',
 
   /* 7. ETIKA & KEBERLANJUTAN */
   '<div class="pkb-card"><h3>🛡️ Etika KA, Keamanan, dan Keberlanjutan</h3>' +
