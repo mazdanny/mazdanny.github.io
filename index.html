@@ -5715,204 +5715,195 @@ window.addEventListener("DOMContentLoaded", window.mj_init);
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
 })();
 </script>
-    <!-- ============================================================
-  MENU 11: PRAKTIK BAIK KKA (Mode Presentasi + Demo Langsung)
+ <!-- ============================================================
+  MENU 11: PRAKTIK BAIK KKA - VERSI BARU (8 slide + Mode Presentasi)
   CARA PASANG: tempel SELURUH blok <script> ini di index.html,
-  SEBELUM baris <script src="asas.js">. Tidak ada bagian lain yang diubah.
+  SEBELUM baris <script src="asas.js">.
+  Gambar: unggah 8 file "pb-....jpg/png" ke folder yang sama dengan index.html.
 ============================================================ -->
 <script>
 (function () {
   'use strict';
-  if (document.getElementById('pkb-style')) return;
-
-  var KEY = 'mazdany_praktik_v1';
-  var S = { st: {}, note: '' };
-  try { var sv = JSON.parse(localStorage.getItem(KEY)); if (sv && sv.st) S = sv; } catch (e) {}
-  function save() { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) {} }
-  function esc(s) { return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;'); }
+  if (document.getElementById('pk3-style')) return;
 
   var CSS = `
-  #portal-praktik .pkb-hero{display:flex;flex-wrap:wrap;gap:1rem;align-items:center;justify-content:space-between;padding:1.6rem 2rem;border-radius:2rem;border:1px solid rgba(20,184,166,.3);background:rgba(4,38,31,.6)}
-  #portal-praktik .pkb-hero h2{margin:.6rem 0 .3rem;font-size:1.7rem;font-weight:800;color:#67e8f9;line-height:1.25}
-  #portal-praktik .pkb-hero p{margin:0;font-size:.8rem;color:#cbd5e1;max-width:40rem}
-  #portal-praktik .pkb-badge{display:inline-block;font-size:.7rem;font-weight:700;padding:.3rem .8rem;border-radius:99px;background:#451a03;color:#fcd34d;border:1px solid rgba(245,158,11,.4)}
-  #portal-praktik .pkb-big{font-size:3.4rem;padding:.9rem 1.3rem;border-radius:1.5rem;background:rgba(15,118,110,.3)}
-  #portal-praktik .pkb-card{margin-top:1rem;padding:1.2rem;border-radius:1.5rem;border:2px solid rgba(20,184,166,.3);background:rgba(4,38,31,.6)}
-  #portal-praktik .pkb-card h3{margin:0 0 .3rem;font-size:1.15rem;font-weight:800;color:#67e8f9}
-  #portal-praktik .pkb-sub{margin:.3rem 0 .6rem;font-size:.78rem;color:#cbd5e1}
-  #portal-praktik .pkb-quote{font-size:1.05rem;font-weight:700;color:#fde68a;line-height:1.7;text-align:center;border-color:rgba(245,158,11,.45)}
-  #portal-praktik .pkb-g{display:grid;gap:.8rem;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));margin-top:.8rem}
-  #portal-praktik .pkb-c{padding:1rem;border-radius:1rem;background:rgba(15,118,110,.2);border:1px solid rgba(20,184,166,.35);transition:.2s}
-  #portal-praktik .pkb-c:hover{border-color:#22d3ee;transform:translateY(-2px)}
-  #portal-praktik .pkb-e{font-size:2rem}
-  #portal-praktik .pkb-c h4{margin:.3rem 0;font-size:.9rem;font-weight:800;color:#67e8f9}
-  #portal-praktik .pkb-c p{margin:0;font-size:.78rem;color:#d1d5db;line-height:1.65}
-  #portal-praktik .pkb-c b.t{color:#fcd34d}
-  #portal-praktik .pkb-btn{cursor:pointer;border:1px solid #0f766e;background:rgba(15,118,110,.3);color:#e2e8f0;font-size:.75rem;font-weight:700;padding:.45rem .85rem;border-radius:.75rem;transition:.2s;margin-top:.6rem}
-  #portal-praktik .pkb-btn:hover{border-color:#22d3ee;color:#fff}
-  #portal-praktik .pkb-btn.go{background:#0891b2;color:#fff;border-color:#22d3ee}
-  #portal-praktik .pkb-tool{display:flex;flex-wrap:wrap;gap:.6rem;align-items:center;justify-content:space-between;margin-top:1rem}
-  #portal-praktik .pkb-hint{font-size:.72rem;color:#94a3b8}
-  #portal-praktik .pkb-step{display:flex;gap:.7rem;align-items:flex-start}
-  #portal-praktik .pkb-num{flex:none;width:2rem;height:2rem;border-radius:99px;background:#0891b2;color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center}
-  #portal-praktik .pkb-flow{display:grid;gap:.8rem;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));margin-top:.8rem}
-  #portal-praktik .pkb-flow .pkb-c{border-top:4px solid #0891b2}
-  #portal-praktik .pkb-arrow{text-align:center;font-size:1.4rem;color:#22d3ee;margin:.4rem 0}
-  #portal-praktik .pkb-hub{padding:1rem;border-radius:1rem;text-align:center;background:linear-gradient(135deg,rgba(8,145,178,.45),rgba(13,148,136,.45));border:2px solid #22d3ee;color:#ecfeff;font-weight:800;font-size:.9rem;line-height:1.6}
-  #portal-praktik .pkb-stat{padding:1rem;border-radius:1rem;background:rgba(2,17,20,.6);border:1px solid rgba(20,184,166,.35);text-align:center}
-  #portal-praktik .pkb-stat input{width:100%;text-align:center;font-size:1.8rem;font-weight:800;color:#67e8f9;background:transparent;border:0;border-bottom:2px dashed #0f766e;outline:none;padding:.2rem}
-  #portal-praktik .pkb-stat input:focus{border-bottom-color:#22d3ee}
-  #portal-praktik .pkb-stat span{display:block;margin-top:.4rem;font-size:.72rem;color:#94a3b8}
-  #portal-praktik .pkb-stat b{display:block;font-size:1.8rem;color:#67e8f9}
-  #portal-praktik textarea{width:100%;margin-top:.5rem;background:#042f2e;color:#cffafe;border:2px solid #0f766e;border-radius:.7rem;padding:.5rem .7rem;font-size:.8rem;font-family:inherit;resize:vertical;min-height:4.5rem}
-  #portal-praktik textarea:focus{outline:none;border-color:#22d3ee}
-  #portal-praktik details{margin-top:.6rem;border-radius:1rem;border:1px solid rgba(20,184,166,.35);background:rgba(2,17,20,.55);padding:.7rem 1rem}
-  #portal-praktik summary{cursor:pointer;font-size:.85rem;font-weight:800;color:#a5f3fc}
-  #portal-praktik details p{margin:.5rem 0 0;font-size:.78rem;color:#d1d5db;line-height:1.7}
-  #portal-praktik .pkb-pbar{display:none}
-  #portal-praktik.pkb-pres{position:fixed;inset:0;z-index:9999;overflow:auto;max-width:none!important;width:100%!important;padding:1.5rem 1.5rem 5rem;background:linear-gradient(135deg,#021114 0%,#052920 50%,#010b0d 100%)}
-  #portal-praktik.pkb-pres .pkb-sec{display:none;max-width:1100px;margin:0 auto}
-  #portal-praktik.pkb-pres .pkb-sec.cur{display:block}
-  #portal-praktik.pkb-pres .pkb-nonslide{display:none}
-  #portal-praktik.pkb-pres .pkb-c p,#portal-praktik.pkb-pres .pkb-sub,#portal-praktik.pkb-pres details p{font-size:1rem}
-  #portal-praktik.pkb-pres .pkb-c h4{font-size:1.1rem}
-  #portal-praktik.pkb-pres .pkb-card h3{font-size:1.5rem}
-  #portal-praktik.pkb-pres .pkb-hero h2{font-size:2.2rem}
-  #portal-praktik.pkb-pres .pkb-quote{font-size:1.5rem}
-  #portal-praktik.pkb-pres .pkb-pbar{display:flex;position:fixed;bottom:.8rem;left:50%;transform:translateX(-50%);gap:.6rem;align-items:center;padding:.5rem .9rem;border-radius:99px;background:rgba(2,17,20,.92);border:1px solid #22d3ee;z-index:10000}
-  #portal-praktik .pkb-pbar span{font-size:.75rem;font-weight:700;color:#a5f3fc;min-width:6rem;text-align:center}
-  #portal-praktik .pkb-pbar .pkb-btn{margin-top:0}
+  #portal-praktik .pk3-card{margin-top:1rem;padding:1.3rem;border-radius:1.5rem;border:2px solid rgba(20,184,166,.3);background:rgba(4,38,31,.6)}
+  #portal-praktik .pk3-title{display:flex;flex-wrap:wrap;gap:1.5rem;align-items:center;justify-content:space-between;padding:2rem;border-radius:2rem;border:1px solid rgba(20,184,166,.3);background:rgba(4,38,31,.6)}
+  #portal-praktik .pk3-title h2{margin:.7rem 0 .4rem;font-size:2.3rem;font-weight:800;color:#fff;line-height:1.2}
+  #portal-praktik .pk3-title p{margin:0 0 .6rem;font-size:1.05rem;color:#a7f3d0}
+  #portal-praktik .pk3-title small{display:block;font-size:.8rem;color:#94a3b8;max-width:34rem}
+  #portal-praktik .pk3-badge{display:inline-block;font-size:.7rem;font-weight:700;padding:.3rem .8rem;border-radius:99px;background:#451a03;color:#fcd34d;border:1px solid rgba(245,158,11,.4)}
+  #portal-praktik .pk3-logo{width:190px;height:190px;border-radius:50%;background:#fff;border:4px solid #f5b301;display:flex;align-items:center;justify-content:center;flex:none}
+  #portal-praktik .pk3-logo img{width:68%;height:auto;display:block}
+  #portal-praktik h3.pk3-h{margin:0 0 .3rem;font-size:1.5rem;font-weight:800;color:#67e8f9}
+  #portal-praktik .pk3-g{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));margin-top:.9rem}
+  #portal-praktik .pk3-g2{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));margin-top:.9rem}
+  #portal-praktik .pk3-c{padding:1.1rem;border-radius:1.1rem;background:rgba(15,118,110,.2);border:1px solid rgba(20,184,166,.35)}
+  #portal-praktik .pk3-row{display:flex;gap:.9rem;align-items:flex-start}
+  #portal-praktik .pk3-ic{flex:none;width:2.8rem;height:2.8rem;border-radius:99px;background:#0f766e;color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.1rem}
+  #portal-praktik .pk3-lab{font-size:.68rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase}
+  #portal-praktik .pk3-lab.m{color:#fbbf24}#portal-praktik .pk3-lab.s{color:#5eead4}
+  #portal-praktik .pk3-c h4{margin:.15rem 0 .4rem;font-size:1.05rem;font-weight:800;color:#ecfeff}
+  #portal-praktik .pk3-c p,#portal-praktik .pk3-c li{margin:0;font-size:.85rem;color:#d1d5db;line-height:1.65}
+  #portal-praktik .pk3-c ul{margin:.4rem 0 0;padding-left:1.1rem;list-style:disc}
+  #portal-praktik .pk3-shot{display:block;width:100%;height:auto;border-radius:.9rem;border:2px solid rgba(167,243,208,.5);box-shadow:0 6px 18px rgba(0,0,0,.35);background:#fff}
+  #portal-praktik .pk3-btn{cursor:pointer;border:1px solid #0f766e;background:rgba(15,118,110,.3);color:#e2e8f0;font-size:.75rem;font-weight:700;padding:.45rem .85rem;border-radius:.75rem;transition:.2s;margin-top:.7rem}
+  #portal-praktik .pk3-btn:hover{border-color:#22d3ee;color:#fff}
+  #portal-praktik .pk3-btn.go{background:#0891b2;color:#fff;border-color:#22d3ee}
+  #portal-praktik .pk3-tool{display:flex;flex-wrap:wrap;gap:.6rem;align-items:center;justify-content:space-between;margin-top:1rem}
+  #portal-praktik .pk3-hint{font-size:.72rem;color:#94a3b8}
+  #portal-praktik .pk3-arrow{text-align:center;font-size:1.3rem;color:#f5b301;margin:.5rem 0}
+  #portal-praktik .pk3-hub{padding:1.1rem;border-radius:1.1rem;text-align:center;background:#0f766e;border:2px solid #22d3ee;color:#fff;font-weight:800;font-size:1.05rem;line-height:1.6}
+  #portal-praktik .pk3-steps{display:grid;gap:.8rem;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));margin-top:1rem}
+  #portal-praktik .pk3-step{text-align:center}
+  #portal-praktik .pk3-num{width:3rem;height:3rem;margin:0 auto .6rem;border-radius:99px;background:#0f766e;color:#fff;font-weight:800;font-size:1.3rem;display:flex;align-items:center;justify-content:center;border:3px solid #0b3d2e;box-shadow:0 0 0 3px #a7f3d0}
+  #portal-praktik .pk3-step h4{margin:0 0 .3rem;font-size:.95rem;font-weight:800;color:#67e8f9}
+  #portal-praktik .pk3-step p{margin:0;font-size:.8rem;color:#d1d5db;line-height:1.55}
+  #portal-praktik .pk3-msg{margin-top:1.2rem;padding:1rem 1.2rem;border-radius:1rem;border:2px solid #f5b301;background:rgba(2,17,20,.6);font-size:.95rem;color:#e2e8f0;line-height:1.6}
+  #portal-praktik .pk3-msg b{color:#fbbf24}
+  #portal-praktik .pk3-stat{padding:1.1rem;border-radius:1.1rem;background:rgba(2,17,20,.6);border:1px solid rgba(20,184,166,.35);text-align:center}
+  #portal-praktik .pk3-stat b{display:block;font-size:2.6rem;line-height:1.15;color:#67e8f9;font-weight:800}
+  #portal-praktik .pk3-stat span{display:block;margin-top:.2rem;font-size:.8rem;color:#cbd5e1}
+  #portal-praktik .pk3-stat.big b{font-size:1.7rem}
+  #portal-praktik .pk3-cols3{display:grid;gap:.8rem;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));margin-top:.8rem}
+  #portal-praktik .pk3-est{margin-top:.8rem;font-size:.75rem;font-style:italic;color:#94a3b8}
+  #portal-praktik .pk3-qr{width:200px;padding:.8rem;border-radius:1.2rem;background:#fff;border:3px solid #f5b301;text-align:center;flex:none}
+  #portal-praktik .pk3-qr img{display:block;width:100%;height:auto;image-rendering:pixelated}
+  #portal-praktik .pk3-qr span{display:block;margin-top:.5rem;font-size:.8rem;font-weight:800;color:#0b3d2e}
+  #portal-praktik .pk3-close{display:flex;flex-wrap:wrap;gap:1.5rem;align-items:flex-start;justify-content:space-between}
+  #portal-praktik .pk3-close h3{margin:0 0 .8rem;font-size:1.9rem;font-weight:800;color:#fff;line-height:1.3;max-width:34rem}
+  #portal-praktik .pk3-note{margin-top:.8rem;padding:.7rem 1rem;border-radius:.9rem;background:rgba(245,158,11,.1);border:1px dashed rgba(245,158,11,.5);font-size:.78rem;color:#fde68a;line-height:1.6}
+  #portal-praktik .pk3-pbar{display:none}
+  #portal-praktik.pk3-pres{position:fixed;inset:0;z-index:9999;overflow:auto;max-width:none!important;width:100%!important;padding:1.5rem 1.5rem 5rem;background:linear-gradient(135deg,#021114 0%,#052920 50%,#010b0d 100%)}
+  #portal-praktik.pk3-pres .pk3-sec{display:none;max-width:1100px;margin:0 auto}
+  #portal-praktik.pk3-pres .pk3-sec.cur{display:block}
+  #portal-praktik.pk3-pres .pk3-nonslide,#portal-praktik.pk3-pres .pk3-note{display:none}
+  #portal-praktik.pk3-pres .pk3-c p,#portal-praktik.pk3-pres .pk3-c li,#portal-praktik.pk3-pres .pk3-step p{font-size:1.05rem}
+  #portal-praktik.pk3-pres .pk3-c h4,#portal-praktik.pk3-pres .pk3-step h4{font-size:1.2rem}
+  #portal-praktik.pk3-pres h3.pk3-h{font-size:2rem}
+  #portal-praktik.pk3-pres .pk3-title h2{font-size:3rem}
+  #portal-praktik.pk3-pres .pk3-stat b{font-size:3.4rem}
+  #portal-praktik.pk3-pres .pk3-stat.big b{font-size:2.2rem}
+  #portal-praktik.pk3-pres .pk3-pbar{display:flex;position:fixed;bottom:.8rem;left:50%;transform:translateX(-50%);gap:.6rem;align-items:center;padding:.5rem .9rem;border-radius:99px;background:rgba(2,17,20,.92);border:1px solid #22d3ee;z-index:10000}
+  #portal-praktik .pk3-pbar span{font-size:.75rem;font-weight:700;color:#a5f3fc;min-width:6rem;text-align:center}
+  #portal-praktik .pk3-pbar .pk3-btn{margin-top:0}
   `;
-  var st = document.createElement('style'); st.id = 'pkb-style'; st.textContent = CSS; document.head.appendChild(st);
+  var st = document.createElement('style'); st.id = 'pk3-style'; st.textContent = CSS; document.head.appendChild(st);
 
-  function card(e, t, x, extra) { return '<div class="pkb-c"><div class="pkb-e">' + e + '</div><h4>' + t + '</h4><p>' + x + '</p>' + (extra || '') + '</div>'; }
-  function grid(a) { return '<div class="pkb-g">' + a.join('') + '</div>'; }
-  function go(label, target) { return '<button class="pkb-btn go" data-go="' + target + '">' + label + '</button>'; }
-  function val(k, d) { return esc(S.st[k] == null ? d : S.st[k]); }
+  function ic(c) { return '<div class="pk3-ic"><i class="fa-solid ' + c + '"></i></div>'; }
+  function note(t) { return '<div class="pk3-note"><b>Poin bicara:</b> ' + t + '</div>'; }
+  function go(label, target) { return '<button class="pk3-btn go" data-go="' + target + '">' + label + '</button>'; }
 
-  /* ================= ISI PAPARAN (tiap elemen = satu slide) ================= */
   var SECS = [
 
-  /* 1. PEMBUKA */
-  '<div class="pkb-hero"><div><span class="pkb-badge">MENU 11 • PRAKTIK BAIK KKA</span>' +
-  '<h2>Dari Tiga Jalur ke Dampak: Guru yang Berpikir Komputasional, Murid yang Belajar Bermakna</h2>' +
-  '<p>SD Muhammadiyah Al Mujahidin Wonosari • Berbagi praktik baik Koding &amp; Kecerdasan Artifisial (KKA)</p></div><div class="pkb-big">🚀</div></div>' +
-  '<div class="pkb-card pkb-quote">“Coding di SDAM tidak berhenti di murid. Guru ikut berpikir komputasional: menemukan masalah nyata di kelas, lalu membangun solusinya sendiri.”</div>',
+  /* 1. JUDUL */
+  '<div class="pk3-title"><div><span class="pk3-badge">MENU 11 • PRAKTIK BAIK KKA</span><h2>Dari Tiga Jalur ke Dampak</h2>' +
+  '<p>Guru yang berpikir komputasional, murid yang belajar bermakna</p>' +
+  '<small>SD Muhammadiyah Al Mujahidin Wonosari • Berbagi praktik baik Koding dan Kecerdasan Artifisial (KKA)</small></div>' +
+  '<div class="pk3-logo"><img src="pb-logo.png" alt="Logo SD Muhammadiyah Al Mujahidin Wonosari"></div></div>' +
+  note('Satu kalimat jembatan: “Dari tiga jalur yang sudah dipaparkan, saya ingin berbagi apa yang lahir darinya.” Jangan mengulang tiga jalurnya. Pesan inti: coding di SDAM tidak berhenti di murid; guru ikut berpikir komputasional, menemukan masalah nyata di kelas, lalu membangun solusinya sendiri.'),
 
   /* 2. MASALAH -> SOLUSI */
-  '<div class="pkb-card"><h3>🔍 Masalah Nyata di Kelas, Solusi yang Dibangun</h3><p class="pkb-sub">Penerapan dekomposisi dan abstraksi, tetapi dilakukan oleh guru.</p>' +
-  grid([
-    card('🎨', 'Media belajar kurang menarik', '<b class="t">Solusi:</b> Mazdany: materi Al-Islam dan Bahasa Arab dengan audio, kuis, LKPD interaktif, dan game di tiap bab.'),
-    card('🧩', 'Coding terasa jauh dari pelajaran', '<b class="t">Solusi:</b> MujaHeeBot Coding Quest dan game coding islami yang menyatu dengan materi bab.'),
-    card('📝', 'Penilaian dan rekap masih manual', '<b class="t">Solusi:</b> Penilaian ibadah, tahsin/tahfidz, Daftar Nilai, dan Korektor Guru Mapel.'),
-    card('🗂️', 'Administrasi guru menyita waktu', '<b class="t">Solusi:</b> LKH (unduh PDF/Word) dan Perangkat AI untuk TP, modul ajar, LKPD, dan asesmen.')
-  ]) + '</div>',
+  '<div class="pk3-card"><h3 class="pk3-h">Masalah nyata di kelas, solusi yang dibangun</h3><div class="pk3-g2">' +
+  [
+    ['fa-palette', 'Media belajar kurang menarik', 'Mazdany: materi Al-Islam dan Bahasa Arab dengan audio, kuis, dan game.'],
+    ['fa-puzzle-piece', 'Coding terasa jauh dari pelajaran', 'MujaHeeBot Coding Quest: 150 misi lintas mata pelajaran.'],
+    ['fa-clipboard-check', 'Penilaian ibadah dan tahfidz masih manual', 'AmaliahMu dan SIPENTAS: input, rekap, dan laporan otomatis.'],
+    ['fa-file-lines', 'Koreksi dan administrasi menyita waktu', 'Korektor Guru Mapel dan LKH: unduh PDF atau Word.']
+  ].map(function (p) {
+    return '<div class="pk3-c pk3-row">' + ic(p[0]) + '<div><div class="pk3-lab m">Masalah</div><h4>' + p[1] + '</h4><div class="pk3-lab s">Solusi</div><p>' + p[2] + '</p></div></div>';
+  }).join('') + '</div></div>' +
+  note('Empat masalah konkret yang saya temui sebagai guru; tiap masalah punya solusi yang dibangun sendiri. Ini penerapan dekomposisi dan abstraksi (Bab 2 Buku Panduan), tetapi dilakukan oleh guru.'),
 
-  /* 3. PLATFORM + DEMO */
-  '<div class="pkb-card"><h3>🛠️ Platform yang Dibangun (Klik untuk Demo Langsung)</h3><p class="pkb-sub">Semua berjalan di satu portal: Mazdany Digital Platform.</p>' +
-  grid([
-    card('🕋', 'Al-Islam Kelas 3', 'Bab 1–5 dengan kuis, LKPD, dan game coding islami. Soal Al Islam dan Kemuhammadiyahan mengacu Tarjih Muhammadiyah.', go('Buka Al-Islam', 'al-islam')),
-    card('🔤', 'Bahasa Arab Kelas 3', 'Kosakata beraudio, game cocokkan, Pohon Keluarga, dan Robot Kosakata untuk belajar coding.', go('Buka Bahasa Arab', 'bahasa-arab')),
-    card('🤖', 'MujaHeeBot Coding Quest', 'Petualangan logika: urutan perintah, perulangan, dan kondisi lewat misi bertema sekolah dan Gunungkidul.', go('Main MujaHeeBot', 'mujahibot')),
-    card('🎮', 'Game Education', 'Teori komputer, rakit 9 komponen PC, detektif komputer, dan Scratch.', go('Buka Game Edu', 'game-edu')),
-    card('✅', 'Korektor &amp; Daftar Nilai', 'Koreksi PG dan uraian, kunci jawaban, rekap nilai, ekspor Excel.', go('Buka Korektor', 'korektor')),
-    card('📋', 'LKH Guru &amp; Perangkat AI', 'Laporan lembar kerja harian siap unduh dan generator perangkat ajar.', go('Buka LKH', 'lkh'))
-  ]) + '</div>',
+  /* 3. MEDIA BELAJAR */
+  '<div class="pk3-card"><h3 class="pk3-h">Media belajar yang saya bangun</h3><div class="pk3-g2">' +
+  '<div class="pk3-c"><img class="pk3-shot" src="pb-mazdany.jpg" alt="Tangkapan layar dashboard Mazdany Digital Platform"><h4 style="margin-top:.8rem;font-size:1.25rem">Mazdany Digital Platform</h4>' +
+  '<ul><li>Al-Islam dan Bahasa Arab kelas 3: audio, kuis, LKPD, dan game coding di tiap bab</li><li>Satu portal: ibadah praktis, daftar nilai, korektor, LKH, perangkat AI</li></ul>' +
+  go('Demo: Bahasa Arab', 'bahasa-arab') + '</div>' +
+  '<div class="pk3-c"><img class="pk3-shot" src="pb-mujaheebot.jpg" alt="Tangkapan layar beranda MujaHeeBot Coding Quest"><h4 style="margin-top:.8rem;font-size:1.25rem">MujaHeeBot Coding Quest</h4>' +
+  '<ul><li>150 misi: Matematika, Sains, Al Islam dan Kemuhammadiyahan, Bahasa Arab, Coding</li><li>Skor, pangkat, dan sertifikat untuk murid</li></ul>' +
+  go('Demo: MujaHeeBot', 'mujahibot') + '</div></div></div>' +
+  note('Demo langsung 1 menit: klik salah satu tombol demo. Siapkan rekaman layar cadangan jika internet lambat. Soal Al Islam dan Kemuhammadiyahan mengacu Tarjih.'),
 
-  /* 4. EKOSISTEM */
-  '<div class="pkb-card"><h3>🌐 Bagaimana Platform Ini Menyatukan Tiga Jalur Koding</h3>' +
-  '<div class="pkb-flow">' +
-  card('📘', 'Jalur 1: Mapel KKA', 'Pembelajaran terjadwal. Murid berlatih logika dan proyek lewat media interaktif.') +
-  card('🔗', 'Jalur 2: Integrasi Lintas Mapel', 'Al-Islam dan Bahasa Arab disisipi game coding di setiap bab.') +
-  card('🏆', 'Jalur 3: Ekstrakurikuler', 'Scratch (Risetnesia) dan Ubbu (Singapura); platform menjadi tantangan lanjutan dan ruang karya.') +
-  '</div><div class="pkb-arrow">⬇️</div>' +
-  '<div class="pkb-hub">Media penghubung: Mazdany Digital Platform + MujaHeeBot<br>Satu portal, banyak mata pelajaran, satu budaya berpikir logis</div>' +
-  '<div class="pkb-arrow">⬇️</div>' +
-  grid([
-    card('🧒', 'Dampak untuk Murid', 'Belajar lewat bermain, berlatih berpikir logis, dan mendapat umpan balik langsung.'),
-    card('👩‍🏫', 'Dampak untuk Guru', 'Penilaian dan administrasi lebih ringkas; waktu lebih banyak untuk membimbing murid.')
-  ]) + '</div>',
+  /* 4. PENILAIAN */
+  '<div class="pk3-card"><h3 class="pk3-h">Penilaian yang lebih ringkas dan terdata</h3><div class="pk3-g">' +
+  '<div class="pk3-c"><img class="pk3-shot" src="pb-amaliahmu.jpg" alt="Sampul panduan aplikasi AmaliahMu"><h4 style="margin-top:.8rem;font-size:1.2rem">AmaliahMu</h4>' +
+  '<ul><li>Penilaian praktik ibadah dan wudhu ISMUBA oleh guru penguji</li><li>Panduan wudhu dan shalat terbuka untuk siswa dan orang tua</li></ul></div>' +
+  '<div class="pk3-c"><img class="pk3-shot" src="pb-laporan.jpg" alt="Contoh laporan grafik hasil penilaian praktik ibadah"><h4 style="margin-top:.8rem;font-size:1.2rem">Laporan otomatis</h4>' +
+  '<ul><li>Grafik per kelas, capaian per aspek, dan kesimpulan otomatis</li><li>Contoh laporan (data demo)</li></ul></div>' +
+  '<div class="pk3-c"><img class="pk3-shot" src="pb-sipentas.jpg" alt="Tangkapan layar SIPENTAS"><h4 style="margin-top:.8rem;font-size:1.2rem">SIPENTAS</h4>' +
+  '<ul><li>Penilaian tahsin dan tahfidz Kelas I–VI, KKM 78</li><li>Portal Guru dan Portal Supervisi untuk kepala sekolah dan tim mutu</li></ul></div>' +
+  '</div></div>' +
+  note('AmaliahMu: penilaian praktik ibadah dan wudhu. SIPENTAS: penilaian tahsin dan tahfidz. Laporan grafik dibuat otomatis; yang tampil di sini data demo, bukan data siswa sebenarnya.'),
 
-  /* 5. PROSES */
-  '<div class="pkb-card"><h3>🔁 Cara Saya Belajar: Siklus yang Sama dengan Jurnal Debugging Murid</h3>' +
-  '<p class="pkb-sub">Praktik baik bagi guru lain: tidak harus jago programming. Mulailah dari satu masalah kecil di kelas Anda.</p>' +
-  grid([
-    '<div class="pkb-c pkb-step"><div class="pkb-num">1</div><div><h4>Temukan masalah nyata</h4><p>Apa yang membuat murid kesulitan atau guru kerepotan?</p></div></div>',
-    '<div class="pkb-c pkb-step"><div class="pkb-num">2</div><div><h4>Bangun versi sederhana</h4><p>Satu fitur kecil dulu, tidak langsung sempurna.</p></div></div>',
-    '<div class="pkb-c pkb-step"><div class="pkb-num">3</div><div><h4>Uji ke murid</h4><p>Lihat langsung bagian mana yang membingungkan.</p></div></div>',
-    '<div class="pkb-c pkb-step"><div class="pkb-num">4</div><div><h4>Debug dan perbaiki</h4><p>Kesalahan (bug) adalah kesempatan belajar, bagi murid maupun guru.</p></div></div>',
-    '<div class="pkb-c pkb-step"><div class="pkb-num">5</div><div><h4>Kembangkan dan bagikan</h4><p>Tambah materi per bab, lalu bagikan ke rekan guru.</p></div></div>'
-  ]) + '</div>',
+  /* 5. EKOSISTEM */
+  '<div class="pk3-card"><h3 class="pk3-h">Satu media menyatukan tiga jalur koding</h3><div class="pk3-g">' +
+  [
+    ['fa-book', 'Mapel KKA', 'Latihan logika dan proyek lewat media interaktif'],
+    ['fa-link', 'Integrasi lintas mapel', 'Al-Islam dan Bahasa Arab disisipi game coding di tiap bab'],
+    ['fa-trophy', 'Ekstrakurikuler', 'Scratch (Risetnesia) dan Ubbu: tantangan lanjutan dan ruang karya']
+  ].map(function (j) { return '<div class="pk3-c"><div class="pk3-row">' + ic(j[0]) + '<h4 style="margin-top:.5rem">' + j[1] + '</h4></div><p style="margin-top:.5rem">' + j[2] + '</p></div>'; }).join('') +
+  '</div><div class="pk3-arrow"><i class="fa-solid fa-arrow-down"></i></div>' +
+  '<div class="pk3-hub">Media penghubung: Mazdany • MujaHeeBot • AmaliahMu • SIPENTAS</div>' +
+  '<div class="pk3-arrow"><i class="fa-solid fa-arrow-down"></i></div><div class="pk3-g2">' +
+  '<div class="pk3-c pk3-row">' + ic('fa-child') + '<div><h4>Untuk murid</h4><p>Belajar lewat bermain, berlatih berpikir logis, dan mendapat umpan balik langsung</p></div></div>' +
+  '<div class="pk3-c pk3-row">' + ic('fa-chalkboard-user') + '<div><h4>Untuk guru</h4><p>Penilaian dan administrasi lebih ringkas, waktu lebih banyak untuk membimbing murid</p></div></div>' +
+  '</div></div>' +
+  note('Tiga jalur saling menguatkan karena ada media yang menyatukan. Sesuaikan kalimat jalur 1 dengan praktik nyata bersama Pak Rozak.'),
 
-    /* 6. DAMPAK (angka sudah terisi, tetap bisa diubah) */
-  '<div class="pkb-card"><h3>📊 Dampak dan Bukti</h3>' +
-  '<p class="pkb-sub pkb-nonslide">Klik angka untuk mengubah. Tersimpan otomatis di perangkat ini.</p>' +
-  '<div class="pkb-g">' +
-  '<div class="pkb-stat"><input type="text" data-st="siswa" value="' + val('siswa', '409') + '"><span>Siswa kelas 3–5</span></div>' +
-  '<div class="pkb-stat"><input type="text" data-st="misi" value="' + val('misi', '150') + '"><span>Misi MujaHeeBot (25 per kelas, 5 mapel)</span></div>' +
-  '<div class="pkb-stat"><b id="pkb-menu-count">-</b><span>Menu di Mazdany (terhitung otomatis)</span></div>' +
-  '</div>' +
-  '<h3 style="margin-top:1.2rem">⏱️ Waktu Koreksi dan Administrasi (satu kali asesmen, 409 siswa)</h3>' +
-  '<div class="pkb-g">' +
-  '<div class="pkb-stat"><input type="text" data-st="tm" value="' + val('tm', '±27 jam') + '"><span>Manual (±120 menit per 30 siswa)</span></div>' +
-  '<div class="pkb-stat"><input type="text" data-st="ta" value="' + val('ta', '±9–11 jam') + '"><span>Dengan aplikasi (±40–50 menit per 30 siswa)</span></div>' +
-  '<div class="pkb-stat"><input type="text" data-st="th" value="' + val('th', '±16–18 jam') + '"><span>Waktu yang dihemat (sekitar 60%)</span></div>' +
-  '<div class="pkb-stat"><input type="text" data-st="td" value="' + val('td', '±2 hari kerja') + '"><span>Setara, dengan 8 jam kerja per hari</span></div>' +
-  '</div>' +
-  '<p class="pkb-sub">Estimasi dari pengalaman mengoreksi 30 siswa. Otomatis di aplikasi: mengetik nama, menghitung persentase, menentukan predikat, menulis deskripsi evaluasi, rekap kelas, dan mencetak lembar hasil.</p>' +
-  '<textarea class="pkb-nonslide" data-note="1" placeholder="Catatan dampak / testimoni singkat (tidak tampil di Mode Presentasi)...">' + esc(S.note) + '</textarea></div>',
+  /* 6. SIKLUS */
+  '<div class="pk3-card"><h3 class="pk3-h">Cara saya belajar: siklus yang sama dengan murid</h3><div class="pk3-steps">' +
+  [
+    ['Temukan masalah nyata', 'Apa yang membuat murid kesulitan atau guru kerepotan?'],
+    ['Bangun versi sederhana', 'Satu fitur kecil dulu, tidak langsung sempurna'],
+    ['Uji ke murid', 'Lihat langsung bagian yang membingungkan'],
+    ['Debug dan perbaiki', 'Kesalahan adalah kesempatan belajar'],
+    ['Kembangkan dan bagikan', 'Tambah materi, lalu bagikan ke rekan guru']
+  ].map(function (s, i) { return '<div class="pk3-step"><div class="pk3-num">' + (i + 1) + '</div><h4>' + s[0] + '</h4><p>' + s[1] + '</p></div>'; }).join('') +
+  '</div><div class="pk3-msg"><b>Sama dengan Jurnal Debugging murid.</b> Pesan untuk guru lain: tidak harus jago programming, mulailah dari satu masalah kecil di kelas Anda.</div></div>' +
+  note('Kaitkan dengan Jurnal Debugging murid: guru melakukan hal yang sama seperti yang diminta dari murid.'),
 
-  /* 7. ETIKA & KEBERLANJUTAN */
-  '<div class="pkb-card"><h3>🛡️ Etika KA, Keamanan, dan Keberlanjutan</h3>' +
-  grid([
-    card('✔️', 'Verifikasi oleh Guru', 'Konten dibuat dengan bantuan KA, lalu diperiksa guru. Murid dilatih tidak menelan mentah-mentah jawaban mesin.'),
-    card('📖', 'Sesuai Ciri Khas Sekolah', 'Soal Al Islam dan Kemuhammadiyahan mengacu Tarjih; teknologi melayani nilai sekolah.'),
-    card('🔐', 'Tantangan Data Murid', 'Rekap nilai dipisahkan dari area murid. Tahap berikutnya: login yang lebih aman dan kebijakan data yang jelas.'),
-    card('♻️', 'Keberlanjutan', 'Kode terdokumentasi di GitHub, selaras dengan Buku Panduan Koding &amp; KA, dan siap diadaptasi guru lain.')
-  ]) + '</div>',
+  /* 7. DAMPAK */
+  '<div class="pk3-card"><h3 class="pk3-h">Dampak dan bukti</h3><div class="pk3-g2">' +
+  '<div><div class="pk3-cols3" style="grid-template-columns:1fr 1fr;margin-top:0"><div class="pk3-stat"><b>409</b><span>siswa kelas 3–5</span></div><div class="pk3-stat"><b>150</b><span>misi MujaHeeBot</span></div></div>' +
+  '<div class="pk3-c" style="margin-top:.8rem"><h4>Waktu koreksi dan administrasi, satu kali asesmen (409 siswa)</h4><div class="pk3-cols3">' +
+  '<div class="pk3-stat big"><b style="color:#fbbf24">±27 jam</b><span>Manual</span></div>' +
+  '<div class="pk3-stat big"><b>±9–11 jam</b><span>Dengan aplikasi</span></div>' +
+  '<div class="pk3-stat big"><b style="color:#6ee7b7">±16–18 jam</b><span>Dihemat, setara ±2 hari kerja</span></div></div>' +
+  '<p class="pk3-est">Estimasi dari pengalaman mengoreksi 30 siswa: ±120 menit manual vs ±40–50 menit dengan aplikasi.</p></div></div>' +
+  '<div class="pk3-c"><img class="pk3-shot" src="pb-sertifikat.jpg" alt="Sertifikat MujaHeeBot Coding Quest Kelas 3 dengan nama siswa disamarkan"><p style="margin-top:.7rem">Sertifikat MujaHeeBot Coding Quest: 25 misi Kelas 3</p></div>' +
+  '</div></div>' +
+  note('Sebut angka sebagai estimasi, bukan hasil penelitian: satu kali asesmen manual ±27 jam, dengan aplikasi ±9–11 jam, hemat ±16–18 jam (±2 hari kerja). Tambahkan testimoni, hasil lomba coding daring, atau sertifikat ekskul bila ada.'),
 
-  /* 8. TANYA JAWAB */
-  '<div class="pkb-card"><h3>💬 Pertanyaan yang Mungkin Muncul</h3>' +
-  '<details><summary>Bisakah ditiru sekolah yang gurunya belum bisa coding?</summary><p>Bisa. Mulai dari koding unplugged dan Scratch, lalu satu media sederhana untuk satu masalah. Semua bertahap, dan siklus belajarnya sama dengan yang diajarkan ke murid.</p></details>' +
-  '<details><summary>Bagaimana mengukur dampaknya ke murid?</summary><p>Dengan rubrik 4 tingkat (logika algoritma, problem solving dan debugging, kreativitas, kolaborasi dan etika digital), Jurnal Debugging murid, serta portofolio karya per semester.</p></details>' +
-  '<details><summary>Bagaimana keamanan data murid?</summary><p>Jawab jujur: rekap nilai dipisah dengan akses guru, dan beberapa catatan tersimpan lokal di perangkat. Peningkatan keamanan login dan kebijakan data adalah agenda pengembangan berikutnya.</p></details>' +
-  '<details><summary>Bagaimana kalau Bapak/Ibu berpindah tugas?</summary><p>Kode dan materi ada di repositori GitHub, panduan implementasi sudah tersusun, dan ada rencana kaderisasi guru pendamping agar tidak bergantung pada satu orang.</p></details>' +
-  '</div>',
-
-  /* 9. PENUTUP */
-  '<div class="pkb-hero"><div><span class="pkb-badge">PENUTUP</span><h2>Guru yang Terus Belajar Melahirkan Murid yang Berpikir Logis dan Kreatif</h2>' +
-  '<p>Terima kasih. Platform ini terbuka untuk dicoba, diadaptasi, dan dikembangkan bersama.</p></div><div class="pkb-big">🌱</div></div>'
+  /* 8. PENUTUP */
+  '<div class="pk3-card"><div class="pk3-close"><div style="flex:1;min-width:260px"><h3>Guru yang terus belajar melahirkan murid yang berpikir logis dan kreatif</h3>' +
+  '<div class="pk3-c pk3-row" style="margin-top:.6rem">' + ic('fa-shield-halved') + '<div><h4>Etika KA dan data murid</h4><p>Konten diverifikasi guru; login yang lebih aman jadi agenda berikutnya</p></div></div>' +
+  '<div class="pk3-c pk3-row" style="margin-top:.6rem">' + ic('fa-code-branch') + '<div><h4>Keberlanjutan</h4><p>Kode di GitHub dan selaras Buku Panduan Koding dan KA</p></div></div>' +
+  '<div class="pk3-c pk3-row" style="margin-top:.6rem">' + ic('fa-seedling') + '<div><h4>Terbuka untuk adaptasi</h4><p>Silakan dicoba dan dikembangkan guru lain</p></div></div></div>' +
+  '<div class="pk3-qr"><img src="pb-qr.png" alt="Kode QR untuk mencoba AmaliahMu"><span>Pindai untuk mencoba AmaliahMu</span></div></div></div>' +
+  note('Penutup: “Guru yang terus belajar melahirkan murid yang berpikir logis dan kreatif.” Akui tantangan data murid dengan jujur. Uji pindai QR sebelum tampil.')
   ];
 
-  /* ================= BANGUN PORTAL ================= */
   var R, secs, idx = 0;
 
   function build() {
-    var html =
-      '<button onclick="switchPortal(\'home\')" class="pkb-nonslide text-xs font-bold text-cyan-400 hover:text-cyan-300 flex items-center gap-2 bg-teal-950 px-3 py-1.5 rounded-lg border border-teal-800 w-fit"><i class="fa-solid fa-arrow-left"></i> Kembali ke Dashboard</button>' +
-      '<div class="pkb-tool pkb-nonslide"><button class="pkb-btn go" data-act="present">▶ Mode Presentasi</button><span class="pkb-hint">Gunakan tombol ← → untuk berpindah slide, Esc untuk keluar.</span></div>' +
-      SECS.map(function (h) { return '<section class="pkb-sec">' + h + '</section>'; }).join('') +
-      '<div class="pkb-pbar"><button class="pkb-btn" data-act="prev">◀</button><span id="pkb-count"></span><button class="pkb-btn go" data-act="next">▶</button><button class="pkb-btn" data-act="exit">✖ Keluar</button></div>';
-    R.innerHTML = html;
-    secs = Array.prototype.slice.call(R.querySelectorAll('.pkb-sec'));
+    R.innerHTML =
+      '<button onclick="switchPortal(\'home\')" class="pk3-nonslide text-xs font-bold text-cyan-400 hover:text-cyan-300 flex items-center gap-2 bg-teal-950 px-3 py-1.5 rounded-lg border border-teal-800 w-fit"><i class="fa-solid fa-arrow-left"></i> Kembali ke Dashboard</button>' +
+      '<div class="pk3-tool pk3-nonslide"><button class="pk3-btn go" data-act="present">▶ Mode Presentasi</button><span class="pk3-hint">Tombol ← → untuk pindah slide, Esc untuk keluar.</span></div>' +
+      SECS.map(function (h) { return '<section class="pk3-sec">' + h + '</section>'; }).join('') +
+      '<div class="pk3-pbar"><button class="pk3-btn" data-act="prev">◀</button><span id="pk3-count"></span><button class="pk3-btn go" data-act="next">▶</button><button class="pk3-btn" data-act="exit">✖ Keluar</button></div>';
+    secs = Array.prototype.slice.call(R.querySelectorAll('.pk3-sec'));
   }
-
   function show(i) {
     idx = Math.max(0, Math.min(secs.length - 1, i));
     secs.forEach(function (s, k) { s.classList.toggle('cur', k === idx); });
-    var c = document.getElementById('pkb-count'); if (c) c.textContent = 'Slide ' + (idx + 1) + ' / ' + secs.length;
+    var c = document.getElementById('pk3-count'); if (c) c.textContent = 'Slide ' + (idx + 1) + ' / ' + secs.length;
     R.scrollTop = 0;
   }
-  function present() { R.classList.add('pkb-pres'); show(0); }
-  function leave() { R.classList.remove('pkb-pres'); window.scrollTo({ top: 0 }); }
-
-  function updMenuCount() {
-    var el = document.getElementById('pkb-menu-count');
-    if (el) el.textContent = Math.max(0, document.querySelectorAll('.nav-tab').length - 1);
-  }
-
+  function present() { R.classList.add('pk3-pres'); show(0); }
+  function leave() { R.classList.remove('pk3-pres'); window.scrollTo({ top: 0 }); }
   function openGo(t) {
-    if (R.classList.contains('pkb-pres')) leave();
+    if (R.classList.contains('pk3-pres')) leave();
     if (t === 'mujahibot') {
       window.switchPortal('game-edu');
       if (typeof window.switchGameSubTab === 'function') window.switchGameSubTab('mujahibot');
@@ -5920,11 +5911,18 @@ window.addEventListener("DOMContentLoaded", window.mj_init);
   }
 
   function init() {
+    /* hapus versi lama Menu 11 bila masih ada */
+    var old = document.getElementById('portal-praktik');
+    if (old && !old.dataset.v3) {
+      old.remove();
+      var ob = document.getElementById('btn-portal-praktik'); if (ob) ob.remove();
+      document.querySelectorAll('#portal-home .metro-tile').forEach(function (t) { if (/PRAKTIK BAIK KKA/.test(t.textContent)) t.remove(); });
+    }
     var anchor = document.getElementById('portal-lkh') || document.getElementById('portal-korektor') || document.getElementById('portal-home');
     if (!anchor || document.getElementById('portal-praktik')) return;
 
     R = document.createElement('div');
-    R.id = 'portal-praktik'; R.className = 'w-full max-w-6xl hidden space-y-4';
+    R.id = 'portal-praktik'; R.dataset.v3 = '1'; R.className = 'w-full max-w-6xl hidden space-y-4';
     anchor.parentNode.insertBefore(R, anchor.nextSibling);
     build();
 
@@ -5934,20 +5932,13 @@ window.addEventListener("DOMContentLoaded", window.mj_init);
       var a = t.dataset.act;
       if (a === 'present') present(); else if (a === 'next') show(idx + 1); else if (a === 'prev') show(idx - 1); else if (a === 'exit') leave();
     });
-    R.addEventListener('input', function (e) {
-      var t = e.target;
-      if (t.dataset.st) { S.st[t.dataset.st] = t.value; save(); }
-      else if (t.dataset.note) { S.note = t.value; save(); }
-    });
     document.addEventListener('keydown', function (e) {
-      if (!R.classList.contains('pkb-pres')) return;
-      if (e.target && /^(INPUT|TEXTAREA)$/.test(e.target.tagName)) return;
+      if (!R || !R.classList.contains('pk3-pres')) return;
       if (e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' ') { e.preventDefault(); show(idx + 1); }
       else if (e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); show(idx - 1); }
       else if (e.key === 'Escape') leave();
     });
 
-    /* tombol navigasi atas */
     var nav = document.getElementById('btn-portal-korektor');
     if (nav && !document.getElementById('btn-portal-praktik')) {
       var b = document.createElement('button');
@@ -5956,7 +5947,6 @@ window.addEventListener("DOMContentLoaded", window.mj_init);
       b.innerHTML = '<i class="fa-solid fa-award mr-1"></i> 11. PRAKTIK BAIK';
       nav.parentNode.appendChild(b);
     }
-    /* ubin dashboard */
     var g = document.querySelector('#portal-home > .grid');
     if (g) {
       var tile = document.createElement('div');
@@ -5967,18 +5957,15 @@ window.addEventListener("DOMContentLoaded", window.mj_init);
       g.appendChild(tile);
     }
 
-    /* pembungkus switchPortal: sembunyikan portal ini, rapikan tab aktif */
     var orig = window.switchPortal;
     if (typeof orig === 'function') {
       window.switchPortal = function (p) {
-        R.classList.add('hidden'); R.classList.remove('pkb-pres');
+        R.classList.add('hidden'); R.classList.remove('pk3-pres');
         orig(p);
         document.querySelectorAll('.nav-tab').forEach(function (x) { x.classList.remove('active'); });
         var ab = document.getElementById('btn-portal-' + p); if (ab) ab.classList.add('active');
-        if (p === 'praktik') updMenuCount();
       };
     }
-    updMenuCount();
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
