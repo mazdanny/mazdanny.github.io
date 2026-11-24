@@ -5971,6 +5971,183 @@ window.addEventListener("DOMContentLoaded", window.mj_init);
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
 })();
 </script>
+    <!-- ============================================================
+  MENU 11 - TAB TAMBAHAN: PELATIHAN KKA + RPP KELAS 5
+  CARA PASANG: tempel SELURUH blok <script> ini di index.html,
+  SETELAH blok script "MENU 11: PRAKTIK BAIK KKA" dan SEBELUM <script src="asas.js">.
+  Tidak ada bagian lain yang diubah. Isi tautan RPP di RPP_LINKS (di bawah).
+============================================================ -->
+<script>
+(function () {
+  'use strict';
+  function run() {
+  var R = document.getElementById('portal-praktik');
+  if (!R || document.getElementById('pkx-style')) return;
+
+  /* Isi tautan Google Drive file RPP yang Anda unggah per siklus (kosong = belum diisi) */
+  var RPP_LINKS = {3: '', 4: '', 5: '', 6: ''};
+
+  var CSS = `
+  #portal-praktik .pkx-bar{display:flex;flex-wrap:wrap;gap:.5rem;padding:.6rem;border-radius:1rem;border:1px solid rgba(20,184,166,.35);background:rgba(2,17,20,.7)}
+  #portal-praktik .pkx-bar button{cursor:pointer;border:1px solid #0f766e;background:rgba(15,118,110,.25);color:#e2e8f0;font-size:.78rem;font-weight:700;padding:.5rem .9rem;border-radius:.75rem}
+  #portal-praktik .pkx-bar button.on{background:#0d9488;border-color:#22d3ee;color:#fff}
+  #portal-praktik.pk3-pres .pkx-bar,#portal-praktik.pk3-pres .pkx-panel{display:none!important}
+  #portal-praktik.pkx-alt .pk3-sec,#portal-praktik.pkx-alt .pk3-tool{display:none!important}
+  .pkx-panel{display:none;color:#d1d5db}.pkx-panel.on{display:block}
+  .pkx-card{margin-top:1rem;padding:1.2rem;border-radius:1.3rem;border:2px solid rgba(20,184,166,.3);background:rgba(4,38,31,.6)}
+  .pkx-card h3{margin:0 0 .4rem;font-size:1.25rem;font-weight:800;color:#67e8f9}
+  .pkx-card h4{margin:.6rem 0 .2rem;font-size:.95rem;font-weight:800;color:#fcd34d}
+  .pkx-card p,.pkx-card li,.pkx-card td,.pkx-card th{font-size:.82rem;line-height:1.65}
+  .pkx-card ul{margin:.3rem 0 0;padding-left:1.1rem;list-style:disc}
+  .pkx-g{display:grid;gap:.7rem;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));margin-top:.7rem}
+  .pkx-c{padding:.9rem;border-radius:1rem;background:rgba(15,118,110,.2);border:1px solid rgba(20,184,166,.35)}
+  .pkx-c b{color:#a5f3fc}.pkx-tag{display:inline-block;font-size:.65rem;font-weight:700;padding:.1rem .55rem;border-radius:99px;background:#083344;color:#67e8f9;margin-bottom:.3rem}
+  .pkx-tag.ok{background:#064e3b;color:#6ee7b7}.pkx-tag.wip{background:#451a03;color:#fcd34d}
+  .pkx-d{margin-top:.6rem;border-radius:1rem;border:1px solid rgba(20,184,166,.35);background:rgba(2,17,20,.55)}
+  .pkx-d summary{cursor:pointer;padding:.7rem 1rem;font-weight:800;font-size:.88rem;color:#ecfeff}
+  .pkx-d>div{padding:0 1rem 1rem}
+  .pkx-t{width:100%;border-collapse:collapse;margin-top:.5rem}
+  .pkx-t th{background:rgba(15,118,110,.5);color:#ecfeff;padding:.4rem;text-align:left}
+  .pkx-t td{padding:.4rem;border-top:1px solid rgba(20,184,166,.25);vertical-align:top}
+  .pkx-sc{overflow-x:auto}.pkx-note{margin-top:.8rem;padding:.7rem 1rem;border-radius:.9rem;background:rgba(245,158,11,.1);border:1px dashed rgba(245,158,11,.5);font-size:.78rem;color:#fde68a}
+  .pkx-btn{cursor:pointer;border:1px solid #22d3ee;background:#0891b2;color:#fff;font-size:.75rem;font-weight:700;padding:.45rem .9rem;border-radius:.75rem}
+  .pkx-ttd{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1rem;text-align:center;font-size:.82rem}
+  @media print{
+    body *{visibility:hidden}
+    #pkx-rpp,#pkx-rpp *{visibility:visible}
+    #pkx-rpp{display:block!important;position:absolute;left:0;top:0;width:100%}
+    #pkx-rpp *{color:#000!important;background:#fff!important;border-color:#999!important;box-shadow:none!important}
+    .pkx-noprint{display:none!important}
+  }`;
+  var st = document.createElement('style'); st.id = 'pkx-style'; st.textContent = CSS; document.head.appendChild(st);
+
+  function ul(a) { return '<ul>' + a.map(function (i) { return '<li>' + i + '</li>'; }).join('') + '</ul>'; }
+  function det(t, b, open) { return '<details class="pkx-d"' + (open ? ' open' : '') + '><summary>' + t + '</summary><div>' + b + '</div></details>'; }
+  function tbl(h, rows) {
+    return '<div class="pkx-sc"><table class="pkx-t"><thead><tr>' + h.map(function (x) { return '<th>' + x + '</th>'; }).join('') + '</tr></thead><tbody>' +
+      rows.map(function (r) { return '<tr>' + r.map(function (c) { return '<td>' + c + '</td>'; }).join('') + '</tr>'; }).join('') + '</tbody></table></div>';
+  }
+  function cards(a) { return '<div class="pkx-g">' + a.map(function (c) { return '<div class="pkx-c">' + c + '</div>'; }).join('') + '</div>'; }
+
+  /* ================= PANEL: PELATIHAN KKA ================= */
+  var ALUR = [
+    ['Pendahuluan', 'Pengantar pelatihan dan Tes Awal', 1],
+    ['Belajar Mandiri', 'BM.0 Integrasi Koding dan KA; BM.1–BM.6: Inkuiri Kolaboratif, Pola Pikir Bertumbuh, Pembelajaran Mendalam, Perencanaan dan Asesmen, Media/Papan Interaktif Digital, Penguatan Materi Esensial', 1],
+    ['Siklus 1', 'Inkuiri Kolaboratif dan Pola Pikir Bertumbuh (LK dan implementasi di sekolah)', 1],
+    ['Siklus 2', 'Pola Pikir Bertumbuh dan Pendekatan Pembelajaran Mendalam: LK 2–5 (8 Dimensi Profil Lulusan, prinsip PM, pengalaman belajar, Taksonomi SOLO, kerangka PM)', 1],
+    ['Siklus 3', 'Media/Papan Interaktif Digital dan Perencanaan Asesmen (unggah RPP)', 1],
+    ['Siklus 4', 'Materi Esensial 1: LK 6.1 Analisis Konteks, LK 6.2 Matriks, LK 6.3 Bahan Ajar; unggah RPP', 1],
+    ['Siklus 5', 'Materi Esensial 2 (LK 6.1–6.3); unggah RPP', 1],
+    ['Siklus 6', 'Materi Esensial 3 (LK 6.1–6.3); unggah RPP', 1],
+    ['Penutup', 'Refleksi Siklus 6, Fase Akhir, Rencana Tindak Lanjut (RTL), Tes Akhir', 0]
+  ];
+  var alurHtml = cards(ALUR.map(function (a) {
+    return '<span class="pkx-tag ' + (a[2] ? 'ok' : 'wip') + '">' + (a[2] ? 'Selesai' : 'Sedang berjalan') + '</span><br><b>' + a[0] + '</b><p>' + a[1] + '</p>';
+  }));
+
+  var KEG = [
+    ['Kegiatan 1: Identifikasi Kebutuhan Pembelajaran (40 menit)', ul(['Berbagi pengalaman (10 menit): mengidentifikasi kesiapan murid, karakteristik materi, dan penentuan DPL', 'Baca dan amati (20 menit): menelaah perencanaan pembelajaran dengan Lembar Aktivitas 4.1', 'Penguatan (10 menit) oleh fasilitator; hasil analisis dituangkan di Lembar Aktivitas 5.1 dan 5.2'])],
+    ['Kegiatan 2: Desain Pembelajaran (60 menit)', ul(['Kelompok 4–5 orang saling menelaah RPP (rotasi), komentar ditulis di LA 4.1 (20 menit)', 'Revisi tujuan dan kerangka pembelajaran (10 menit)', 'Presentasi sebelum dan sesudah revisi (20 menit); penguatan (10 menit)'])],
+    ['Kegiatan 3: Pengalaman Belajar (60 menit)', ul(['Berbagi pengalaman belajar berkesan; kenali ciri berkesadaran, bermakna, menggembirakan (10 menit)', 'Telaah langkah pembelajaran yang memfasilitasi memahami, mengaplikasi, merefleksi, dikaitkan dengan nilai karakter dan Taksonomi SOLO; revisi dan presentasi (40 menit)', 'Penguatan (10 menit)'])],
+    ['Kegiatan 4: Asesmen Pembelajaran (60 menit)', ul(['Curah pendapat: mendeteksi kesulitan atau miskonsepsi saat proses; memastikan asesmen akhir mengukur penguasaan konsep, bukan hafalan (10 menit)', 'Telaah dan revisi asesmen formatif (awal dan proses) serta sumatif (40 menit)', 'Penguatan dan contoh asesmen (10 menit)'])]
+  ];
+
+  function linkCell(n) {
+    return RPP_LINKS[n] ? '<a href="' + RPP_LINKS[n] + '" target="_blank" rel="noopener" style="color:#67e8f9;font-weight:700">Buka RPP</a>' : '<span style="color:#94a3b8">Tautan belum diisi</span>';
+  }
+  var RPPSIK = tbl(['Siklus', 'Tugas RPP di LMS', 'Pendamping', 'RPP'], [
+    ['3', 'TM.3.2.a Unggah RPP Perencanaan Asesmen', 'Implementasi di sekolah: SP.3.2', linkCell(3)],
+    ['4', 'TM.4.2.a Unggah RPP Perencanaan Asesmen', 'LK 6.1–6.3 Materi Esensial 1; SP.4.2', linkCell(4)],
+    ['5', 'TM.5.2.a Unggah RPP Perencanaan Asesmen', 'LK 6.1–6.3 Materi Esensial 2; SP.5.2', linkCell(5)],
+    ['6', 'TM.6.2.a Unggah RPP Perencanaan Asesmen', 'LK 6.1–6.3 Materi Esensial 3; SP.6.2', linkCell(6)]
+  ]);
+
+  var LK61 = '<p>Tujuan: menjembatani materi esensial dengan realitas murid, sehingga konteks menjadi alat berpikir, bukan tempelan di awal slide. Langkah: tentukan kompetensi dan materi esensial, telusuri konteks ilmiah dan konteks lokal, isi tabel, presentasikan, lalu perbaiki.</p>' +
+    '<h4>Draf analisis konteks KKA Kelas 5 (silakan sesuaikan)</h4>' +
+    tbl(['Materi/Submateri', 'Konteks', 'Indikator Kognisi/Keterampilan/Sikap'], [
+      ['Mengenali masalah dan akar penyebab', 'Isu sosial sekolah: antrean kantin, sampah di laci meja', 'Berpikir: menjelaskan sebab-akibat. Sikap: peduli lingkungan kelas'],
+      ['Empat langkah dan algoritma', 'Kegiatan harian: membuat teh, memakai tas (game Robot dan Programmer)', 'Berpikir: menyusun urutan, If-Then, Repeat. Keterampilan: menulis instruksi presisi'],
+      ['Uji coba dan debugging', 'Peer-testing instruksi antar kelompok', 'Berpikir: melacak kesalahan. Sikap: Bug is Learning'],
+      ['Solusi digital', 'Scratch/Blockly untuk masalah sekolah', 'Keterampilan: mengubah kartu instruksi menjadi blok kode. Kolaborasi: peer-tutoring']
+    ]);
+
+  var P_TRAIN =
+    '<div class="pkx-card"><h3>Pelatihan KKA: Pembelajaran Mendalam</h3><p>Ringkasan alur pelatihan guru Koding dan Kecerdasan Artifisial (BBGTK DIY, KKG SDN Wonosari IV) yang menjadi dasar praktik baik di SD Muhammadiyah Al Mujahidin Wonosari.</p>' + alurHtml + '</div>' +
+    '<div class="pkx-card"><h3>Kegiatan Belajar: Perencanaan dan Asesmen Pembelajaran</h3>' + KEG.map(function (k, i) { return det(k[0], k[1], i === 0); }).join('') + '</div>' +
+    '<div class="pkx-card"><h3>RPP yang Diunggah per Siklus</h3>' + RPPSIK +
+    '<div class="pkx-note">RPP Pembelajaran Mendalam KKA Kelas 5 dapat dilihat lengkap di tab “RPP Kelas 5”.</div></div>' +
+    '<div class="pkx-card"><h3>LK 6.1 Analisis Konteks</h3>' + LK61 + '</div>';
+
+  /* ================= PANEL: RPP KELAS 5 ================= */
+  var SINTAKS = [
+    ['Pertemuan 1 (2 JP × 35 menit): Definisi dan Identifikasi', ul(['<b>Awal (15 menit):</b> Mindful Check-in, doa, salam, pertanyaan pemantik “Apa yang terjadi jika urutan membuat teh terbalik atau gula habis?”; asesmen diagnostik lisan', '<b>Inti (45 menit):</b> mengamati video kemacetan/antrean; berpasangan merumuskan “Mengapa masalah ini terjadi?”; mengisi LKPD Kegiatan 1', '<b>Penutup (10 menit):</b> refleksi bahwa setiap masalah punya akar penyebab; tugas rumah mencatat 1 masalah di rumah (kemitraan orang tua)'])],
+    ['Pertemuan 2: Langkah Sistematis', ul(['<b>Awal (10 menit):</b> review temuan masalah; 4 langkah pemecahan masalah (Identifikasi, Rencana, Eksekusi, Evaluasi)', '<b>Inti (50 menit):</b> diskusi kelompok memilih 1 masalah fokus (misal sampah di laci meja), berhipotesis, wawancara singkat, melengkapi LKPD Kegiatan 2', '<b>Penutup (10 menit):</b> presentasi draf rencana; penguatan pentingnya perencanaan'])],
+    ['Pertemuan 3: Instruksi Logis dan Algoritma (Unplugged)', ul(['<b>Awal (15 menit):</b> game “Robot dan Programmer” (memakai tas), ice breaking peregangan', '<b>Inti (45 menit):</b> menulis algoritma dengan panah, If-Then, Repeat pada LKPD Kegiatan 3; peer-testing; debugging dengan slogan “Bug is Learning” dan konsep “BELUM” (The Power of Yet)', '<b>Penutup (10 menit):</b> refleksi tentang logika presisi dan perbaikan kesalahan'])],
+    ['Pertemuan 4: Aplikasi Digital dan Evaluasi (Plugged)', ul(['<b>Awal (10 menit):</b> pengenalan Scratch/Blockly, pembagian gawai', '<b>Inti (50 menit):</b> mengubah kartu instruksi menjadi blok kode (Panduan Solusi Digital); pameran karya dan peer-tutoring; asesmen sumatif proyek', '<b>Penutup (10 menit):</b> refleksi Mindful pada sticky notes di Tembok Solusi; pengenalan topik Kecerdasan Artifisial berikutnya'])]
+  ];
+
+  var P_RPP =
+    '<div id="pkx-rpp"><div class="pkx-card"><div class="pkx-noprint" style="display:flex;flex-wrap:wrap;gap:.6rem;justify-content:space-between;align-items:center"><span class="pkx-tag">Bab 1 • Fase C / Kelas V • Ganjil</span><button class="pkx-btn" data-print="1">🖨️ Cetak / Simpan PDF</button></div>' +
+    '<h3 style="font-size:1.5rem;margin-top:.5rem">Modul Ajar / RPP Pembelajaran Mendalam: Koding dan Kecerdasan Artifisial</h3>' +
+    tbl(['Komponen', 'Keterangan'], [
+      ['Satuan pendidikan', 'SD Muhammadiyah Al Mujahidin Wonosari'],
+      ['Tim penyusun', 'Rozak Efendi &amp; Romadani Apriyanto, S.Pd.'],
+      ['Mata pelajaran dan alokasi', 'Koding dan Kecerdasan Artifisial (KKA), 4 pertemuan (8 JP × 35 menit)'],
+      ['Topik', 'Pemecahan Masalah dalam Kehidupan Sehari-hari (Algoritma dan Logika)'],
+      ['Dimensi profil lulusan', 'Keimanan dan Ketakwaan: mensyukuri akal pikiran untuk mencari solusi bermanfaat. Penalaran Kritis: menganalisis masalah dan mengevaluasi solusi. Kreativitas: menyusun instruksi dan alur penyelesaian baru. Kolaborasi: bekerja sama dalam tim (unplugged dan plugged). Kemandirian: mengelola tugas proyek secara bertanggung jawab']
+    ]) + '</div>' +
+    '<div class="pkx-card"><h3>Karakteristik Peserta Didik dan Ekosistem</h3><p>Siswa kelas 5 berada pada transisi dari operasional konkret ke operasional formal (Piaget): mulai berpikir abstrak tetapi membutuhkan konteks nyata. Konsentrasi bertahan sekitar 20–30 menit sehingga materi dipecah (chunking). Gawai sudah akrab, namun logika instruksi terstruktur masih perlu bimbingan, sehingga pendekatan memadukan unplugged (simulasi fisik) dan plugged (Scratch/Blockly).</p>' +
+    cards(['<b>Lintas disiplin</b>' + ul(['Bahasa Indonesia: teks prosedur dengan kata kerja imperatif dan urutan logis', 'Matematika: pola logika sekuensial, percabangan, optimasi alur']), '<b>Ekosistem dan kemitraan</b>' + ul(['Kelas formasi cluster, visual timer, LMS/Padlet, Tembok Solusi', 'Rumah: program “Tantangan Masalah di Rumah” bersama orang tua'])]) + '</div>' +
+    '<div class="pkx-card"><h3>Tiga Pilar Pembelajaran Mendalam</h3>' + cards([
+      '<b>1. Berkesadaran (Mindful)</b><p>Mindful Check-in di awal, kesadaran daya tumbuh otak (brain plasticity), refleksi berkala dengan sticky notes.</p>',
+      '<b>2. Bermakna (Meaningful)</b><p>Algoritma dihubungkan dengan masalah nyata: kebersihan laci, antrean kantin, membuat minum.</p>',
+      '<b>3. Menggembirakan (Joyful)</b><p>Simulasi “Robot dan Programmer”, eksplorasi digital visual, budaya Growth Mindset “Bug is Learning”.</p>']) + '</div>' +
+    '<div class="pkx-card"><h3>Capaian dan Tujuan Pembelajaran (Taksonomi SOLO)</h3><p><b>CP:</b> peserta didik mampu menganalisis masalah sehari-hari, menyusun algoritma langkah demi langkah (sekuensial, If-Then, Repeat), dan menerapkannya lewat media visual koding dan karya nyata secara kolaboratif.</p>' +
+    tbl(['Tingkat SOLO', 'Kemampuan', 'Indikator'], [
+      ['Unistruktural', 'Menyebutkan satu perintah dasar koding', 'Menyebutkan “Maju 1 Langkah” atau “Belok”'],
+      ['Multistruktural', 'Menyusun beberapa instruksi berurutan', 'Menulis 4–5 langkah berurutan'],
+      ['Relasional', 'Menganalisis masalah, menyusun algoritma utuh (If-Then, Repeat), debugging', 'Mengidentifikasi akar masalah, membuat algoritma, memperbaiki bug'],
+      ['Abstrak diperluas', 'Menciptakan “Panduan Solusi Digital” di Scratch/Blockly untuk masalah baru', 'Mengembangkan solusi mandiri dan melatih teman (peer-tutoring)']
+    ]) + '</div>' +
+    '<div class="pkx-card"><h3>Sintaks dan Alur Pembelajaran (4 Pertemuan)</h3>' + SINTAKS.map(function (s, i) { return det(s[0], s[1], i === 0); }).join('') + '</div>' +
+    '<div class="pkx-card"><h3>LKPD dan Asesmen</h3>' + cards([
+      '<b>LKPD Kegiatan 1</b><p>Menemukan masalah: apa, di mana, siapa terdampak, penyebab, akibat jika dibiarkan.</p>',
+      '<b>LKPD Kegiatan 2 dan 3</b><p>Empat langkah solusi (Identifikasi, Rencana, Eksekusi, Evaluasi) dan algoritma 6 langkah dengan If-Then dan Repeat.</p>',
+      '<b>LKPD Kegiatan 4</b><p>Peer-testing (mudah dipahami, urutan benar, solusi berhasil, ada bug) dan refleksi diri.</p>']) +
+    '<h4>Rubrik analitik (skor 1–4)</h4>' + tbl(['Aspek', '4 Sangat Baik', '3 Baik', '2 Cukup', '1 Perlu Bimbingan'], [
+      ['Identifikasi dan rencana', 'Masalah dan akar penyebab sangat jelas, solusi logis dan realistis', 'Masalah tepat, solusi sesuai', 'Masalah masih umum, langkah kurang lengkap', 'Belum dapat menentukan masalah'],
+      ['Algoritma dan logika', 'Runtut, Repeat/If-Then tepat tanpa klarifikasi', 'Runtut, sedikit arahan', 'Urutan kurang tepat', 'Tidak runtut, sulit dijalankan'],
+      ['Uji coba dan debugging', 'Mandiri menemukan dan memperbaiki bug, membantu teman', 'Memperbaiki dengan sedikit bimbingan', 'Uji coba kurang konsisten', 'Tidak menguji atau memperbaiki'],
+      ['Kolaborasi', 'Sangat aktif, menghargai pendapat, adil membagi tugas', 'Bekerja sama dengan baik', 'Partisipasi belum merata', 'Pasif']
+    ]) + '<p style="margin-top:.6rem"><b>Nilai akhir</b> = (total skor ÷ 16) × 100. Kategori: 86–100 Sangat Baik; 76–85 Baik; 60–75 Cukup; di bawah 60 Perlu Bimbingan.</p></div>' +
+    '<div class="pkx-card"><div class="pkx-ttd"><div>Mengetahui,<br>Kepala SD Muhammadiyah Al Mujahidin<br><br><br><b><u>Joko Kiswanto, S.Pd.I, M.Pd</u></b><br>NBM. 103.244</div><div>Wonosari, 16 Juli 2026<br>Tim Guru Mata Pelajaran KKA<br><br><br><b><u>Rozak Efendi / Romadani Apriyanto, S.Pd.</u></b></div></div></div></div>';
+
+  /* ================= PASANG ================= */
+  var bar = document.createElement('div');
+  bar.className = 'pkx-bar';
+  bar.innerHTML = '<button data-t="slide" class="on">🖥️ Implementasi Coding di Sekolah</button><button data-t="train">🎓 Pelatihan KKA</button><button data-t="rpp">📘 RPP Kelas 5</button>';
+  R.insertBefore(bar, R.children[1] || null);
+
+  var panels = {};
+  [['train', P_TRAIN], ['rpp', P_RPP]].forEach(function (p) {
+    var d = document.createElement('div'); d.className = 'pkx-panel'; d.innerHTML = p[1];
+    R.appendChild(d); panels[p[0]] = d;
+  });
+
+  function tab(t) {
+    R.classList.toggle('pkx-alt', t !== 'slide');
+    bar.querySelectorAll('button').forEach(function (b) { b.classList.toggle('on', b.dataset.t === t); });
+    for (var k in panels) panels[k].classList.toggle('on', k === t);
+    window.scrollTo({ top: 0 });
+  }
+  R.addEventListener('click', function (e) {
+    var b = e.target.closest('[data-t],[data-print]'); if (!b) return;
+    if (b.dataset.print) window.print(); else tab(b.dataset.t);
+  });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', run); else run();
+})();
+</script>
     <script src="asas.js"></script>
 <script src="pwa.js"></script>
 </body>
