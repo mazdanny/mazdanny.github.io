@@ -42,7 +42,9 @@ const save=()=>localStorage.setItem('kgm_v1',JSON.stringify(S));
 const MAPEL=['Al Islam','Bahasa Arab','Kemuhammadiyahan'];
 S.customs=S.customs||[];
 const mp=()=>S.mapel||MAPEL[0];
-function cfgOf(c){c.cfgs=c.cfgs||{};return c.cfgs[mp()]=c.cfgs[mp()]||{n:25,pt:2,key:[],es:[10,10,10,10,10],rub:[]}}
+/* es = Isian Singkat (data lama tetap aman), ur = Uraian (baru) */
+function cfgOf(c){c.cfgs=c.cfgs||{};const f=c.cfgs[mp()]=c.cfgs[mp()]||{n:25,pt:2,key:[],es:Array(10).fill(3),ur:Array(5).fill(4),rub:[]};
+  f.ur=f.ur||Array(5).fill(4);return f}
 S.classes.forEach(c=>{if(c.cfg){c.cfgs=c.cfgs||{};c.cfgs[MAPEL[0]]=c.cfg;delete c.cfg}
   if(S.ans[c.id]){S.ans[c.id+'|'+MAPEL[0]]=S.ans[c.id];delete S.ans[c.id]}});
 function pickMapel(v){
@@ -57,14 +59,17 @@ function seed(){let n=0;for(const [name,str] of Object.entries(DATA)){if(S.class
   if(!S.cur&&S.classes[0])S.cur=S.classes[0].id;S.seeded=1;save();return n}
 if(!S.seeded)seed();
 const cls=()=>S.classes.find(c=>c.id===S.cur);
-const getA=(c,s)=>{const a=(S.ans[c.id+'|'+mp()]=S.ans[c.id+'|'+mp()]||{});return a[s]=a[s]||{pg:[],es:[],nt:[],ph:[]}};
-function maxTotal(c){const f=cfgOf(c);return f.n*f.pt+f.es.reduce((a,b)=>a+(+b||0),0)}
+const getA=(c,s)=>{const a=(S.ans[c.id+'|'+mp()]=S.ans[c.id+'|'+mp()]||{});const r=a[s]=a[s]||{pg:[],es:[],ur:[],nt:[],ph:[]};r.ur=r.ur||[];return r};
+const sumArr=(arr,max)=>max.reduce((t,m,i)=>t+Math.min(Math.max(0,+arr[i]||0),+m||0),0);
+function maxTotal(c){const f=cfgOf(c);return f.n*f.pt+f.es.reduce((a,b)=>a+(+b||0),0)+f.ur.reduce((a,b)=>a+(+b||0),0)}
 function calc(c,sid){
-  const f=cfgOf(c),a=((S.ans[c.id+'|'+mp()]||{})[sid])||{pg:[],es:[]};
+  const f=cfgOf(c),a=((S.ans[c.id+'|'+mp()]||{})[sid])||{pg:[],es:[],ur:[]};
+  const A_es=a.es||[],A_ur=a.ur||[];
   let ok=0;for(let i=0;i<f.n;i++)if(a.pg[i]&&a.pg[i]===f.key[i])ok++;
-  const pg=ok*f.pt;let es=0;f.es.forEach((m,i)=>{es+=Math.min(+a.es[i]||0,+m||0)});
+  const pg=ok*f.pt,es=sumArr(A_es,f.es),ur=sumArr(A_ur,f.ur);
   const M=maxTotal(c);
-  return{ok,pg,es,total:M?Math.round((pg+es)/M*1000)/10:0,done:a.pg.some(x=>x)||a.es.some(x=>x!==undefined&&x!=='')}
+  const filled=x=>x!==undefined&&x!==''&&x!==null;
+  return{ok,pg,es,ur,total:M?Math.round((pg+es+ur)/M*1000)/10:0,done:a.pg.some(x=>x)||A_es.some(filled)||A_ur.some(filled)}
 }
 
 /* ===== Kelas ===== */
@@ -91,11 +96,11 @@ function delStu(id){const c=cls();c.students=c.students.filter(s=>s.id!==id);Obj
 
 /* ===== Kunci & Bobot ===== */
 function setCfg(k,v){const f=cfgOf(cls());f[k]=Math.max(0,+v||0);save();render()}
-function setEsCount(v){const f=cfgOf(cls());v=Math.max(0,Math.min(20,+v||0));while(f.es.length<v)f.es.push(10);f.es.length=v;save();render()}
-function setEsMax(i,v){cfgOf(cls()).es[i]=Math.max(0,+v||0);save();render()}
+function setCount(k,v){const f=cfgOf(cls()),d=k==='es'?3:4;v=Math.max(0,Math.min(30,+v||0));while(f[k].length<v)f[k].push(d);f[k].length=v;save();render()}
+function setMax(k,i,v){cfgOf(cls())[k][i]=Math.max(0,+v||0);save();render()}
+function setMaxAll(k){const el=$('#all_'+k);const v=Math.max(0,+el.value||0);const f=cfgOf(cls());f[k]=f[k].map(()=>v);save();render()}
 function setKey(i,l){const k=cfgOf(cls()).key;k[i]=k[i]===l?'':l;save();render()}
 function setRub(i,v){const f=cfgOf(cls());f.rub=f.rub||[];f.rub[i]=v;save()}
-function setRubImg(i,inp){const f=inp.files[0];if(!f)return;PV['r'+cls().id+mp()+i]=URL.createObjectURL(f);render()}
 function copyCfg(){if(!confirm('Salin kunci & bobot mapel '+mp()+' dari kelas ini ke SEMUA kelas? Pengaturan mapel ini di kelas lain akan ditimpa.'))return;const j=JSON.stringify(cfgOf(cls()));S.classes.forEach(k=>{k.cfgs=k.cfgs||{};k.cfgs[mp()]=JSON.parse(j)});save();alert('Tersalin ke '+S.classes.length+' kelas.')}
 
 /* ===== Koreksi ===== */
@@ -107,21 +112,31 @@ function quickPg(v){const c=cls(),a=getA(c,stu);
   else{const ch=v.toUpperCase().replace(/[^ABCD\-]/g,'').split('');
     for(let i=0;i<cfgOf(c).n;i++)a.pg[i]=(ch[i]&&ch[i]!=='-')?ch[i]:''}
   save();render()}
-function setEs(i,v){const a=getA(cls(),stu),m=+cfgOf(cls()).es[i]||0;
-  a.es[i]=v===''?'':Math.min(Math.max(0,+v||0),m);save();render()}
-function setNt(i,v){getA(cls(),stu).nt[i]=v;save()}
-function setPh(i,inp){const f=inp.files[0];if(!f)return;
-  getA(cls(),stu).ph[i]=f.name;PV[stu+'_'+i]=URL.createObjectURL(f);save();render()}
+/* skor isian (es) & uraian (ur): tanpa render ulang agar kursor tidak hilang */
+function setSc(k,i,el){const c=cls(),a=getA(c,stu),m=+cfgOf(c)[k][i]||0;
+  if(el.value===''){a[k][i]=''}
+  else{const n=Math.min(Math.max(0,+el.value||0),m);a[k][i]=n;el.value=n}
+  save();upd()}
+function badges(c,r,f){return `<span class="bg-emerald-100 px-3 py-1 rounded-full text-sm">PG: ${r.ok}/${f.n} = <b>${r.pg}</b></span>
+   <span class="bg-amber-100 px-3 py-1 rounded-full text-sm">Isian: <b>${r.es}</b></span>
+   <span class="bg-sky-100 px-3 py-1 rounded-full text-sm">Uraian: <b>${r.ur}</b></span>
+   <span class="bg-indigo-600 text-white px-3 py-1 rounded-full text-sm">Nilai: <b>${r.total}</b></span>`}
+function upd(){const c=cls(),f=cfgOf(c),r=calc(c,stu);
+  const b=$('#badges');if(b)b.innerHTML=badges(c,r,f);
+  const li=document.querySelector('[data-s="'+stu+'"] .tot');if(li)li.textContent=r.done?'✔ '+r.total:''}
+function nextSc(e){if(e.key!=='Enter')return;e.preventDefault();
+  const all=[...document.querySelectorAll('input.sc')],i=all.indexOf(e.target);
+  if(all[i+1]){all[i+1].focus();all[i+1].select()}}
 function nav(d){const c=cls(),i=c.students.findIndex(s=>s.id===stu)+d;if(c.students[i]){stu=c.students[i].id;render()}}
 
 /* ===== Ekspor ===== */
-function rows(c){return c.students.map((s,i)=>{const r=calc(c,s.id);return[i+1,s.name,r.pg,r.es,r.total]})}
+function rows(c){return c.students.map((s,i)=>{const r=calc(c,s.id);return[i+1,s.name,r.pg,r.es,r.ur,r.total]})}
 function dl(name,type,data){const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([data],{type}));a.download=name;a.click()}
 function exportCsv(){const c=cls();
-  const l=[['No','Nama Siswa','Skor PG','Skor Uraian','Nilai Akhir'],...rows(c)].map(r=>r.map(x=>'"'+String(x).replace(/"/g,'""')+'"').join(';'));
+  const l=[['No','Nama Siswa','Skor PG','Skor Isian','Skor Uraian','Nilai Akhir'],...rows(c)].map(r=>r.map(x=>'"'+String(x).replace(/"/g,'""')+'"').join(';'));
   dl('Rekap_'+c.name+'_'+mp()+'.csv','text/csv;charset=utf-8','\uFEFFsep=;\n'+l.join('\n'))}
 function exportXls(){const c=cls();
-  const t='<html xmlns:x="urn:schemas-microsoft-com:office:excel"><head><meta charset="utf-8"></head><body><h3>Rekapitulasi Nilai - '+esc(c.name)+' - '+esc(mp())+'</h3><table border="1" style="border-collapse:collapse"><tr style="background:#e0e7ff;font-weight:bold"><td>No</td><td>Nama Siswa</td><td>Skor PG</td><td>Skor Uraian</td><td>Nilai Akhir</td></tr>'
+  const t='<html xmlns:x="urn:schemas-microsoft-com:office:excel"><head><meta charset="utf-8"></head><body><h3>Rekapitulasi Nilai - '+esc(c.name)+' - '+esc(mp())+'</h3><table border="1" style="border-collapse:collapse"><tr style="background:#e0e7ff;font-weight:bold"><td>No</td><td>Nama Siswa</td><td>Skor PG</td><td>Skor Isian</td><td>Skor Uraian</td><td>Nilai Akhir</td></tr>'
    +rows(c).map(r=>'<tr>'+r.map((x,i)=>'<td'+(i===1?'':' align="center"')+'>'+esc(x)+'</td>').join('')+'</tr>').join('')
    +'</table><p>Skor maksimal: '+maxTotal(c)+'</p></body></html>';
   dl('Rekap_'+c.name+'_'+mp()+'.xls','application/vnd.ms-excel',t)}
@@ -151,44 +166,55 @@ function vKelas(c){
   <div class="${card}"><h2 class="font-bold mb-2">Daftar Siswa (${c.students.length})</h2>
   <ol class="text-sm max-h-96 overflow-auto divide-y">${c.students.map((s,i)=>`<li class="flex justify-between py-1.5"><span>${i+1}. ${esc(s.name)}</span><button class="text-red-500" onclick="delStu('${s.id}')">hapus</button></li>`).join('')||'<li class="text-slate-500">Belum ada siswa.</li>'}</ol></div></div>`:'');
 }
+/* bagian kecil: skor maks per nomor (ringkas) */
+function maxBlock(c,k,title,start,color){const f=cfgOf(c),arr=f[k];
+  return `<div class="${card}"><h2 class="font-bold mb-3">${title}</h2>
+  <div class="flex flex-wrap items-center gap-3 mb-3 text-sm">
+   <label>Jumlah soal <input type="number" min="0" max="30" value="${arr.length}" onchange="setCount('${k}',this.value)" class="${inp} w-20 ml-1"></label>
+   <span class="flex items-center gap-1">Samakan skor maks: <input id="all_${k}" type="number" min="0" step="0.5" class="${inp} w-20" placeholder="${k==='es'?3:4}"><button class="${btn}bg-slate-200" onclick="setMaxAll('${k}')">Terapkan</button></span>
+   <span class="text-slate-500">Total: <b>${arr.reduce((a,b)=>a+(+b||0),0)}</b></span></div>
+  <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-6 gap-2">${arr.map((m,i)=>`<label class="flex items-center gap-1 text-xs"><span class="w-7 text-right text-slate-500">${start+i}.</span><input type="number" min="0" step="0.5" value="${m}" onchange="setMax('${k}',${i},this.value)" class="${inp} w-16 !py-1"></label>`).join('')||'<p class="text-sm text-slate-500 col-span-full">Tidak ada soal.</p>'}</div></div>`}
 function vKunci(c){const f=cfgOf(c);
   return `<div class="${card}"><h2 class="font-bold mb-3">Pilihan Ganda — ${esc(c.name)} · ${esc(mp())}</h2>
   <div class="flex flex-wrap gap-4 mb-3 text-sm"><label>Jumlah soal PG <input type="number" min="0" max="100" value="${f.n}" onchange="setCfg('n',this.value)" class="${inp} w-20 ml-1"></label>
   <label>Poin per soal benar <input type="number" min="0" step="0.5" value="${f.pt}" onchange="setCfg('pt',this.value)" class="${inp} w-20 ml-1"></label>
   <span class="self-center text-slate-500">Total PG: <b>${f.n*f.pt}</b></span></div>
   <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-1">${Array.from({length:f.n},(_,i)=>`<div class="flex items-center gap-2"><span class="w-7 text-right text-sm text-slate-500">${i+1}.</span>${opt('setKey',i,f.key[i],(l,v)=>v===l?'bg-indigo-600 text-white border-indigo-600':'bg-white hover:bg-slate-100')}</div>`).join('')}</div></div>
-  <div class="${card}"><h2 class="font-bold mb-3">Uraian (Essay)</h2>
-  <label class="text-sm">Jumlah soal uraian <input type="number" min="0" max="20" value="${f.es.length}" onchange="setEsCount(this.value)" class="${inp} w-20 ml-1"></label>
-  <div class="mt-3 space-y-2">${f.es.map((m,i)=>`<div class="border rounded-lg p-3 grid md:grid-cols-[7rem_1fr_1fr] gap-3 items-start"><label class="text-sm">No. ${f.n+i+1} skor maks<input type="number" min="0" value="${m}" onchange="setEsMax(${i},this.value)" class="${inp} w-full mt-1"></label><label class="text-sm">Kunci / rubrik (opsional)<textarea rows="2" class="${inp} w-full mt-1" onchange="setRub(${i},this.value)">${esc((f.rub||[])[i]||'')}</textarea></label><div class="text-sm">Unggah foto kunci (opsional)<input type="file" accept="image/*" onchange="setRubImg(${i},this)" class="block text-xs mt-1">${PV['r'+c.id+mp()+i]?`<img src="${PV['r'+c.id+mp()+i]}" class="mt-1 max-h-24 rounded border">`:''}</div></div>`).join('')}</div>
-  <p class="mt-4 text-sm bg-indigo-50 rounded-lg p-3">Skor maksimal total: <b>${maxTotal(c)}</b> &nbsp;|&nbsp; Kunci terisi: <b>${f.key.filter(Boolean).length}/${f.n}</b></p><button class="${btn}bg-slate-700 text-white mt-3" onclick="copyCfg()">📋 Salin kunci & bobot ini ke semua kelas</button></div>`}
+  ${maxBlock(c,'es','Isian Singkat — skor maksimal per nomor',f.n+1)}
+  ${maxBlock(c,'ur','Uraian — skor maksimal per nomor',f.n+f.es.length+1)}
+  <div class="${card}">
+  <p class="text-sm bg-indigo-50 rounded-lg p-3">Skor maksimal total: <b>${maxTotal(c)}</b> &nbsp;|&nbsp; PG ${f.n*f.pt} + Isian ${f.es.reduce((a,b)=>a+(+b||0),0)} + Uraian ${f.ur.reduce((a,b)=>a+(+b||0),0)} &nbsp;|&nbsp; Kunci PG terisi: <b>${f.key.filter(Boolean).length}/${f.n}</b></p>
+  <details class="mt-3 text-sm"><summary class="cursor-pointer text-slate-600">Catatan kunci isian/uraian (opsional)</summary>
+   <div class="mt-2 space-y-1">${[...f.es.map((_,i)=>['Isian',f.n+1+i,i]),...f.ur.map((_,i)=>['Uraian',f.n+f.es.length+1+i,f.es.length+i])].map(([t,no,ri])=>`<label class="flex items-start gap-2 text-xs"><span class="w-24 shrink-0 text-right text-slate-500 pt-2">${t} ${no}</span><textarea rows="1" class="${inp} w-full !py-1" onchange="setRub(${ri},this.value)">${esc((f.rub||[])[ri]||'')}</textarea></label>`).join('')}</div></details>
+  <button class="${btn}bg-slate-700 text-white mt-3" onclick="copyCfg()">📋 Salin kunci & bobot ini ke semua kelas</button></div>`}
+function scBlock(c,k,title,start,a,f){const arr=f[k];
+  if(!arr.length)return '';
+  return `<div class="${card}"><h3 class="font-semibold mb-2">${title} <span class="text-xs font-normal text-slate-400">— isi skor per nomor (Enter = pindah ke kotak berikutnya)</span></h3>
+  <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-x-4 gap-y-2">${arr.map((m,i)=>`<label class="flex items-center gap-1 text-sm"><span class="w-7 text-right text-slate-500">${start+i}.</span><input type="number" inputmode="decimal" min="0" max="${m}" step="0.5" value="${a[k][i]??''}" onchange="setSc('${k}',${i},this)" onkeydown="nextSc(event)" onfocus="this.select()" class="sc ${inp} w-16 !py-1 text-center"><span class="text-xs text-slate-400">/${m}</span></label>`).join('')}</div></div>`}
 function vNilai(c){
-  const list=`<div class="${card} md:w-64 shrink-0 max-h-[75vh] overflow-auto"><h2 class="font-bold mb-2 text-sm">Siswa</h2>${c.students.map((s,i)=>{const r=calc(c,s.id);return`<button onclick="pickStu('${s.id}')" class="w-full text-left text-sm px-2 py-1.5 rounded-lg flex justify-between ${s.id===stu?'bg-indigo-600 text-white':'hover:bg-slate-100'}"><span class="truncate">${i+1}. ${esc(s.name)}</span><span>${r.done?'✔ '+r.total:''}</span></button>`}).join('')||'<p class="text-sm text-slate-500">Impor siswa dulu.</p>'}</div>`;
+  const list=`<div class="${card} md:w-64 shrink-0 max-h-[75vh] overflow-auto"><h2 class="font-bold mb-2 text-sm">Siswa</h2>${c.students.map((s,i)=>{const r=calc(c,s.id);return`<button data-s="${s.id}" onclick="pickStu('${s.id}')" class="w-full text-left text-sm px-2 py-1.5 rounded-lg flex justify-between ${s.id===stu?'bg-indigo-600 text-white':'hover:bg-slate-100'}"><span class="truncate">${i+1}. ${esc(s.name)}</span><span class="tot">${r.done?'✔ '+r.total:''}</span></button>`}).join('')||'<p class="text-sm text-slate-500">Impor siswa dulu.</p>'}</div>`;
   if(!stu||!c.students.find(s=>s.id===stu))return`<div class="flex flex-col md:flex-row gap-4">${list}<div class="${card} flex-1 text-slate-500">Pilih siswa di sebelah kiri untuk mulai mengoreksi.</div></div>`;
   const s=c.students.find(x=>x.id===stu),a=getA(c,stu),f=cfgOf(c),r=calc(c,stu);
   const key=f.key;
   return`<div class="flex flex-col md:flex-row gap-4">${list}<div class="flex-1">
   <div class="${card} flex flex-wrap items-center gap-3"><h2 class="font-bold text-lg flex-1">${esc(s.name)}</h2>
-   <span class="bg-emerald-100 px-3 py-1 rounded-full text-sm">PG: ${r.ok}/${f.n} = <b>${r.pg}</b></span>
-   <span class="bg-amber-100 px-3 py-1 rounded-full text-sm">Uraian: <b>${r.es}</b></span>
-   <span class="bg-indigo-600 text-white px-3 py-1 rounded-full text-sm">Nilai: <b>${r.total}</b></span>
+   <span id="badges" class="flex flex-wrap gap-2">${badges(c,r,f)}</span>
    <button class="${btn}bg-slate-200" onclick="nav(-1)">◀</button><button class="${btn}bg-slate-200" onclick="nav(1)">▶</button></div>
   <div class="${card}"><h3 class="font-semibold mb-2">Pilihan Ganda</h3>
    <label class="text-sm block mb-3">Input cepat — tulis bebas: <b>1 A, 2 C, 3 D, 4 B, ...</b> (boleh sebagian nomor saja) atau huruf berurutan <b>ACDB...</b> (<b>-</b> = kosong). Klik di luar kotak / tekan Tab untuk memproses.
    <textarea rows="2" class="${inp} w-full mt-1 font-mono uppercase" onchange="quickPg(this.value)" placeholder="1 A, 2 C, 3 D, 4 B, 5 A ..."></textarea></label>
    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-1">${Array.from({length:f.n},(_,i)=>`<div class="flex items-center gap-2"><span class="w-7 text-right text-sm text-slate-500">${i+1}.</span>${opt('setPg',i,a.pg[i],(l,v)=>v!==l?'bg-white hover:bg-slate-100':(!key[i]?'bg-slate-500 text-white':v===key[i]?'bg-emerald-500 text-white border-emerald-500':'bg-red-500 text-white border-red-500'))}${a.pg[i]&&key[i]&&a.pg[i]!==key[i]?`<span class="text-xs text-slate-400">kunci ${key[i]}</span>`:''}</div>`).join('')}</div></div>
-  <div class="${card}"><h3 class="font-semibold mb-2">Uraian & Bukti Foto</h3>${f.es.map((m,i)=>`<div class="border rounded-lg p-3 mb-2 grid md:grid-cols-[auto_1fr_1fr] gap-3 items-start">
-   ${(f.rub||[])[i]||PV['r'+c.id+mp()+i]?`<div class="md:col-span-3 text-xs bg-amber-50 rounded p-2">${(f.rub||[])[i]?'Kunci: '+esc(f.rub[i]):''}${PV['r'+c.id+mp()+i]?`<img src="${PV['r'+c.id+mp()+i]}" class="max-h-20 mt-1 rounded border">`:''}</div>`:''}<label class="text-sm">No. ${f.n+i+1} (maks ${m})<input type="number" min="0" max="${m}" step="0.5" value="${a.es[i]??''}" onchange="setEs(${i},this.value)" class="${inp} w-24 block mt-1"></label>
-   <label class="text-sm">Catatan guru<textarea rows="2" onchange="setNt(${i},this.value)" class="${inp} w-full mt-1">${esc(a.nt[i]||'')}</textarea></label>
-   <div class="text-sm">Foto jawaban<input type="file" accept="image/*" onchange="setPh(${i},this)" class="block mt-1 text-xs">${a.ph[i]?`<p class="text-xs text-slate-500 mt-1">📎 ${esc(a.ph[i])}</p>`:''}${PV[stu+'_'+i]?`<img src="${PV[stu+'_'+i]}" class="mt-1 max-h-28 rounded border">`:''}</div></div>`).join('')||'<p class="text-sm text-slate-500">Tidak ada soal uraian.</p>'}
-   <p class="text-xs text-slate-400">Foto hanya ditampilkan selama sesi; yang tersimpan permanen hanya nama file & catatan.</p></div></div></div>`}
+  ${scBlock(c,'es','Isian Singkat',f.n+1,a,f)}
+  ${scBlock(c,'ur','Uraian',f.n+f.es.length+1,a,f)}
+  </div></div>`}
 function vRekap(c){
   const R=c.students.map(s=>calc(c,s.id)),v=R.filter(r=>r.done).map(r=>r.total);
   const avg=v.length?(v.reduce((a,b)=>a+b,0)/v.length).toFixed(1):'-';
   return`<div class="${card}"><div class="noprint flex flex-wrap gap-2 mb-3"><button class="${pri}" onclick="exportXls()">⬇ Excel (.xls)</button><button class="${btn}bg-emerald-600 text-white" onclick="exportCsv()">⬇ CSV</button><button class="${btn}bg-slate-700 text-white" onclick="window.print()">🖨 Cetak</button></div>
   <h2 class="font-bold">Rekapitulasi Nilai — ${esc(c.name)} · ${esc(mp())}</h2>
   <p class="text-sm text-slate-500 mb-3">Skor maksimal: ${maxTotal(c)} · Rata-rata: <b>${avg}</b> · Tertinggi: <b>${v.length?Math.max(...v):'-'}</b> · Terendah: <b>${v.length?Math.min(...v):'-'}</b> · Sudah dikoreksi: ${v.length}/${c.students.length}</p>
-  <div class="overflow-x-auto"><table class="w-full text-sm border-collapse"><thead><tr class="bg-indigo-50 text-left"><th class="border p-2 w-10">No</th><th class="border p-2">Nama Siswa</th><th class="border p-2 text-center">Skor PG</th><th class="border p-2 text-center">Skor Uraian</th><th class="border p-2 text-center">Nilai Akhir</th></tr></thead><tbody>
-  ${c.students.map((s,i)=>`<tr><td class="border p-2">${i+1}</td><td class="border p-2">${esc(s.name)}</td><td class="border p-2 text-center">${R[i].pg}</td><td class="border p-2 text-center">${R[i].es}</td><td class="border p-2 text-center font-bold">${R[i].done?R[i].total:'-'}</td></tr>`).join('')}</tbody></table></div></div>`}
+  <div class="overflow-x-auto"><table class="w-full text-sm border-collapse"><thead><tr class="bg-indigo-50 text-left"><th class="border p-2 w-10">No</th><th class="border p-2">Nama Siswa</th><th class="border p-2 text-center">Skor PG</th><th class="border p-2 text-center">Skor Isian</th><th class="border p-2 text-center">Skor Uraian</th><th class="border p-2 text-center">Nilai Akhir</th></tr></thead><tbody>
+  ${c.students.map((s,i)=>`<tr><td class="border p-2">${i+1}</td><td class="border p-2">${esc(s.name)}</td><td class="border p-2 text-center">${R[i].pg}</td><td class="border p-2 text-center">${R[i].es}</td><td class="border p-2 text-center">${R[i].ur}</td><td class="border p-2 text-center font-bold">${R[i].done?R[i].total:'-'}</td></tr>`).join('')}</tbody></table></div></div>`}
 render();
 </script>
 </body>
