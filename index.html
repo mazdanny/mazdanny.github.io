@@ -6148,6 +6148,96 @@ window.addEventListener("DOMContentLoaded", window.mj_init);
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', run); else run();
 })();
 </script>
+    <!-- ============================================================
+  MENU 11 - TAB "KISAH PELATIHAN" (cerita pengalaman + video)
+  CARA PASANG: tempel SELURUH blok <script> ini di index.html,
+  SETELAH blok "MENU 11 - TAB TAMBAHAN: PELATIHAN KKA + RPP KELAS 5"
+  dan SEBELUM <script src="asas.js">. Jangan hapus blok yang lama.
+  Foto (opsional): unggah ke folder yang sama dengan index.html, nama: pb-kisah.jpg
+============================================================ -->
+<script>
+(function () {
+  'use strict';
+  function run() {
+    var R = document.getElementById('portal-praktik');
+    var bar = R && R.querySelector('.pkx-bar');
+    if (!R || !bar || document.getElementById('pkk-style')) return;
+
+    /* ====== EDIT DI SINI ====== */
+    var FOLDER_ID = '1jpCGDB3_yqy7rq9YX57h5DwaD9kogYNe';
+    /* Opsional: video pilihan. Isi id = bagian di antara /d/ dan /view pada tautan file Drive */
+    var VIDEOS = [
+      /* {judul: 'Cerita pelatihan daring', id: 'ISI_ID_FILE'}, */
+    ];
+    var KISAH = [
+      ['🌱', 'Awal pelatihan', 'Pelatihan KKA saya ikuti sejak akhir Juli 2026 secara daring dan luring, dimulai dari Pendahuluan, Tes Awal, dan Belajar Mandiri tentang integrasi koding dan KA, inkuiri kolaboratif, pola pikir bertumbuh, dan pembelajaran mendalam.'],
+      ['🔄', 'Belajar dalam enam siklus', 'Setiap siklus terdiri dari kegiatan belajar, unggah lembar kerja, implementasi di satuan pendidikan, dan pendampingan daring oleh FKK. Dari sini saya belajar bahwa teori harus langsung dicoba di kelas.'],
+      ['🏫', 'Implementasi di sekolah', 'Di SD Muhammadiyah Al Mujahidin Wonosari, RPP Pembelajaran Mendalam KKA Kelas 5 (Pemecahan Masalah dalam Kehidupan Sehari-hari) diterapkan bersama Pak Rozak: unplugged lewat game Robot dan Programmer, lalu plugged di Scratch/Blockly.'],
+      ['🛠️', 'Media yang lahir dari kebutuhan', 'Masalah nyata di kelas melahirkan media: Mazdany, MujaHeeBot Coding Quest, AmaliahMu, dan SIPENTAS. Prinsipnya sama dengan Jurnal Debugging murid: bangun versi sederhana, uji, perbaiki.'],
+      ['🧗', 'Tantangan', 'Mengatur waktu antara mengajar, mengerjakan tugas LMS, dan membangun media; menyesuaikan kesiapan murid yang beragam; menjaga data murid tetap aman.'],
+      ['🌟', 'Hasil dan rencana tindak lanjut', 'Murid lebih berani mencoba dan tidak takut salah (Bug is Learning), guru lebih ringkas dalam penilaian dan administrasi. Rencana berikutnya: memperluas ke guru lain dan memperkuat etika KA serta keamanan data.']
+    ];
+    var POIN = 'Poin bicara: mulai dari satu momen paling berkesan selama pelatihan (daring atau luring), ceritakan apa yang berubah di kelas Anda, lalu tutup dengan satu pesan untuk guru lain. Tampilkan video sebagai bukti, bukan sebagai pengganti cerita.';
+    /* ========================== */
+
+    var CSS = '#pkk .pkk-tl{display:grid;gap:.7rem;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));margin-top:.8rem}' +
+      '#pkk .pkk-i{padding:1rem;border-radius:1rem;background:rgba(15,118,110,.2);border:1px solid rgba(20,184,166,.35);border-top:4px solid #0891b2}' +
+      '#pkk .pkk-e{font-size:1.8rem}#pkk .pkk-i h4{margin:.2rem 0;font-size:.95rem;font-weight:800;color:#67e8f9}' +
+      '#pkk .pkk-i p{margin:0;font-size:.82rem;line-height:1.65;color:#d1d5db}' +
+      '#pkk .pkk-fr{width:100%;border:2px solid rgba(167,243,208,.5);border-radius:1rem;background:#fff}' +
+      '#pkk .pkk-v{aspect-ratio:16/9;height:auto}#pkk .pkk-f{height:420px}' +
+      '#pkk .pkk-tabs{display:flex;flex-wrap:wrap;gap:.5rem;margin:.6rem 0}' +
+      '#pkk .pkk-tabs button{cursor:pointer;border:1px solid #0f766e;background:rgba(15,118,110,.25);color:#e2e8f0;font-size:.75rem;font-weight:700;padding:.4rem .8rem;border-radius:.7rem}' +
+      '#pkk .pkk-tabs button.on{background:#0d9488;border-color:#22d3ee;color:#fff}' +
+      '#pkk .pkk-photo{display:block;width:100%;max-height:360px;object-fit:cover;border-radius:1rem;border:2px solid rgba(167,243,208,.5)}' +
+      '#pkk .pkk-row{display:flex;flex-wrap:wrap;gap:1rem;align-items:center;justify-content:space-between}' +
+      '#pkk a.pkx-btn{display:inline-block;text-decoration:none}';
+    var st = document.createElement('style'); st.id = 'pkk-style'; st.textContent = CSS; document.head.appendChild(st);
+
+    var folderUrl = 'https://drive.google.com/drive/folders/' + FOLDER_ID + '?usp=sharing';
+    var embedFolder = 'https://drive.google.com/embeddedfolderview?id=' + FOLDER_ID + '#grid';
+
+    var vidTabs = VIDEOS.length
+      ? '<div class="pkk-tabs"><button data-v="folder" class="on">📁 Semua video</button>' + VIDEOS.map(function (v, i) { return '<button data-v="' + i + '">▶ ' + v.judul + '</button>'; }).join('') + '</div>'
+      : '';
+
+    var html =
+      '<div class="pkx-card"><div class="pkk-row"><div style="flex:1;min-width:260px"><span class="pkx-tag">KISAH PELATIHAN</span>' +
+      '<h3 style="font-size:1.5rem">Kisah Saya Selama Pelatihan KKA dan Implementasi di Sekolah</h3>' +
+      '<p>Periode: akhir Juli 2026 sampai akhir November 2026 • Daring dan luring • SD Muhammadiyah Al Mujahidin Wonosari</p></div></div>' +
+      '<img class="pkk-photo" id="pkk-img" src="pb-kisah.jpg" alt="Pembelajaran koding di laboratorium komputer sekolah" style="margin-top:.8rem" onerror="this.style.display=\'none\'"></div>' +
+      '<div class="pkx-card"><h3>Perjalanan dalam enam cerita</h3><div class="pkk-tl">' +
+      KISAH.map(function (k) { return '<div class="pkk-i"><div class="pkk-e">' + k[0] + '</div><h4>' + k[1] + '</h4><p>' + k[2] + '</p></div>'; }).join('') + '</div>' +
+      '<div class="pkx-note"><b>' + POIN.split(':')[0] + ':</b>' + POIN.slice(POIN.indexOf(':') + 1) + '</div></div>' +
+      '<div class="pkx-card"><div class="pkk-row"><h3 style="margin:0">Video Praktik Baik</h3><a class="pkx-btn" href="' + folderUrl + '" target="_blank" rel="noopener">Buka folder di Google Drive</a></div>' + vidTabs +
+      '<iframe id="pkk-frame" class="pkk-fr pkk-f" src="' + embedFolder + '" title="Video Praktik Baik KKA" allow="autoplay; fullscreen" allowfullscreen></iframe>' +
+      '<p style="font-size:.75rem;color:#94a3b8;margin-top:.5rem">Jika daftar video tidak tampil, pastikan folder dibagikan sebagai “Siapa saja yang memiliki link”, atau klik tombol di atas.</p></div>';
+
+    var p = document.createElement('div');
+    p.id = 'pkk'; p.className = 'pkx-panel'; p.innerHTML = html;
+    R.appendChild(p);
+
+    var btn = document.createElement('button');
+    btn.setAttribute('data-t', 'kisah'); btn.textContent = '📖 Kisah Pelatihan';
+    bar.appendChild(btn);
+
+    /* tombol tab lain ditangani blok sebelumnya; di sini hanya hidupkan/matikan panel kisah */
+    bar.addEventListener('click', function (e) {
+      var b = e.target.closest('[data-t]'); if (!b) return;
+      p.classList.toggle('on', b.dataset.t === 'kisah');
+    });
+
+    p.addEventListener('click', function (e) {
+      var b = e.target.closest('[data-v]'); if (!b) return;
+      var f = document.getElementById('pkk-frame');
+      p.querySelectorAll('.pkk-tabs button').forEach(function (x) { x.classList.toggle('on', x === b); });
+      if (b.dataset.v === 'folder') { f.className = 'pkk-fr pkk-f'; f.src = embedFolder; }
+      else { f.className = 'pkk-fr pkk-v'; f.src = 'https://drive.google.com/file/d/' + VIDEOS[+b.dataset.v].id + '/preview'; }
+    });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', run); else run();
+})();
+</script>
     <script src="asas.js"></script>
 <script src="pwa.js"></script>
 </body>
